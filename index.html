@@ -92,11 +92,9 @@
             padding: 15px var(--section-padding-horizontal); /* Adjusted padding */
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Attention to Detail: Stronger shadow */
-            position: sticky; /* Keep header visible on scroll */
-            top: 0;
-            left: 0;
+            /* Removed position: sticky; and related properties so header scrolls with content */
             width: 100%;
-            z-index: 1000; /* Ensure header is above other content */
+            z-index: 1000;
         }
 
         .header .container {
@@ -506,7 +504,7 @@
                  font-size: 1em;
              }
               .products .container {
-                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Adjusted minmax */
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Adjusted minmax for 2+ columns */
                 gap: 20px;
             }
              .product img {
@@ -531,7 +529,7 @@
              .footer {
                 padding: 30px 15px;
              }
-        }
+         }
 
          @media (max-width: 480px) {
               .section {
@@ -559,12 +557,13 @@
              .about-contact p, .about-contact address, .contact-info p {
                  font-size: 0.95em;
              }
-              .products .container {
-                grid-template-columns: 1fr; /* Single column on very small screens */
-                gap: 15px;
+              /* Adjusted product grid for smaller screens to show 2 columns if possible */
+             .products .container {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Attempt 2 columns if items can be at least 160px */
+                gap: 10px; /* Reduced gap */
             }
              .product img {
-                height: 200px; /* Reduced height */
+                height: 180px; /* Adjusted height for smaller cards */
             }
              .product-info {
                  padding: 0 10px 15px; /* Adjusted padding */
@@ -580,7 +579,7 @@
             }
              .social-links a {
                 font-size: 26px; /* Reduced icon size */
-                margin: 0 10px;
+                margin: 0 8px;
             }
              .footer {
                 padding: 25px 10px;
@@ -711,9 +710,9 @@
                 const targetElement = document.querySelector(targetId);
 
                 if (targetElement) {
-                    const headerHeight = document.querySelector('.header').offsetHeight; // Get dynamic header height
+                    // No longer need to offset by header height since it's not sticky
                      window.scrollTo({
-                        top: targetElement.offsetTop - headerHeight - 20, // Adjust for fixed header height + a little extra padding
+                        top: targetElement.offsetTop - 20, // Adjusted offset for spacing
                         behavior: 'smooth'
                     });
                 }
