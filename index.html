@@ -581,7 +581,7 @@
              color: var(--primary-dark);
          }
 
-         .back-to-categories, .back-to-cart {
+         .back-to-categories, .back-to-cart, .back-to-billing {
              display: inline-block; /* Make it a clickable link */
              margin-bottom: 30px;
              font-size: 1.1em;
@@ -590,11 +590,11 @@
              cursor: pointer; /* Indicate it's clickable */
          }
 
-         .back-to-categories i, .back-to-cart i {
+         .back-to-categories i, .back-to-cart i, .back-to-billing i {
              margin-right: 8px;
          }
 
-         .back-to-categories:hover, .back-to-cart:hover {
+         .back-to-categories:hover, .back-to-cart:hover, .back-to-billing:hover {
              color: var(--secondary-accent); /* Hover color */
              text-decoration: underline;
          }
@@ -790,6 +790,40 @@
              margin-bottom: 30px;
          }
 
+         #billingForm {
+             /* Initially visible */
+         }
+
+          #billingForm label {
+             display: block;
+             margin-bottom: 8px;
+             font-weight: 600;
+             color: var(--primary-dark);
+         }
+
+         #billingForm input[type="text"],
+         #billingForm input[type="email"],
+         #billingForm input[type="tel"],
+         #billingForm textarea {
+             width: calc(100% - 22px); /* Adjust for padding and border */
+             padding: 10px;
+             margin-bottom: 20px;
+             border: 1px solid var(--border-neutral);
+             border-radius: 4px;
+             font-size: 1em;
+             box-sizing: border-box; /* Include padding and border in element's total width and height */
+             transition: border-color 0.3s ease;
+         }
+
+         #billingForm input[type="text"]:focus,
+         #billingForm input[type="email"]:focus,
+         #billingForm input[type="tel"]:focus,
+         #billingForm textarea:focus {
+             border-color: var(--secondary-accent);
+             outline: none;
+         }
+
+
          #orderSummaryReview {
              margin-bottom: 30px;
              padding: 20px;
@@ -879,35 +913,6 @@
            }
 
 
-         #billingForm label {
-             display: block;
-             margin-bottom: 8px;
-             font-weight: 600;
-             color: var(--primary-dark);
-         }
-
-         #billingForm input[type="text"],
-         #billingForm input[type="email"],
-         #billingForm input[type="tel"],
-         #billingForm textarea {
-             width: calc(100% - 22px); /* Adjust for padding and border */
-             padding: 10px;
-             margin-bottom: 20px;
-             border: 1px solid var(--border-neutral);
-             border-radius: 4px;
-             font-size: 1em;
-             box-sizing: border-box; /* Include padding and border in element's total width and height */
-             transition: border-color 0.3s ease;
-         }
-
-         #billingForm input[type="text"]:focus,
-         #billingForm input[type="email"]:focus,
-         #billingForm input[type="tel"]:focus,
-         #billingForm textarea:focus {
-             border-color: var(--secondary-accent);
-             outline: none;
-         }
-
          /* Coupon Section Styling */
           .coupon-section {
               margin-top: 20px;
@@ -968,6 +973,52 @@
                color: #dc3545; /* Red */
            }
 
+         /* Styling for Payment Info Section */
+         #paymentInfo {
+             display: none; /* Initially hidden */
+             margin-top: 30px;
+             padding-top: 30px;
+             border-top: 1px dashed var(--border-neutral);
+             text-align: center; /* Center payment details */
+         }
+
+         #paymentInfo h3 {
+              text-align: center; /* Center payment heading */
+             margin-bottom: 20px;
+             color: var(--primary-dark);
+             font-size: 1.7em;
+         }
+
+          #paymentInfo p {
+              font-size: 1.1em;
+              margin-bottom: 15px;
+              color: var(--text-color-dark);
+          }
+
+          #paymentInfo .upi-details {
+              font-size: 1.3em;
+              font-weight: 700;
+              color: var(--secondary-accent);
+              margin-bottom: 20px;
+              word-break: break-all; /* Prevent long UPI ID from overflowing */
+          }
+
+          #paymentInfo img {
+              max-width: 250px; /* Control QR code size */
+              height: auto;
+              margin-bottom: 20px;
+              border: 1px solid var(--border-neutral);
+              padding: 10px;
+              background-color: white;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          }
+
+          #paymentInfo .payment-instruction {
+              font-size: 1em;
+              color: #555;
+              margin-top: 15px;
+              line-height: 1.6;
+          }
 
          /* Buttons Container */
          .billing-buttons {
@@ -992,13 +1043,15 @@
          }
 
 
-          .billing-buttons button[type="submit"] {
+          .billing-buttons #proceedToPaymentButton,
+          .billing-buttons #submitOrderButton {
               background-color: var(--secondary-accent);
               color: var(--primary-dark);
               border: none;
           }
 
-          .billing-buttons button[type="submit"]:hover {
+          .billing-buttons #proceedToPaymentButton:hover,
+          .billing-buttons #submitOrderButton:hover {
               background-color: #B0925B;
           }
 
@@ -1015,6 +1068,7 @@
           .billing-buttons .whatsapp-billing-button i {
               margin-right: 8px;
           }
+
 
          /* Responsive adjustment for buttons */
          @media (max-width: 600px) {
@@ -1543,7 +1597,7 @@
     <section id="billingSection" class="section">
          <div class="container">
              <a href="#" class="back-to-cart"><i class="fas fa-arrow-left"></i> Back to Cart</a>
-             <h2>Billing Details</h2>
+             <h2>Order Inquiry & Payment</h2>
 
              <div id="orderSummaryReview">
                  <h3>Order Summary</h3>
@@ -1555,7 +1609,7 @@
 
              </div>
 
-             <div class="coupon-section">
+             <div class="coupon-section" id="couponSection">
                  <label for="couponCode">Coupon Code:</label>
                  <input type="text" id="couponCode" placeholder="Enter coupon code">
                  <button type="button" id="applyCouponButton">Apply Coupon</button>
@@ -1565,24 +1619,45 @@
 
              <form id="billingForm" action="https://formsubmit.co/Gauravraningagoldjewellery@gmail.com" method="POST">
                  <input type="hidden" name="_subject" id="emailSubject" value="J.K Gems Website Order Inquiry">
-                 <input type="hidden" name="_template" value="box"> <input type="hidden" name="_next" value="YOUR_THANK_YOU_PAGE_URL">
-                  <label for="customer_name">Full Name:</label>
-                 <input type="text" id="customer_name" name="Name" required>
+                 <input type="hidden" name="_template" value="box"> <input type="hidden" name="_next" value="YOUR_THANK_YOU_PAGE_URL_HERE">
 
-                 <label for="customer_email">Email (Optional):</label>
-                 <input type="email" id="customer_email" name="Email">
+                 <div id="billingInputs">
+                      <label for="customer_name">Full Name:</label>
+                     <input type="text" id="customer_name" name="Name" required>
 
-                 <label for="customer_phone">Phone/WhatsApp Number:</label>
-                 <input type="tel" id="customer_phone" name="Phone" required>
+                     <label for="customer_email">Email (Optional):</label>
+                     <input type="email" id="customer_email" name="Email">
 
-                 <label for="customer_address">Shipping Address:</label>
-                 <textarea id="customer_address" name="Address" rows="4" required></textarea>
+                     <label for="customer_phone">Phone/WhatsApp Number:</label>
+                     <input type="tel" id="customer_phone" name="Phone" required>
+
+                     <label for="customer_address">Shipping Address:</label>
+                     <textarea id="customer_address" name="Address" rows="4" required></textarea>
+                 </div>
+
 
                  <input type="hidden" name="Order Details" id="orderCartDetails">
-                 <input type="hidden" name="_parsed_order_details" id="_parsedOrderDetails"> <input type="hidden" name="Discount Applied" id="discountApplied"> <input type="hidden" name="Final Total" id="finalOrderTotal"> <div class="billing-buttons">
-                 <button type="submit">Place order</button>
-                 <a href="https://wa.me/919723197899?text=Hello,%20I have a general query regarding your products." class="whatsapp-billing-button" target="_blank" aria-label="Inquire on WhatsApp"><i class="fab fa-whatsapp"></i> WhatsApp Query</a>
-                </div>
+                 <input type="hidden" name="_parsed_order_details" id="_parsedOrderDetails"> <input type="hidden" name="Discount Applied" id="discountApplied"> <input type="hidden" name="Final Total" id="finalOrderTotal">
+                 <input type="hidden" name="UPI ID Shown" value="gauravraninga23@okhdfcbank">
+                 <input type="hidden" name="Payment Instruction Shown" value="Please complete the payment via UPI using the details provided. Your order is confirmed only after payment is received. You will receive a confirmation email once payment is verified.">
+
+                 <div id="paymentInfo">
+                     <h3>Complete Your Payment via UPI</h3>
+                     <p>Please transfer the total amount to the UPI ID below:</p>
+                     <div class="upi-details">gauravraninga23@okhdfcbank</div>
+                     <p>Scan the QR code to pay:</p>
+                     <img src="IMG-20250517-WA0001.jpg" alt="UPI QR Code">
+                     <p class="payment-instruction">
+                         <strong>Important:</strong> Your order inquiry has been received. Your order will be confirmed only *after* the payment is successfully received. Please complete the UPI payment now. You will receive a confirmation email once your payment is verified.
+                     </p>
+                     </div>
+
+                 <div class="billing-buttons">
+                      <button type="button" id="proceedToPaymentButton">Proceed to Payment</button>
+                      <button type="submit" id="submitOrderButton" style="display: none;">Submit Inquiry / Payment Made</button>
+                 </div>
+                 <a href="https://wa.me/919723197899?text=Hello,%20I have a general query regarding my order inquiry." class="whatsapp-billing-button" target="_blank" aria-label="WhatsApp Query"><i class="fab fa-whatsapp"></i> WhatsApp Query</a>
+
              </form>
          </div>
     </section>
@@ -1609,10 +1684,15 @@
         const categoryCards = document.querySelectorAll('.category-card'); // Select these once
         const backButtons = document.querySelectorAll('.back-to-categories');
         const billingSection = document.getElementById('billingSection'); // Reference to the billing section
+        const billingInputs = document.getElementById('billingInputs'); // Container for billing form inputs
+        const paymentInfoDiv = document.getElementById('paymentInfo'); // Container for payment info
+        const proceedToPaymentButton = document.getElementById('proceedToPaymentButton'); // Button to show payment info
+        const submitOrderButton = document.getElementById('submitOrderButton'); // Button to submit the form
+        const backToCartButton = document.querySelector('.back-to-cart');
+
 
         // Function to show only the category grid
         function showCategoryGrid() {
-            console.log("Showing Category Grid"); // Debug log
             productsHeading.textContent = 'Our Categories';
             searchInput.placeholder = 'Search Categories...';
             searchInput.style.display = 'block'; // Show search bar
@@ -1621,6 +1701,14 @@
                 container.style.display = 'none'; // Hide all product containers
             });
             billingSection.style.display = 'none'; // Hide billing section
+
+            // Reset billing section state when going back from billing/payment
+            billingInputs.style.display = 'block'; // Show form inputs
+            paymentInfoDiv.style.display = 'none'; // Hide payment info
+            proceedToPaymentButton.style.display = 'block'; // Show proceed button
+            submitOrderButton.style.display = 'none'; // Hide submit button
+            backToCartButton.style.display = 'inline-block'; // Show back button
+
 
             // Set search to work on categories
             searchItems = searchCategories; // Update the global searchItems function reference
@@ -1633,9 +1721,7 @@
 
         // Function to show a specific product container
         function showProductContainer(categoryId) {
-             console.log("Attempting to show product container for:", categoryId); // Debug log
              const containerToShow = document.getElementById(categoryId + '-products-container');
-             console.log("Container to show:", containerToShow); // Debug log: Check if it's found
 
              if (!containerToShow) {
                  console.error("Product container not found for category:", categoryId);
@@ -1653,6 +1739,15 @@
                  container.style.display = 'none'; // Hide all product containers
              });
              billingSection.style.display = 'none'; // Hide billing section
+
+              // Reset billing section state when navigating away
+            billingInputs.style.display = 'block'; // Show form inputs
+            paymentInfoDiv.style.display = 'none'; // Hide payment info
+            proceedToPaymentButton.style.display = 'block'; // Show proceed button
+            submitOrderButton.style.display = 'none'; // Hide submit button
+            backToCartButton.style.display = 'inline-block'; // Show back button
+
+
              containerToShow.style.display = 'block'; // Show the selected product container (use 'block' for container wrapper)
 
 
@@ -1668,7 +1763,7 @@
              // No need to re-add image modal listeners here as delegation is used on #products
         }
 
-         // Function to show the billing section
+         // Function to show the billing section (initial state with form inputs)
          function showBillingSection() {
              if (cart.length === 0) {
                  alert("Your cart is empty. Please add items before proceeding.");
@@ -1676,7 +1771,7 @@
                  return; // Prevent showing billing if cart is empty
              }
 
-             productsHeading.textContent = 'Order Details'; // Update heading
+             productsHeading.textContent = 'Order Inquiry & Payment'; // Update heading
              searchInput.style.display = 'none'; // Hide search bar on billing page
 
              categoryGrid.style.display = 'none'; // Hide categories
@@ -1687,12 +1782,49 @@
 
              billingSection.style.display = 'block'; // Show billing section
 
+             // Ensure initial state is billing form inputs visible, payment info hidden
+             billingInputs.style.display = 'block';
+             paymentInfoDiv.style.display = 'none';
+             proceedToPaymentButton.style.display = 'block';
+             submitOrderButton.style.display = 'none';
+             backToCartButton.style.display = 'inline-block'; // Show back button
+
+
              resetCoupon(); // Reset coupon state when showing billing
              renderOrderSummaryReview(); // Populate the review section
 
              // Smooth scroll to the top of the billing section
              billingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
          }
+
+          // Function to show the payment information and hide billing inputs
+          function showPaymentInfo() {
+              // Validate required fields before proceeding
+              const name = document.getElementById('customer_name').value.trim();
+              const phone = document.getElementById('customer_phone').value.trim();
+              const address = document.getElementById('customer_address').value.trim();
+
+              if (!name || !phone || !address) {
+                  alert("Please fill in all required billing details (Name, Phone, Address) before proceeding to payment.");
+                  return false; // Prevent moving forward
+              }
+
+              billingInputs.style.display = 'none'; // Hide billing form inputs
+              paymentInfoDiv.style.display = 'block'; // Show payment info
+              proceedToPaymentButton.style.display = 'none'; // Hide proceed button
+              submitOrderButton.style.display = 'block'; // Show submit button
+              // Keep Back to Cart visible, maybe rename it conceptually or add Back to Billing?
+              // Let's keep Back to Cart but add a Back to Billing option.
+              // We can change the backToCartButton's behavior or add a new button.
+              // Let's add a new "Back to Billing" button within #paymentInfo.
+
+              // Update the email subject now that we are at the payment step
+              document.getElementById('emailSubject').value = `J.K Gems Order Inquiry - Payment Details Shown`;
+
+
+              return true; // Indicate success
+          }
+
 
          // Function to hide the billing section and show the cart modal
          function hideBillingSection() {
@@ -1701,39 +1833,16 @@
              productsHeading.textContent = 'Your Cart'; // Change heading temporarily
              searchInput.style.display = 'none'; // Keep search hidden in modal
 
+             // Reset billing section state when going back to cart
+             billingInputs.style.display = 'block'; // Show form inputs
+             paymentInfoDiv.style.display = 'none'; // Hide payment info
+             proceedToPaymentButton.style.display = 'block'; // Show proceed button
+             submitOrderButton.style.display = 'none'; // Hide submit button
+             backToCartButton.style.display = 'inline-block'; // Show back button
+
              // Smooth scroll back to the top of the products section (which now shows categories/cart context)
               document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
          }
-
-
-        // Event listeners for category cards
-        categoryCards.forEach(card => {
-            card.addEventListener('click', function() {
-                const targetId = this.dataset.categoryTarget;
-                console.log("Category Card clicked. Target ID:", targetId); // Debug log: Check if click is registered and ID is read
-                if (targetId) {
-                    showProductContainer(targetId);
-                } else {
-                    console.warn("Clicked category card is missing data-category-target attribute."); // Debug warning
-                }
-            });
-        });
-
-        // Event listeners for "Back to Categories" buttons in product containers
-        backButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault(); // Prevent default anchor jump
-                showCategoryGrid();
-                 // Smooth scroll back to the top of the products section (which now shows categories)
-                 document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-
-         // Event listener for "Back to Cart" button in billing section
-         document.querySelector('.back-to-cart').addEventListener('click', function(e) {
-             e.preventDefault();
-             hideBillingSection();
-         });
 
 
         // --- Updated Search Functionality ---
@@ -1837,7 +1946,7 @@
         });
 
 
-        // --- Add to Cart & Billing Functionality ---
+        // --- Add to Cart & Billing/Payment Functionality ---
         const cartIcon = document.getElementById('cartIcon');
         const cartCountSpan = document.getElementById('cartCount');
         const cartModal = document.getElementById('cartModal');
@@ -1860,6 +1969,8 @@
         const couponCodeInput = document.getElementById('couponCode');
         const applyCouponButton = document.getElementById('applyCouponButton');
         const couponMessageDiv = document.getElementById('couponMessage');
+        const couponSectionDiv = document.getElementById('couponSection'); // Coupon section div
+
 
         // Load cart from localStorage or initialize empty array
         let cart = JSON.parse(localStorage.getItem('jk-gems-cart')) || [];
@@ -2104,7 +2215,7 @@
 
         // Event listener for the "Proceed to Inquiry" button (in the cart modal)
         checkoutButton.addEventListener('click', function() {
-            cartModal.style.display = 'none'; // Hide cart modal
+            // cartModal.style.display = 'none'; // Hide cart modal - this is handled in showBillingSection
             showBillingSection(); // Show the billing section
         });
 
@@ -2120,13 +2231,26 @@
          });
 
 
-         // Event listener for the billing form submission
-         document.getElementById('billingForm').addEventListener('submit', function(event) {
-             // Optional: Add client-side validation here before submitting
-             // For example, check if required fields are filled
+         // Event listener for the FIRST click on the billing form button
+         proceedToPaymentButton.addEventListener('click', function(event) {
+              // Prevent default form submission initially
+             // event.preventDefault(); // No form event listener on the button itself
 
-             // No need to manually prevent default here as formsubmit.co handles it.
-             // The _next parameter redirects after submission.
+             // Validate and show payment info
+             showPaymentInfo();
+
+             // The event listener for form submission will be on the form itself,
+             // and will only be triggered when submitOrderButton is clicked.
+
+         });
+
+         // Event listener for the SECOND click on the billing form button (now submitOrderButton)
+         // This button is type="submit" and is inside the form, so it naturally triggers form submission.
+         document.getElementById('billingForm').addEventListener('submit', function(event) {
+             // This listener is called when the submitOrderButton is clicked.
+
+             // Optional: Add final checks before clearing cart and submitting
+             // e.g., confirm user has made payment
 
              // Clear the cart after the form submission attempt.
              // As noted before, this is client-side and not server-side secure.
