@@ -302,38 +302,40 @@
         /* --- Products Section --- */
         .products .container {
             display: grid; /* Intentional Layout: Grid for product listing */
-            /* --- MODIFIED: Force exactly 2 columns on all screen sizes --- */
-            grid-template-columns: repeat(2, 1fr); /* Always 2 equal columns */
+            /* Adaptive columns based on space */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Allow flexible columns */
             gap: 30px; /* Adjusted gap */
         }
 
         .product {
-            border: none; /* Remove border */
+            /* REFINED CARD STYLE */
+            border: 1px solid var(--border-neutral); /* Add a subtle border */
             padding: 0; /* Remove padding from card itself */
             text-align: center;
             background-color: var(--card-bg); /* Card background color */
             border-radius: 12px; /* More rounded corners */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow */
-            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Attention to Detail: Smooth animation */
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); /* Softer shadow */
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, border-color 0.3s ease; /* Add border transition */
             display: flex; /* Intentional Layout */
             flex-direction: column;
             overflow: hidden; /* Hide overflow from rounded corners */
         }
 
         .product:hover {
-            transform: translateY(-10px); /* More pronounced hover effect */
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* More pronounced hover shadow */
+            transform: translateY(-8px); /* Slightly less pronounced hover effect */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* More pronounced hover shadow */
+            border-color: var(--secondary-accent); /* Highlight border on hover */
         }
 
         .product img {
             width: 100%; /* Image fills card width */
             height: 280px; /* Adjusted height */
             object-fit: cover; /* Visuals: Ensures images cover the space */
-            margin-bottom: 15px; /* Intentional Layout/Whitespace */
-            border-top-left-radius: 12px; /* Apply radius to top corners */
-            border-top-right-radius: 12px;
-            border: none; /* Remove image border */
-            box-shadow: inset 0 -3px 8px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+            margin-bottom: 0; /* Remove margin-bottom here */
+            border-top-left-radius: 11px; /* Slightly less radius than card to appear nested */
+            border-top-right-radius: 11px;
+            border-bottom: 1px solid var(--border-neutral); /* Add separation line below image */
+            box-shadow: none; /* Remove inner shadow here */
             transition: transform 0.3s ease; /* Attention to Detail: Smooth animation */
         }
 
@@ -342,15 +344,18 @@
          }
 
         .product-info {
-            padding: 0 20px 20px; /* Padding for text and button */
+            padding: 15px 20px 20px; /* Add padding inside the info area */
             display: flex;
             flex-direction: column;
             flex-grow: 1;
+             background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+             position: relative;
+             z-index: 2; /* Ensure it's above any subtle effects */
         }
 
         .product-info h3 {
             margin-top: 0;
-            margin-bottom: 15px; /* Intentional Layout/Whitespace */
+            margin-bottom: 10px; /* Reduced margin */
             font-size: 1.7em; /* Visual Hierarchy */
             color: var(--primary-dark); /* Product title color from new palette */
             flex-grow: 1; /* Push button to the bottom */
@@ -362,7 +367,7 @@
         .whatsapp-button {
             display: block;
             width: calc(100% - 40px); /* Button width minus padding */
-            margin: 0 auto 20px; /* Center button with bottom margin */
+            margin: 15px auto 0; /* Add top margin */
             padding: 12px;
             background-color: var(--whatsapp-green); /* Standard WhatsApp green */
             color: white;
@@ -462,16 +467,23 @@
              .hero-content p {
                  font-size: 1.2em;
              }
-              /* Removed grid-template-columns override to maintain 2 columns */
-              /* products .container {
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+              /* Products grid adapts */
+              .products .container {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Adjusted minmax */
                 gap: 25px;
-            } */
+            }
              .product img {
                  height: 250px; /* Adjusted height */
              }
+             .product-info {
+                 padding: 10px 15px 15px; /* Adjusted padding */
+             }
              .product-info h3 {
                  font-size: 1.6em;
+                  margin-bottom: 8px; /* Reduced margin */
+             }
+             .whatsapp-button {
+                 margin-top: 10px; /* Reduced margin */
              }
         }
 
@@ -505,25 +517,26 @@
              .about-contact p, .about-contact address, .contact-info p {
                  font-size: 1em;
              }
-              /* Removed grid-template-columns override to maintain 2 columns */
-              /* products .container {
-                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+              /* Products grid adapts */
+              .products .container {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Adjusted minmax for 2+ columns */
                 gap: 20px;
-            } */
+            }
              .product img {
                  height: 200px; /* Adjusted height for smaller cards */
              }
              .product-info {
-                 padding: 0 15px 15px; /* Adjusted padding */
+                 padding: 10px 15px 15px; /* Adjusted padding */
              }
              .product-info h3 {
                  font-size: 1.5em;
+                  margin-bottom: 8px; /* Reduced margin */
              }
             .whatsapp-button {
                 font-size: 1em;
                 padding: 10px;
                 width: calc(100% - 30px); /* Adjusted width calculation */
-                margin: 0 auto 15px;
+                margin: 10px auto 0; /* Adjusted margin */
             }
              .social-links a {
                 font-size: 28px; /* Adjusted icon size */
@@ -560,25 +573,26 @@
              .about-contact p, .about-contact address, .contact-info p {
                  font-size: 0.95em;
              }
-              /* Removed grid-template-columns override to maintain 2 columns */
-              /* products .container {
-                 grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-                 gap: 10px;
-            } */
+              /* Products grid stacks to 1 column on smallest screens */
+             .products .container {
+                grid-template-columns: 1fr; /* Single column on very small screens */
+                gap: 15px; /* Reduced gap */
+            }
              .product img {
-                height: 160px; /* Reduced height for smaller cards */
+                height: 180px; /* Reduced height */
             }
              .product-info {
-                 padding: 0 10px 15px; /* Adjusted padding */
+                 padding: 8px 10px 10px; /* Adjusted padding */
              }
              .product-info h3 {
                  font-size: 1.4em;
+                 margin-bottom: 6px; /* Reduced margin */
              }
             .whatsapp-button {
                 font-size: 0.9em;
                 padding: 8px;
                 width: calc(100% - 20px); /* Adjusted width calculation */
-                 margin: 0 auto 10px;
+                 margin: 8px auto 0; /* Adjusted margin */
             }
              .social-links a {
                 font-size: 26px; /* Reduced icon size */
