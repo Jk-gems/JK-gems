@@ -28,11 +28,12 @@
             --button-whatsapp-hover: #1DA851;
             --footer-text-color: var(--color-palette-1); /* Footer text color contrasting with dark footer background */
 
-            --section-padding: 80px 20px; /* Consistent padding for sections */
+            --section-padding: 60px 20px; /* Reduced consistent padding for sections */
         }
 
         body {
             font-family: 'Lato', sans-serif;
+            font-weight: 600; /* Made body font weight darker */
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
@@ -258,19 +259,20 @@
 
          .contact-info p i {
              margin-right: 10px;
-             color: var(--secondary-color); /* Light accent color for icons */
+             color: var(--secondary-color);
          }
 
 
         /* --- Products Section --- */
         .products .container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            /* Adjusted minmax to potentially fit more columns on wider screens */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px; /* Slightly reduced gap */
         }
 
         .product {
-            border: 1px solid var(--border-color); /* Medium color for border */
+            border: 1px solid var(--border-color);
             padding: 25px;
             text-align: center;
             background-color: var(--card-bg);
@@ -294,7 +296,7 @@
             object-fit: cover;
             margin-bottom: 20px;
             border-radius: 8px;
-            border: 1px solid var(--border-color); /* Medium color for image border */
+            border: 1px solid var(--border-color);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
@@ -367,7 +369,7 @@
          }
 
          .search-container input::selection {
-             background-color: rgba(232, 213, 158, 0.5); /* Highlight with Light Accent */
+             background-color: rgba(232, 213, 158, 0.5);
          }
 
          .search-container input::-moz-selection {
@@ -379,7 +381,7 @@
             width: calc(100% - 40px);
             max-width: 600px;
             padding: 15px 20px;
-            border: 1px solid var(--border-color); /* Medium color for border */
+            border: 1px solid var(--border-color);
             border-radius: 30px;
             font-size: 1.1em;
             box-sizing: border-box;
@@ -388,24 +390,21 @@
          }
 
         .search-container input:focus {
-            border-color: var(--secondary-color); /* Light Accent for focus border */
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 8px rgba(232, 213, 158, 0.6); /* Focus shadow with Light Accent */
+            border-color: var(--secondary-color);
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 8px rgba(232, 213, 158, 0.6);
             outline: none;
         }
 
 
         /* --- Footer --- */
         .footer {
-            background-color: var(--primary-color); /* Darkest color for footer background */
-            color: var(--footer-text-color); /* Lightest color for footer text */
+            background-color: var(--primary-color);
+            color: var(--footer-text-color);
             text-align: center;
             padding: 40px 20px;
             margin-top: 60px;
             box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
         }
-
-        /* Removed the copyright paragraph */
-
 
         .social-links {
             margin-top: 0;
@@ -414,13 +413,13 @@
         .social-links a {
             display: inline-block;
             margin: 0 15px;
-            color: var(--secondary-color); /* Light Accent for social icons */
+            color: var(--secondary-color);
             font-size: 32px;
             transition: color 0.3s ease, transform 0.2s ease;
         }
 
         .social-links a:hover {
-            color: var(--color-palette-1); /* Lightest color for social icon hover */
+            color: var(--color-palette-1);
             transform: scale(1.1);
         }
 
@@ -433,8 +432,8 @@
                  height: 500px;
              }
               .products .container {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 25px;
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Adjusted minmax for slightly more columns */
+                gap: 20px; /* Reduced gap */
             }
              .product img {
                  height: 240px;
@@ -446,7 +445,7 @@
 
         @media (max-width: 768px) {
              .section {
-                 padding: 60px 20px;
+                 padding: 50px 20px; /* Further reduced padding */
              }
             .section h2 {
                 font-size: 2em;
@@ -456,14 +455,14 @@
              }
              .about-contact .container {
                  flex-direction: column;
-                 gap: 30px;
+                 gap: 25px; /* Reduced gap */
              }
              .about-contact h2, .about-content h3, .contact-info h3 {
                  text-align: center;
              }
               .products .container {
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-                gap: 20px;
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Adjusted minmax for smaller screens */
+                gap: 15px; /* Reduced gap */
             }
              .product img {
                  height: 220px;
@@ -482,7 +481,7 @@
 
          @media (max-width: 480px) {
               .section {
-                 padding: 40px 15px;
+                 padding: 30px 15px; /* Further reduced padding */
              }
              .section h2 {
                  font-size: 1.8em;
@@ -492,11 +491,11 @@
              }
              .products .container {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 15px;
             }
              .product {
                  width: 100%;
-                 padding: 20px;
+                 padding: 15px; /* Reduced padding */
              }
             .product img {
                 height: 200px;
