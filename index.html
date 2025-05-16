@@ -587,6 +587,7 @@
              font-size: 1.1em;
              color: var(--primary-dark); /* Link color */
              transition: color 0.3s ease;
+             cursor: pointer; /* Indicate it's clickable */
          }
 
          .back-to-categories i, .back-to-cart i {
@@ -815,6 +816,8 @@
              padding: 10px 0;
              font-size: 1em;
              color: var(--text-color-dark);
+             display: flex; /* Use flex for price alignment */
+             justify-content: space-between;
          }
 
          #orderSummaryReview li:last-child {
@@ -823,23 +826,57 @@
 
          #orderSummaryReview .item-name {
              font-weight: 600;
+             flex-grow: 1; /* Allow name to take space */
+             margin-right: 10px; /* Space between name and price */
          }
 
           #orderSummaryReview .item-price {
-             float: right; /* Align price to the right */
              font-weight: 600;
+             text-align: right; /* Ensure price aligns right */
           }
 
+         /* Styles for the total, discount, and final total in review */
+          #orderSummaryReview .total-line {
+              margin-top: 10px;
+              padding-top: 10px;
+              border-top: 1px solid var(--border-neutral);
+              text-align: right;
+          }
 
-         #orderSummaryReview .review-total {
-             margin-top: 15px;
-             text-align: right;
-             font-size: 1.2em;
-             font-weight: 700;
-             color: var(--primary-dark);
-             padding-top: 10px;
-             border-top: 1px solid var(--border-neutral);
-         }
+          #orderSummaryReview .total-line span {
+              display: inline-block;
+              min-width: 100px; /* Align values */
+          }
+
+          #orderSummaryReview .total-line strong {
+              font-size: 1.1em;
+              color: var(--primary-dark);
+          }
+
+           #orderSummaryReview .discount-line {
+               color: #28a745; /* Green for discount */
+               font-weight: 600;
+               margin-top: 5px;
+               text-align: right;
+           }
+            #orderSummaryReview .discount-line span {
+                display: inline-block;
+                min-width: 100px; /* Align values */
+           }
+
+          #orderSummaryReview .final-total-line {
+              margin-top: 10px;
+              padding-top: 10px;
+              border-top: 2px solid var(--primary-dark); /* Thicker line for final total */
+              font-size: 1.3em;
+              font-weight: 700;
+              color: var(--secondary-accent); /* Gold color for final total */
+              text-align: right;
+          }
+           #orderSummaryReview .final-total-line span {
+               display: inline-block;
+               min-width: 100px; /* Align values */
+           }
 
 
          #billingForm label {
@@ -871,25 +908,132 @@
              outline: none;
          }
 
-         #billingForm button[type="submit"] {
-             display: block;
-             width: 100%;
+         /* Coupon Section Styling */
+          .coupon-section {
+              margin-top: 20px;
+              margin-bottom: 30px;
+              padding: 15px;
+              border: 1px solid var(--border-neutral);
+              border-radius: 8px;
+              background-color: #f9f9f9; /* Slightly different background */
+              display: flex;
+              flex-wrap: wrap; /* Allow wrapping on small screens */
+              gap: 10px; /* Space between items */
+              align-items: center;
+          }
+
+           .coupon-section label {
+               margin-bottom: 0; /* Align with input/button */
+               margin-right: 10px;
+               font-weight: 600;
+               color: var(--primary-dark);
+           }
+
+          .coupon-section input[type="text"] {
+              flex-grow: 1; /* Allow input to take available space */
+              min-width: 150px; /* Prevent it from becoming too small */
+              margin-bottom: 0; /* Remove margin */
+              padding: 8px;
+              border-radius: 4px;
+              border: 1px solid var(--border-neutral);
+          }
+
+          .coupon-section button {
+              padding: 8px 15px;
+              background-color: var(--secondary-accent);
+              color: var(--primary-dark);
+              border: none;
+              border-radius: 4px;
+              font-weight: 600;
+              cursor: pointer;
+              transition: background-color 0.3s ease;
+          }
+
+          .coupon-section button:hover {
+              background-color: #B0925B;
+          }
+
+          #couponMessage {
+              width: 100%; /* Take full width for message */
+              margin-top: 10px;
+              font-size: 0.9em;
+              text-align: center;
+          }
+
+          #couponMessage.success {
+              color: #28a745; /* Green */
+          }
+
+           #couponMessage.error {
+               color: #dc3545; /* Red */
+           }
+
+
+         /* Buttons Container */
+         .billing-buttons {
+             display: flex;
+             gap: 20px; /* Space between buttons */
+             margin-top: 20px; /* Space above buttons */
+         }
+
+         .billing-buttons button,
+         .billing-buttons a {
+             flex: 1; /* Allow buttons to grow and share space */
+             display: block; /* Make links behave like blocks */
              padding: 12px;
-             background-color: var(--secondary-accent);
-             color: var(--primary-dark);
-             border: none;
              border-radius: 5px;
              font-size: 1.1em;
              font-weight: 700;
              text-align: center;
              cursor: pointer;
              transition: background-color 0.3s ease, color 0.3s ease;
-             margin-top: 10px;
+             text-decoration: none; /* Remove underline from link */
+             box-sizing: border-box; /* Include padding and border */
          }
 
-         #billingForm button[type="submit"]:hover {
-             background-color: #B0925B;
-             color: var(--primary-dark);
+
+          .billing-buttons button[type="submit"] {
+              background-color: var(--secondary-accent);
+              color: var(--primary-dark);
+              border: none;
+          }
+
+          .billing-buttons button[type="submit"]:hover {
+              background-color: #B0925B;
+          }
+
+          .billing-buttons .whatsapp-billing-button {
+              background-color: var(--whatsapp-green);
+              color: white;
+              border: none;
+          }
+
+          .billing-buttons .whatsapp-billing-button:hover {
+              background-color: var(--whatsapp-green-hover);
+          }
+
+          .billing-buttons .whatsapp-billing-button i {
+              margin-right: 8px;
+          }
+
+         /* Responsive adjustment for buttons */
+         @media (max-width: 600px) {
+              .billing-buttons {
+                  flex-direction: column; /* Stack buttons on smaller screens */
+                  gap: 10px; /* Reduced gap when stacked */
+              }
+               .coupon-section {
+                   flex-direction: column;
+                   align-items: stretch; /* Stretch items to fill width */
+               }
+                .coupon-section label {
+                   margin-right: 0;
+                   margin-bottom: 5px;
+                }
+                 .coupon-section input[type="text"] {
+                     width: 100%; /* Full width */
+                     min-width: auto;
+                 }
          }
 
 
@@ -996,9 +1140,16 @@
               #orderSummaryReview li {
                   font-size: 0.95em;
               }
-              #orderSummaryReview .review-total {
-                  font-size: 1.1em;
-              }
+               #orderSummaryReview .total-line strong,
+               #orderSummaryReview .final-total-line {
+                   font-size: 1em;
+               }
+               #orderSummaryReview .total-line span,
+               #orderSummaryReview .discount-line span,
+               #orderSummaryReview .final-total-line span {
+                   min-width: 80px; /* Adjust alignment width */
+               }
+
          }
 
         @media (max-width: 768px) {
@@ -1095,8 +1246,14 @@
               #orderSummaryReview li {
                   font-size: 0.9em;
               }
-               #orderSummaryReview .review-total {
-                   font-size: 1.1em;
+              #orderSummaryReview .total-line strong,
+               #orderSummaryReview .final-total-line {
+                   font-size: 0.95em;
+               }
+               #orderSummaryReview .total-line span,
+               #orderSummaryReview .discount-line span,
+               #orderSummaryReview .final-total-line span {
+                   min-width: 70px; /* Adjust alignment width */
                }
                #billingForm input, #billingForm textarea {
                   padding: 8px;
@@ -1192,6 +1349,11 @@
                 font-size: 1em;
                 padding: 10px;
               }
+              #orderSummaryReview .total-line span,
+               #orderSummaryReview .discount-line span,
+               #orderSummaryReview .final-total-line span {
+                   min-width: 50px; /* Adjust alignment width */
+               }
          }
 
 
@@ -1377,8 +1539,19 @@
                  <h3>Order Summary</h3>
                  <ul id="reviewItemsList">
                      </ul>
-                 <div class="review-total" id="reviewTotal"></div>
+                 <div class="total-line">Subtotal: <span id="reviewSubtotal"></span></div>
+                  <div class="discount-line" id="reviewDiscountLine" style="display: none;">Discount: <span id="reviewDiscount"></span></div>
+                  <div class="final-total-line">Total: <span id="reviewFinalTotal"></span></div>
+
              </div>
+
+             <div class="coupon-section">
+                 <label for="couponCode">Coupon Code:</label>
+                 <input type="text" id="couponCode" placeholder="Enter coupon code">
+                 <button type="button" id="applyCouponButton">Apply Coupon</button>
+                 <div id="couponMessage"></div>
+             </div>
+
 
              <form id="billingForm" action="https://formsubmit.co/Gauravraningagoldjewellery@gmail.com" method="POST">
                  <input type="hidden" name="_subject" id="emailSubject" value="J.K Gems Website Order Inquiry">
@@ -1396,8 +1569,10 @@
                  <textarea id="customer_address" name="Address" rows="4" required></textarea>
 
                  <input type="hidden" name="Order Details" id="orderCartDetails">
-
-                 <button type="submit">Send Order Inquiry</button>
+                 <input type="hidden" name="_parsed_order_details" id="_parsedOrderDetails"> <input type="hidden" name="Discount Applied" id="discountApplied"> <input type="hidden" name="Final Total" id="finalOrderTotal"> <div class="billing-buttons">
+                 <button type="submit">Place order</button>
+                 <a href="https://wa.me/919723197899?text=Hello,%20I have a general query regarding your products." class="whatsapp-billing-button" target="_blank" aria-label="Inquire on WhatsApp"><i class="fab fa-whatsapp"></i> WhatsApp Query</a>
+                </div>
              </form>
          </div>
     </section>
@@ -1502,6 +1677,7 @@
 
              billingSection.style.display = 'block'; // Show billing section
 
+             resetCoupon(); // Reset coupon state when showing billing
              renderOrderSummaryReview(); // Populate the review section
 
              // Smooth scroll to the top of the billing section
@@ -1621,6 +1797,7 @@
              if (target.tagName === 'IMG' && target.closest('.product') && !target.closest('#billingSection')) {
                  // Check if it's a product image within a product container, or potentially a category image
                  // For now, only trigger for images within the product containers
+                 // If you want category images to also open the modal, remove the '.category-products-container .product' check
                  if (target.closest('.category-products-container .product')) {
                       modal.style.display = 'flex'; // Use flex to center
                       modalImg.src = target.src; // Set modal image source
@@ -1661,12 +1838,27 @@
         const emptyCartMessage = document.getElementById('emptyCartMessage');
 
         const reviewItemsList = document.getElementById('reviewItemsList'); // Billing review list
-        const reviewTotalDiv = document.getElementById('reviewTotal'); // Billing review total
+        const reviewSubtotalSpan = document.getElementById('reviewSubtotal');
+        const reviewDiscountLine = document.getElementById('reviewDiscountLine');
+        const reviewDiscountSpan = document.getElementById('reviewDiscount');
+        const reviewFinalTotalSpan = document.getElementById('reviewFinalTotal');
         const orderCartDetailsInput = document.getElementById('orderCartDetails'); // Hidden input for cart data
+        const parsedOrderDetailsInput = document.getElementById('_parsedOrderDetails'); // Hidden input for structured data
+        const discountAppliedInput = document.getElementById('discountApplied'); // Hidden input for discount flag
+        const finalOrderTotalInput = document.getElementById('finalOrderTotal'); // Hidden input for final total
 
+        const couponCodeInput = document.getElementById('couponCode');
+        const applyCouponButton = document.getElementById('applyCouponButton');
+        const couponMessageDiv = document.getElementById('couponMessage');
 
         // Load cart from localStorage or initialize empty array
         let cart = JSON.parse(localStorage.getItem('jk-gems-cart')) || [];
+
+        // Variables for coupon and total
+        let currentSubtotal = 0;
+        let discountPercentage = 0; // 0 for no discount
+        let isCouponApplied = false;
+
 
         // Function to save cart to localStorage
         function saveCart() {
@@ -1681,7 +1873,10 @@
             // Hide count if 0
             cartCountSpan.style.display = totalItems > 0 ? 'block' : 'none';
 
-            renderCart(); // Re-render the cart modal content
+            // Render cart content only when modal is open or about to open
+             if (cartModal.style.display === 'flex') {
+                 renderCart();
+             }
         }
 
         // Function to add item to cart
@@ -1747,31 +1942,103 @@
          // Function to render order summary in the billing section
          function renderOrderSummaryReview() {
              reviewItemsList.innerHTML = ''; // Clear current list
-             let total = 0;
+             currentSubtotal = 0; // Reset subtotal calculation
 
              if (cart.length === 0) {
                  // This case should ideally be prevented by checking before showing billing
                  reviewItemsList.innerHTML = '<li>Cart is empty.</li>';
-                 reviewTotalDiv.textContent = 'Total: ₹0.00';
+                 reviewSubtotalSpan.textContent = '₹0.00';
+                 reviewDiscountLine.style.display = 'none';
+                 reviewDiscountSpan.textContent = '';
+                 reviewFinalTotalSpan.textContent = '₹0.00';
              } else {
                  cart.forEach(item => {
                      const listItem = document.createElement('li');
+                     const itemTotal = item.price * item.quantity;
                      listItem.innerHTML = `
                          <span class="item-name">${item.name} (x${item.quantity})</span>
-                         <span class="item-price">₹${(item.price * item.quantity).toFixed(2)}</span>
+                         <span class="item-price">₹${itemTotal.toFixed(2)}</span>
                      `;
                      reviewItemsList.appendChild(listItem);
-                     total += item.price * item.quantity;
+                     currentSubtotal += itemTotal; // Calculate subtotal
                  });
-                 reviewTotalDiv.textContent = `Total: ₹${total.toFixed(2)}`;
 
-                 // Populate the hidden form field with cart data
-                 // You can choose a format: simple text, JSON, etc. Text is often easier for email
-                 const orderDetails = cart.map(item =>
+                 reviewSubtotalSpan.textContent = `₹${currentSubtotal.toFixed(2)}`;
+
+                 let finalTotal = currentSubtotal;
+                 let discountAmount = 0;
+
+                 if (isCouponApplied && discountPercentage > 0) {
+                     discountAmount = currentSubtotal * (discountPercentage / 100);
+                     finalTotal = currentSubtotal - discountAmount;
+                     reviewDiscountSpan.textContent = `- ₹${discountAmount.toFixed(2)}`;
+                     reviewDiscountLine.style.display = 'block';
+                 } else {
+                     reviewDiscountLine.style.display = 'none';
+                     reviewDiscountSpan.textContent = '';
+                 }
+
+                 reviewFinalTotalSpan.textContent = `₹${finalTotal.toFixed(2)}`;
+
+                 // Populate the hidden form fields with order details and final total
+                 const orderDetailsText = cart.map(item =>
                      `${item.name} (Qty: ${item.quantity}) - ₹${(item.price * item.quantity).toFixed(2)}`
                  ).join('\n');
-                 orderCartDetailsInput.value = `Order Items:\n${orderDetails}\n\nTotal: ₹${total.toFixed(2)}`;
 
+                 let fullOrderDetails = `Order Items:\n${orderDetailsText}\n\nSubtotal: ₹${currentSubtotal.toFixed(2)}`;
+
+                 if (isCouponApplied && discountPercentage > 0) {
+                     fullOrderDetails += `\nDiscount (${discountPercentage}%): -₹${discountAmount.toFixed(2)}`;
+                 }
+                 fullOrderDetails += `\nFinal Total: ₹${finalTotal.toFixed(2)}`;
+
+
+                 orderCartDetailsInput.value = fullOrderDetails; // Text version for general use
+
+                 // Optional: JSON version for potential future use or easier parsing
+                 const parsedDetails = {
+                     items: cart,
+                     subtotal: currentSubtotal.toFixed(2),
+                     discountApplied: isCouponApplied,
+                     discountPercentage: discountPercentage,
+                     discountAmount: discountAmount.toFixed(2),
+                     finalTotal: finalTotal.toFixed(2)
+                 };
+                 parsedOrderDetailsInput.value = JSON.stringify(parsedDetails, null, 2); // Pretty print JSON
+
+
+                 discountAppliedInput.value = isCouponApplied ? `Yes (${discountPercentage}%)` : 'No';
+                 finalOrderTotalInput.value = finalTotal.toFixed(2);
+
+
+             }
+         }
+
+         // Function to reset coupon state
+         function resetCoupon() {
+             discountPercentage = 0;
+             isCouponApplied = false;
+             couponCodeInput.value = '';
+             couponMessageDiv.textContent = ''; // Clear message
+             couponMessageDiv.className = ''; // Remove success/error classes
+         }
+
+         // Function to apply the coupon
+         function applyCoupon() {
+             const enteredCode = couponCodeInput.value.trim().toUpperCase(); // Case-insensitive check
+             const validCouponCode = "OFFER10"; // The secret coupon code
+
+             if (enteredCode === validCouponCode) {
+                 discountPercentage = 10; // Set discount percentage
+                 isCouponApplied = true;
+                 couponMessageDiv.textContent = 'Coupon Applied! 10% discount added.';
+                 couponMessageDiv.className = 'success'; // Apply success style
+                 renderOrderSummaryReview(); // Update review with discount
+             } else {
+                 resetCoupon(); // Reset if incorrect code entered
+                 couponMessageDiv.textContent = 'Invalid coupon code.';
+                 couponMessageDiv.className = 'error'; // Apply error style
+                 renderOrderSummaryReview(); // Update review (will show base total)
              }
          }
 
@@ -1831,31 +2098,33 @@
             showBillingSection(); // Show the billing section
         });
 
+         // Event listener for the coupon code apply button
+         applyCouponButton.addEventListener('click', applyCoupon);
+
+         // Allow applying coupon by pressing Enter in the input field
+         couponCodeInput.addEventListener('keypress', function(event) {
+             if (event.key === 'Enter') {
+                 event.preventDefault(); // Prevent form submission if input is inside a form
+                 applyCoupon();
+             }
+         });
+
+
          // Event listener for the billing form submission
          document.getElementById('billingForm').addEventListener('submit', function(event) {
              // Optional: Add client-side validation here before submitting
              // For example, check if required fields are filled
 
-             // Prevent default submit initially if you need to do something *before* formsubmit.co handles it
-             // event.preventDefault();
+             // No need to manually prevent default here as formsubmit.co handles it.
+             // The _next parameter redirects after submission.
 
-             // After formsubmit.co handles the submission (either via redirect or AJAX):
-             // You might want to clear the cart and show a success message.
-             // formsubmit.co's built-in _next redirect handles showing a thank you page.
-             // If using AJAX (more complex), you'd handle clearing/message in the success callback.
-
-             // For simplicity with the _next redirect, clear the cart *after* the form submission is triggered.
-             // The _next page will then see an empty cart, which is fine.
-             // If the user navigates back *without* the redirect completing, the cart might still be full.
-             // A more robust approach clears the cart server-side after payment/order confirmation.
-             // For this static site, clearing on successful submission is a reasonable compromise.
-
-              // Simple way to clear cart after submission attempt
-              // Note: This clears localStorage immediately, before formsubmit.co guarantees delivery.
-              // A server-side approach is more reliable. But for a static site using formsubmit, this is common.
+             // Clear the cart after the form submission attempt.
+             // As noted before, this is client-side and not server-side secure.
               cart = [];
               saveCart();
               updateCartUI(); // Update header count immediately
+              // Reset coupon state on successful order/inquiry submission
+              resetCoupon();
 
               // The form will submit normally via formsubmit.co's action
               // The _next parameter will redirect the user.
