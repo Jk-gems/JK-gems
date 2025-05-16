@@ -1421,12 +1421,13 @@
         const productContainers = document.querySelectorAll('.category-products-container');
         const productsHeading = document.getElementById('products-heading');
         const searchInput = document.getElementById('searchInput');
-        const categoryCards = document.querySelectorAll('.category-card');
+        const categoryCards = document.querySelectorAll('.category-card'); // Select these once
         const backButtons = document.querySelectorAll('.back-to-categories');
         const billingSection = document.getElementById('billingSection'); // Reference to the billing section
 
         // Function to show only the category grid
         function showCategoryGrid() {
+            console.log("Showing Category Grid"); // Debug log
             productsHeading.textContent = 'Our Categories';
             searchInput.placeholder = 'Search Categories...';
             searchInput.style.display = 'block'; // Show search bar
@@ -1447,7 +1448,10 @@
 
         // Function to show a specific product container
         function showProductContainer(categoryId) {
+             console.log("Attempting to show product container for:", categoryId); // Debug log
              const containerToShow = document.getElementById(categoryId + '-products-container');
+             console.log("Container to show:", containerToShow); // Debug log: Check if it's found
+
              if (!containerToShow) {
                  console.error("Product container not found for category:", categoryId);
                  showCategoryGrid(); // Fallback to category grid
@@ -1514,6 +1518,36 @@
              // Smooth scroll back to the top of the products section (which now shows categories/cart context)
               document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
          }
+
+
+        // Event listeners for category cards
+        categoryCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const targetId = this.dataset.categoryTarget;
+                console.log("Category Card clicked. Target ID:", targetId); // Debug log: Check if click is registered and ID is read
+                if (targetId) {
+                    showProductContainer(targetId);
+                } else {
+                    console.warn("Clicked category card is missing data-category-target attribute."); // Debug warning
+                }
+            });
+        });
+
+        // Event listeners for "Back to Categories" buttons in product containers
+        backButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default anchor jump
+                showCategoryGrid();
+                 // Smooth scroll back to the top of the products section (which now shows categories)
+                 document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+         // Event listener for "Back to Cart" button in billing section
+         document.querySelector('.back-to-cart').addEventListener('click', function(e) {
+             e.preventDefault();
+             hideBillingSection();
+         });
 
 
         // --- Updated Search Functionality ---
@@ -1830,8 +1864,10 @@
 
         // Initial view: Show category grid on load
         document.addEventListener('DOMContentLoaded', () => {
+            console.log("DOM Content Loaded. Initializing..."); // Debug log
             showCategoryGrid(); // Make sure categories are shown initially
             updateCartUI(); // Load and display initial cart state
+            // Delegation for image modal clicks is set up outside DOMContentLoaded
         });
 
 
