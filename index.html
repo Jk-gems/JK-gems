@@ -315,47 +315,46 @@
          }
 
 
-        /* --- Products Section --- */
+        /* --- Products/Categories Section --- */
         .products .container {
-            display: grid; /* Intentional Layout: Grid for product listing */
-            /* Adaptive columns based on space */
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Allow flexible columns */
-            gap: 30px; /* Adjusted gap */
+             /* No grid directly on container anymore */
         }
 
-         /* Category Filters Styling */
-         .category-filters {
-             margin-bottom: 30px;
-             text-align: center;
-             display: flex;
-             flex-wrap: wrap;
-             justify-content: center;
-             gap: 10px; /* Space between buttons */
-         }
+        /* Grid for Categories AND Products (applied to nested containers) */
+        .category-grid,
+        .category-products-grid { /* Apply grid display to the specific containers */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Allow flexible columns */
+            gap: 30px; /* Adjusted gap */
+            margin-top: 30px; /* Add some space below heading/search */
+        }
 
-         .category-filters button {
-            padding: 10px 20px;
-            background-color: var(--primary-dark); /* Dark button background */
-            color: var(--background-light); /* Light button text */
-            border: 1px solid var(--primary-dark);
-            border-radius: 20px; /* Rounded buttons */
-            cursor: pointer;
-            font-size: 1em;
-            font-weight: 600;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-         }
+        /* Style for the Category Cards (clickable products) */
+        .product.category-card {
+             cursor: pointer; /* Indicate it's clickable */
+             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
 
-         .category-filters button:hover {
-            background-color: var(--secondary-accent); /* Gold hover background */
-            color: var(--primary-dark); /* Dark hover text */
-            border-color: var(--secondary-accent);
-         }
-
-         .category-filters button.active {
-             background-color: var(--secondary-accent); /* Active button style */
-             color: var(--primary-dark);
+        .product.category-card:hover {
+             transform: translateY(-5px); /* More pronounced lift for category cards */
+             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Stronger hover shadow */
              border-color: var(--secondary-accent);
-             font-weight: 700;
+         }
+
+        .product.category-card img {
+            /* Image still zooms, ok */
+        }
+
+         /* Style for actual Product Items within a category */
+         .category-products-container .product {
+             cursor: default; /* Reset cursor for actual products */
+             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Keep transitions for products */
+         }
+
+         .category-products-container .product:hover {
+             transform: translateY(-4px); /* Subtle lift for actual products */
+             box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12); /* Softer hover shadow for actual products */
+             border-color: var(--secondary-accent); /* Highlight border on hover */
          }
 
 
@@ -367,24 +366,11 @@
             background-color: var(--card-bg); /* Card background color */
             border-radius: 8px; /* Slightly less rounded corners */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer shadow */
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.5s ease, display 0.5s ease; /* Added transitions for filtering */
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            cursor: default; /* Change cursor */
         }
 
-        .product.hidden {
-             display: none; /* Hide products not in the selected category */
-             /* opacity: 0; - Can use opacity for fade effect, but display: none is simpler */
-         }
-
-
-        .product:hover {
-            transform: translateY(-4px); /* Subtle lift on hover */
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12); /* Slightly more pronounced hover shadow */
-            border-color: var(--secondary-accent); /* Highlight border on hover */
-        }
 
         .product img {
             width: 100%; /* Image fills card width */
@@ -396,9 +382,13 @@
             cursor: zoom-in; /* Indicate image is clickable */
         }
 
-         .product:hover img {
-             transform: scale(1.02); /* Slightly more zoom on hover */
+         .product.category-card:hover img {
+             transform: scale(1.03); /* Slightly more zoom on category hover */
          }
+         .category-products-container .product:hover img {
+              transform: scale(1.02); /* Standard zoom on product hover */
+         }
+
 
         .product-info {
             padding: 15px; /* Ensure sufficient padding inside info area */
@@ -459,7 +449,7 @@
 
          /* User-Friendly Navigation: Search function layout */
          .search-container {
-             margin-bottom: 20px; /* Adjusted margin to accommodate category filters */
+             margin-bottom: 30px; /* Adjusted margin */
              text-align: center;
          }
 
@@ -486,6 +476,38 @@
             box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1), 0 0 8px rgba(184, 138, 69, 0.6); /* Focus shadow with Gold Accent using updated color */
             outline: none;
         }
+
+         /* Style for the hidden product containers and back button */
+         .category-products-container {
+             display: none; /* Initially hidden */
+             text-align: left; /* Align content left */
+             margin-top: 30px;
+         }
+
+         .category-products-container h3 {
+             text-align: center; /* Center category title */
+             margin-bottom: 30px;
+             font-size: 2em; /* Visual Hierarchy */
+             color: var(--primary-dark);
+         }
+
+         .back-to-categories {
+             display: inline-block; /* Make it a clickable link */
+             margin-bottom: 30px;
+             font-size: 1.1em;
+             color: var(--primary-dark); /* Link color */
+             transition: color 0.3s ease;
+         }
+
+         .back-to-categories i {
+             margin-right: 8px;
+         }
+
+         .back-to-categories:hover {
+             color: var(--secondary-accent); /* Hover color */
+             text-decoration: underline;
+         }
+
 
         /* --- Image Modal/Lightbox --- */
         #imageModal {
@@ -566,8 +588,9 @@
              .hero .container p { /* Target p within hero container */
                  font-size: 1.2em;
              }
-              /* Products grid adapts */
-              .products .container {
+              /* Grids adapt */
+             .category-grid,
+             .category-products-grid { /* Apply grid display to the specific containers */
                 grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Adjusted minmax */
                 gap: 25px;
             }
@@ -591,6 +614,9 @@
              }
              .section {
                  padding: 80px 0; /* Adjusted vertical padding */
+             }
+             .category-products-container h3 {
+                 font-size: 1.8em;
              }
         }
 
@@ -624,8 +650,9 @@
              .about-contact p, .about-contact address, .contact-info p {
                  font-size: 1em;
              }
-              /* Products grid adapts */
-              .products .container {
+              /* Grids adapt */
+             .category-grid,
+             .category-products-grid { /* Apply grid display to the specific containers */
                 grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjusted minmax for smaller screens */
                 gap: 20px;
             }
@@ -656,6 +683,9 @@
              .footer {
                 padding: 30px 0; /* Adjusted vertical padding */
              }
+             .category-products-container h3 {
+                 font-size: 1.6em;
+             }
          }
 
          @media (max-width: 480px) {
@@ -684,8 +714,9 @@
              .about-contact p, .about-contact address, .contact-info p {
                  font-size: 0.95em;
              }
-              /* Products grid stacks to 1 column on smallest screens */
-             .products .container {
+              /* Grids stack to 1 column on smallest screens */
+             .category-grid,
+             .category-products-grid { /* Apply grid display to the specific containers */
                 grid-template-columns: 1fr; /* Single column on very small screens */
                 gap: 15px; /* Reduced gap */
             }
@@ -716,8 +747,10 @@
              .footer {
                 padding: 25px 0; /* Further reduced vertical padding */
              }
+             .category-products-container h3 {
+                 font-size: 1.4em;
+             }
          }
-
 
     </style>
 </head>
@@ -728,16 +761,14 @@
             <nav class="nav">
                 <ul>
                     <li><a href="#about">About & Visit Us</a></li>
-                    <li><a href="#products">Products</a></li>
-                    </ul>
+                    <li><a href="#products">Categories</a></li> </ul>
             </nav>
         </div> </header>
 
     <section class="hero">
         <div class="hero-content"> <div class="container"> <h1>Exquisite Gemstones & Spiritual Treasures</h1>
                 <p>Discover the perfect blend of beauty, authenticity, and spiritual energy at J.K Gems.</p>
-                <a href="#products" class="hero-cta-button">Explore Our Collection</a>
-            </div> </div> </section>
+                <a href="#products" class="hero-cta-button">Explore Categories</a> </div> </div> </section>
 
     <section id="about" class="section about-contact">
         <div class="container">
@@ -760,69 +791,92 @@
 
     <section id="products" class="section products">
         <div class="container">
-             <h2>Our Categories</h2>
-             <div class="search-container">
-                 <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search for Gem Stones, Rudraksh, Yantra...">
+             <h2 id="products-heading">Our Categories</h2> <div class="search-container">
+                 <input type="text" id="searchInput" onkeyup="searchItems()" placeholder="Search Categories or Products...">
              </div>
 
-             <div class="category-filters">
-                <button class="filter-button active" data-category="all">All Categories</button>
-                <button class="filter-button" data-category="gemstones">Gemstones</button>
-                <button class="filter-button" data-category="rudraksh">Rudraksh</button>
-                <button class="filter-button" data-category="yantra">Yantra</button>
-                <button class="filter-button" data-category="rings">Rings</button>
-             </div>
-             <div class="product-grid" id="productContainer">
-                <div class="product" data-category="gemstones">
-                    <img src="IMG-20250516-WA0015.jpg" alt="Gem stones">
+            <div class="category-grid" id="categoryGrid">
+                <div class="product category-card" data-category-target="gemstones">
+                    <img src="IMG-20250516-WA0015.jpg" alt="Gem stones Category">
                     <div class="product-info">
-                        <h3>Gem Stones</h3>
-                        <p class="product-description">Authentic, high-quality gemstones for astrological or personal use.</p> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gem%20stones.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Gem Stones on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
-                    </div>
+                        <h3>Gemstones</h3> <p class="product-description">Explore our collection of authentic, high-quality gemstones.</p>
+                         </div>
                 </div>
 
-                <div class="product" data-category="rudraksh">
-                    <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh">
+                <div class="product category-card" data-category-target="rudraksh">
+                    <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh Category">
                      <div class="product-info">
-                        <h3>Rudraksh Beads</h3>
-                        <p class="product-description">Genuine Rudraksha beads for spiritual connection and well-being.</p> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
-                    </div>
+                        <h3>Rudraksh</h3>
+                        <p class="product-description">Discover genuine Rudraksha beads and items for spiritual well-being.</p>
+                        </div>
                 </div>
 
-                <div class="product" data-category="yantra">
-                    <img src="IMG-20250516-WA0001.jpg" alt="Yantra">
+                <div class="product category-card" data-category-target="yantra">
+                    <img src="IMG-20250516-WA0001.jpg" alt="Yantra Category">
                      <div class="product-info">
-                        <h3>Yantra</h3>
-                        <p class="product-description">Sacred geometric diagrams for meditation and energy focusing.</p> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Yantra on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
-                    </div>
+                        <h3>Yantra & Spiritual Items</h3> <p class="product-description">Sacred geometric diagrams, Sphatik items, and other spiritual treasures.</p>
+                        </div>
                 </div>
 
-                 <div class="product" data-category="rudraksh">
-                     <img src="IMG-20250516-WA0016.jpg" alt="Rudraksh Bracelet">
-                      <div class="product-info">
-                        <h3>Rudraksh Bracelet</h3>
-                        <p class="product-description">Wear the spiritual energy with authentic Rudraksh bracelets.</p> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Bracelet.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Bracelet on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
-                    </div>
                  </div>
-
-                <div class="product" data-category="yantra">
-                    <img src="61Fg6DsA4iL._AC_UF894,1000_QL80_.jpg" alt="Sphatik Shree Yantra">
-                    <div class="product-info">
-                        <h3>Sphatik Shree Yantra</h3>
-                        <p class="product-description">Clear quartz Shree Yantra for purity, prosperity, and positive energy.</p> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Sphatik%20Shree%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Sphatik Shree Yantra on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
-                    </div>
-                </div>
-
-                <div class="product" data-category="rings">
-                    <img src="IMG-20250516-WA0011.jpg" alt="Gemstone Rings">
-                    <div class="product-info">
-                        <h3>Gemstone Rings</h3>
-                        <p class="product-description">Beautiful rings featuring authentic gemstones for style and astrological benefits.</p> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gemstone%20Rings.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Gemstone Rings on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
-                    </div>
-                </div>
-
+            <div id="gemstones-products-container" class="category-products-container">
+                 <a href="#products" class="back-to-categories"><i class="fas fa-arrow-left"></i> Back to Categories</a>
+                 <h3>Gemstones</h3>
+                 <div class="category-products-grid">
+                     <div class="product">
+                         <img src="IMG-20250516-WA0011.jpg" alt="Gemstone Rings">
+                         <div class="product-info">
+                             <h3>Gemstone Rings</h3>
+                             <p class="product-description">Beautiful rings featuring authentic gemstones for style and astrological benefits.</p> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gemstone%20Rings.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Gemstone Rings on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                         </div>
+                     </div>
+                     </div>
             </div>
-        </div>
+
+            <div id="rudraksh-products-container" class="category-products-container">
+                <a href="#products" class="back-to-categories"><i class="fas fa-arrow-left"></i> Back to Categories</a>
+                <h3>Rudraksh Items</h3>
+                <div class="category-products-grid">
+                     <div class="product">
+                         <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh Beads">
+                          <div class="product-info">
+                             <h3>Rudraksh Beads</h3>
+                             <p class="product-description">Genuine Rudraksha beads for spiritual connection and well-being.</p> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                         </div>
+                     </div>
+
+                      <div class="product">
+                         <img src="IMG-20250516-WA0016.jpg" alt="Rudraksh Bracelet">
+                          <div class="product-info">
+                             <h3>Rudraksh Bracelet</h3>
+                             <p class="product-description">Wear the spiritual energy with authentic Rudraksh bracelets.</p> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Bracelet.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Bracelet on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                         </div>
+                     </div>
+                     </div>
+            </div>
+
+             <div id="yantra-products-container" class="category-products-container">
+                <a href="#products" class="back-to-categories"><i class="fas fa-arrow-left"></i> Back to Categories</a>
+                <h3>Yantra & Spiritual Items</h3>
+                <div class="category-products-grid">
+                     <div class="product">
+                         <img src="IMG-20250516-WA0001.jpg" alt="Yantra">
+                          <div class="product-info">
+                             <h3>Yantra</h3>
+                             <p class="product-description">Sacred geometric diagrams for meditation and energy focusing.</p> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Yantra on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                         </div>
+                     </div>
+
+                      <div class="product">
+                         <img src="61Fg6DsA4iL._AC_UF894,1000_QL80_.jpg" alt="Sphatik Shree Yantra">
+                         <div class="product-info">
+                             <h3>Sphatik Shree Yantra</h3>
+                             <p class="product-description">Clear quartz Shree Yantra for purity, prosperity, and positive energy.</p> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Sphatik%20Shree%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Sphatik Shree Yantra on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                         </div>
+                     </div>
+                     </div>
+            </div>
+            </div>
     </section>
 
     <footer class="footer">
@@ -839,76 +893,119 @@
     </div>
 
     <script>
-        // User-Friendly Navigation: Simple product search functionality
-        function searchProducts() {
+        // Get references to the main containers and elements
+        const categoryGrid = document.getElementById('categoryGrid');
+        const productContainers = document.querySelectorAll('.category-products-container');
+        const productsHeading = document.getElementById('products-heading');
+        const searchInput = document.getElementById('searchInput');
+        const categoryCards = document.querySelectorAll('.category-card');
+        const backButtons = document.querySelectorAll('.back-to-categories');
+
+        // Function to show only the category grid
+        function showCategoryGrid() {
+            productsHeading.textContent = 'Our Categories';
+            searchInput.placeholder = 'Search Categories...';
+            categoryGrid.style.display = 'grid';
+            productContainers.forEach(container => {
+                container.style.display = 'none';
+            });
+            // Re-enable search for categories
+            searchInput.onkeyup = searchCategories;
+            searchCategories(); // Apply search filter if any text is present
+        }
+
+        // Function to show a specific product container
+        function showProductContainer(categoryId) {
+             const containerToShow = document.getElementById(categoryId + '-products-container');
+             if (!containerToShow) {
+                 console.error("Product container not found for category:", categoryId);
+                 return; // Exit if container doesn't exist
+             }
+             productsHeading.textContent = categoryId.charAt(0).toUpperCase() + categoryId.slice(1) + ' Items'; // Capitalize first letter
+             searchInput.placeholder = 'Search Products...';
+             categoryGrid.style.display = 'none';
+             productContainers.forEach(container => {
+                 container.style.display = 'none';
+             });
+             containerToShow.style.display = 'block'; // Use block for the container wrapper
+             // Re-enable search for products within this category
+             searchInput.onkeyup = searchProductsInCategory;
+             searchProductsInCategory(); // Apply search filter if any text is present
+             // Smooth scroll to the top of the products section
+             document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Event listeners for category cards
+        categoryCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const targetId = this.dataset.categoryTarget;
+                if (targetId) {
+                    showProductContainer(targetId);
+                }
+            });
+        });
+
+        // Event listeners for "Back to Categories" buttons
+        backButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default anchor jump
+                showCategoryGrid();
+                 // Smooth scroll back to the top of the products section (which now shows categories)
+                 document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Initial view: Show category grid on load
+        document.addEventListener('DOMContentLoaded', () => {
+            showCategoryGrid();
+        });
+
+        // --- Updated Search Functionality ---
+        // Search only categories when the category grid is visible
+        function searchCategories() {
+             const input = document.getElementById('searchInput');
+             const filter = input.value.toUpperCase();
+             const categories = categoryGrid.getElementsByClassName('category-card');
+
+             for (let i = 0; i < categories.length; i++) {
+                 const h3 = categories[i].getElementsByTagName('h3')[0];
+                 const description = categories[i].getElementsByClassName('product-description')[0];
+                 const textValue = (h3.textContent || h3.innerText) + ' ' + (description ? description.textContent || description.innerText : '');
+                 if (textValue.toUpperCase().indexOf(filter) > -1) {
+                     categories[i].style.display = ""; // Show
+                 } else {
+                     categories[i].style.display = "none"; // Hide
+                 }
+             }
+        }
+
+        // Search only products within the currently visible category container
+        function searchProductsInCategory() {
             const input = document.getElementById('searchInput');
             const filter = input.value.toUpperCase();
-            const container = document.getElementById('productContainer');
-            const products = container.getElementsByClassName('product');
+            const visibleContainer = document.querySelector('.category-products-container[style*="display: block"]');
 
-            // Reset category filter selection when searching
-            const filterButtons = document.querySelectorAll('.category-filters button');
-            filterButtons.forEach(button => button.classList.remove('active'));
-            // Optionally activate 'All' button visually if search is active
-            // filterButtons[0].classList.add('active'); // Decide if you want 'All' active during search
+            if (!visibleContainer) return; // Do nothing if no product container is visible
+
+            const products = visibleContainer.getElementsByClassName('product'); // Get products within the visible container
 
             for (let i = 0; i < products.length; i++) {
                 const h3 = products[i].getElementsByTagName('h3')[0];
                 const description = products[i].getElementsByClassName('product-description')[0];
-                const textValue = (h3.textContent || h3.innerText) + ' ' + (description ? description.textContent || description.innerText : ''); // Include description in search
+                const textValue = (h3.textContent || h3.innerText) + ' ' + (description ? description.textContent || description.innerText : '');
+                 // Check if display is block or empty (visible)
+                 const isCurrentlyVisible = products[i].style.display === "" || products[i].style.display === "block";
+
                 if (textValue.toUpperCase().indexOf(filter) > -1) {
                     products[i].style.display = ""; // Show
-                    products[i].classList.remove('hidden'); // Ensure 'hidden' class is removed if display was used for filtering
                 } else {
                     products[i].style.display = "none"; // Hide
-                     products[i].classList.add('hidden'); // Add 'hidden' class
                 }
             }
         }
 
-        // Function to filter products by category
-        function filterProducts(category) {
-            const products = document.querySelectorAll('#productContainer .product');
-            const filterButtons = document.querySelectorAll('.category-filters button');
-            const searchInput = document.getElementById('searchInput');
-
-            // Clear search input when filtering
-            searchInput.value = '';
-
-            // Update active button state
-            filterButtons.forEach(button => {
-                if (button.dataset.category === category) {
-                    button.classList.add('active');
-                } else {
-                    button.classList.remove('active');
-                }
-            });
-
-            // Show/hide products based on category
-            products.forEach(product => {
-                const productCategory = product.dataset.category;
-                if (category === 'all' || productCategory === category) {
-                    product.style.display = ""; // Show the product
-                    product.classList.remove('hidden'); // Ensure 'hidden' class is removed
-                } else {
-                     product.style.display = "none"; // Hide the product
-                     product.classList.add('hidden'); // Add 'hidden' class
-                }
-            });
-        }
-
-        // Add event listeners to category filter buttons
-        document.querySelectorAll('.category-filters button').forEach(button => {
-            button.addEventListener('click', function() {
-                const category = this.dataset.category;
-                filterProducts(category);
-            });
-        });
-
-        // Initial filter: show all products on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            filterProducts('all');
-        });
+        // The search function used by the input's onkeyup will be set dynamically
+        let searchItems = searchCategories; // Initial function
 
 
         // Attention to Detail: Smooth scrolling for navigation links
@@ -935,17 +1032,37 @@
         const modalImg = document.getElementById('modalImage');
         const closeBtn = modal.querySelector('.close'); // Use the class for the close button
 
-        // Get all product images that should open the modal
-        const productImages = document.querySelectorAll('.product img');
+        // Function to add click listener to images (used for product images)
+        function addImageModalListeners() {
+             // Remove existing listeners to prevent duplicates if products are dynamically added/removed
+             document.querySelectorAll('.product img').forEach(img => {
+                 // A simple way to remove *previous* listeners if needed, but relies on listener being the same type.
+                 // A more robust way involves cloning/replacing elements or storing references.
+                 // For this static example, simply re-adding is okay, but be mindful if content changes dynamically.
+             });
 
-        // Add click listener to each product image
-        productImages.forEach(img => {
-            img.addEventListener('click', function() {
-                modal.style.display = 'flex'; // Use flex to center
-                modalImg.src = this.src; // Set modal image source
-                modalImg.alt = this.alt; // Set modal image alt text for accessibility
+            // Get all product images that should open the modal (now including those in category containers)
+            const productImages = document.querySelectorAll('.category-products-container .product img');
+
+            // Add click listener to each product image in product containers
+            productImages.forEach(img => {
+                // Ensure listener is only added once if called multiple times
+                if (!img.dataset.modalListenerAdded) { // Simple flag
+                     img.addEventListener('click', function() {
+                         modal.style.display = 'flex'; // Use flex to center
+                         modalImg.src = this.src; // Set modal image source
+                         modalImg.alt = this.alt; // Set modal image alt text for accessibility
+                     });
+                     img.dataset.modalListenerAdded = 'true'; // Set flag
+                }
             });
-        });
+
+            // Image modal listeners for category cards' images (optional, if you want them to open too)
+            // const categoryImages = document.querySelectorAll('.category-card img');
+            // categoryImages.forEach(img => { /* add similar listener */ });
+             // For this structure, let's only allow modal for actual product images.
+        }
+
 
         // Add click listener to the close button
         closeBtn.addEventListener('click', function() {
@@ -966,6 +1083,9 @@
                 modal.style.display = 'none';
             }
         });
+
+        // Call this initially and whenever product content might change
+        addImageModalListeners();
 
 
         // Feature: Optional - Add a slight reveal animation on scroll
