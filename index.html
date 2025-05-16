@@ -836,35 +836,35 @@
           }
 
          /* Styles for the total, discount, and final total in review */
-          #orderSummaryReview .total-line {
+          .total-line {
               margin-top: 10px;
               padding-top: 10px;
               border-top: 1px solid var(--border-neutral);
               text-align: right;
           }
 
-          #orderSummaryReview .total-line span {
+          .total-line span {
               display: inline-block;
               min-width: 100px; /* Align values */
           }
 
-          #orderSummaryReview .total-line strong {
+          .total-line strong {
               font-size: 1.1em;
               color: var(--primary-dark);
           }
 
-           #orderSummaryReview .discount-line {
+           .discount-line {
                color: #28a745; /* Green for discount */
                font-weight: 600;
                margin-top: 5px;
                text-align: right;
            }
-            #orderSummaryReview .discount-line span {
+            .discount-line span {
                 display: inline-block;
                 min-width: 100px; /* Align values */
            }
 
-          #orderSummaryReview .final-total-line {
+          .final-total-line {
               margin-top: 10px;
               padding-top: 10px;
               border-top: 2px solid var(--primary-dark); /* Thicker line for final total */
@@ -873,7 +873,7 @@
               color: var(--secondary-accent); /* Gold color for final total */
               text-align: right;
           }
-           #orderSummaryReview .final-total-line span {
+           .final-total-line span {
                display: inline-block;
                min-width: 100px; /* Align values */
            }
@@ -1140,13 +1140,13 @@
               #orderSummaryReview li {
                   font-size: 0.95em;
               }
-               #orderSummaryReview .total-line strong,
-               #orderSummaryReview .final-total-line {
+               .total-line strong,
+               .final-total-line {
                    font-size: 1em;
                }
-               #orderSummaryReview .total-line span,
-               #orderSummaryReview .discount-line span,
-               #orderSummaryReview .final-total-line span {
+               .total-line span,
+               .discount-line span,
+               .final-total-line span {
                    min-width: 80px; /* Adjust alignment width */
                }
 
@@ -1246,13 +1246,13 @@
               #orderSummaryReview li {
                   font-size: 0.9em;
               }
-              #orderSummaryReview .total-line strong,
-               #orderSummaryReview .final-total-line {
+               .total-line strong,
+               .final-total-line {
                    font-size: 0.95em;
                }
-               #orderSummaryReview .total-line span,
-               #orderSummaryReview .discount-line span,
-               #orderSummaryReview .final-total-line span {
+               .total-line span,
+               .discount-line span,
+               .final-total-line span {
                    min-width: 70px; /* Adjust alignment width */
                }
                #billingForm input, #billingForm textarea {
@@ -1349,9 +1349,9 @@
                 font-size: 1em;
                 padding: 10px;
               }
-              #orderSummaryReview .total-line span,
-               #orderSummaryReview .discount-line span,
-               #orderSummaryReview .final-total-line span {
+               .total-line span,
+               .discount-line span,
+               .final-total-line span {
                    min-width: 50px; /* Adjust alignment width */
                }
          }
@@ -1503,7 +1503,12 @@
                           <div class="product-info">
                              <h3>Yantra</h3>
                              <p class="product-description">Sacred geometric diagrams for meditation and energy focusing.</p>
-                             <p class="product-price">₹999 - ₹3499</p> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Yantra on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                             <p class="product-price">₹999.00</p> <button class="add-to-cart-button"
+                                     data-product-id="yantra_main"
+                                     data-product-name="Yantra"
+                                     data-product-price="999"> Add to Cart
+                             </button>
+                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Yantra on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
                          </div>
                      </div>
                       <div class="product">
@@ -1511,7 +1516,12 @@
                          <div class="product-info">
                              <h3>Sphatik Shree Yantra</h3>
                              <p class="product-description">Clear quartz Shree Yantra for purity, prosperity, and positive energy.</p>
-                             <p class="product-price">₹999 - ₹3499</p> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Sphatik%20Shree%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Sphatik Shree Yantra on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                              <p class="product-price">₹999.00</p> <button class="add-to-cart-button"
+                                     data-product-id="sphatik_yantra_main"
+                                     data-product-name="Sphatik Shree Yantra"
+                                     data-product-price="999"> Add to Cart
+                             </button>
+                             <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Sphatik%20Shree%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Sphatik Shree Yantra on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
                          </div>
                      </div>
                      </div>
