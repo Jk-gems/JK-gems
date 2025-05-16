@@ -33,19 +33,17 @@
 
         .header {
             background-color: var(--primary-color);
-            color: var(--secondary-color);
-            padding: 40px 20px;
-            text-align: center;
-            font-family: 'Playfair Display', serif;
+            padding: 30px 20px; /* Adjust padding as needed around the logo */
+            text-align: center; /* Center the logo */
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
             margin-bottom: 40px;
         }
 
-        .header h1 {
-            margin: 0;
-            font-size: 4em;
-            letter-spacing: 3px;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+        .header img {
+            max-width: 300px; /* Set a max width for the logo */
+            height: auto;
+            display: block; /* Ensure it's a block element for centering */
+            margin: 0 auto; /* Center the image */
         }
 
         .firm-info {
@@ -211,8 +209,8 @@
 
         /* Responsive Adjustments */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 3em;
+            .header img {
+                max-width: 250px; /* Adjust logo size */
             }
              .firm-info h2 {
                 font-size: 2em;
@@ -249,8 +247,8 @@
         }
 
          @media (max-width: 480px) {
-            .header h1 {
-                font-size: 2.5em;
+            .header img {
+                max-width: 200px; /* Adjust logo size */
             }
              .firm-info h2 {
                 font-size: 1.8em;
@@ -283,7 +281,7 @@
 <body>
 
     <div class="header">
-        <h1>J.K Gems</h1>
+        <img src="http://googleusercontent.com/image_generation_content/0" alt="J.K Gems Logo">
     </div>
 
     <div class="firm-info">
