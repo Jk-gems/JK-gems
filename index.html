@@ -3,49 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>J.K Gems - Exquisite Gemstones & Spiritual Items</title> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>J.K Gems - Exquisite Gemstones & Spiritual Items</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* --- Variables and Base Styles --- */
+        /* --- Modern & Elegant Variables and Base Styles --- */
         :root {
-            /* A Thoughtful Color Palette: Defined here */
-            --color-palette-1: #F7E6CA; /* Lightest: Background, Nav Link Color, Social Icon Hover */
-            --color-palette-2: #E8D59E; /* Light Accent: Secondary, Icons, Search Focus, Social Icon Color */
-            --color-palette-3: #D9BBB0; /* Medium: Border Color */
-            --color-palette-4: #AD9C8E; /* Darkest: Primary, Text, Footer Background/Text, Link Hover */
+            /* New Thoughtful Color Palette: Deep Blues, Golds, Neutrals */
+            --primary-dark: #1A3A4E; /* Deep Navy/Teal: Headings, Header/Footer Background */
+            --secondary-accent: #C5A36B; /* Muted Gold/Bronze: Links, Icons, Highlights, Button Hover */
+            --background-light: #F5F5DC; /* Light Beige/Cream: Body Background */
+            --text-color-dark: #333333; /* Dark Grey: Body Text */
+            --border-neutral: #D3D3D3; /* Light Grey: Borders, Separators */
+            --card-bg: #FFFFFF; /* White: Product Card Background */
 
-            /* Mapping to semantic variable names used in the CSS */
-            --primary-color: var(--color-palette-4);
-            --secondary-color: var(--color-palette-2);
-            --bg-color: var(--color-palette-1);
-            --text-color: var(--color-palette-4);
-            --card-bg: #ffffff; /* Keeping product cards white */
-            --border-color: var(--color-palette-3);
-            --button-whatsapp: #25D366; /* Standard WhatsApp green */
-            --button-whatsapp-hover: #1DA851;
-            --footer-text-color: var(--color-palette-1); /* Footer text color contrasting with dark footer background */
+            --whatsapp-green: #25D366; /* Standard WhatsApp green */
+            --whatsapp-green-hover: #1DA851;
 
-            --section-padding-vertical: 60px; /* Vertical padding for sections - Intentional Layout/Whitespace */
+            --footer-text-color: var(--background-light); /* Footer text color contrasting with dark footer background */
+
+            --section-padding-vertical: 80px; /* Vertical padding for sections - Intentional Layout/Whitespace */
             --section-padding-horizontal: 20px; /* Horizontal padding for sections - Intentional Layout/Whitespace */
         }
 
         body {
             font-family: 'Lato', sans-serif; /* Effective Typography: Body font */
-            font-weight: 600; /* Effective Typography: Body font weight for better visibility */
+            font-weight: 400; /* Adjusted body font weight for better contrast */
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color); /* Background color from palette */
-            color: var(--text-color); /* Main body text color from palette */
-            line-height: 1.7; /* Effective Typography: Line height for readability */
-            overflow-x: hidden;
+            background-color: var(--background-light); /* Background color from new palette */
+            color: var(--text-color-dark); /* Main body text color from new palette */
+            line-height: 1.6; /* Effective Typography: Line height for readability */
+            overflow-x: hidden; /* Prevent horizontal scroll issues */
+            scroll-behavior: smooth; /* Smooth scroll for anchors */
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Lora', serif; /* Effective Typography: Heading font */
-            color: var(--primary-color); /* Headings color from palette */
-            line-height: 1.2;
+            color: var(--primary-dark); /* Headings color from new palette */
+            line-height: 1.3;
+            margin-top: 0;
         }
 
         h2 {
@@ -62,18 +61,18 @@
         }
 
         p {
-            margin-bottom: 1em; /* Intentional Layout/Whitespace */
-            color: var(--text-color); /* Paragraph text color from palette */
+            margin-bottom: 1.2em; /* Intentional Layout/Whitespace */
+            color: var(--text-color-dark); /* Paragraph text color from new palette */
         }
 
         a {
-            color: var(--primary-color); /* Default link color from palette */
+            color: var(--primary-dark); /* Default link color from new palette */
             text-decoration: none;
             transition: color 0.3s ease; /* Attention to Detail: Smooth transition */
         }
 
         a:hover {
-            color: var(--secondary-color); /* Link hover color from palette - Attention to Detail */
+            color: var(--secondary-accent); /* Link hover color from new palette - Attention to Detail */
         }
 
         .container {
@@ -89,10 +88,15 @@
 
         /* --- Header/Navigation --- */
         .header {
-            background-color: var(--primary-color); /* Darkest color for header background - Thoughtful Color Palette */
-            padding: 20px var(--section-padding-horizontal); /* Intentional Layout/Whitespace */
+            background-color: var(--primary-dark); /* Darkest color for header background - Thoughtful Color Palette */
+            padding: 15px var(--section-padding-horizontal); /* Adjusted padding */
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Attention to Detail: Subtle shadow */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Attention to Detail: Stronger shadow */
+            position: sticky; /* Keep header visible on scroll */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Ensure header is above other content */
         }
 
         .header .container {
@@ -103,7 +107,7 @@
         }
 
         .header img {
-            max-width: 180px; /* Professional/On-Brand Design: Logo size */
+            max-width: 160px; /* Slightly smaller logo */
             height: auto;
             display: block;
             margin: 0;
@@ -118,8 +122,8 @@
             padding: 0;
             margin: 0;
             display: flex; /* User-Friendly Navigation: Flexbox for nav items */
-             flex-wrap: wrap; /* Responsiveness */
-             justify-content: center;
+            flex-wrap: wrap; /* Responsiveness */
+            justify-content: center;
         }
 
         .nav li {
@@ -127,7 +131,7 @@
         }
 
         .nav a {
-            color: var(--color-palette-1); /* Lightest color for nav links on dark header - Thoughtful Color Palette */
+            color: var(--background-light); /* Lightest color for nav links on dark header - Thoughtful Color Palette */
             font-family: 'Lato', sans-serif; /* Effective Typography */
             font-weight: 600; /* Effective Typography */
             font-size: 1.1em;
@@ -142,7 +146,7 @@
             bottom: 0;
             width: 0;
             height: 2px;
-            background-color: var(--secondary-color); /* Light accent for hover underline - Attention to Detail */
+            background-color: var(--secondary-accent); /* Gold accent for hover underline - Attention to Detail */
             transition: width 0.3s ease-in-out; /* Attention to Detail: Smooth transition */
         }
 
@@ -163,7 +167,10 @@
                  align-items: center;
              }
              .nav li {
-                 margin: 8px 0; /* Reduced margin */
+                 margin: 10px 0; /* Adjusted margin */
+             }
+             .header {
+                 padding: 15px; /* Adjusted padding */
              }
          }
 
@@ -171,143 +178,203 @@
         /* --- Hero Section --- */
         .hero {
             position: relative;
-            height: 500px; /* Adjusted hero height */
+            height: 600px; /* Increased hero height */
             /* High-Quality Visuals: Placeholder for your hero background image */
             background: url('YOUR_HERO_IMAGE_URL.jpg') no-repeat center center/cover;
-            /* Removed flex properties as content is hidden */
+            display: flex; /* Center content */
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white; /* Text color for hero content */
+            overflow: hidden; /* Ensure parallax doesn't cause scroll issues */
+            background-attachment: fixed; /* Parallax effect */
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Subtle overlay for text readability */
+            z-index: 1;
         }
 
         .hero-content {
-             /* This div is now effectively just an anchor point if needed, not a visible box */
-             display: none; /* Ensure it doesn't take up space if empty */
+            position: relative;
+            z-index: 2; /* Ensure content is above overlay */
+            max-width: 800px;
+            padding: 20px;
         }
 
+        .hero-content h1 {
+            color: #FFFFFF; /* White for hero heading */
+            font-size: 4em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
+        }
+
+        .hero-content p {
+            color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for paragraph */
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* Text shadow for readability */
+        }
+
+        .hero-cta-button {
+            display: inline-block;
+            background-color: var(--secondary-accent); /* Gold accent for CTA */
+            color: var(--primary-dark); /* Dark text on gold button */
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: 700;
+            border-radius: 30px; /* Pill shape */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-cta-button:hover {
+            background-color: #B0925B; /* Slightly darker gold on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+
         /* --- About Us & Contact Section (Consolidated) --- */
-        /* High-Quality, Relevant Content: This section's purpose is to hold your story and contact info */
-        /* Contact Information and Location: Displayed here */
         .about-contact .container {
             text-align: left;
              display: flex; /* Intentional Layout: Flexbox for content columns */
              flex-wrap: wrap; /* Responsiveness */
              align-items: flex-start;
-             gap: 30px; /* Intentional Layout/Whitespace */
+             gap: 40px; /* Adjusted gap */
+             justify-content: center; /* Center columns if they don't fill width */
         }
 
          .about-content, .contact-info {
              flex: 1; /* Intentional Layout: Allow columns to grow */
-             min-width: 280px; /* Intentional Layout: Min width before stacking - Responsiveness */
+             min-width: 300px; /* Adjusted min width before stacking */
          }
 
         .about-contact h2 {
             text-align: center;
             width: 100%;
-             margin-bottom: 30px; /* Intentional Layout/Whitespace */
+            margin-bottom: 50px; /* Adjusted margin */
         }
 
          .about-content h3, .contact-info h3 {
              text-align: left;
-             margin-bottom: 15px; /* Intentional Layout/Whitespace */
-             font-size: 1.6em; /* Visual Hierarchy */
-             color: var(--primary-color); /* Subheadings color from palette */
+             margin-bottom: 20px; /* Adjusted margin */
+             font-size: 1.7em; /* Visual Hierarchy */
+             color: var(--primary-dark); /* Subheadings color from new palette */
          }
 
-
         .about-contact p {
-            font-size: 1.1em; /* Effective Typography */
-            margin-bottom: 1em;
-            color: var(--text-color); /* Text color from palette */
+            font-size: 1.05em; /* Adjusted font size */
+            margin-bottom: 1.2em;
+            color: var(--text-color-dark); /* Text color from new palette */
         }
 
         .about-contact address {
              font-style: normal;
-             margin-top: 15px; /* Intentional Layout/Whitespace */
-             font-size: 1.1em; /* Effective Typography */
-             line-height: 1.6;
-             color: var(--text-color); /* Text color from palette */
-             margin-bottom: 15px;
+             margin-top: 15px;
+             font-size: 1.05em; /* Adjusted font size */
+             line-height: 1.7;
+             color: var(--text-color-dark); /* Text color from new palette */
+             margin-bottom: 20px; /* Adjusted margin */
          }
 
          .contact-info p {
-             margin-bottom: 10px; /* Reduced margin for contact lines */
-             color: var(--text-color); /* Text color from palette */
+             margin-bottom: 12px; /* Adjusted margin for contact lines */
+             color: var(--text-color-dark); /* Text color from new palette */
+             font-size: 1.05em;
          }
 
          .contact-info p i {
-             margin-right: 10px;
-             color: var(--secondary-color); /* Icons color from palette */
+             margin-right: 12px; /* Adjusted margin */
+             color: var(--secondary-accent); /* Icons color from new palette */
+             font-size: 1.2em; /* Slightly larger icons */
+             width: 20px; /* Fixed width for alignment */
+             text-align: center;
          }
 
 
         /* --- Products Section --- */
-        /* High-Quality, Relevant Content: This section displays your products */
         .products .container {
             display: grid; /* Intentional Layout: Grid for product listing */
             /* Visual Hierarchy, Intentional Layout: Adjusts columns responsively */
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px; /* Intentional Layout/Whitespace */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax for slightly larger cards */
+            gap: 30px; /* Adjusted gap */
         }
 
         .product {
-            border: 1px solid var(--border-color); /* Attention to Detail: Border color from palette */
-            padding: 20px; /* Intentional Layout/Whitespace */
+            border: none; /* Remove border */
+            padding: 0; /* Remove padding from card itself */
             text-align: center;
             background-color: var(--card-bg); /* Card background color */
-            border-radius: 10px; /* Attention to Detail */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Attention to Detail: Subtle shadow */
+            border-radius: 12px; /* More rounded corners */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow */
             transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Attention to Detail: Smooth animation */
             display: flex; /* Intentional Layout */
             flex-direction: column;
-            justify-content: space-between;
-            overflow: hidden;
+            overflow: hidden; /* Hide overflow from rounded corners */
         }
 
         .product:hover {
-            transform: translateY(-8px); /* Attention to Detail: Hover effect */
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Attention to Detail: Hover effect */
+            transform: translateY(-10px); /* More pronounced hover effect */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* More pronounced hover shadow */
         }
 
         .product img {
-            max-width: 100%;
-            height: 260px; /* Adjusted height - Visuals */
+            width: 100%; /* Image fills card width */
+            height: 280px; /* Adjusted height */
             object-fit: cover; /* Visuals: Ensures images cover the space */
             margin-bottom: 15px; /* Intentional Layout/Whitespace */
-            border-radius: 8px; /* Attention to Detail */
-            border: 1px solid var(--border-color); /* Attention to Detail: Image border */
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Attention to Detail: Subtle shadow */
+            border-top-left-radius: 12px; /* Apply radius to top corners */
+            border-top-right-radius: 12px;
+            border: none; /* Remove image border */
+            box-shadow: inset 0 -3px 8px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
             transition: transform 0.3s ease; /* Attention to Detail: Smooth animation */
         }
 
          .product:hover img {
-             transform: scale(1.02); /* Attention to Detail: Hover effect */
+             transform: scale(1.03); /* Slightly more zoom on hover */
          }
 
-        .product h3 {
+        .product-info {
+            padding: 0 20px 20px; /* Padding for text and button */
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-info h3 {
             margin-top: 0;
             margin-bottom: 15px; /* Intentional Layout/Whitespace */
-            font-size: 1.6em; /* Visual Hierarchy */
-            color: var(--primary-color); /* Product title color from palette */
-            flex-grow: 1;
+            font-size: 1.7em; /* Visual Hierarchy */
+            color: var(--primary-dark); /* Product title color from new palette */
+            flex-grow: 1; /* Push button to the bottom */
             font-weight: 700;
             font-family: 'Lora', serif;
         }
 
         /* Clear Calls to Action: WhatsApp button */
-        /* Attention to Detail: Button styling */
         .whatsapp-button {
             display: block;
-            width: 100%;
+            width: calc(100% - 40px); /* Button width minus padding */
+            margin: 0 auto 20px; /* Center button with bottom margin */
             padding: 12px;
-            background-color: var(--button-whatsapp); /* Standard WhatsApp green */
+            background-color: var(--whatsapp-green); /* Standard WhatsApp green */
             color: white;
             text-decoration: none;
             border-radius: 5px;
             font-size: 1.1em;
-            margin-top: auto;
-            transition: background-color 0.3s ease, transform 0.1s ease; /* Attention to Detail: Smooth animation */
             font-weight: 600;
             letter-spacing: 0.5px;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
             text-align: center;
+            transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease; /* Attention to Detail: Smooth animation */
         }
 
         .whatsapp-button i {
@@ -315,188 +382,209 @@
         }
 
         .whatsapp-button:hover {
-            background-color: var(--button-whatsapp-hover);
+            background-color: var(--whatsapp-green-hover);
             transform: translateY(-1px); /* Attention to Detail: Hover effect */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
          /* User-Friendly Navigation: Search function layout */
          .search-container {
-             margin-bottom: 40px; /* Intentional Layout/Whitespace */
+             margin-bottom: 50px; /* Adjusted margin */
              text-align: center;
          }
 
-         .search-container input::placeholder {
-             color: #777;
-         }
-
-         .search-container input::-webkit-input-placeholder {
-             color: #777;
-         }
-
-         .search-container input::-moz-placeholder {
-             color: #777;
-         }
-
-         .search-container input:-ms-input-placeholder {
-             color: #777;
-         }
-
-         .search-container input::input-placeholder {
-             color: #777;
-         }
-
-         .search-container input::selection {
-             background-color: rgba(232, 213, 158, 0.5); /* Selection highlight with Light Accent */
-         }
-
-         .search-container input::-moz-selection {
-             background-color: rgba(232, 213, 158, 0.5);
-         }
-
-
          .search-container input {
-            width: calc(100% - 40px);
-            max-width: 500px; /* Slightly reduced max width */
-            padding: 12px 20px; /* Reduced padding */
-            border: 1px solid var(--border-color); /* Border color from palette */
-            border-radius: 25px; /* Attention to Detail */
-            font-size: 1em; /* Slightly reduced font size */
+            width: calc(100% - 40px); /* Allow padding */
+            max-width: 500px;
+            padding: 12px 20px;
+            border: 1px solid var(--border-neutral); /* Border color from new palette */
+            border-radius: 25px;
+            font-size: 1em;
             box-sizing: border-box;
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            color: var(--text-color-dark); /* Input text color */
          }
+
+        .search-container input::placeholder {
+             color: #888; /* Slightly lighter placeholder text */
+         }
+
 
         .search-container input:focus {
-            border-color: var(--secondary-color); /* Focus border with Light Accent */
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 6px rgba(232, 213, 158, 0.6); /* Focus shadow with Light Accent */
+            border-color: var(--secondary-accent); /* Focus border with Gold Accent */
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1), 0 0 8px rgba(197, 163, 107, 0.6); /* Focus shadow with Gold Accent */
             outline: none;
         }
 
 
         /* --- Footer --- */
-        /* Professional and On-Brand Design, Contact Information, Integration with Tools */
         .footer {
-            background-color: var(--primary-color); /* Darkest color for footer background */
+            background-color: var(--primary-dark); /* Darkest color for footer background */
             color: var(--footer-text-color); /* Lightest color for footer text */
             text-align: center;
-            padding: 30px var(--section-padding-horizontal); /* Intentional Layout/Whitespace */
-            margin-top: 50px; /* Intentional Layout/Whitespace */
-            box-shadow: 0 -4趟8px rgba(0, 0, 0, 0.2);
+            padding: 40px var(--section-padding-horizontal); /* Adjusted padding */
+            margin-top: 60px; /* Adjusted margin */
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+            font-size: 0.9em;
         }
 
         /* Removed the copyright paragraph */
 
-
         .social-links {
-            margin-top: 0;
+            margin-top: 0; /* Adjusted margin */
+            margin-bottom: 0; /* Adjusted margin */
         }
 
         .social-links a {
             display: inline-block;
-            margin: 0 12px; /* Intentional Layout/Whitespace */
-            color: var(--secondary-color); /* Social icons color from palette */
-            font-size: 30px; /* Attention to Detail */
-            transition: color 0.3s ease, transform 0.2s ease; /* Attention to Detail: Smooth animation */
+            margin: 0 15px; /* Adjusted margin */
+            color: var(--secondary-accent); /* Social icons color from new palette */
+            font-size: 32px; /* Slightly larger icons */
+            transition: color 0.3s ease, transform 0.3s ease; /* Attention to Detail: Smooth animation */
         }
 
         .social-links a:hover {
-            color: var(--color-palette-1); /* Social icon hover color from palette */
-            transform: scale(1.08); /* Attention to Detail: Hover effect */
+            color: var(--background-light); /* Social icon hover color from new palette */
+            transform: scale(1.1); /* More pronounced hover effect */
         }
 
         /* --- Responsive Adjustments --- */
-        /* Mobile Responsiveness: Adjustments for different screen sizes */
         @media (max-width: 1024px) {
              .section h2 {
-                 font-size: 2.2em;
+                 font-size: 2.4em;
              }
              .hero {
-                 height: 450px;
+                 height: 500px;
+             }
+             .hero-content h1 {
+                 font-size: 3em;
+             }
+             .hero-content p {
+                 font-size: 1.2em;
              }
               .products .container {
-                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Adjusted minmax for more columns */
-                gap: 20px;
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Adjusted minmax */
+                gap: 25px;
             }
              .product img {
-                 height: 220px;
+                 height: 250px;
              }
-             .product h3 {
-                 font-size: 1.5em;
+             .product-info h3 {
+                 font-size: 1.6em;
              }
         }
 
         @media (max-width: 768px) {
              .section {
-                 padding: 40px 15px; /* Further reduced padding */
+                 padding: 60px 15px; /* Adjusted padding */
              }
             .section h2 {
                 font-size: 2em;
             }
              .hero {
-                 height: 300px; /* Further reduced height */
+                 height: 400px; /* Adjusted height */
+             }
+             .hero-content h1 {
+                 font-size: 2.5em;
+             }
+             .hero-content p {
+                 font-size: 1.1em;
+             }
+             .hero-cta-button {
+                 padding: 12px 25px;
+                 font-size: 1.1em;
              }
              .about-contact .container {
                  flex-direction: column;
-                 gap: 20px; /* Reduced gap */
+                 gap: 30px; /* Adjusted gap */
              }
              .about-contact h2, .about-content h3, .contact-info h3 {
                  text-align: center;
              }
+             .about-contact p, .about-contact address, .contact-info p {
+                 font-size: 1em;
+             }
               .products .container {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusted minmax for smaller screens */
-                gap: 15px;
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Adjusted minmax */
+                gap: 20px;
             }
-             .product {
-                 padding: 15px; /* Reduced padding */
-             }
              .product img {
-                 height: 180px; /* Reduced height */
+                 height: 220px; /* Adjusted height */
              }
-             .product h3 {
-                 font-size: 1.3em;
+             .product-info {
+                 padding: 0 15px 15px; /* Adjusted padding */
+             }
+             .product-info h3 {
+                 font-size: 1.5em;
              }
             .whatsapp-button {
                 font-size: 1em;
-                padding: 10px; /* Reduced padding */
+                padding: 10px;
+                width: calc(100% - 30px); /* Adjusted width calculation */
+                margin: 0 auto 15px;
             }
              .social-links a {
-                font-size: 24px; /* Reduced icon size */
-                margin: 0 10px;
+                font-size: 28px; /* Adjusted icon size */
+                margin: 0 12px;
             }
+             .footer {
+                padding: 30px 15px;
+             }
         }
 
          @media (max-width: 480px) {
               .section {
-                 padding: 25px 10px; /* Further reduced padding */
+                 padding: 40px 10px; /* Further reduced padding */
              }
              .section h2 {
-                 font-size: 1.6em;
+                 font-size: 1.8em;
              }
              .hero {
-                 height: 250px; /* Further reduced height */
+                 height: 350px; /* Further reduced height */
              }
-             .products .container {
-                grid-template-columns: 1fr;
-                gap: 10px; /* Reduced gap */
-            }
-             .product {
-                 padding: 10px; /* Reduced padding */
+             .hero-content h1 {
+                 font-size: 2em;
              }
-            .product img {
-                height: 160px; /* Reduced height */
+             .hero-content p {
+                 font-size: 0.95em;
+             }
+             .hero-cta-button {
+                 padding: 10px 20px;
+                 font-size: 1em;
+             }
+             .about-contact .container {
+                gap: 20px;
+             }
+             .about-contact p, .about-contact address, .contact-info p {
+                 font-size: 0.95em;
+             }
+              .products .container {
+                grid-template-columns: 1fr; /* Single column on very small screens */
+                gap: 15px;
             }
-             .product h3 {
-                 font-size: 1.2em;
+             .product img {
+                height: 200px; /* Reduced height */
+            }
+             .product-info {
+                 padding: 0 10px 10px; /* Reduced padding */
+             }
+             .product-info h3 {
+                 font-size: 1.4em;
              }
             .whatsapp-button {
-                font-size: 0.9em; /* Reduced font size */
-                padding: 8px; /* Reduced padding */
+                font-size: 0.9em;
+                padding: 8px;
+                width: calc(100% - 20px); /* Adjusted width calculation */
+                 margin: 0 auto 10px;
             }
              .social-links a {
-                font-size: 22px; /* Reduced icon size */
-                margin: 0 8px;
+                font-size: 26px; /* Reduced icon size */
+                margin: 0 10px;
             }
+             .footer {
+                padding: 25px 10px;
+             }
          }
 
     </style>
@@ -516,48 +604,69 @@
     </header>
 
     <section class="hero">
-        </section>
+        <div class="hero-content">
+            <h1>Exquisite Gemstones & Spiritual Treasures</h1>
+            <p>Discover the perfect blend of beauty, authenticity, and spiritual energy at J.K Gems.</p>
+            <a href="#products" class="hero-cta-button">Explore Our Collection</a>
+        </div>
+    </section>
 
     <section id="about" class="section about-contact">
         <div class="container">
-            <h2>About J.K Gems & Visit Us</h2> <div class="about-content">
-                <h3>Our Story</h3> <p>J.K Gems is a well-known and trusted firm, serving customers with exquisite gemstones and spiritual products since 1965. Founded on principles of quality, authenticity, and integrity, we have built a reputation as a cornerstone in Junagadh's Soni Bajar.</p>
+            <h2>About J.K Gems & Visit Us</h2>
+            <div class="about-content">
+                <h3>Our Story</h3>
+                <p>J.K Gems is a well-known and trusted firm, serving customers with exquisite gemstones and spiritual products since 1965. Founded on principles of quality, authenticity, and integrity, we have built a reputation as a cornerstone in Junagadh's Soni Bajar.</p>
                 <p>For generations, we have been dedicated to sourcing the finest gemstones and authentic spiritual items, offering expert guidance and personalized service to our valued customers. Our legacy is built on trust, and our commitment to providing genuine products remains unwavering.</p>
             </div>
 
             <div class="contact-info">
-                 <h3>Contact & Location</h3> <p><i class="fas fa-map-marker-alt"></i> Jk gems<br>Balakrishna market, Haveli gali<br>Soni bajar, Junagadh<br>Gujarat 362001</p>
+                 <h3>Contact & Location</h3>
+                 <p><i class="fas fa-map-marker-alt"></i> Jk gems<br>Balakrishna market, Haveli gali<br>Soni bajar, Junagadh<br>Gujarat 362001</p>
                  <p><i class="fas fa-phone"></i> +91 9723197899</p>
                  <p><i class="far fa-clock"></i> Business Hours: 10 am to 3 pm and 4 pm to 9 pm</p>
-                 <p>You can also inquire directly via WhatsApp using the buttons on our product listings.</p>
+                 <p>You can also inquire directly via WhatsApp using the buttons on our product listings below.</p>
             </div>
         </div>
     </section>
 
     <section id="products" class="section products">
         <div class="container">
-             <h2>Our Products</h2> <div class="search-container">
-                 <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search for products...">
+             <h2>Our Products</h2>
+             <div class="search-container">
+                 <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search for Gem Stones, Rudraksh, Yantra...">
              </div>
             <div class="product-grid" id="productContainer">
                 <div class="product">
                     <img src="IMG-20250516-WA0015.jpg" alt="Gem stones">
-                    <h3>Gem Stones</h3> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gem%20stones.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank"><i class="fab fa-whatsapp"></i> Inquire on WhatsApp</a>
+                    <div class="product-info">
+                        <h3>Gem Stones</h3>
+                        <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gem%20stones.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Gem Stones on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                    </div>
                 </div>
 
                 <div class="product">
                     <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh">
-                    <h3>Rudraksh</h3> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank"><i class="fab fa-whatsapp"></i> Inquire on WhatsApp</a>
+                     <div class="product-info">
+                        <h3>Rudraksh</h3>
+                        <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                    </div>
                 </div>
 
                 <div class="product">
                     <img src="IMG-20250516-WA0001.jpg" alt="Yantra">
-                    <h3>Yantra</h3> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank"><i class="fab fa-whatsapp"></i> Inquire on WhatsApp</a>
+                     <div class="product-info">
+                        <h3>Yantra</h3>
+                        <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Yantra on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                    </div>
                 </div>
 
                  <div class="product">
                      <img src="IMG-20250516-WA0016.jpg" alt="Rudraksh Bracelet">
-                     <h3>Rudraksh Bracelet</h3> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Bracelet.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank"><i class="fab fa-whatsapp"></i> Inquire on WhatsApp</a>
+                      <div class="product-info">
+                        <h3>Rudraksh Bracelet</h3>
+                        <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Bracelet.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Bracelet on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                    </div>
                  </div>
 
                 </div>
@@ -568,7 +677,9 @@
         <div class="container">
             <div class="social-links">
                 <a href="https://www.instagram.com/j_k_gems" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE_ID" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a> <a href="YOUR_YOUTUBE_CHANNEL_LINK" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a> </div>
+                <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE_ID" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="YOUR_YOUTUBE_CHANNEL_LINK" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
         </div>
     </footer>
 
@@ -600,13 +711,42 @@
                 const targetElement = document.querySelector(targetId);
 
                 if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80, // Adjust for fixed header height if needed
+                    const headerHeight = document.querySelector('.header').offsetHeight; // Get dynamic header height
+                     window.scrollTo({
+                        top: targetElement.offsetTop - headerHeight - 20, // Adjust for fixed header height + a little extra padding
                         behavior: 'smooth'
                     });
                 }
             });
         });
+
+        // Feature: Dynamically update copyright year - Removed as copyright is not needed
+        // document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Feature: Optional - Add a slight reveal animation on scroll (can be complex, keeping it simple)
+        // This basic example just fades in sections as you scroll.
+        const sections = document.querySelectorAll('.section');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, {
+            threshold: 0.1, // Trigger when 10% of the section is visible
+            rootMargin: '0px 0px -50px 0px' // Start observing slightly before it enters
+        });
+
+        sections.forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(section);
+        });
+
     </script>
 
 </body>
