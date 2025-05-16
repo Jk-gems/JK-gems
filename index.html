@@ -11,20 +11,20 @@
     <style>
         /* --- Variables and Base Styles --- */
         :root {
-            --primary-color: #0B666A; /* Deep Emerald Green */
-            --secondary-color: #B8860B; /* Darker Goldenrod (Rich Gold) */
-            --text-color: #333333; /* Dark Grey for better contrast */
-            --bg-color: #F8F5F0; /* Very Light Cream - Luxurious Background */
-            --card-bg: #ffffff; /* Pure White */
-            --border-color: #e0e0e0; /* Light Grey */
+            --primary-color: #AD9C8E; /* Muted Grey/Brown - Darkest, for main elements, text, footer */
+            --secondary-color: #E8D59E; /* Lighter Yellow/Gold - Accent color */
+            --bg-color: #F7E6CA; /* Very Light Beige/Yellow - Main Background */
+            --text-color: #AD9C8E; /* Matching Primary for body text */
+            --card-bg: #ffffff; /* Pure White - Card Background */
+            --border-color: #D9BBB0; /* Muted Pink/Beige - Border color */
             --button-whatsapp: #25D366; /* Standard WhatsApp green */
             --button-whatsapp-hover: #1DA851; /* Darker green on hover */
-            --footer-text-color: #bbb;
+            --footer-text-color: #AD9C8E; /* Using Primary color for footer text */
             --section-padding: 80px 20px; /* Consistent padding for sections */
         }
 
         body {
-            font-family: 'Lato', sans-serif; /* Body Font */
+            font-family: 'Lato', sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
@@ -34,7 +34,7 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Lora', serif; /* Heading Font */
+            font-family: 'Lora', serif;
             color: var(--primary-color);
             line-height: 1.2;
         }
@@ -54,6 +54,7 @@
 
         p {
             margin-bottom: 1em;
+            color: var(--text-color); /* Ensure paragraph text uses text-color variable */
         }
 
         a {
@@ -117,7 +118,7 @@
         }
 
         .nav a {
-            color: white;
+            color: var(--bg-color); /* Use a light color for nav links on dark header */
             font-family: 'Lato', sans-serif;
             font-weight: 600;
             font-size: 1.1em;
@@ -169,68 +170,29 @@
         }
 
         .hero-content {
+             /* Background overlay and padding kept, but content is hidden */
             text-align: center;
             max-width: 800px;
-            background-color: rgba(0, 0, 0, 0.6); /* Increased overlay opacity for better text contrast */
+            background-color: rgba(0, 0, 0, 0.6);
             padding: 40px;
             border-radius: 10px;
         }
 
         .hero h1 {
-            font-family: 'Lora', serif;
-            font-size: 3.8em;
-            margin-bottom: 15px;
-            font-weight: 700;
-            color: #ffffff; /* Solid white color for heading */
-            text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7); /* Enhanced text shadow */
-            background-image: none; /* Remove gradient */
-            -webkit-background-clip: unset; /* Remove gradient */
-            -webkit-text-fill-color: unset; /* Remove gradient */
-            background-clip: unset; /* Remove gradient */
-            text-fill-color: unset; /* Remove gradient */
+           display: none; /* Hiding the heading */
         }
 
         .hero p {
-            font-family: 'Lato', sans-serif;
-            font-size: 1.5em;
-            margin-bottom: 30px;
-            color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for paragraph */
-            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6); /* Enhanced text shadow */
-             background-image: none; /* Remove gradient */
-            -webkit-background-clip: unset; /* Remove gradient */
-            -webkit-text-fill-color: unset; /* Remove gradient */
-            background-clip: unset; /* Remove gradient */
-            text-fill-color: unset; /* Remove gradient */
+            display: none;  /* Hiding the paragraph */
         }
-
 
         .hero .button {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            padding: 15px 30px;
-            border-radius: 5px;
-            font-size: 1.2em;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .hero .button:hover {
-            background-color: #a57c0a; /* Slightly darker gold on hover */
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            display: none; /* Hiding the button */
         }
 
          @media (max-width: 768px) {
              .hero {
                  height: 400px;
-             }
-             .hero h1 {
-                 font-size: 2.8em;
-             }
-             .hero p {
-                 font-size: 1.2em;
              }
              .hero-content {
                 padding: 20px;
@@ -240,12 +202,6 @@
          @media (max-width: 480px) {
               .hero {
                  height: 350px;
-             }
-              .hero h1 {
-                 font-size: 2em;
-             }
-             .hero p {
-                 font-size: 1em;
              }
          }
 
@@ -274,6 +230,7 @@
              text-align: left;
              margin-bottom: 20px;
              font-size: 1.6em;
+             color: var(--primary-color); /* Use primary color for subheadings */
          }
 
 
@@ -293,7 +250,7 @@
 
          .contact-info p i {
              margin-right: 10px;
-             color: var(--secondary-color);
+             color: var(--secondary-color); /* Use accent color for icons */
          }
 
 
@@ -402,12 +359,13 @@
          }
 
          .search-container input::selection {
-             background-color: rgba(184, 134, 11, 0.3);
+             background-color: rgba(232, 213, 158, 0.5); /* Highlight with new secondary color */
          }
 
          .search-container input::-moz-selection {
-             background-color: rgba(184, 134, 11, 0.3);
+             background-color: rgba(232, 213, 158, 0.5);
          }
+
 
          .search-container input {
             width: calc(100% - 40px);
@@ -419,27 +377,24 @@
             box-sizing: border-box;
             box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
+         }
 
         .search-container input:focus {
             border-color: var(--secondary-color);
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 8px rgba(184, 134, 11, 0.4);
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 8px rgba(232, 213, 158, 0.6); /* Focus shadow with new secondary color */
             outline: none;
         }
 
 
         /* --- Footer --- */
         .footer {
-            background-color: var(--primary-color);
+            background-color: var(--primary-color); /* Use primary color for footer background */
             color: var(--footer-text-color);
             text-align: center;
             padding: 40px 20px;
             margin-top: 60px;
             box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
         }
-
-        /* Removed the copyright paragraph */
-
 
         .social-links {
             margin-top: 0;
@@ -448,13 +403,13 @@
         .social-links a {
             display: inline-block;
             margin: 0 15px;
-            color: var(--secondary-color);
+            color: var(--secondary-color); /* Use secondary color for social icons */
             font-size: 32px;
             transition: color 0.3s ease, transform 0.2s ease;
         }
 
         .social-links a:hover {
-            color: white;
+            color: var(--bg-color); /* Hover color from the new palette */
             transform: scale(1.1);
         }
 
@@ -465,12 +420,6 @@
              }
              .hero {
                  height: 500px;
-             }
-             .hero h1 {
-                 font-size: 3em;
-             }
-             .hero p {
-                 font-size: 1.2em;
              }
               .products .container {
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -493,12 +442,6 @@
             }
              .hero {
                  height: 400px;
-             }
-             .hero h1 {
-                 font-size: 2.5em;
-             }
-             .hero p {
-                 font-size: 1em;
              }
              .about-contact .container {
                  flex-direction: column;
@@ -535,15 +478,6 @@
              }
              .hero {
                  height: 350px;
-             }
-              .hero h1 {
-                 font-size: 2em;
-             }
-             .hero p {
-                 font-size: 0.9em;
-             }
-             .hero-content {
-                padding: 15px;
              }
              .products .container {
                 grid-template-columns: 1fr;
@@ -587,10 +521,7 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>J.K Gems: Exquisite Gemstones & Spiritual Items</h1>
-            <p>A Legacy of Trust and Authenticity Since 1965 in Junagadh.</p>
-            <a href="#products" class="button">Explore Our Collection</a>
-        </div>
+             </div>
     </section>
 
     <section id="about" class="section about-contact">
