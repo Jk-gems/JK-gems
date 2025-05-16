@@ -323,6 +323,42 @@
             gap: 30px; /* Adjusted gap */
         }
 
+         /* Category Filters Styling */
+         .category-filters {
+             margin-bottom: 30px;
+             text-align: center;
+             display: flex;
+             flex-wrap: wrap;
+             justify-content: center;
+             gap: 10px; /* Space between buttons */
+         }
+
+         .category-filters button {
+            padding: 10px 20px;
+            background-color: var(--primary-dark); /* Dark button background */
+            color: var(--background-light); /* Light button text */
+            border: 1px solid var(--primary-dark);
+            border-radius: 20px; /* Rounded buttons */
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+         }
+
+         .category-filters button:hover {
+            background-color: var(--secondary-accent); /* Gold hover background */
+            color: var(--primary-dark); /* Dark hover text */
+            border-color: var(--secondary-accent);
+         }
+
+         .category-filters button.active {
+             background-color: var(--secondary-accent); /* Active button style */
+             color: var(--primary-dark);
+             border-color: var(--secondary-accent);
+             font-weight: 700;
+         }
+
+
         .product {
             /* REFINED CARD STYLE - Amazon-like adjustments */
             border: 1px solid var(--border-neutral); /* Add a subtle border */
@@ -331,12 +367,18 @@
             background-color: var(--card-bg); /* Card background color */
             border-radius: 8px; /* Slightly less rounded corners */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer shadow */
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.5s ease, display 0.5s ease; /* Added transitions for filtering */
             display: flex;
             flex-direction: column;
             overflow: hidden;
             cursor: default; /* Change cursor */
         }
+
+        .product.hidden {
+             display: none; /* Hide products not in the selected category */
+             /* opacity: 0; - Can use opacity for fade effect, but display: none is simpler */
+         }
+
 
         .product:hover {
             transform: translateY(-4px); /* Subtle lift on hover */
@@ -417,7 +459,7 @@
 
          /* User-Friendly Navigation: Search function layout */
          .search-container {
-             margin-bottom: 50px; /* Adjusted margin */
+             margin-bottom: 20px; /* Adjusted margin to accommodate category filters */
              text-align: center;
          }
 
@@ -718,12 +760,20 @@
 
     <section id="products" class="section products">
         <div class="container">
-             <h2>Our Products</h2>
+             <h2>Our Categories</h2>
              <div class="search-container">
                  <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search for Gem Stones, Rudraksh, Yantra...">
              </div>
-            <div class="product-grid" id="productContainer">
-                <div class="product">
+
+             <div class="category-filters">
+                <button class="filter-button active" data-category="all">All Categories</button>
+                <button class="filter-button" data-category="gemstones">Gemstones</button>
+                <button class="filter-button" data-category="rudraksh">Rudraksh</button>
+                <button class="filter-button" data-category="yantra">Yantra</button>
+                <button class="filter-button" data-category="rings">Rings</button>
+             </div>
+             <div class="product-grid" id="productContainer">
+                <div class="product" data-category="gemstones">
                     <img src="IMG-20250516-WA0015.jpg" alt="Gem stones">
                     <div class="product-info">
                         <h3>Gem Stones</h3>
@@ -731,15 +781,15 @@
                     </div>
                 </div>
 
-                <div class="product">
+                <div class="product" data-category="rudraksh">
                     <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh">
                      <div class="product-info">
-                        <h3>Rudraksh</h3>
+                        <h3>Rudraksh Beads</h3>
                         <p class="product-description">Genuine Rudraksha beads for spiritual connection and well-being.</p> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
                     </div>
                 </div>
 
-                <div class="product">
+                <div class="product" data-category="yantra">
                     <img src="IMG-20250516-WA0001.jpg" alt="Yantra">
                      <div class="product-info">
                         <h3>Yantra</h3>
@@ -747,7 +797,7 @@
                     </div>
                 </div>
 
-                 <div class="product">
+                 <div class="product" data-category="rudraksh">
                      <img src="IMG-20250516-WA0016.jpg" alt="Rudraksh Bracelet">
                       <div class="product-info">
                         <h3>Rudraksh Bracelet</h3>
@@ -755,7 +805,7 @@
                     </div>
                  </div>
 
-                <div class="product">
+                <div class="product" data-category="yantra">
                     <img src="61Fg6DsA4iL._AC_UF894,1000_QL80_.jpg" alt="Sphatik Shree Yantra">
                     <div class="product-info">
                         <h3>Sphatik Shree Yantra</h3>
@@ -763,7 +813,7 @@
                     </div>
                 </div>
 
-                <div class="product">
+                <div class="product" data-category="rings">
                     <img src="IMG-20250516-WA0011.jpg" alt="Gemstone Rings">
                     <div class="product-info">
                         <h3>Gemstone Rings</h3>
@@ -796,17 +846,70 @@
             const container = document.getElementById('productContainer');
             const products = container.getElementsByClassName('product');
 
+            // Reset category filter selection when searching
+            const filterButtons = document.querySelectorAll('.category-filters button');
+            filterButtons.forEach(button => button.classList.remove('active'));
+            // Optionally activate 'All' button visually if search is active
+            // filterButtons[0].classList.add('active'); // Decide if you want 'All' active during search
+
             for (let i = 0; i < products.length; i++) {
                 const h3 = products[i].getElementsByTagName('h3')[0];
                 const description = products[i].getElementsByClassName('product-description')[0];
                 const textValue = (h3.textContent || h3.innerText) + ' ' + (description ? description.textContent || description.innerText : ''); // Include description in search
                 if (textValue.toUpperCase().indexOf(filter) > -1) {
-                    products[i].style.display = "";
+                    products[i].style.display = ""; // Show
+                    products[i].classList.remove('hidden'); // Ensure 'hidden' class is removed if display was used for filtering
                 } else {
-                    products[i].style.display = "none";
+                    products[i].style.display = "none"; // Hide
+                     products[i].classList.add('hidden'); // Add 'hidden' class
                 }
             }
         }
+
+        // Function to filter products by category
+        function filterProducts(category) {
+            const products = document.querySelectorAll('#productContainer .product');
+            const filterButtons = document.querySelectorAll('.category-filters button');
+            const searchInput = document.getElementById('searchInput');
+
+            // Clear search input when filtering
+            searchInput.value = '';
+
+            // Update active button state
+            filterButtons.forEach(button => {
+                if (button.dataset.category === category) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+
+            // Show/hide products based on category
+            products.forEach(product => {
+                const productCategory = product.dataset.category;
+                if (category === 'all' || productCategory === category) {
+                    product.style.display = ""; // Show the product
+                    product.classList.remove('hidden'); // Ensure 'hidden' class is removed
+                } else {
+                     product.style.display = "none"; // Hide the product
+                     product.classList.add('hidden'); // Add 'hidden' class
+                }
+            });
+        }
+
+        // Add event listeners to category filter buttons
+        document.querySelectorAll('.category-filters button').forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.dataset.category;
+                filterProducts(category);
+            });
+        });
+
+        // Initial filter: show all products on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            filterProducts('all');
+        });
+
 
         // Attention to Detail: Smooth scrolling for navigation links
         document.querySelectorAll('.nav a[href^="#"]').forEach(anchor => {
