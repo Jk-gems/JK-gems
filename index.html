@@ -6,15 +6,15 @@
     <title>J.K Gems - Exquisite Gemstones & Spiritual Items</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* --- Variables and Base Styles --- */
         :root {
-            --primary-color: #0a1f33; /* Very Dark Blue/Nearly Black */
-            --secondary-color: #c8a25c; /* Refined Gold/Bronze */
+            --primary-color: #0B666A; /* Deep Emerald Green */
+            --secondary-color: #B8860B; /* Darker Goldenrod (Rich Gold) */
             --text-color: #333333; /* Dark Grey for better contrast */
-            --bg-color: #f8f5f0; /* Very Light Cream - More luxurious */
+            --bg-color: #F8F5F0; /* Very Light Cream - Luxurious Background */
             --card-bg: #ffffff; /* Pure White */
             --border-color: #e0e0e0; /* Light Grey */
             --button-whatsapp: #25D366; /* Standard WhatsApp green */
@@ -24,7 +24,7 @@
         }
 
         body {
-            font-family: 'Source Sans Pro', sans-serif;
+            font-family: 'Lato', sans-serif; /* Changed Body Font */
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
@@ -34,7 +34,7 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Lora', serif; /* Changed Heading Font */
             color: var(--primary-color);
             line-height: 1.2;
         }
@@ -93,7 +93,7 @@
         }
 
         .header img {
-            max-width: 250px;
+            max-width: 200px; /* Adjusted logo size slightly */
             height: auto;
             display: block;
             margin: 0;
@@ -118,7 +118,7 @@
 
         .nav a {
             color: white;
-            font-family: 'Source Sans Pro', sans-serif;
+            font-family: 'Lato', sans-serif; /* Navigation font */
             font-weight: 600;
             font-size: 1.1em;
             padding: 5px 0;
@@ -166,34 +166,49 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            color: white; /* Default color if gradient fails */
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Slightly refined text shadow */
         }
 
         .hero-content {
             text-align: center;
             max-width: 800px;
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(0, 0, 0, 0.5); /* Slightly darker overlay for contrast */
             padding: 40px;
             border-radius: 10px;
         }
 
         .hero h1 {
-            color: white;
-            font-size: 3.5em;
-            margin-bottom: 20px;
+            font-family: 'Lora', serif;
+            font-size: 3.8em; /* Slightly larger hero heading */
+            margin-bottom: 15px; /* Reduced margin */
+            font-weight: 700;
+            /* Gold Gradient Effect */
+            background-image: linear-gradient(to bottom, var(--secondary-color), rgba(184, 134, 11, 0.6)); /* Gradient using secondary color */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 1.4em;
+            font-family: 'Lato', sans-serif;
+            font-size: 1.5em; /* Slightly larger hero text */
             margin-bottom: 30px;
             color: rgba(255, 255, 255, 0.9);
+             /* Subtle Gradient Effect */
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6)); /* Subtle white gradient */
+             -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
         }
+
 
         .hero .button {
             display: inline-block;
             background-color: var(--secondary-color);
-            color: var(--primary-color);
+            color: var(--primary-color); /* Dark text on gold button */
             padding: 15px 30px;
             border-radius: 5px;
             font-size: 1.2em;
@@ -203,7 +218,7 @@
         }
 
         .hero .button:hover {
-            background-color: #b38c4f; /* Slightly darker gold on hover */
+            background-color: #a57c0a; /* Slightly darker gold on hover */
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
@@ -213,13 +228,25 @@
                  height: 400px;
              }
              .hero h1 {
-                 font-size: 2.5em;
+                 font-size: 2.8em;
              }
              .hero p {
-                 font-size: 1.1em;
+                 font-size: 1.2em;
              }
              .hero-content {
                 padding: 20px;
+             }
+         }
+
+         @media (max-width: 480px) {
+              .hero {
+                 height: 350px;
+             }
+              .hero h1 {
+                 font-size: 2em;
+             }
+             .hero p {
+                 font-size: 1em;
              }
          }
 
@@ -229,23 +256,23 @@
             text-align: left;
              display: flex;
              flex-wrap: wrap;
-             align-items: flex-start; /* Align items to the top */
+             align-items: flex-start;
              gap: 40px;
         }
 
          .about-content, .contact-info {
-             flex: 1; /* Allow sections to grow */
-             min-width: 300px; /* Minimum width before stacking */
+             flex: 1;
+             min-width: 300px;
          }
 
         .about-contact h2 {
-            text-align: center; /* Center heading for the section */
-            width: 100%; /* Ensure heading spans full width */
+            text-align: center;
+            width: 100%;
              margin-bottom: 40px;
         }
 
          .about-content h3, .contact-info h3 {
-             text-align: left; /* Left align subheadings */
+             text-align: left;
              margin-bottom: 20px;
              font-size: 1.6em;
          }
@@ -262,7 +289,7 @@
              font-size: 1.1em;
              line-height: 1.6;
              color: var(--text-color);
-             margin-bottom: 15px; /* Space after address */
+             margin-bottom: 15px;
          }
 
          .contact-info p i {
@@ -319,7 +346,7 @@
             color: var(--primary-color);
             flex-grow: 1;
             font-weight: 700;
-            font-family: 'Playfair Display', serif; /* Keep product title font */
+            font-family: 'Lora', serif; /* Use Lora for product titles */
         }
 
         .whatsapp-button {
@@ -352,12 +379,40 @@
          /* Product Search */
          .search-container {
              margin-bottom: 50px;
-             text-align: center; /* Center search bar */
+             text-align: center;
          }
 
-         .search-container input[type="text"] {
-            width: calc(100% - 40px); /* Adjust width for padding */
-            max-width: 600px; /* Limit search bar width */
+         .search-container input::placeholder {
+             color: #777;
+         }
+
+         .search-container input::-webkit-input-placeholder {
+             color: #777;
+         }
+
+         .search-container input::-moz-placeholder {
+             color: #777;
+         }
+
+         .search-container input:-ms-input-placeholder {
+             color: #777;
+         }
+
+         .search-container input::input-placeholder {
+             color: #777;
+         }
+
+         .search-container input::selection {
+             background-color: rgba(184, 134, 11, 0.3); /* Highlight with new gold */
+         }
+
+         .search-container input::-moz-selection {
+             background-color: rgba(184, 134, 11, 0.3);
+         }
+
+         .search-container input {
+            width: calc(100% - 40px);
+            max-width: 600px;
             padding: 15px 20px;
             border: 1px solid var(--border-color);
             border-radius: 30px;
@@ -367,9 +422,9 @@
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .search-container input[type="text"]:focus {
+        .search-container input:focus {
             border-color: var(--secondary-color);
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 8px rgba(200, 162, 92, 0.4);
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 8px rgba(184, 134, 11, 0.4); /* Focus shadow with new gold */
             outline: none;
         }
 
@@ -384,13 +439,11 @@
             box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .footer p {
-            margin: 0 0 20px 0;
-            font-size: 1em;
-        }
+        /* Removed the copyright paragraph */
+
 
         .social-links {
-            margin-top: 20px;
+            margin-top: 0; /* Adjusted margin as paragraph is removed */
         }
 
         .social-links a {
@@ -453,7 +506,7 @@
                  gap: 30px;
              }
              .about-contact h2, .about-content h3, .contact-info h3 {
-                 text-align: center; /* Center all headings in this section on mobile */
+                 text-align: center;
              }
               .products .container {
                 grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -484,7 +537,7 @@
              .hero {
                  height: 350px;
              }
-             .hero h1 {
+              .hero h1 {
                  font-size: 2em;
              }
              .hero p {
@@ -494,7 +547,7 @@
                 padding: 15px;
              }
              .products .container {
-                grid-template-columns: 1fr; /* Stack products */
+                grid-template-columns: 1fr;
                 gap: 20px;
             }
              .product {
@@ -523,7 +576,7 @@
 
     <header class="header">
         <div class="container">
-            <img src="http://googleusercontent.com/image_generation_content/0" alt="J.K Gems Logo">
+            <img src="GridArt_20250516_161314475.png" alt="J.K Gems Logo">
             <nav class="nav">
                 <ul>
                     <li><a href="#about">About & Visit Us</a></li>
@@ -597,7 +650,6 @@
 
     <footer class="footer">
         <div class="container">
-            <p>All rights unreserved.</p>
             <div class="social-links">
                 <a href="https://www.instagram.com/j_k_gems" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE_ID" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a> <a href="YOUR_YOUTUBE_CHANNEL_LINK" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a> </div>
