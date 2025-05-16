@@ -6,7 +6,7 @@
     <title>J.K Gems - Exquisite Gemstones & Spiritual Items</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* --- Variables and Base Styles --- */
@@ -28,23 +28,24 @@
             --button-whatsapp-hover: #1DA851;
             --footer-text-color: var(--color-palette-1); /* Footer text color contrasting with dark footer background */
 
-            --section-padding: 60px 20px; /* Reduced consistent padding for sections */
+            --section-padding-vertical: 60px; /* Vertical padding for sections */
+            --section-padding-horizontal: 20px; /* Horizontal padding for sections */
         }
 
         body {
             font-family: 'Lato', sans-serif;
-            font-weight: 600; /* Made body font weight darker */
+            font-weight: 600; /* Explicitly set body font weight to 600 */
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-color); /* Main body text color */
             line-height: 1.7;
             overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Lora', serif;
-            color: var(--primary-color);
+            color: var(--primary-color); /* Headings color */
             line-height: 1.2;
         }
 
@@ -63,34 +64,34 @@
 
         p {
             margin-bottom: 1em;
-            color: var(--text-color);
+            color: var(--text-color); /* Paragraph text color */
         }
 
         a {
-            color: var(--primary-color);
+            color: var(--primary-color); /* Default link color */
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         a:hover {
-            color: var(--secondary-color);
+            color: var(--secondary-color); /* Link hover color */
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 var(--section-padding-horizontal); /* Use variable for horizontal padding */
         }
 
         .section {
-            padding: var(--section-padding);
+            padding: var(--section-padding-vertical) var(--section-padding-horizontal); /* Use variables for padding */
             text-align: center;
         }
 
         /* --- Header/Navigation --- */
         .header {
             background-color: var(--primary-color); /* Darkest color for header */
-            padding: 20px 20px;
+            padding: 20px var(--section-padding-horizontal); /* Use variable for horizontal padding */
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -103,7 +104,7 @@
         }
 
         .header img {
-            max-width: 200px;
+            max-width: 180px; /* Slightly reduced logo size */
             height: auto;
             display: block;
             margin: 0;
@@ -155,14 +156,14 @@
                  flex-direction: column;
              }
              .header img {
-                 margin-bottom: 20px;
+                 margin-bottom: 15px; /* Reduced margin */
              }
              .nav ul {
                  flex-direction: column;
                  align-items: center;
              }
              .nav li {
-                 margin: 10px 0;
+                 margin: 8px 0; /* Reduced margin */
              }
          }
 
@@ -170,47 +171,28 @@
         /* --- Hero Section --- */
         .hero {
             position: relative;
-            height: 600px;
+            height: 500px; /* Slightly reduced hero height */
             /* Replace with high-quality image relevant to gems/spiritual items */
             background: url('YOUR_HERO_IMAGE_URL.jpg') no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            /* Removed flex properties as content is hidden */
         }
 
         .hero-content {
-             /* Background overlay and padding kept, but content is hidden */
-            text-align: center;
-            max-width: 800px;
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 40px;
-            border-radius: 10px;
+             /* This div is now effectively just an anchor point if needed, not a visible box */
+             display: none; /* Ensure it doesn't take up space if empty */
         }
 
-        .hero h1 {
-           display: none; /* Hiding the heading */
-        }
-
-        .hero p {
-            display: none;  /* Hiding the paragraph */
-        }
-
-        .hero .button {
-            display: none; /* Hiding the button */
-        }
+        /* Removed specific styles for hero h1, p, button as they are hidden */
 
          @media (max-width: 768px) {
              .hero {
-                 height: 400px;
-             }
-             .hero-content {
-                padding: 20px;
+                 height: 350px; /* Reduced height */
              }
          }
 
          @media (max-width: 480px) {
               .hero {
-                 height: 350px;
+                 height: 300px; /* Reduced height */
              }
          }
 
@@ -221,23 +203,23 @@
              display: flex;
              flex-wrap: wrap;
              align-items: flex-start;
-             gap: 40px;
+             gap: 30px; /* Slightly reduced gap */
         }
 
          .about-content, .contact-info {
              flex: 1;
-             min-width: 300px;
+             min-width: 280px; /* Adjusted min-width */
          }
 
         .about-contact h2 {
             text-align: center;
             width: 100%;
-             margin-bottom: 40px;
+             margin-bottom: 30px; /* Reduced margin */
         }
 
          .about-content h3, .contact-info h3 {
              text-align: left;
-             margin-bottom: 20px;
+             margin-bottom: 15px; /* Reduced margin */
              font-size: 1.6em;
              color: var(--primary-color);
          }
@@ -245,16 +227,20 @@
 
         .about-contact p {
             font-size: 1.1em;
-            margin-bottom: 15px;
+            margin-bottom: 1em; /* Kept standard paragraph margin */
         }
 
         .about-contact address {
              font-style: normal;
-             margin-top: 20px;
+             margin-top: 15px; /* Reduced margin */
              font-size: 1.1em;
              line-height: 1.6;
              color: var(--text-color);
              margin-bottom: 15px;
+         }
+
+         .contact-info p {
+             margin-bottom: 10px; /* Reduced margin for contact lines */
          }
 
          .contact-info p i {
@@ -266,18 +252,18 @@
         /* --- Products Section --- */
         .products .container {
             display: grid;
-            /* Adjusted minmax to potentially fit more columns on wider screens */
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px; /* Slightly reduced gap */
+            /* Adjusted minmax to allow more columns on wider screens */
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Further adjusted minmax */
+            gap: 20px; /* Adjusted gap */
         }
 
         .product {
             border: 1px solid var(--border-color);
-            padding: 25px;
+            padding: 20px; /* Reduced padding */
             text-align: center;
             background-color: var(--card-bg);
             border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Slightly less pronounced shadow */
             transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
             display: flex;
             flex-direction: column;
@@ -286,29 +272,29 @@
         }
 
         .product:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+            transform: translateY(-8px); /* Reduced hover lift */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Adjusted hover shadow */
         }
 
         .product img {
             max-width: 100%;
-            height: 280px;
+            height: 260px; /* Adjusted height */
             object-fit: cover;
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* Reduced margin */
             border-radius: 8px;
             border: 1px solid var(--border-color);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Slightly less pronounced shadow */
             transition: transform 0.3s ease;
         }
 
          .product:hover img {
-             transform: scale(1.03);
+             transform: scale(1.02); /* Reduced zoom effect */
          }
 
         .product h3 {
             margin-top: 0;
-            margin-bottom: 20px;
-            font-size: 1.7em;
+            margin-bottom: 15px; /* Reduced margin */
+            font-size: 1.6em; /* Slightly reduced font size */
             color: var(--primary-color);
             flex-grow: 1;
             font-weight: 700;
@@ -318,17 +304,17 @@
         .whatsapp-button {
             display: block;
             width: 100%;
-            padding: 15px;
+            padding: 12px; /* Reduced padding */
             background-color: var(--button-whatsapp);
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 1.2em;
+            font-size: 1.1em; /* Slightly reduced font size */
             margin-top: auto;
             transition: background-color 0.3s ease, transform 0.1s ease;
             font-weight: 600;
             letter-spacing: 0.5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Adjusted shadow */
             text-align: center;
         }
 
@@ -338,13 +324,13 @@
 
         .whatsapp-button:hover {
             background-color: var(--button-whatsapp-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transform: translateY(-1px); /* Reduced hover lift */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adjusted hover shadow */
         }
 
          /* Product Search */
          .search-container {
-             margin-bottom: 50px;
+             margin-bottom: 40px; /* Reduced margin */
              text-align: center;
          }
 
@@ -379,11 +365,11 @@
 
          .search-container input {
             width: calc(100% - 40px);
-            max-width: 600px;
-            padding: 15px 20px;
+            max-width: 500px; /* Slightly reduced max width */
+            padding: 12px 20px; /* Reduced padding */
             border: 1px solid var(--border-color);
-            border-radius: 30px;
-            font-size: 1.1em;
+            border-radius: 25px; /* Slightly more rounded */
+            font-size: 1em; /* Slightly reduced font size */
             box-sizing: border-box;
             box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -391,7 +377,7 @@
 
         .search-container input:focus {
             border-color: var(--secondary-color);
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 8px rgba(232, 213, 158, 0.6);
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 6px rgba(232, 213, 158, 0.6); /* Adjusted shadow */
             outline: none;
         }
 
@@ -401,8 +387,8 @@
             background-color: var(--primary-color);
             color: var(--footer-text-color);
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
+            padding: 30px var(--section-padding-horizontal); /* Reduced padding */
+            margin-top: 50px; /* Reduced margin */
             box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
         }
 
@@ -412,15 +398,15 @@
 
         .social-links a {
             display: inline-block;
-            margin: 0 15px;
+            margin: 0 12px; /* Reduced margin */
             color: var(--secondary-color);
-            font-size: 32px;
+            font-size: 30px; /* Slightly reduced icon size */
             transition: color 0.3s ease, transform 0.2s ease;
         }
 
         .social-links a:hover {
             color: var(--color-palette-1);
-            transform: scale(1.1);
+            transform: scale(1.08); /* Reduced hover scale */
         }
 
         /* --- Responsive Adjustments --- */
@@ -429,14 +415,14 @@
                  font-size: 2.2em;
              }
              .hero {
-                 height: 500px;
+                 height: 450px;
              }
               .products .container {
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Adjusted minmax for slightly more columns */
-                gap: 20px; /* Reduced gap */
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Adjusted minmax for more columns */
+                gap: 20px;
             }
              .product img {
-                 height: 240px;
+                 height: 220px;
              }
              .product h3 {
                  font-size: 1.5em;
@@ -445,71 +431,74 @@
 
         @media (max-width: 768px) {
              .section {
-                 padding: 50px 20px; /* Further reduced padding */
+                 padding: 40px 15px; /* Further reduced padding */
              }
             .section h2 {
                 font-size: 2em;
             }
              .hero {
-                 height: 400px;
+                 height: 300px; /* Further reduced height */
              }
              .about-contact .container {
                  flex-direction: column;
-                 gap: 25px; /* Reduced gap */
+                 gap: 20px; /* Reduced gap */
              }
              .about-contact h2, .about-content h3, .contact-info h3 {
                  text-align: center;
              }
               .products .container {
-                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Adjusted minmax for smaller screens */
-                gap: 15px; /* Reduced gap */
-            }
-             .product img {
-                 height: 220px;
-             }
-             .product h3 {
-                 font-size: 1.4em;
-             }
-            .whatsapp-button {
-                font-size: 1.1em;
-            }
-             .social-links a {
-                font-size: 28px;
-                margin: 0 12px;
-            }
-        }
-
-         @media (max-width: 480px) {
-              .section {
-                 padding: 30px 15px; /* Further reduced padding */
-             }
-             .section h2 {
-                 font-size: 1.8em;
-             }
-             .hero {
-                 height: 350px;
-             }
-             .products .container {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjusted minmax */
                 gap: 15px;
             }
              .product {
-                 width: 100%;
                  padding: 15px; /* Reduced padding */
              }
-            .product img {
-                height: 200px;
-            }
+             .product img {
+                 height: 180px; /* Reduced height */
+             }
              .product h3 {
                  font-size: 1.3em;
              }
             .whatsapp-button {
                 font-size: 1em;
-                padding: 12px;
+                padding: 10px; /* Reduced padding */
             }
              .social-links a {
-                font-size: 26px;
+                font-size: 24px; /* Reduced icon size */
                 margin: 0 10px;
+            }
+        }
+
+         @media (max-width: 480px) {
+              .section {
+                 padding: 25px 10px; /* Further reduced padding */
+             }
+             .section h2 {
+                 font-size: 1.6em;
+             }
+             .hero {
+                 height: 250px; /* Further reduced height */
+             }
+             .products .container {
+                grid-template-columns: 1fr;
+                gap: 10px; /* Reduced gap */
+            }
+             .product {
+                 padding: 10px; /* Reduced padding */
+             }
+            .product img {
+                height: 160px; /* Reduced height */
+            }
+             .product h3 {
+                 font-size: 1.2em;
+             }
+            .whatsapp-button {
+                font-size: 0.9em; /* Reduced font size */
+                padding: 8px; /* Reduced padding */
+            }
+             .social-links a {
+                font-size: 22px; /* Reduced icon size */
+                margin: 0 8px;
             }
          }
 
@@ -530,9 +519,7 @@
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-             </div>
-    </section>
+        </section>
 
     <section id="about" class="section about-contact">
         <div class="container">
