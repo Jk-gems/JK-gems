@@ -308,77 +308,85 @@
         }
 
         .product {
-            /* REFINED CARD STYLE */
+            /* REFINED CARD STYLE - Amazon-like adjustments */
             border: 1px solid var(--border-neutral); /* Add a subtle border */
             padding: 0; /* Remove padding from card itself */
-            text-align: center;
+            text-align: left; /* Align text left like Amazon */
             background-color: var(--card-bg); /* Card background color */
-            border-radius: 12px; /* More rounded corners */
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); /* Softer shadow */
-            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, border-color 0.3s ease; /* Add border transition */
-            display: flex; /* Intentional Layout */
+            border-radius: 8px; /* Slightly less rounded corners */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
             flex-direction: column;
-            overflow: hidden; /* Hide overflow from rounded corners */
+            overflow: hidden;
+            cursor: default; /* Change cursor */
         }
 
         .product:hover {
-            transform: translateY(-8px); /* Slightly less pronounced hover effect */
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* More pronounced hover shadow */
+            transform: translateY(-4px); /* Subtle lift on hover */
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12); /* Slightly more pronounced hover shadow */
             border-color: var(--secondary-accent); /* Highlight border on hover */
         }
 
         .product img {
             width: 100%; /* Image fills card width */
-            height: 280px; /* Adjusted height */
-            object-fit: cover; /* Visuals: Ensures images cover the space */
-            margin-bottom: 0; /* Remove margin-bottom here */
-            border-top-left-radius: 11px; /* Slightly less radius than card to appear nested */
-            border-top-right-radius: 11px;
-            border-bottom: 1px solid var(--border-neutral); /* Add separation line below image */
-            box-shadow: none; /* Remove inner shadow here */
-            transition: transform 0.3s ease; /* Attention to Detail: Smooth animation */
+            height: 280px; /* Consistent height */
+            object-fit: cover; /* Ensures images cover the space */
+            margin-bottom: 0;
+            border-bottom: 1px solid var(--border-neutral);
+            transition: transform 0.3s ease;
+            cursor: zoom-in; /* Indicate image is clickable */
         }
 
          .product:hover img {
-             transform: scale(1.03); /* Slightly more zoom on hover */
+             transform: scale(1.02); /* Slightly more zoom on hover */
          }
 
         .product-info {
-            padding: 15px 20px 20px; /* Add padding inside the info area */
+            padding: 15px; /* Add padding inside the info area */
             display: flex;
             flex-direction: column;
             flex-grow: 1;
-             background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
-             position: relative;
-             z-index: 2; /* Ensure it's above any subtle effects */
+            background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white background */
+            position: relative;
+            z-index: 2;
+            text-align: left; /* Ensure text alignment */
         }
 
         .product-info h3 {
             margin-top: 0;
-            margin-bottom: 10px; /* Reduced margin */
-            font-size: 1.7em; /* Visual Hierarchy */
-            color: var(--primary-dark); /* Product title color from new palette */
-            flex-grow: 1; /* Push button to the bottom */
+            margin-bottom: 8px; /* Reduced margin */
+            font-size: 1.5em; /* Slightly smaller title */
+            color: var(--primary-dark);
             font-weight: 700;
             font-family: 'Lora', serif;
         }
 
+        .product-info p.product-description {
+            font-size: 0.95em; /* Smaller font for description */
+            color: #555; /* Lighter grey for description */
+            margin-bottom: 15px; /* Space below description */
+            flex-grow: 1; /* Allow description to take up available space */
+            line-height: 1.5; /* Adjust line height for readability */
+        }
+
+
         /* Clear Calls to Action: WhatsApp button */
         .whatsapp-button {
             display: block;
-            width: calc(100% - 40px); /* Button width minus padding */
-            margin: 15px auto 0; /* Add top margin */
+            width: calc(100% - 30px); /* Button width minus padding */
+            margin: 10px auto 0; /* Center button and add margin */
             padding: 12px;
             background-color: var(--whatsapp-green); /* Standard WhatsApp green */
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 1.1em;
+            font-size: 1em; /* Slightly smaller button text */
             font-weight: 600;
             letter-spacing: 0.5px;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
             text-align: center;
-            transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease; /* Attention to Detail: Smooth animation */
+            transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
         }
 
         .whatsapp-button i {
@@ -387,8 +395,8 @@
 
         .whatsapp-button:hover {
             background-color: var(--whatsapp-green-hover);
-            transform: translateY(-1px); /* Attention to Detail: Hover effect */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transform: translateY(-1px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
         }
 
          /* User-Friendly Navigation: Search function layout */
@@ -419,6 +427,41 @@
             border-color: var(--secondary-accent); /* Focus border with Gold Accent */
             box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1), 0 0 8px rgba(197, 163, 107, 0.6); /* Focus shadow with Gold Accent */
             outline: none;
+        }
+
+        /* --- Image Modal/Lightbox --- */
+        #imageModal {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+            z-index: 9999; /* Make sure it's on top */
+            justify-content: center; /* Use flex for centering */
+            align-items: center; /* Use flex for centering */
+        }
+
+        #imageModal span { /* Close button */
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        #imageModal span:hover {
+            color: var(--secondary-accent); /* Gold accent on hover */
+        }
+
+        #modalImage {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain; /* Ensure the whole image is visible */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add shadow to image */
         }
 
 
@@ -476,14 +519,19 @@
                  height: 250px; /* Adjusted height */
              }
              .product-info {
-                 padding: 10px 15px 15px; /* Adjusted padding */
+                 padding: 12px; /* Adjusted padding */
              }
              .product-info h3 {
-                 font-size: 1.6em;
-                  margin-bottom: 8px; /* Reduced margin */
+                 font-size: 1.4em; /* Adjusted title size */
+                  margin-bottom: 6px; /* Reduced margin */
+             }
+             .product-info p.product-description {
+                 font-size: 0.9em;
+                 margin-bottom: 12px;
              }
              .whatsapp-button {
-                 margin-top: 10px; /* Reduced margin */
+                 margin-top: 8px; /* Reduced margin */
+                 padding: 10px;
              }
         }
 
@@ -519,24 +567,28 @@
              }
               /* Products grid adapts */
               .products .container {
-                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Adjusted minmax for 2+ columns */
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjusted minmax for smaller screens */
                 gap: 20px;
             }
              .product img {
-                 height: 200px; /* Adjusted height for smaller cards */
+                 height: 180px; /* Adjusted height for smaller cards */
              }
              .product-info {
-                 padding: 10px 15px 15px; /* Adjusted padding */
+                 padding: 10px; /* Adjusted padding */
              }
              .product-info h3 {
-                 font-size: 1.5em;
-                  margin-bottom: 8px; /* Reduced margin */
+                 font-size: 1.3em; /* Adjusted title size */
+                  margin-bottom: 5px; /* Reduced margin */
+             }
+             .product-info p.product-description {
+                 font-size: 0.85em;
+                 margin-bottom: 10px;
              }
             .whatsapp-button {
-                font-size: 1em;
-                padding: 10px;
-                width: calc(100% - 30px); /* Adjusted width calculation */
-                margin: 10px auto 0; /* Adjusted margin */
+                font-size: 0.95em;
+                padding: 8px;
+                width: calc(100% - 20px); /* Adjusted width calculation */
+                 margin: 8px auto 0; /* Adjusted margin */
             }
              .social-links a {
                 font-size: 28px; /* Adjusted icon size */
@@ -579,20 +631,24 @@
                 gap: 15px; /* Reduced gap */
             }
              .product img {
-                height: 180px; /* Reduced height */
+                height: 160px; /* Reduced height */
             }
              .product-info {
-                 padding: 8px 10px 10px; /* Adjusted padding */
+                 padding: 8px; /* Adjusted padding */
              }
              .product-info h3 {
-                 font-size: 1.4em;
-                 margin-bottom: 6px; /* Reduced margin */
+                 font-size: 1.2em; /* Adjusted title size */
+                 margin-bottom: 4px; /* Reduced margin */
+             }
+             .product-info p.product-description {
+                 font-size: 0.8em;
+                 margin-bottom: 8px;
              }
             .whatsapp-button {
                 font-size: 0.9em;
-                padding: 8px;
-                width: calc(100% - 20px); /* Adjusted width calculation */
-                 margin: 8px auto 0; /* Adjusted margin */
+                padding: 6px;
+                width: calc(100% - 16px); /* Adjusted width calculation */
+                 margin: 6px auto 0; /* Adjusted margin */
             }
              .social-links a {
                 font-size: 26px; /* Reduced icon size */
@@ -602,6 +658,7 @@
                 padding: 25px 10px;
              }
          }
+
 
     </style>
 </head>
@@ -657,7 +714,7 @@
                     <img src="IMG-20250516-WA0015.jpg" alt="Gem stones">
                     <div class="product-info">
                         <h3>Gem Stones</h3>
-                        <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gem%20stones.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Gem Stones on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                        <p class="product-description">Authentic, high-quality gemstones for astrological or personal use.</p> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gem%20stones.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Gem Stones on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
                     </div>
                 </div>
 
@@ -665,7 +722,7 @@
                     <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh">
                      <div class="product-info">
                         <h3>Rudraksh</h3>
-                        <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                        <p class="product-description">Genuine Rudraksha beads for spiritual connection and well-being.</p> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
                     </div>
                 </div>
 
@@ -673,7 +730,7 @@
                     <img src="IMG-20250516-WA0001.jpg" alt="Yantra">
                      <div class="product-info">
                         <h3>Yantra</h3>
-                        <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Yantra on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                        <p class="product-description">Sacred geometric diagrams for meditation and energy focusing.</p> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Yantra on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
                     </div>
                 </div>
 
@@ -681,7 +738,7 @@
                      <img src="IMG-20250516-WA0016.jpg" alt="Rudraksh Bracelet">
                       <div class="product-info">
                         <h3>Rudraksh Bracelet</h3>
-                        <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Bracelet.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Bracelet on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                        <p class="product-description">Wear the spiritual energy with authentic Rudraksh bracelets.</p> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Bracelet.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Bracelet on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
                     </div>
                  </div>
 
@@ -689,7 +746,7 @@
                     <img src="61Fg6DsA4iL._AC_UF894,1000_QL80_.jpg" alt="Sphatik Shree Yantra">
                     <div class="product-info">
                         <h3>Sphatik Shree Yantra</h3>
-                        <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Sphatik%20Shree%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Sphatik Shree Yantra on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                        <p class="product-description">Clear quartz Shree Yantra for purity, prosperity, and positive energy.</p> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Sphatik%20Shree%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Sphatik Shree Yantra on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
                     </div>
                 </div>
 
@@ -697,7 +754,7 @@
                     <img src="IMG-20250516-WA0011.jpg" alt="Gemstone Rings">
                     <div class="product-info">
                         <h3>Gemstone Rings</h3>
-                        <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gemstone%20Rings.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Gemstone Rings on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                        <p class="product-description">Beautiful rings featuring authentic gemstones for style and astrological benefits.</p> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gemstone%20Rings.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Gemstone Rings on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
                     </div>
                 </div>
 
@@ -715,6 +772,11 @@
         </div>
     </footer>
 
+    <div id="imageModal">
+        <span class="close">&times;</span>
+        <img src="" id="modalImage" alt="Enlarged product image">
+    </div>
+
     <script>
         // User-Friendly Navigation: Simple product search functionality
         function searchProducts() {
@@ -725,7 +787,8 @@
 
             for (let i = 0; i < products.length; i++) {
                 const h3 = products[i].getElementsByTagName('h3')[0];
-                const textValue = h3.textContent || h3.innerText;
+                const description = products[i].getElementsByClassName('product-description')[0];
+                const textValue = (h3.textContent || h3.innerText) + ' ' + (description ? description.textContent || description.innerText : ''); // Include description in search
                 if (textValue.toUpperCase().indexOf(filter) > -1) {
                     products[i].style.display = "";
                 } else {
@@ -751,6 +814,46 @@
                 }
             });
         });
+
+        // Image Modal Functionality
+        // Get modal elements
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = modal.querySelector('.close'); // Use the class for the close button
+
+        // Get all product images that should open the modal
+        const productImages = document.querySelectorAll('.product img');
+
+        // Add click listener to each product image
+        productImages.forEach(img => {
+            // No need to set cursor via JS if it's in CSS
+            img.addEventListener('click', function() {
+                modal.style.display = 'flex'; // Use flex to center
+                modalImg.src = this.src; // Set modal image source
+                modalImg.alt = this.alt; // Set modal image alt text for accessibility
+            });
+        });
+
+        // Add click listener to the close button
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none'; // Hide modal
+        });
+
+        // Add click listener to the modal background to close
+        modal.addEventListener('click', function(e) {
+            // Close only if clicking directly on the modal background
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Optional: Close with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.style.display === 'flex') {
+                modal.style.display = 'none';
+            }
+        });
+
 
         // Feature: Optional - Add a slight reveal animation on scroll
         const sections = document.querySelectorAll('.section');
