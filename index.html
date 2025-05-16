@@ -1721,7 +1721,11 @@
 
         // Function to show a specific product container
         function showProductContainer(categoryId) {
-             const containerToShow = document.getElementById(categoryId + '-products-container');
+             console.log("Attempting to show product container for categoryId:", categoryId); // Debug log
+             const containerId = categoryId + '-products-container';
+             const containerToShow = document.getElementById(containerId);
+             console.log("Looking for container with ID:", containerId); // Debug log
+             console.log("Found container:", containerToShow); // Debug log: Check if it's found (should not be null)
 
              if (!containerToShow) {
                  console.error("Product container not found for category:", categoryId);
@@ -1749,6 +1753,7 @@
 
 
              containerToShow.style.display = 'block'; // Show the selected product container (use 'block' for container wrapper)
+             console.log("Set display to 'block' for container:", containerToShow); // Debug log
 
 
              // Set search to work on products within this category
@@ -2268,6 +2273,8 @@
         // Initial view: Show category grid on load
         document.addEventListener('DOMContentLoaded', () => {
             console.log("DOM Content Loaded. Initializing..."); // Debug log
+            const initialCategoryCards = document.querySelectorAll('.category-card'); // Get cards immediately
+            console.log("Found", initialCategoryCards.length, "category cards on DOMContentLoaded."); // Debug log: Check count
             showCategoryGrid(); // Make sure categories are shown initially
             updateCartUI(); // Load and display initial cart state
             // Delegation for image modal clicks is set up outside DOMContentLoaded
