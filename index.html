@@ -567,7 +567,7 @@
                 height: 200px; /* Reduced height */
             }
              .product-info {
-                 padding: 0 10px 10px; /* Reduced padding */
+                 padding: 0 10px 15px; /* Adjusted padding */
              }
              .product-info h3 {
                  font-size: 1.4em;
@@ -720,11 +720,7 @@
             });
         });
 
-        // Feature: Dynamically update copyright year - Removed as copyright is not needed
-        // document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // Feature: Optional - Add a slight reveal animation on scroll (can be complex, keeping it simple)
-        // This basic example just fades in sections as you scroll.
+        // Feature: Optional - Add a slight reveal animation on scroll
         const sections = document.querySelectorAll('.section');
 
         const observer = new IntersectionObserver(entries => {
