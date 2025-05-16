@@ -11,20 +11,20 @@
     <style>
         /* --- Variables and Base Styles --- */
         :root {
-            /* Your specified colors */
-            --color-palette-1: #F7E6CA; /* Very Light Beige/Yellow - Used for Background, Nav Link Color, Social Icon Hover */
-            --color-palette-2: #E8D59E; /* Lighter Yellow/Gold - Used for Secondary/Accent, Icons, Search Focus, Social Icon Color */
-            --color-palette-3: #D9BBB0; /* Muted Pink/Beige - Used for Border Color */
-            --color-palette-4: #AD9C8E; /* Muted Grey/Brown - Darkest, Used for Primary, Text, Footer Background/Text, Link Hover */
+            /* Your specified colors integrated into the palette */
+            --color-palette-1: #F7E6CA; /* Lightest: Background, Nav Link Color, Social Icon Hover */
+            --color-palette-2: #E8D59E; /* Light Accent: Secondary, Icons, Search Focus, Social Icon Color */
+            --color-palette-3: #D9BBB0; /* Medium: Border Color */
+            --color-palette-4: #AD9C8E; /* Darkest: Primary, Text, Footer Background/Text, Link Hover */
 
-            /* Mapping to semantic variable names */
+            /* Mapping to semantic variable names used in the CSS */
             --primary-color: var(--color-palette-4);
             --secondary-color: var(--color-palette-2);
             --bg-color: var(--color-palette-1);
             --text-color: var(--color-palette-4);
-            --card-bg: #ffffff; /* Keeping product cards white for cleanliness */
+            --card-bg: #ffffff; /* Keeping product cards white */
             --border-color: var(--color-palette-3);
-            --button-whatsapp: #25D366; /* Keeping standard WhatsApp green */
+            --button-whatsapp: #25D366; /* Standard WhatsApp green */
             --button-whatsapp-hover: #1DA851;
             --footer-text-color: var(--color-palette-1); /* Footer text color contrasting with dark footer background */
 
@@ -34,18 +34,18 @@
 
         body {
             font-family: 'Lato', sans-serif;
-            font-weight: 600; /* Explicitly set body font weight to 600 */
+            font-weight: 600; /* Body font weight set to 600 for better visibility */
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
-            color: var(--text-color); /* Main body text color */
+            color: var(--text-color); /* Main body text color from palette */
             line-height: 1.7;
             overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Lora', serif;
-            color: var(--primary-color); /* Headings color */
+            font-family: 'Lora', serif; /* Heading font */
+            color: var(--primary-color); /* Headings color from palette */
             line-height: 1.2;
         }
 
@@ -64,17 +64,17 @@
 
         p {
             margin-bottom: 1em;
-            color: var(--text-color); /* Paragraph text color */
+            color: var(--text-color); /* Paragraph text color from palette */
         }
 
         a {
-            color: var(--primary-color); /* Default link color */
+            color: var(--primary-color); /* Default link color from palette */
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         a:hover {
-            color: var(--secondary-color); /* Link hover color */
+            color: var(--secondary-color); /* Link hover color from palette */
         }
 
         .container {
@@ -90,7 +90,7 @@
 
         /* --- Header/Navigation --- */
         .header {
-            background-color: var(--primary-color); /* Darkest color for header */
+            background-color: var(--primary-color); /* Darkest color for header background */
             padding: 20px var(--section-padding-horizontal); /* Use variable for horizontal padding */
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -172,7 +172,7 @@
         .hero {
             position: relative;
             height: 500px; /* Slightly reduced hero height */
-            /* Replace with high-quality image relevant to gems/spiritual items */
+            /* Placeholder for your hero background image */
             background: url('YOUR_HERO_IMAGE_URL.jpg') no-repeat center center/cover;
             /* Removed flex properties as content is hidden */
         }
@@ -182,7 +182,8 @@
              display: none; /* Ensure it doesn't take up space if empty */
         }
 
-        /* Removed specific styles for hero h1, p, button as they are hidden */
+        /* Specific styles for hero h1, p, button removed as they are hidden */
+
 
          @media (max-width: 768px) {
              .hero {
@@ -208,7 +209,7 @@
 
          .about-content, .contact-info {
              flex: 1;
-             min-width: 280px; /* Adjusted min-width */
+             min-width: 280px; /* Adjusted min-width for layout */
          }
 
         .about-contact h2 {
@@ -221,13 +222,14 @@
              text-align: left;
              margin-bottom: 15px; /* Reduced margin */
              font-size: 1.6em;
-             color: var(--primary-color);
+             color: var(--primary-color); /* Subheadings color from palette */
          }
 
 
         .about-contact p {
             font-size: 1.1em;
             margin-bottom: 1em; /* Kept standard paragraph margin */
+            color: var(--text-color); /* Text color from palette */
         }
 
         .about-contact address {
@@ -235,35 +237,36 @@
              margin-top: 15px; /* Reduced margin */
              font-size: 1.1em;
              line-height: 1.6;
-             color: var(--text-color);
+             color: var(--text-color); /* Text color from palette */
              margin-bottom: 15px;
          }
 
          .contact-info p {
              margin-bottom: 10px; /* Reduced margin for contact lines */
+             color: var(--text-color); /* Text color from palette */
          }
 
          .contact-info p i {
              margin-right: 10px;
-             color: var(--secondary-color);
+             color: var(--secondary-color); /* Icons color from palette */
          }
 
 
         /* --- Products Section --- */
         .products .container {
             display: grid;
-            /* Adjusted minmax to allow more columns on wider screens */
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Further adjusted minmax */
+            /* Adjusted minmax to allow more columns (3-4) on wider screens responsively */
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px; /* Adjusted gap */
         }
 
         .product {
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border-color); /* Border color from palette */
             padding: 20px; /* Reduced padding */
             text-align: center;
-            background-color: var(--card-bg);
+            background-color: var(--card-bg); /* Card background color */
             border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Slightly less pronounced shadow */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Adjusted shadow */
             transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
             display: flex;
             flex-direction: column;
@@ -282,8 +285,8 @@
             object-fit: cover;
             margin-bottom: 15px; /* Reduced margin */
             border-radius: 8px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Slightly less pronounced shadow */
+            border: 1px solid var(--border-color); /* Image border color from palette */
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Adjusted shadow */
             transition: transform 0.3s ease;
         }
 
@@ -295,7 +298,7 @@
             margin-top: 0;
             margin-bottom: 15px; /* Reduced margin */
             font-size: 1.6em; /* Slightly reduced font size */
-            color: var(--primary-color);
+            color: var(--primary-color); /* Product title color from palette */
             flex-grow: 1;
             font-weight: 700;
             font-family: 'Lora', serif;
@@ -305,7 +308,7 @@
             display: block;
             width: 100%;
             padding: 12px; /* Reduced padding */
-            background-color: var(--button-whatsapp);
+            background-color: var(--button-whatsapp); /* Standard WhatsApp green */
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -355,7 +358,7 @@
          }
 
          .search-container input::selection {
-             background-color: rgba(232, 213, 158, 0.5);
+             background-color: rgba(232, 213, 158, 0.5); /* Selection highlight with Light Accent */
          }
 
          .search-container input::-moz-selection {
@@ -367,7 +370,7 @@
             width: calc(100% - 40px);
             max-width: 500px; /* Slightly reduced max width */
             padding: 12px 20px; /* Reduced padding */
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border-color); /* Border color from palette */
             border-radius: 25px; /* Slightly more rounded */
             font-size: 1em; /* Slightly reduced font size */
             box-sizing: border-box;
@@ -376,21 +379,24 @@
          }
 
         .search-container input:focus {
-            border-color: var(--secondary-color);
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 6px rgba(232, 213, 158, 0.6); /* Adjusted shadow */
+            border-color: var(--secondary-color); /* Focus border with Light Accent */
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 6px rgba(232, 213, 158, 0.6); /* Focus shadow with Light Accent */
             outline: none;
         }
 
 
         /* --- Footer --- */
         .footer {
-            background-color: var(--primary-color);
-            color: var(--footer-text-color);
+            background-color: var(--primary-color); /* Darkest color for footer background */
+            color: var(--footer-text-color); /* Lightest color for footer text */
             text-align: center;
             padding: 30px var(--section-padding-horizontal); /* Reduced padding */
             margin-top: 50px; /* Reduced margin */
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 -4趟8px rgba(0, 0, 0, 0.2);
         }
+
+        /* Removed the copyright paragraph */
+
 
         .social-links {
             margin-top: 0;
@@ -399,13 +405,13 @@
         .social-links a {
             display: inline-block;
             margin: 0 12px; /* Reduced margin */
-            color: var(--secondary-color);
+            color: var(--secondary-color); /* Light Accent for social icons */
             font-size: 30px; /* Slightly reduced icon size */
             transition: color 0.3s ease, transform 0.2s ease;
         }
 
         .social-links a:hover {
-            color: var(--color-palette-1);
+            color: var(--color-palette-1); /* Lightest color for social icon hover */
             transform: scale(1.08); /* Reduced hover scale */
         }
 
@@ -447,7 +453,7 @@
                  text-align: center;
              }
               .products .container {
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjusted minmax */
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusted minmax for smaller screens */
                 gap: 15px;
             }
              .product {
