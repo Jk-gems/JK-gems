@@ -10,13 +10,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #2c3e50; /* Deep Blue/Grey */
-            --secondary-color: #3498db; /* Muted Blue */
-            --accent-color: #f1c40f; /* Gold/Amber */
+            --primary-color: #004080; /* Deep Navy Blue */
+            --secondary-color: #f0a830; /* Muted Gold */
+            --accent-color: #c0392b; /* Terracotta/Deep Red */
             --text-color: #333;
-            --bg-color: #ecf0f1; /* Light Grey */
+            --bg-color: #f4f6f8; /* Light off-white */
             --card-bg: #ffffff;
-            --border-color: #bdc3c7; /* Lighter Grey */
+            --border-color: #ddd;
+            --button-whatsapp: #25D366;
+            --button-whatsapp-hover: #1DA851;
         }
 
         body {
@@ -25,6 +27,7 @@
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
+            line-height: 1.6;
         }
         .header {
             background-color: var(--primary-color);
@@ -32,11 +35,29 @@
             padding: 20px 0;
             text-align: center;
             font-family: 'Playfair Display', serif;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 2.8em;
+            letter-spacing: 1px;
         }
+         .search-container {
+            text-align: center;
+            margin: 20px auto;
+            padding: 0 20px;
+            max-width: 600px;
+        }
+
+        .search-container input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box; /* Include padding in element's total width */
+        }
+
         .container {
             max-width: 1200px;
             margin: 40px auto;
@@ -53,6 +74,8 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
          .product:hover {
             transform: translateY(-10px);
@@ -64,27 +87,29 @@
             object-fit: cover; /* Cover the area without distorting aspect ratio */
             margin-bottom: 15px;
             border-radius: 4px;
+            border: 1px solid var(--border-color);
         }
         .product h3 {
             margin-top: 0;
             margin-bottom: 15px;
-            font-size: 1.3em;
+            font-size: 1.4em;
             color: var(--primary-color);
+            flex-grow: 1; /* Allows title to take available space */
         }
         .whatsapp-button {
             display: block;
             width: 100%;
             padding: 12px;
-            background-color: #25D366; /* WhatsApp Green */
+            background-color: var(--button-whatsapp);
             color: white;
             text-decoration: none;
             border-radius: 5px;
             font-size: 1.1em;
-            margin-top: 15px;
+            margin-top: auto; /* Pushes the button to the bottom */
             transition: background-color 0.3s ease;
         }
         .whatsapp-button:hover {
-            background-color: #1DA851; /* Darker Green */
+            background-color: var(--button-whatsapp-hover);
         }
         .footer {
             background-color: var(--primary-color);
@@ -92,29 +117,23 @@
             text-align: center;
             padding: 20px 0;
             margin-top: 40px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .footer p {
+            margin: 0 0 15px 0;
         }
         .social-links {
             margin-top: 15px;
         }
         .social-links a {
             display: inline-block;
-            margin: 0 10px;
+            margin: 0 15px;
             color: white;
-            font-size: 24px;
+            font-size: 28px;
             transition: color 0.3s ease;
         }
         .social-links a:hover {
-            color: var(--accent-color);
-        }
-         /* Placeholder Image Styling for better visual */
-        .product img[src^="placeholder_"] {
-            background-color: #ccc; /* Light grey background */
-            color: #666; /* Darker grey text */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1em;
-            text-align: center;
+            color: var(--secondary-color);
         }
     </style>
 </head>
@@ -124,41 +143,64 @@
         <h1>J.K Gems</h1>
     </div>
 
-    <div class="container">
+     <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search for products...">
+    </div>
+
+    <div class="container" id="productContainer">
         <div class="product">
-            <img src="placeholder_gem_stones.jpg" alt="Gem stones">
+            <img src="IMG-20250516-WA0015.jpg" alt="Gem stones">
             <h3>Gem stones</h3>
             <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gem%20stones.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank">Inquire on WhatsApp</a>
         </div>
 
         <div class="product">
-            <img src="placeholder_rudraksh.jpg" alt="Rudraksh">
+            <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh">
             <h3>Rudraksh</h3>
              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank">Inquire on WhatsApp</a>
         </div>
 
         <div class="product">
-            <img src="placeholder_yantra.jpg" alt="Yantra">
+            <img src="IMG-20250516-WA0001.jpg" alt="Yantra">
             <h3>Yantra</h3>
              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank">Inquire on WhatsApp</a>
         </div>
 
         <div class="product">
-            <img src="placeholder_gemstone_bracelet.jpg" alt="Gemstone Bracelet">
-            <h3>Gemstone Bracelet</h3>
-             <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gemstone%20Bracelet.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank">Inquire on WhatsApp</a>
+            <img src="IMG-20250516-WA0016.jpg" alt="Rudraksh Bracelet">
+            <h3>Rudraksh Bracelet</h3>
+             <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Bracelet.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank">Inquire on WhatsApp</a>
         </div>
 
         </div>
 
     <div class="footer">
-        <p> J.K Gems.</p>
+        <p>© J.K Gems. All rights unreserved.</p>
         <div class="social-links">
             <a href="https://www.instagram.com/j_k_gems" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://www.facebook.com/%E0%A4%9C%E0%A5%87-%E0%A4%95%E0%A5%87-%E0%A4%9C%E0%A5%87%E0%A4%AE%E0%A5%8D%E0%A4%B8-Jk-gems-YOUR_FACEBOOK_PAGE_ID" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
              <a href="YOUR_YOUTUBE_CHANNEL_LINK" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
     </div>
+
+    <script>
+        function searchProducts() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toUpperCase();
+            const container = document.getElementById('productContainer');
+            const products = container.getElementsByClassName('product');
+
+            for (let i = 0; i < products.length; i++) {
+                const h3 = products[i].getElementsByTagName('h3')[0];
+                const textValue = h3.textContent || h3.innerText;
+                if (textValue.toUpperCase().indexOf(filter) > -1) {
+                    products[i].style.display = "";
+                } else {
+                    products[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>
