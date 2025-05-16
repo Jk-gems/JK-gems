@@ -3,93 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>J.K Gems</title>
+    <title>J.K Gems - Exquisite Gemstones & Spiritual Items</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #1a2e3e; /* Deep Charcoal Blue */
-            --secondary-color: #a1885d; /* Muted Gold/Bronze */
-            --text-color: #333;
-            --bg-color: #f8f8f8; /* Light Neutral Background */
-            --card-bg: #ffffff;
-            --border-color: #e0e0e0; /* Light Grey Border */
+            --primary-color: #0a1f33; /* Very Dark Blue/Nearly Black */
+            --secondary-color: #c8a25c; /* Refined Gold/Bronze */
+            --text-color: #555; /* Soft Dark Grey */
+            --bg-color: #f0f2f5; /* Very Light Grey Blue */
+            --card-bg: #ffffff; /* Pure White */
+            --border-color: #e0e0e0; /* Light Grey */
             --button-whatsapp: #25D366;
             --button-whatsapp-hover: #1DA851;
+            --footer-text-color: #bbb;
         }
 
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Source Sans Pro', sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll from animations */
         }
 
         .header {
             background-color: var(--primary-color);
-            color: white;
-            padding: 30px 0;
+            color: var(--secondary-color);
+            padding: 40px 20px;
             text-align: center;
-            font-family: 'Cinzel Decorative', serif;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+            margin-bottom: 40px;
         }
 
         .header h1 {
             margin: 0;
-            font-size: 3.5em;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 4em;
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
         }
 
         .firm-info {
             text-align: center;
-            margin: 30px auto;
+            margin: 30px auto 50px auto;
             padding: 0 20px;
-            max-width: 800px;
+            max-width: 900px;
+            color: var(--text-color);
         }
 
         .firm-info h2 {
             color: var(--primary-color);
-            font-family: 'Cinzel Decorative', serif;
+            font-family: 'Playfair Display', serif;
             margin-top: 0;
             margin-bottom: 15px;
-            font-size: 2em;
+            font-size: 2.5em;
+            font-weight: 700;
         }
 
         .firm-info p {
             margin-bottom: 15px;
-            font-size: 1.1em;
-            color: var(--text-color);
+            font-size: 1.2em;
+            line-height: 1.8;
         }
 
         .firm-info address {
             font-style: normal;
-            margin-top: 15px;
-            font-size: 1em;
+            margin-top: 20px;
+            font-size: 1.1em;
+            line-height: 1.6;
             color: var(--text-color);
         }
 
-
         .search-container {
             text-align: center;
-            margin: 20px auto 40px auto;
+            margin: 20px auto 50px auto;
             padding: 0 20px;
-            max-width: 600px;
+            max-width: 700px;
         }
 
         .search-container input[type="text"] {
             width: 100%;
-            padding: 14px;
+            padding: 15px 20px;
             border: 1px solid var(--border-color);
-            border-radius: 5px;
+            border-radius: 30px; /* Pill shape */
             font-size: 1.1em;
             box-sizing: border-box;
-            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .search-container input[type="text"]:focus {
+            border-color: var(--secondary-color);
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 8px rgba(200, 162, 92, 0.4);
+            outline: none;
         }
 
         .container {
@@ -97,7 +108,7 @@
             margin: 0 auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Slightly larger min-width */
             gap: 30px;
         }
 
@@ -106,42 +117,49 @@
             padding: 25px;
             text-align: center;
             background-color: var(--card-bg);
-            border-radius: 8px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            overflow: hidden; /* Ensures shadow and transform work correctly */
         }
 
         .product:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+            transform: translateY(-12px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
         }
 
         .product img {
             max-width: 100%;
-            height: 220px; /* Slightly increased height */
+            height: 250px; /* Increased height */
             object-fit: cover;
-            margin-bottom: 15px;
-            border-radius: 4px;
+            margin-bottom: 20px;
+            border-radius: 8px;
             border: 1px solid var(--border-color);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
+
+         .product:hover img {
+             transform: scale(1.03); /* Slight zoom effect on image hover */
+         }
 
         .product h3 {
             margin-top: 0;
-            margin-bottom: 15px;
-            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-size: 1.6em; /* Slightly larger font */
             color: var(--primary-color);
             flex-grow: 1;
             font-weight: 700;
+            font-family: 'Playfair Display', serif;
         }
 
         .whatsapp-button {
             display: block;
             width: 100%;
-            padding: 14px;
+            padding: 15px;
             background-color: var(--button-whatsapp);
             color: white;
             text-decoration: none;
@@ -150,19 +168,22 @@
             margin-top: auto;
             transition: background-color 0.3s ease, transform 0.1s ease;
             font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Button shadow */
         }
 
         .whatsapp-button:hover {
             background-color: var(--button-whatsapp-hover);
             transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
         .footer {
             background-color: var(--primary-color);
-            color: white;
+            color: var(--footer-text-color);
             text-align: center;
-            padding: 30px 0;
-            margin-top: 50px;
+            padding: 40px 20px;
+            margin-top: 60px;
             box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
         }
 
@@ -178,29 +199,30 @@
         .social-links a {
             display: inline-block;
             margin: 0 15px;
-            color: white;
-            font-size: 30px; /* Slightly larger icons */
-            transition: color 0.3s ease;
+            color: var(--secondary-color); /* Social icon color */
+            font-size: 32px; /* Larger icons */
+            transition: color 0.3s ease, transform 0.2s ease;
         }
 
         .social-links a:hover {
-            color: var(--secondary-color);
+            color: white; /* Hover color */
+            transform: scale(1.1);
         }
 
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             .header h1 {
-                font-size: 2.5em;
+                font-size: 3em;
             }
              .firm-info h2 {
-                font-size: 1.8em;
+                font-size: 2em;
             }
-            .firm-info p {
+            .firm-info p, .firm-info address {
                 font-size: 1em;
             }
             .container {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 20px;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
             }
 
             .product {
@@ -208,50 +230,52 @@
             }
 
             .product img {
-                height: 180px;
+                height: 200px;
             }
 
             .product h3 {
-                font-size: 1.3em;
+                font-size: 1.4em;
             }
 
             .whatsapp-button {
-                padding: 12px;
+                padding: 14px;
                 font-size: 1.1em;
             }
 
             .social-links a {
-                font-size: 26px;
-                margin: 0 10px;
+                font-size: 28px;
+                margin: 0 12px;
             }
         }
 
          @media (max-width: 480px) {
             .header h1 {
-                font-size: 2em;
+                font-size: 2.5em;
             }
              .firm-info h2 {
-                font-size: 1.5em;
+                font-size: 1.8em;
             }
-             .firm-info p {
-                font-size: 0.9em;
-            }
-             .firm-info address {
-                font-size: 0.9em;
+             .firm-info p, .firm-info address {
+                font-size: 0.95em;
             }
              .container {
                 grid-template-columns: 1fr; /* Stack products on very small screens */
+                gap: 20px;
             }
              .product {
-                 width: 90%;
-                 margin: 0 auto 20px auto; /* Center products when stacked */
+                 width: 95%;
+                 margin: 0 auto; /* Center products when stacked */
              }
             .product img {
-                height: 200px; /* Adjust height for stacked view */
+                height: 220px; /* Adjust height for stacked view */
+            }
+             .whatsapp-button {
+                font-size: 1.1em;
+                padding: 12px;
             }
              .social-links a {
-                font-size: 24px;
-                margin: 0 8px;
+                font-size: 26px;
+                margin: 0 10px;
             }
         }
     </style>
@@ -264,7 +288,7 @@
 
     <div class="firm-info">
         <h2>A Legacy of Trust Since 1965</h2>
-        <p>J.K Gems is a well-known and trusted firm, serving customers with quality gemstones and related products since 1965.</p>
+        <p>J.K Gems is a well-known and trusted firm, serving customers with exquisite gemstones and spiritual products since 1965. Our commitment to quality and authenticity has made us a cornerstone in Junagadh's Soni Bajar.</p>
         <p>Visit us at:</p>
         <address>
             Jk gems<br>
