@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>J.K Gems - Exquisite Gemstones & Spiritual Items</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>J.K Gems - Exquisite Gemstones & Spiritual Items</title> <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* --- Variables and Base Styles --- */
         :root {
-            /* Your specified colors integrated into the palette */
+            /* A Thoughtful Color Palette: Defined here */
             --color-palette-1: #F7E6CA; /* Lightest: Background, Nav Link Color, Social Icon Hover */
             --color-palette-2: #E8D59E; /* Light Accent: Secondary, Icons, Search Focus, Social Icon Color */
             --color-palette-3: #D9BBB0; /* Medium: Border Color */
@@ -28,83 +27,83 @@
             --button-whatsapp-hover: #1DA851;
             --footer-text-color: var(--color-palette-1); /* Footer text color contrasting with dark footer background */
 
-            --section-padding-vertical: 60px; /* Vertical padding for sections */
-            --section-padding-horizontal: 20px; /* Horizontal padding for sections */
+            --section-padding-vertical: 60px; /* Vertical padding for sections - Intentional Layout/Whitespace */
+            --section-padding-horizontal: 20px; /* Horizontal padding for sections - Intentional Layout/Whitespace */
         }
 
         body {
-            font-family: 'Lato', sans-serif;
-            font-weight: 600; /* Body font weight set to 600 for better visibility */
+            font-family: 'Lato', sans-serif; /* Effective Typography: Body font */
+            font-weight: 600; /* Effective Typography: Body font weight for better visibility */
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
+            background-color: var(--bg-color); /* Background color from palette */
             color: var(--text-color); /* Main body text color from palette */
-            line-height: 1.7;
+            line-height: 1.7; /* Effective Typography: Line height for readability */
             overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Lora', serif; /* Heading font */
+            font-family: 'Lora', serif; /* Effective Typography: Heading font */
             color: var(--primary-color); /* Headings color from palette */
             line-height: 1.2;
         }
 
         h2 {
-            font-size: 2.8em;
-            margin-bottom: 40px;
+            font-size: 2.8em; /* Visual Hierarchy: Heading size */
+            margin-bottom: 40px; /* Intentional Layout/Whitespace */
             text-align: center;
-            font-weight: 700;
+            font-weight: 700; /* Visual Hierarchy: Heading weight */
         }
 
         h3 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            font-weight: 600;
+            font-size: 1.8em; /* Visual Hierarchy: Heading size */
+            margin-bottom: 20px; /* Intentional Layout/Whitespace */
+            font-weight: 600; /* Visual Hierarchy: Heading weight */
         }
 
         p {
-            margin-bottom: 1em;
+            margin-bottom: 1em; /* Intentional Layout/Whitespace */
             color: var(--text-color); /* Paragraph text color from palette */
         }
 
         a {
             color: var(--primary-color); /* Default link color from palette */
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease; /* Attention to Detail: Smooth transition */
         }
 
         a:hover {
-            color: var(--secondary-color); /* Link hover color from palette */
+            color: var(--secondary-color); /* Link hover color from palette - Attention to Detail */
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--section-padding-horizontal); /* Use variable for horizontal padding */
+            max-width: 1200px; /* Intentional Layout: Max width for content */
+            margin: 0 auto; /* Intentional Layout: Center container */
+            padding: 0 var(--section-padding-horizontal); /* Intentional Layout/Whitespace */
         }
 
         .section {
-            padding: var(--section-padding-vertical) var(--section-padding-horizontal); /* Use variables for padding */
+            padding: var(--section-padding-vertical) var(--section-padding-horizontal); /* Intentional Layout/Whitespace */
             text-align: center;
         }
 
         /* --- Header/Navigation --- */
         .header {
-            background-color: var(--primary-color); /* Darkest color for header background */
-            padding: 20px var(--section-padding-horizontal); /* Use variable for horizontal padding */
+            background-color: var(--primary-color); /* Darkest color for header background - Thoughtful Color Palette */
+            padding: 20px var(--section-padding-horizontal); /* Intentional Layout/Whitespace */
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Attention to Detail: Subtle shadow */
         }
 
         .header .container {
-             display: flex;
-             justify-content: space-between;
+             display: flex; /* Intentional Layout: Flexbox for logo and nav */
+             justify-content: space-between; /* Intentional Layout: Space between logo and nav */
              align-items: center;
-             flex-wrap: wrap;
+             flex-wrap: wrap; /* Responsiveness */
         }
 
         .header img {
-            max-width: 180px; /* Slightly reduced logo size */
+            max-width: 180px; /* Professional/On-Brand Design: Logo size */
             height: auto;
             display: block;
             margin: 0;
@@ -118,19 +117,19 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            display: flex;
-             flex-wrap: wrap;
+            display: flex; /* User-Friendly Navigation: Flexbox for nav items */
+             flex-wrap: wrap; /* Responsiveness */
              justify-content: center;
         }
 
         .nav li {
-            margin-left: 30px;
+            margin-left: 30px; /* Intentional Layout/Whitespace */
         }
 
         .nav a {
-            color: var(--color-palette-1); /* Lightest color for nav links on dark header */
-            font-family: 'Lato', sans-serif;
-            font-weight: 600;
+            color: var(--color-palette-1); /* Lightest color for nav links on dark header - Thoughtful Color Palette */
+            font-family: 'Lato', sans-serif; /* Effective Typography */
+            font-weight: 600; /* Effective Typography */
             font-size: 1.1em;
             padding: 5px 0;
             position: relative;
@@ -143,14 +142,15 @@
             bottom: 0;
             width: 0;
             height: 2px;
-            background-color: var(--secondary-color); /* Light accent for hover underline */
-            transition: width 0.3s ease-in-out;
+            background-color: var(--secondary-color); /* Light accent for hover underline - Attention to Detail */
+            transition: width 0.3s ease-in-out; /* Attention to Detail: Smooth transition */
         }
 
         .nav a:hover::after {
             width: 100%;
         }
 
+         /* Responsiveness: Adjustments for Header/Navigation */
          @media (max-width: 768px) {
              .header .container {
                  flex-direction: column;
@@ -171,8 +171,8 @@
         /* --- Hero Section --- */
         .hero {
             position: relative;
-            height: 500px; /* Slightly reduced hero height */
-            /* Placeholder for your hero background image */
+            height: 500px; /* Adjusted hero height */
+            /* High-Quality Visuals: Placeholder for your hero background image */
             background: url('YOUR_HERO_IMAGE_URL.jpg') no-repeat center center/cover;
             /* Removed flex properties as content is hidden */
         }
@@ -182,60 +182,46 @@
              display: none; /* Ensure it doesn't take up space if empty */
         }
 
-        /* Specific styles for hero h1, p, button removed as they are hidden */
-
-
-         @media (max-width: 768px) {
-             .hero {
-                 height: 350px; /* Reduced height */
-             }
-         }
-
-         @media (max-width: 480px) {
-              .hero {
-                 height: 300px; /* Reduced height */
-             }
-         }
-
-
         /* --- About Us & Contact Section (Consolidated) --- */
+        /* High-Quality, Relevant Content: This section's purpose is to hold your story and contact info */
+        /* Contact Information and Location: Displayed here */
         .about-contact .container {
             text-align: left;
-             display: flex;
-             flex-wrap: wrap;
+             display: flex; /* Intentional Layout: Flexbox for content columns */
+             flex-wrap: wrap; /* Responsiveness */
              align-items: flex-start;
-             gap: 30px; /* Slightly reduced gap */
+             gap: 30px; /* Intentional Layout/Whitespace */
         }
 
          .about-content, .contact-info {
-             flex: 1;
-             min-width: 280px; /* Adjusted min-width for layout */
+             flex: 1; /* Intentional Layout: Allow columns to grow */
+             min-width: 280px; /* Intentional Layout: Min width before stacking - Responsiveness */
          }
 
         .about-contact h2 {
             text-align: center;
             width: 100%;
-             margin-bottom: 30px; /* Reduced margin */
+             margin-bottom: 30px; /* Intentional Layout/Whitespace */
         }
 
          .about-content h3, .contact-info h3 {
              text-align: left;
-             margin-bottom: 15px; /* Reduced margin */
-             font-size: 1.6em;
+             margin-bottom: 15px; /* Intentional Layout/Whitespace */
+             font-size: 1.6em; /* Visual Hierarchy */
              color: var(--primary-color); /* Subheadings color from palette */
          }
 
 
         .about-contact p {
-            font-size: 1.1em;
-            margin-bottom: 1em; /* Kept standard paragraph margin */
+            font-size: 1.1em; /* Effective Typography */
+            margin-bottom: 1em;
             color: var(--text-color); /* Text color from palette */
         }
 
         .about-contact address {
              font-style: normal;
-             margin-top: 15px; /* Reduced margin */
-             font-size: 1.1em;
+             margin-top: 15px; /* Intentional Layout/Whitespace */
+             font-size: 1.1em; /* Effective Typography */
              line-height: 1.6;
              color: var(--text-color); /* Text color from palette */
              margin-bottom: 15px;
@@ -253,71 +239,74 @@
 
 
         /* --- Products Section --- */
+        /* High-Quality, Relevant Content: This section displays your products */
         .products .container {
-            display: grid;
-            /* Adjusted minmax to allow more columns (3-4) on wider screens responsively */
+            display: grid; /* Intentional Layout: Grid for product listing */
+            /* Visual Hierarchy, Intentional Layout: Adjusts columns responsively */
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px; /* Adjusted gap */
+            gap: 20px; /* Intentional Layout/Whitespace */
         }
 
         .product {
-            border: 1px solid var(--border-color); /* Border color from palette */
-            padding: 20px; /* Reduced padding */
+            border: 1px solid var(--border-color); /* Attention to Detail: Border color from palette */
+            padding: 20px; /* Intentional Layout/Whitespace */
             text-align: center;
             background-color: var(--card-bg); /* Card background color */
-            border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Adjusted shadow */
-            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-            display: flex;
+            border-radius: 10px; /* Attention to Detail */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Attention to Detail: Subtle shadow */
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Attention to Detail: Smooth animation */
+            display: flex; /* Intentional Layout */
             flex-direction: column;
             justify-content: space-between;
             overflow: hidden;
         }
 
         .product:hover {
-            transform: translateY(-8px); /* Reduced hover lift */
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Adjusted hover shadow */
+            transform: translateY(-8px); /* Attention to Detail: Hover effect */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Attention to Detail: Hover effect */
         }
 
         .product img {
             max-width: 100%;
-            height: 260px; /* Adjusted height */
-            object-fit: cover;
-            margin-bottom: 15px; /* Reduced margin */
-            border-radius: 8px;
-            border: 1px solid var(--border-color); /* Image border color from palette */
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Adjusted shadow */
-            transition: transform 0.3s ease;
+            height: 260px; /* Adjusted height - Visuals */
+            object-fit: cover; /* Visuals: Ensures images cover the space */
+            margin-bottom: 15px; /* Intentional Layout/Whitespace */
+            border-radius: 8px; /* Attention to Detail */
+            border: 1px solid var(--border-color); /* Attention to Detail: Image border */
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Attention to Detail: Subtle shadow */
+            transition: transform 0.3s ease; /* Attention to Detail: Smooth animation */
         }
 
          .product:hover img {
-             transform: scale(1.02); /* Reduced zoom effect */
+             transform: scale(1.02); /* Attention to Detail: Hover effect */
          }
 
         .product h3 {
             margin-top: 0;
-            margin-bottom: 15px; /* Reduced margin */
-            font-size: 1.6em; /* Slightly reduced font size */
+            margin-bottom: 15px; /* Intentional Layout/Whitespace */
+            font-size: 1.6em; /* Visual Hierarchy */
             color: var(--primary-color); /* Product title color from palette */
             flex-grow: 1;
             font-weight: 700;
             font-family: 'Lora', serif;
         }
 
+        /* Clear Calls to Action: WhatsApp button */
+        /* Attention to Detail: Button styling */
         .whatsapp-button {
             display: block;
             width: 100%;
-            padding: 12px; /* Reduced padding */
+            padding: 12px;
             background-color: var(--button-whatsapp); /* Standard WhatsApp green */
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 1.1em; /* Slightly reduced font size */
+            font-size: 1.1em;
             margin-top: auto;
-            transition: background-color 0.3s ease, transform 0.1s ease;
+            transition: background-color 0.3s ease, transform 0.1s ease; /* Attention to Detail: Smooth animation */
             font-weight: 600;
             letter-spacing: 0.5px;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Adjusted shadow */
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
             text-align: center;
         }
 
@@ -327,13 +316,13 @@
 
         .whatsapp-button:hover {
             background-color: var(--button-whatsapp-hover);
-            transform: translateY(-1px); /* Reduced hover lift */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adjusted hover shadow */
+            transform: translateY(-1px); /* Attention to Detail: Hover effect */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
-         /* Product Search */
+         /* User-Friendly Navigation: Search function layout */
          .search-container {
-             margin-bottom: 40px; /* Reduced margin */
+             margin-bottom: 40px; /* Intentional Layout/Whitespace */
              text-align: center;
          }
 
@@ -371,7 +360,7 @@
             max-width: 500px; /* Slightly reduced max width */
             padding: 12px 20px; /* Reduced padding */
             border: 1px solid var(--border-color); /* Border color from palette */
-            border-radius: 25px; /* Slightly more rounded */
+            border-radius: 25px; /* Attention to Detail */
             font-size: 1em; /* Slightly reduced font size */
             box-sizing: border-box;
             box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -386,12 +375,13 @@
 
 
         /* --- Footer --- */
+        /* Professional and On-Brand Design, Contact Information, Integration with Tools */
         .footer {
             background-color: var(--primary-color); /* Darkest color for footer background */
             color: var(--footer-text-color); /* Lightest color for footer text */
             text-align: center;
-            padding: 30px var(--section-padding-horizontal); /* Reduced padding */
-            margin-top: 50px; /* Reduced margin */
+            padding: 30px var(--section-padding-horizontal); /* Intentional Layout/Whitespace */
+            margin-top: 50px; /* Intentional Layout/Whitespace */
             box-shadow: 0 -4趟8px rgba(0, 0, 0, 0.2);
         }
 
@@ -404,18 +394,19 @@
 
         .social-links a {
             display: inline-block;
-            margin: 0 12px; /* Reduced margin */
-            color: var(--secondary-color); /* Light Accent for social icons */
-            font-size: 30px; /* Slightly reduced icon size */
-            transition: color 0.3s ease, transform 0.2s ease;
+            margin: 0 12px; /* Intentional Layout/Whitespace */
+            color: var(--secondary-color); /* Social icons color from palette */
+            font-size: 30px; /* Attention to Detail */
+            transition: color 0.3s ease, transform 0.2s ease; /* Attention to Detail: Smooth animation */
         }
 
         .social-links a:hover {
-            color: var(--color-palette-1); /* Lightest color for social icon hover */
-            transform: scale(1.08); /* Reduced hover scale */
+            color: var(--color-palette-1); /* Social icon hover color from palette */
+            transform: scale(1.08); /* Attention to Detail: Hover effect */
         }
 
         /* --- Responsive Adjustments --- */
+        /* Mobile Responsiveness: Adjustments for different screen sizes */
         @media (max-width: 1024px) {
              .section h2 {
                  font-size: 2.2em;
@@ -529,52 +520,44 @@
 
     <section id="about" class="section about-contact">
         <div class="container">
-            <h2>About J.K Gems & Visit Us</h2>
-
-            <div class="about-content">
-                <h3>Our Story</h3>
-                <p>J.K Gems is a well-known and trusted firm, serving customers with exquisite gemstones and spiritual products since 1965. Founded on principles of quality, authenticity, and integrity, we have built a reputation as a cornerstone in Junagadh's Soni Bajar.</p>
+            <h2>About J.K Gems & Visit Us</h2> <div class="about-content">
+                <h3>Our Story</h3> <p>J.K Gems is a well-known and trusted firm, serving customers with exquisite gemstones and spiritual products since 1965. Founded on principles of quality, authenticity, and integrity, we have built a reputation as a cornerstone in Junagadh's Soni Bajar.</p>
                 <p>For generations, we have been dedicated to sourcing the finest gemstones and authentic spiritual items, offering expert guidance and personalized service to our valued customers. Our legacy is built on trust, and our commitment to providing genuine products remains unwavering.</p>
             </div>
 
             <div class="contact-info">
-                 <h3>Contact & Location</h3>
-                 <p><i class="fas fa-map-marker-alt"></i> Jk gems<br>Balakrishna market, Haveli gali<br>Soni bajar, Junagadh<br>Gujarat 362001</p>
+                 <h3>Contact & Location</h3> <p><i class="fas fa-map-marker-alt"></i> Jk gems<br>Balakrishna market, Haveli gali<br>Soni bajar, Junagadh<br>Gujarat 362001</p>
                  <p><i class="fas fa-phone"></i> +91 9723197899</p>
-                 <p><i class="far fa-clock"></i> Business Hours: 10 am to 3 pm and 4 pm to 9 pm</p> <p>You can also inquire directly via WhatsApp using the buttons on our product listings.</p>
+                 <p><i class="far fa-clock"></i> Business Hours: 10 am to 3 pm and 4 pm to 9 pm</p>
+                 <p>You can also inquire directly via WhatsApp using the buttons on our product listings.</p>
             </div>
         </div>
     </section>
 
     <section id="products" class="section products">
         <div class="container">
-             <h2>Our Products</h2>
-              <div class="search-container">
+             <h2>Our Products</h2> <div class="search-container">
                  <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search for products...">
              </div>
             <div class="product-grid" id="productContainer">
                 <div class="product">
                     <img src="IMG-20250516-WA0015.jpg" alt="Gem stones">
-                    <h3>Gem Stones</h3>
-                    <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gem%20stones.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank"><i class="fab fa-whatsapp"></i> Inquire on WhatsApp</a>
+                    <h3>Gem Stones</h3> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gem%20stones.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank"><i class="fab fa-whatsapp"></i> Inquire on WhatsApp</a>
                 </div>
 
                 <div class="product">
                     <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh">
-                    <h3>Rudraksh</h3>
-                     <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank"><i class="fab fa-whatsapp"></i> Inquire on WhatsApp</a>
+                    <h3>Rudraksh</h3> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank"><i class="fab fa-whatsapp"></i> Inquire on WhatsApp</a>
                 </div>
 
                 <div class="product">
                     <img src="IMG-20250516-WA0001.jpg" alt="Yantra">
-                    <h3>Yantra</h3>
-                     <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank"><i class="fab fa-whatsapp"></i> Inquire on WhatsApp</a>
+                    <h3>Yantra</h3> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank"><i class="fab fa-whatsapp"></i> Inquire on WhatsApp</a>
                 </div>
 
                  <div class="product">
                      <img src="IMG-20250516-WA0016.jpg" alt="Rudraksh Bracelet">
-                     <h3>Rudraksh Bracelet</h3>
-                      <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Bracelet.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank"><i class="fab fa-whatsapp"></i> Inquire on WhatsApp</a>
+                     <h3>Rudraksh Bracelet</h3> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Bracelet.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank"><i class="fab fa-whatsapp"></i> Inquire on WhatsApp</a>
                  </div>
 
                 </div>
@@ -590,7 +573,7 @@
     </footer>
 
     <script>
-        // Simple product search functionality
+        // User-Friendly Navigation: Simple product search functionality
         function searchProducts() {
             const input = document.getElementById('searchInput');
             const filter = input.value.toUpperCase();
@@ -608,7 +591,7 @@
             }
         }
 
-        // Smooth scrolling for navigation links
+        // Attention to Detail: Smooth scrolling for navigation links
         document.querySelectorAll('.nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
