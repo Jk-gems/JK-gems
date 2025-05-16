@@ -13,7 +13,7 @@
         :root {
             /* New Thoughtful Color Palette: Deep Blues, Golds, Neutrals */
             --primary-dark: #1A3A4E; /* Deep Navy/Teal: Headings, Header/Footer Background */
-            --secondary-accent: #C5A36B; /* Muted Gold/Bronze: Links, Icons, Highlights, Button Hover */
+            --secondary-accent: #B88A45; /* Slightly richer Muted Gold/Bronze: Links, Icons, Highlights, Button Hover */
             --background-light: #F5F5DC; /* Light Beige/Cream: Body Background */
             --text-color-dark: #333333; /* Dark Grey: Body Text */
             --border-neutral: #D3D3D3; /* Light Grey: Borders, Separators */
@@ -24,8 +24,8 @@
 
             --footer-text-color: var(--background-light); /* Footer text color contrasting with dark footer background */
 
-            --section-padding-vertical: 80px; /* Vertical padding for sections - Intentional Layout/Whitespace */
-            --section-padding-horizontal: 20px; /* Horizontal padding for sections - Intentional Layout/Whitespace */
+            --section-padding-vertical: 100px; /* Increased Vertical padding for sections - Intentional Layout/Whitespace */
+            --section-padding-horizontal: 25px; /* Slightly increased Horizontal padding for sections - Intentional Layout/Whitespace */
         }
 
         body {
@@ -92,7 +92,6 @@
             padding: 15px var(--section-padding-horizontal); /* Adjusted padding */
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Attention to Detail: Stronger shadow */
-            /* Header now scrolls with content */
             position: static; /* Default position */
             width: 100%;
             z-index: 1000;
@@ -167,6 +166,17 @@
              }
              .nav li {
                  margin: 10px 0; /* Adjusted margin */
+                 width: 100%; /* Make list items take full width */
+                 border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+                 padding-bottom: 10px;
+             }
+             .nav li:last-child {
+                 border-bottom: none; /* No border on the last item */
+                 padding-bottom: 0;
+             }
+             .nav a {
+                 display: block; /* Make links fill the width */
+                 text-align: center;
              }
              .header {
                  padding: 15px; /* Adjusted padding */
@@ -196,7 +206,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Subtle overlay for text readability */
+            background: rgba(0, 0, 0, 0.5); /* Slightly darker overlay for text readability */
             z-index: 1;
         }
 
@@ -343,7 +353,7 @@
          }
 
         .product-info {
-            padding: 15px; /* Add padding inside the info area */
+            padding: 15px; /* Ensure sufficient padding inside info area */
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -355,17 +365,17 @@
 
         .product-info h3 {
             margin-top: 0;
-            margin-bottom: 8px; /* Reduced margin */
-            font-size: 1.5em; /* Slightly smaller title */
+            margin-bottom: 6px; /* Reduced margin */
+            font-size: 1.4em; /* Slightly adjusted title size */
             color: var(--primary-dark);
             font-weight: 700;
             font-family: 'Lora', serif;
         }
 
         .product-info p.product-description {
-            font-size: 0.95em; /* Smaller font for description */
+            font-size: 0.9em; /* Slightly smaller font for description */
             color: #555; /* Lighter grey for description */
-            margin-bottom: 15px; /* Space below description */
+            margin-bottom: 12px; /* Space below description */
             flex-grow: 1; /* Allow description to take up available space */
             line-height: 1.5; /* Adjust line height for readability */
         }
@@ -374,19 +384,19 @@
         /* Clear Calls to Action: WhatsApp button */
         .whatsapp-button {
             display: block;
-            width: calc(100% - 30px); /* Button width minus padding */
-            margin: 10px auto 0; /* Center button and add margin */
+            width: calc(100% - 0px); /* Button width fills card width */
+            margin: 10px 0 0 0; /* Adjusted margin to align with card edges */
             padding: 12px;
             background-color: var(--whatsapp-green); /* Standard WhatsApp green */
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 0 0 8px 8px; /* Match card bottom border radius */
             font-size: 1em; /* Slightly smaller button text */
             font-weight: 600;
             letter-spacing: 0.5px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            box-shadow: none; /* Remove button shadow within card */
             text-align: center;
-            transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+            transition: background-color 0.3s ease;
         }
 
         .whatsapp-button i {
@@ -395,8 +405,8 @@
 
         .whatsapp-button:hover {
             background-color: var(--whatsapp-green-hover);
-            transform: translateY(-1px);
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+            transform: none; /* Remove transform on hover for button inside card */
+            box-shadow: none; /* Remove button shadow on hover */
         }
 
          /* User-Friendly Navigation: Search function layout */
@@ -425,7 +435,7 @@
 
         .search-container input:focus {
             border-color: var(--secondary-accent); /* Focus border with Gold Accent */
-            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1), 0 0 8px rgba(197, 163, 107, 0.6); /* Focus shadow with Gold Accent */
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1), 0 0 8px rgba(184, 138, 69, 0.6); /* Focus shadow with Gold Accent using updated color */
             outline: none;
         }
 
@@ -475,8 +485,6 @@
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow */
             font-size: 0.9em;
         }
-
-        /* Removed the copyright paragraph */
 
         .social-links {
             margin-top: 0; /* Adjusted margin */
@@ -533,6 +541,9 @@
                  margin-top: 8px; /* Reduced margin */
                  padding: 10px;
              }
+             .section {
+                 padding: 80px 20px; /* Adjusted padding for this breakpoint */
+             }
         }
 
         @media (max-width: 768px) {
@@ -587,8 +598,8 @@
             .whatsapp-button {
                 font-size: 0.95em;
                 padding: 8px;
-                width: calc(100% - 20px); /* Adjusted width calculation */
-                 margin: 8px auto 0; /* Adjusted margin */
+                width: calc(100% - 0px); /* Button width fills card width */
+                 margin: 8px 0 0 0; /* Adjusted margin */
             }
              .social-links a {
                 font-size: 28px; /* Adjusted icon size */
@@ -647,8 +658,8 @@
             .whatsapp-button {
                 font-size: 0.9em;
                 padding: 6px;
-                width: calc(100% - 16px); /* Adjusted width calculation */
-                 margin: 6px auto 0; /* Adjusted margin */
+                width: calc(100% - 0px); /* Button width fills card width */
+                 margin: 6px 0 0 0; /* Adjusted margin */
             }
              .social-links a {
                 font-size: 26px; /* Reduced icon size */
@@ -773,7 +784,7 @@
     </footer>
 
     <div id="imageModal">
-        <span class="close">&times;</span>
+        <span class="close">×</span>
         <img src="" id="modalImage" alt="Enlarged product image">
     </div>
 
@@ -826,7 +837,6 @@
 
         // Add click listener to each product image
         productImages.forEach(img => {
-            // No need to set cursor via JS if it's in CSS
             img.addEventListener('click', function() {
                 modal.style.display = 'flex'; // Use flex to center
                 modalImg.src = this.src; // Set modal image source
