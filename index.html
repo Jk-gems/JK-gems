@@ -4,80 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>J.K Gems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #2c3e50; /* Deep Blue/Grey */
+            --secondary-color: #3498db; /* Muted Blue */
+            --accent-color: #f1c40f; /* Gold/Amber */
+            --text-color: #333;
+            --bg-color: #ecf0f1; /* Light Grey */
+            --card-bg: #ffffff;
+            --border-color: #bdc3c7; /* Lighter Grey */
+        }
+
         body {
-            font-family: sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8;
+            background-color: var(--bg-color);
+            color: var(--text-color);
         }
         .header {
-            background-color: #333;
+            background-color: var(--primary-color);
             color: white;
-            padding: 10px 0;
+            padding: 20px 0;
             text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
         }
         .container {
             max-width: 1200px;
-            margin: 20px auto;
+            margin: 40px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
         .product {
-            border: 1px solid #ddd;
-            padding: 15px;
+            border: 1px solid var(--border-color);
+            padding: 20px;
             text-align: center;
-            background-color: #fff;
-            border-radius: 5px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+         .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
         .product img {
             max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
+            height: 200px; /* Fixed height for consistency */
+            object-fit: cover; /* Cover the area without distorting aspect ratio */
+            margin-bottom: 15px;
+            border-radius: 4px;
         }
         .product h3 {
             margin-top: 0;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            color: var(--primary-color);
         }
         .whatsapp-button {
             display: block;
             width: 100%;
-            padding: 10px;
-            background-color: #25D366;
+            padding: 12px;
+            background-color: #25D366; /* WhatsApp Green */
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 16px;
-            margin-top: 10px;
+            font-size: 1.1em;
+            margin-top: 15px;
             transition: background-color 0.3s ease;
         }
         .whatsapp-button:hover {
-            background-color: #1DA851;
+            background-color: #1DA851; /* Darker Green */
         }
         .footer {
-            background-color: #333;
+            background-color: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 10px 0;
-            margin-top: 20px;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        .social-links {
+            margin-top: 15px;
         }
         .social-links a {
             display: inline-block;
             margin: 0 10px;
             color: white;
-            text-decoration: none;
             font-size: 24px;
             transition: color 0.3s ease;
         }
-         .social-links img {
-            width: 24px;
-            height: 24px;
-            vertical-align: middle;
-        }
         .social-links a:hover {
-            color: #ddd;
+            color: var(--accent-color);
+        }
+         /* Placeholder Image Styling for better visual */
+        .product img[src^="placeholder_"] {
+            background-color: #ccc; /* Light grey background */
+            color: #666; /* Darker grey text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1em;
+            text-align: center;
         }
     </style>
 </head>
@@ -91,35 +128,35 @@
         <div class="product">
             <img src="placeholder_gem_stones.jpg" alt="Gem stones">
             <h3>Gem stones</h3>
-            <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gem%20stones.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank">Order on WhatsApp</a>
+            <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gem%20stones.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank">Inquire on WhatsApp</a>
         </div>
 
         <div class="product">
             <img src="placeholder_rudraksh.jpg" alt="Rudraksh">
             <h3>Rudraksh</h3>
-             <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank">Order on WhatsApp</a>
+             <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank">Inquire on WhatsApp</a>
         </div>
 
         <div class="product">
             <img src="placeholder_yantra.jpg" alt="Yantra">
             <h3>Yantra</h3>
-             <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank">Order on WhatsApp</a>
+             <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank">Inquire on WhatsApp</a>
         </div>
 
         <div class="product">
             <img src="placeholder_gemstone_bracelet.jpg" alt="Gemstone Bracelet">
             <h3>Gemstone Bracelet</h3>
-             <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gemstone%20Bracelet.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank">Order on WhatsApp</a>
+             <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gemstone%20Bracelet.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank">Inquire on WhatsApp</a>
         </div>
 
         </div>
 
     <div class="footer">
-        <p>© J.K Gems. All rights unreserved.</p>
+        <p> J.K Gems.</p>
         <div class="social-links">
-            <a href="https://www.instagram.com/j_k_gems" target="_blank" aria-label="Instagram"><img src="https://img.icons8.com/fluency/48/000000/instagram--v1.png" alt="Instagram"/></a>
-            <a href="https://www.facebook.com/%E0%A4%9C%E0%A5%87-%E0%A4%95%E0%A5%87-%E0%A4%9C%E0%A5%87%E0%A4%AE%E0%A5%8D%E0%A4%B8-Jk-gems-YOUR_FACEBOOK_PAGE_ID" target="_blank" aria-label="Facebook"><img src="https://img.icons8.com/fluency/48/000000/facebook-new.png" alt="Facebook"/></a>
-            <a href="https://www.youtube.com/channel/YOUR_CHANNEL_ID" target="_blank" aria-label="YouTube"><img src="https://img.icons8.com/fluency/48/000000/youtube-play.png" alt="YouTube"/></a>
+            <a href="https://www.instagram.com/j_k_gems" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/%E0%A4%9C%E0%A5%87-%E0%A4%95%E0%A5%87-%E0%A4%9C%E0%A5%87%E0%A4%AE%E0%A5%8D%E0%A4%B8-Jk-gems-YOUR_FACEBOOK_PAGE_ID" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+             <a href="YOUR_YOUTUBE_CHANNEL_LINK" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
     </div>
 
