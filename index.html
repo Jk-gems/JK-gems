@@ -46,6 +46,35 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
+        .firm-info {
+            text-align: center;
+            margin: 30px auto;
+            padding: 0 20px;
+            max-width: 800px;
+        }
+
+        .firm-info h2 {
+            color: var(--primary-color);
+            font-family: 'Cinzel Decorative', serif;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 2em;
+        }
+
+        .firm-info p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: var(--text-color);
+        }
+
+        .firm-info address {
+            font-style: normal;
+            margin-top: 15px;
+            font-size: 1em;
+            color: var(--text-color);
+        }
+
+
         .search-container {
             text-align: center;
             margin: 20px auto 40px auto;
@@ -163,7 +192,12 @@
             .header h1 {
                 font-size: 2.5em;
             }
-
+             .firm-info h2 {
+                font-size: 1.8em;
+            }
+            .firm-info p {
+                font-size: 1em;
+            }
             .container {
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
                 gap: 20px;
@@ -196,6 +230,15 @@
             .header h1 {
                 font-size: 2em;
             }
+             .firm-info h2 {
+                font-size: 1.5em;
+            }
+             .firm-info p {
+                font-size: 0.9em;
+            }
+             .firm-info address {
+                font-size: 0.9em;
+            }
              .container {
                 grid-template-columns: 1fr; /* Stack products on very small screens */
             }
@@ -218,6 +261,19 @@
     <div class="header">
         <h1>J.K Gems</h1>
     </div>
+
+    <div class="firm-info">
+        <h2>A Legacy of Trust Since 1965</h2>
+        <p>J.K Gems is a well-known and trusted firm, serving customers with quality gemstones and related products since 1965.</p>
+        <p>Visit us at:</p>
+        <address>
+            Jk gems<br>
+            Balakrishna market, Haveli gali<br>
+            Soni bajar, Junagadh<br>
+            Gujarat 362001
+        </address>
+    </div>
+
 
      <div class="search-container">
         <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search for products...">
