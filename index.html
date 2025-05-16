@@ -82,14 +82,14 @@
         }
 
         .section {
-            padding: var(--section-padding-vertical) var(--section-padding-horizontal); /* Intentional Layout/Whitespace */
+            padding: var(--section-padding-vertical) 0; /* Vertical padding only, horizontal handled by container */
             text-align: center;
         }
 
         /* --- Header/Navigation --- */
         .header {
             background-color: var(--primary-dark); /* Darkest color for header background - Thoughtful Color Palette */
-            padding: 15px var(--section-padding-horizontal); /* Adjusted padding */
+            padding: 15px 0; /* Vertical padding only, horizontal handled by container */
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Attention to Detail: Stronger shadow */
             position: static; /* Default position */
@@ -179,7 +179,7 @@
                  text-align: center;
              }
              .header {
-                 padding: 15px; /* Adjusted padding */
+                 padding: 15px 0; /* Adjusted vertical padding */
              }
          }
 
@@ -193,10 +193,10 @@
             display: flex; /* Center content */
             align-items: center;
             justify-content: center;
-            text-align: center;
             color: white; /* Text color for hero content */
             overflow: hidden; /* Ensure parallax doesn't cause scroll issues */
             background-attachment: fixed; /* Parallax effect */
+            padding: var(--section-padding-vertical) 0; /* Apply vertical padding */
         }
 
         .hero::before {
@@ -210,14 +210,20 @@
             z-index: 1;
         }
 
-        .hero-content {
+        .hero .container {
             position: relative;
             z-index: 2; /* Ensure content is above overlay */
-            max-width: 800px;
-            padding: 20px;
+            text-align: center; /* Center the text within the container */
         }
 
-        .hero-content h1 {
+        .hero-content {
+             /* This div is no longer needed for layout as container handles it */
+             /* If specific styling is needed, apply directly or re-evaluate structure */
+             /* Removed max-width and padding as container handles it */
+        }
+
+
+        .hero .container h1 { /* Target h1 within hero container */
             color: #FFFFFF; /* White for hero heading */
             font-size: 4em;
             margin-bottom: 20px;
@@ -225,7 +231,7 @@
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
         }
 
-        .hero-content p {
+        .hero .container p { /* Target p within hero container */
             color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for paragraph */
             font-size: 1.3em;
             margin-bottom: 30px;
@@ -480,7 +486,7 @@
             background-color: var(--primary-dark); /* Darkest color for footer background */
             color: var(--footer-text-color); /* Lightest color for footer text */
             text-align: center;
-            padding: 40px var(--section-padding-horizontal); /* Adjusted padding */
+            padding: 40px 0; /* Vertical padding only, horizontal handled by container */
             margin-top: 60px; /* Adjusted margin */
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow */
             font-size: 0.9em;
@@ -512,10 +518,10 @@
              .hero {
                  height: 500px;
              }
-             .hero-content h1 {
+             .hero .container h1 { /* Target h1 within hero container */
                  font-size: 3em;
              }
-             .hero-content p {
+             .hero .container p { /* Target p within hero container */
                  font-size: 1.2em;
              }
               /* Products grid adapts */
@@ -542,13 +548,13 @@
                  padding: 10px;
              }
              .section {
-                 padding: 80px 20px; /* Adjusted padding for this breakpoint */
+                 padding: 80px 0; /* Adjusted vertical padding */
              }
         }
 
         @media (max-width: 768px) {
              .section {
-                 padding: 60px 15px; /* Adjusted padding */
+                 padding: 60px 0; /* Adjusted vertical padding */
              }
             .section h2 {
                 font-size: 2em;
@@ -556,10 +562,10 @@
              .hero {
                  height: 400px; /* Adjusted height */
              }
-             .hero-content h1 {
+             .hero .container h1 { /* Target h1 within hero container */
                  font-size: 2.5em;
              }
-             .hero-content p {
+             .hero .container p { /* Target p within hero container */
                  font-size: 1.1em;
              }
              .hero-cta-button {
@@ -606,13 +612,13 @@
                 margin: 0 12px;
             }
              .footer {
-                padding: 30px 15px;
+                padding: 30px 0; /* Adjusted vertical padding */
              }
          }
 
          @media (max-width: 480px) {
               .section {
-                 padding: 40px 10px; /* Further reduced padding */
+                 padding: 40px 0; /* Further reduced vertical padding */
              }
              .section h2 {
                  font-size: 1.8em;
@@ -620,10 +626,10 @@
              .hero {
                  height: 350px; /* Further reduced height */
              }
-             .hero-content h1 {
+             .hero .container h1 { /* Target h1 within hero container */
                  font-size: 2em;
              }
-             .hero-content p {
+             .hero .container p { /* Target p within hero container */
                  font-size: 0.95em;
              }
              .hero-cta-button {
@@ -666,7 +672,7 @@
                 margin: 0 8px;
             }
              .footer {
-                padding: 25px 10px;
+                padding: 25px 0; /* Further reduced vertical padding */
              }
          }
 
@@ -676,24 +682,20 @@
 <body>
 
     <header class="header">
-        <div class="container">
-            <img src="GridArt_20250516_180656516.png" alt="J.K Gems Logo">
+        <div class="container"> <img src="GridArt_20250516_180656516.png" alt="J.K Gems Logo">
             <nav class="nav">
                 <ul>
                     <li><a href="#about">About & Visit Us</a></li>
                     <li><a href="#products">Products</a></li>
                     </ul>
             </nav>
-        </div>
-    </header>
+        </div> </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>Exquisite Gemstones & Spiritual Treasures</h1>
-            <p>Discover the perfect blend of beauty, authenticity, and spiritual energy at J.K Gems.</p>
-            <a href="#products" class="hero-cta-button">Explore Our Collection</a>
-        </div>
-    </section>
+        <div class="hero-content"> <div class="container"> <h1>Exquisite Gemstones & Spiritual Treasures</h1>
+                <p>Discover the perfect blend of beauty, authenticity, and spiritual energy at J.K Gems.</p>
+                <a href="#products" class="hero-cta-button">Explore Our Collection</a>
+            </div> </div> </section>
 
     <section id="about" class="section about-contact">
         <div class="container">
@@ -774,14 +776,12 @@
     </section>
 
     <footer class="footer">
-        <div class="container">
-            <div class="social-links">
+        <div class="container"> <div class="social-links">
                 <a href="https://www.instagram.com/j_k_gems" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE_ID" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                 <a href="https://youtube.com/@jkgems-td3et?si=Ne4JWKic5aeZfBTa" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
-        </div>
-    </footer>
+        </div> </footer>
 
     <div id="imageModal">
         <span class="close">×</span>
