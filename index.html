@@ -92,7 +92,8 @@
             padding: 15px var(--section-padding-horizontal); /* Adjusted padding */
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Attention to Detail: Stronger shadow */
-            /* Removed position: sticky; and related properties so header scrolls with content */
+            /* Header now scrolls with content */
+            position: static; /* Default position */
             width: 100%;
             z-index: 1000;
         }
@@ -301,8 +302,8 @@
         /* --- Products Section --- */
         .products .container {
             display: grid; /* Intentional Layout: Grid for product listing */
-            /* Visual Hierarchy, Intentional Layout: Adjusts columns responsively */
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax for slightly larger cards */
+            /* --- MODIFIED: Force exactly 2 columns on all screen sizes --- */
+            grid-template-columns: repeat(2, 1fr); /* Always 2 equal columns */
             gap: 30px; /* Adjusted gap */
         }
 
@@ -461,12 +462,13 @@
              .hero-content p {
                  font-size: 1.2em;
              }
-              .products .container {
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Adjusted minmax */
+              /* Removed grid-template-columns override to maintain 2 columns */
+              /* products .container {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
                 gap: 25px;
-            }
+            } */
              .product img {
-                 height: 250px;
+                 height: 250px; /* Adjusted height */
              }
              .product-info h3 {
                  font-size: 1.6em;
@@ -503,12 +505,13 @@
              .about-contact p, .about-contact address, .contact-info p {
                  font-size: 1em;
              }
-              .products .container {
-                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Adjusted minmax for 2+ columns */
+              /* Removed grid-template-columns override to maintain 2 columns */
+              /* products .container {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
                 gap: 20px;
-            }
+            } */
              .product img {
-                 height: 220px; /* Adjusted height */
+                 height: 200px; /* Adjusted height for smaller cards */
              }
              .product-info {
                  padding: 0 15px 15px; /* Adjusted padding */
@@ -557,13 +560,13 @@
              .about-contact p, .about-contact address, .contact-info p {
                  font-size: 0.95em;
              }
-              /* Adjusted product grid for smaller screens to show 2 columns if possible */
-             .products .container {
-                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Attempt 2 columns if items can be at least 160px */
-                gap: 10px; /* Reduced gap */
-            }
+              /* Removed grid-template-columns override to maintain 2 columns */
+              /* products .container {
+                 grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                 gap: 10px;
+            } */
              .product img {
-                height: 180px; /* Adjusted height for smaller cards */
+                height: 160px; /* Reduced height for smaller cards */
             }
              .product-info {
                  padding: 0 10px 15px; /* Adjusted padding */
@@ -677,7 +680,7 @@
             <div class="social-links">
                 <a href="https://www.instagram.com/j_k_gems" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE_ID" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="YOUR_YOUTUBE_CHANNEL_LINK" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://youtube.com/@jkgems-td3et?si=Ne4JWKic5aeZfBTa" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </footer>
@@ -710,7 +713,7 @@
                 const targetElement = document.querySelector(targetId);
 
                 if (targetElement) {
-                    // No longer need to offset by header height since it's not sticky
+                    // Offset adjusted as header is no longer sticky
                      window.scrollTo({
                         top: targetElement.offsetTop - 20, // Adjusted offset for spacing
                         behavior: 'smooth'
