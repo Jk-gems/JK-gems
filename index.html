@@ -7,7 +7,7 @@
     <meta name="description" content="Explore exquisite gemstones, Rudraksha, and spiritual items from J.K Gems, a trusted firm serving Junagadh since 1965.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Lora:wght 학습400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* --- Color Palette Variables (Inspired by NSL Forge, Adapted for JK Gems) --- */
@@ -365,6 +365,79 @@
             transition: none;
         }
 
+        /* --- 3D Background Animation in Hero --- */
+        .hero-background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* Covers the full width */
+            height: 100%; /* Covers the full height */
+            overflow: hidden; /* Hide parts that rotate outside */
+            z-index: 0; /* Ensure it's behind the hero content */
+            perspective: 1000px; /* Add perspective to the container for 3D effect */
+        }
+
+        .hero-background-animation::before {
+            content: '';
+            position: absolute;
+            /* Position relative to the animation container */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            width: 300px; /* Size of the rotating element */
+            height: 300px; /* Size of the rotating element */
+            transform-style: preserve-3d; /* Allow child (or itself) to have 3D position */
+            transform: translate(-50%, -50%) rotateX(45deg) rotateY(45deg); /* Center and initial rotation */
+            /* Subtle gem-like appearance */
+            background: linear-gradient(135deg, rgba(214, 173, 96, 0.2) 0%, rgba(182, 141, 64, 0.2) 50%, rgba(214, 173, 96, 0.2) 100%); /* Subtle Gold/Tan gradient with opacity */
+            border: 1px solid rgba(182, 141, 64, 0.3); /* Subtle border */
+            box-shadow: 0 0 20px rgba(214, 173, 96, 0.4); /* Subtle glow */
+            opacity: 0.4; /* Make it translucent */
+            animation: rotateShape 30s infinite linear; /* Apply animation */
+            pointer-events: none; /* Ensure it doesn't interfere with clicks */
+             /* You could make this a more complex shape using clip-path if needed */
+            /* clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); /* Example Hexagon */
+        }
+
+
+        @keyframes rotateShape {
+            0% {
+                transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotateX(360deg) rotateY(360deg) rotateZ(360deg); /* Rotate around multiple axes */
+            }
+        }
+
+        /* Ensure hero-content stays on top */
+        .hero .hero-content {
+            position: relative; /* Already has z-index: 2 */
+            z-index: 2; /* Make sure content is above the background animation */
+        }
+
+        /* Optional: Make it slightly smaller/faster on smaller screens */
+        @media (max-width: 1024px) {
+            .hero-background-animation::before {
+                width: 250px;
+                height: 250px;
+                animation-duration: 25s; /* Faster rotation */
+            }
+        }
+        @media (max-width: 768px) {
+            .hero-background-animation::before {
+                width: 200px;
+                height: 200px;
+                animation-duration: 20s; /* Faster rotation */
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-background-animation::before {
+                width: 150px;
+                height: 150px;
+                animation-duration: 15s; /* Even faster */
+            }
+        }
+
+
         .hero::before {
             content: '';
             position: absolute;
@@ -373,12 +446,12 @@
             width: 100%;
             height: 100%;
              /* Removed redundant overlay - integrated into background */
-            z-index: 1;
+            z-index: 1; /* Ensure overlay is between animation (0) and content (2) */
         }
 
         .hero .container {
             position: relative;
-            z-index: 2;
+            z-index: 2; /* Ensure container content is above overlay and animation */
             text-align: center;
         }
 
@@ -1470,7 +1543,7 @@
               .cart-total {
                  font-size: 1.2em;
              }
-             #billingSection h2 {
+              #billingSection h2 {
                  font-size: 2em;
              }
               #billingSection h2::after { width: 50px; }
@@ -1776,8 +1849,7 @@
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <div class="container">
+        <div class="hero-background-animation"></div> <div class="hero-content"> <div class="container">
                 <h1>Exquisite Gemstones & Spiritual Treasures</h1>
                 <p>Discover the perfect blend of beauty, authenticity, and spiritual energy at J.K Gems.</p>
                 <a href="#products" class="hero-cta-button">Explore Categories</a>
@@ -2067,7 +2139,7 @@
             proceedToPaymentButton.style.display = 'block'; // Show proceed button
             submitOrderButton.style.display = 'none'; // Hide submit button
             submitOrderButton.textContent = 'Submit Inquiry / Payment Made'; // Restore button text
-            submitOrderButton.disabled = false; // Ensure button is enabled
+            submitOrderButton.disabled = false;
 
 
             // Set search to work on categories
