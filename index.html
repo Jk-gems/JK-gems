@@ -1040,7 +1040,7 @@
 
          /* --- Billing Section Styling --- */
          #billingSection {
-             display: none; /* Initially hidden */
+             display: none;
              text-align: left;
              margin-top: 40px;
              padding-top: 40px;
@@ -1053,7 +1053,7 @@
          }
 
          #billingForm {
-             /* This form container is always in the HTML but parts are hidden/shown */
+             /* Initially visible */
          }
 
           #billingForm label {
@@ -1278,7 +1278,7 @@
 
          /* Styling for Payment Info Section */
          #paymentInfo {
-             display: none; /* Initially hidden */
+             display: none;
              margin-top: 30px;
              padding-top: 30px;
              border-top: 1px dashed var(--border-color); /* Dark dashed border */
@@ -1351,18 +1351,11 @@
          }
 
 
-          .billing-buttons #proceedToPaymentButton {
-               /* This button is shown initially when billing section appears */
+          .billing-buttons #proceedToPaymentButton,
+          .billing-buttons #submitOrderButton {
               background-color: var(--button-primary-bg); /* Primary style (Gold) */
               color: var(--button-primary-text);
           }
-           .billing-buttons #submitOrderButton {
-               /* This button is hidden initially when billing section appears */
-               display: none; /* Explicitly hidden here to be clear */
-               background-color: var(--button-primary-bg); /* Primary style (Gold) */
-               color: var(--button-primary-text);
-           }
-
 
           .billing-buttons #proceedToPaymentButton:hover,
           .billing-buttons #submitOrderButton:hover {
@@ -1866,7 +1859,8 @@
 
     <section id="about" class="section about-contact">
         <div class="container">
-            <h2>About J.K Gems</h2> <div class="about-content">
+            <h2>About J.K Gems & Visit Us</h2>
+            <div class="about-content">
                 <h3>Our Story</h3>
                 <p>J.K Gems is a well-known and trusted firm, serving customers with exquisite gemstones and spiritual products since 1965. Founded on principles of quality, authenticity, and integrity, we have built a reputation as a cornerstone in Junagadh's Soni Bajar.</p>
                 <p>For generations, we have been dedicated to sourcing the finest gemstones and authentic spiritual items, offering expert guidance and personalized service to our valued customers. Our legacy is built on trust, and our commitment to providing genuine products remains unwavering.</p>
@@ -2046,29 +2040,7 @@
              <form id="billingForm" action="https://formsubmit.co/Gauravraningagoldjewellery@gmail.com" method="POST">
                  <input type="hidden" name="_subject" id="emailSubject" value="J.K Gems Website Order Inquiry">
                  <input type="hidden" name="_template" value="box">
-                 <input type="hidden" name="_next" value="YOUR_THANK_YOU_PAGE_URL_HERE">
-                 <input type="text" name="_honeypot" style="display:none">
-
-                 <input type="hidden" name="_autoresponse" value="
-Dear [Name],
-
-Thank you for your order inquiry with J.K Gems!
-
-We have received your inquiry for the following items:
-
-[Order Details]
-
-Final Total: [Final Total]
-
-Please complete the payment via UPI using the details provided on our website (gauravraninga23@okhdfcbank and the QR code).
-
-Your order will be confirmed *after* we successfully receive your payment. We will send you a confirmation email shortly after payment verification.
-
-If you have any questions, please reply to this email or contact us on WhatsApp at +91 9723197899.
-
-Thank you,
-The J.K Gems Team
-                 ">
+                 <input type="hidden" name="_next" value="YOUR_THANK_YOU_PAGE_URL_HERE"> <input type="text" name="_honeypot" style="display:none">
 
 
                  <div id="billingInputs">
@@ -2120,7 +2092,8 @@ The J.K Gems Team
             <div class="social-links">
                 <a href="https://www.instagram.com/j_k_gems" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE_ID" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a> <a href="https://youtube.com/@jkgems-td3et?si=Ne4JWKic5aeZfBTa" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a> </div>
-             <p>J.K Gems.</p> </div>
+             <p>© 2025 J.K Gems. All rights reserved.</p>
+        </div>
     </footer>
 
     <div id="imageModal">
