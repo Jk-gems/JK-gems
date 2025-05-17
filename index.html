@@ -1355,6 +1355,11 @@
             font-size: 0.9em;
             transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease; /* Smooth theme transition */
         }
+         /* Hide the specific copyright paragraph */
+         .footer p {
+             display: none; /* Or visibility: hidden; or remove from HTML */
+         }
+
         body.dark-theme .footer {
              box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.6); /* Darker shadow */
         }
@@ -1671,6 +1676,85 @@
                }
          }
 
+        /* --- Theme Choice Modal Styling --- */
+         #themeChoiceModal {
+             display: none; /* Hidden by default */
+             position: fixed;
+             z-index: 10001; /* Higher than other modals */
+             left: 0;
+             top: 0;
+             width: 100%;
+             height: 100%;
+             overflow: auto;
+             background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+             justify-content: center;
+             align-items: center;
+         }
+
+         .theme-choice-modal-content {
+             background-color: var(--surface-color);
+             margin: auto;
+             padding: 30px;
+             border-radius: 10px;
+             width: 90%;
+             max-width: 400px; /* Smaller than cart modal */
+             box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+             text-align: center;
+             transition: background-color 0.5s ease, box-shadow 0.5s ease; /* Smooth theme transition */
+         }
+          body.dark-theme .theme-choice-modal-content {
+              box-shadow: 0 5px 20px rgba(0,0,0,0.8); /* Darker shadow */
+          }
+
+         .theme-choice-modal-content h3 {
+             margin-top: 0;
+             margin-bottom: 20px;
+             color: var(--primary-color);
+              transition: color 0.5s ease; /* Smooth theme transition */
+         }
+
+         .theme-choice-modal-content .theme-buttons {
+             display: flex;
+             gap: 20px;
+             justify-content: center;
+         }
+
+         .theme-choice-modal-content button {
+             padding: 10px 20px;
+             font-size: 1em;
+             font-weight: 600;
+             border: none;
+             border-radius: 5px;
+             cursor: pointer;
+             transition: background-color 0.3s ease, color 0.3s ease;
+         }
+
+         #chooseLightButton {
+             background-color: var(--background-color); /* Light theme background */
+             color: var(--text-color-dark); /* Dark text */
+             border: 1px solid var(--border-color); /* Subtle border */
+         }
+          #chooseLightButton:hover {
+             background-color: #e0e0e0; /* Slightly darker light */
+          }
+          body.dark-theme #chooseLightButton { /* Ensure looks OK in dark mode context */
+               background-color: var(--surface-color);
+               color: var(--text-color-medium);
+               border-color: var(--border-color);
+          }
+            body.dark-theme #chooseLightButton:hover {
+               background-color: #3a3a3a;
+            }
+
+
+         #chooseDarkButton {
+             background-color: var(--primary-color); /* Primary color (Gold in dark) */
+             color: var(--button-primary-text); /* Text on primary button */
+         }
+          #chooseDarkButton:hover {
+              background-color: var(--button-primary-hover-bg);
+              color: var(--button-primary-hover-text);
+          }
 
     </style>
 </head>
@@ -1944,8 +2028,7 @@
             <div class="social-links">
                 <a href="https://www.instagram.com/j_k_gems" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE_ID" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a> <a href="https://youtube.com/@jkgems-td3et?si=Ne4JWKic5aeZfBTa" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a> </div>
-             <p>© 2025 J.K Gems. All rights reserved.</p>
-        </div>
+            </div>
     </footer>
 
     <div id="imageModal">
@@ -1953,24 +2036,52 @@
         <img src="" id="modalImage" alt="Enlarged product image">
     </div>
 
+    <div id="themeChoiceModal">
+         <div class="theme-choice-modal-content">
+             <h3>Choose Your Theme</h3>
+             <p>Please select your preferred website theme.</p>
+             <div class="theme-buttons">
+                 <button id="chooseLightButton">Light Theme</button>
+                 <button id="chooseDarkButton">Dark Theme</button>
+             </div>
+         </div>
+     </div>
+
+
     <script>
         // --- Theme Switching Functionality ---
         const themeCheckbox = document.getElementById('theme-checkbox');
         const bodyElement = document.body;
+        const themeChoiceModal = document.getElementById('themeChoiceModal');
 
         // Function to apply the saved theme preference on load
+        // Returns true if a theme was applied, false otherwise
         function applyThemePreference() {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
                 bodyElement.classList.add('dark-theme');
-                themeCheckbox.checked = true; // Set checkbox state
-            } else {
+                themeCheckbox.checked = true; // Sync checkbox state
+                return true;
+            } else if (savedTheme === 'light') { // Explicitly check for 'light'
                 bodyElement.classList.remove('dark-theme');
-                themeCheckbox.checked = false; // Set checkbox state
+                themeCheckbox.checked = false; // Sync checkbox state
+                return true;
             }
+            return false; // Indicate no theme was found/applied
         }
 
-        // Event listener for the theme switch checkbox
+        // Function to show the theme choice modal
+        function showThemeChoiceModal() {
+            themeChoiceModal.style.display = 'flex';
+        }
+
+         // Function to hide the theme choice modal
+         function hideThemeChoiceModal() {
+             themeChoiceModal.style.display = 'none';
+         }
+
+
+        // Event listener for the theme switch checkbox (for manual switching after initial choice)
         themeCheckbox.addEventListener('change', function() {
             if (this.checked) {
                 bodyElement.classList.add('dark-theme');
@@ -1979,6 +2090,21 @@
                 bodyElement.classList.remove('dark-theme');
                 localStorage.setItem('theme', 'light'); // Save preference
             }
+        });
+
+        // Event listeners for the theme choice modal buttons
+        document.getElementById('chooseLightButton').addEventListener('click', () => {
+            bodyElement.classList.remove('dark-theme');
+            themeCheckbox.checked = false; // Sync checkbox state
+            localStorage.setItem('theme', 'light');
+            hideThemeChoiceModal();
+        });
+
+        document.getElementById('chooseDarkButton').addEventListener('click', () => {
+            bodyElement.classList.add('dark-theme');
+            themeCheckbox.checked = true; // Sync checkbox state
+            localStorage.setItem('theme', 'dark');
+            hideThemeChoiceModal();
         });
 
 
@@ -2078,603 +2204,4 @@
 
 
              // Smooth scroll to the top of the products section
-             document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
-             // No need to re-add image modal listeners here as delegation is used on #products
-        }
-
-         // Function to show the billing section (initial state with form inputs)
-         function showBillingSection() {
-             if (cart.length === 0) {
-                 alert("Your cart is empty. Please add items before proceeding.");
-                 cartModal.style.display = 'none'; // Close cart modal
-                 return; // Prevent showing billing if cart is empty
-             }
-
-             productsHeading.textContent = 'Order Inquiry & Payment'; // Update heading
-             searchInput.style.display = 'none'; // Hide search bar on billing page
-
-             categoryGrid.style.display = 'none'; // Hide categories
-             productContainers.forEach(container => {
-                 container.style.display = 'none'; // Hide products
-             });
-             cartModal.style.display = 'none'; // Hide cart modal
-
-             billingSection.style.display = 'block'; // Show billing section
-
-             // Ensure initial state is billing form inputs visible, payment info hidden
-             billingInputs.style.display = 'block';
-             paymentInfoDiv.style.display = 'none';
-             proceedToPaymentButton.style.display = 'block';
-             submitOrderButton.style.display = 'none';
-             // Restore button text and state
-             submitOrderButton.textContent = 'Submit Inquiry / Payment Made';
-             submitOrderButton.disabled = false;
-
-
-             backToCartButton.style.display = 'inline-block'; // Show back button
-
-
-             resetCoupon(); // Reset coupon state when showing billing
-             renderOrderSummaryReview(); // Populate the review section
-
-             // Smooth scroll to the top of the billing section
-             billingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-         }
-
-          // Function to show the payment information and hide billing inputs
-          function showPaymentInfo() {
-              // Validate required fields before proceeding using the form's built-in validation
-              const billingForm = document.getElementById('billingForm');
-              if (!billingForm.checkValidity()) {
-                  // If form is invalid, trigger browser's default validation messages
-                  billingForm.reportValidity();
-                  return false; // Prevent moving forward
-              }
-
-
-              billingInputs.style.display = 'none'; // Hide billing form inputs
-              paymentInfoDiv.style.display = 'block'; // Show payment info
-              proceedToPaymentButton.style.display = 'none'; // Hide proceed button
-              submitOrderButton.style.display = 'block'; // Show submit button
-              // Keep Back to Cart visible, maybe rename it conceptually or add Back to Billing?
-              // Let's keep Back to Cart but add a Back to Billing option.
-              // We can change the backToCartButton's behavior or add a new button.
-              // Let's add a new "Back to Billing" button within #paymentInfo.
-
-              // Update the email subject now that we are at the payment step
-              document.getElementById('emailSubject').value = `J.K Gems Order Inquiry - Payment Details Shown`;
-
-
-              return true; // Indicate success
-          }
-
-
-         // Function to hide the billing section and show the cart modal
-         function hideBillingSection() {
-             billingSection.style.display = 'none'; // Hide billing section
-             cartModal.style.display = 'flex'; // Show cart modal again
-             productsHeading.textContent = 'Your Cart'; // Change heading temporarily
-             searchInput.style.display = 'none'; // Keep search hidden in modal
-
-             // Reset billing section state when going back to cart
-             billingInputs.style.display = 'block'; // Show form inputs
-             paymentInfoDiv.style.display = 'none'; // Hide payment info
-             proceedToPaymentButton.style.display = 'block'; // Show proceed button
-             submitOrderButton.style.display = 'none'; // Hide submit button
-             // Restore button text and state
-             submitOrderButton.textContent = 'Submit Inquiry / Payment Made';
-             submitOrderButton.disabled = false;
-
-
-             backToCartButton.style.display = 'inline-block'; // Show back button
-
-             // Smooth scroll back to the top of the products section (which now shows categories/cart context)
-              document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
-         }
-
-
-        // --- Updated Search Functionality ---
-        // Search only categories when the category grid is visible
-        function searchCategories() {
-             const input = document.getElementById('searchInput');
-             const filter = input.value.toUpperCase();
-             // Get only the category cards within the visible category grid
-             const categories = categoryGrid.querySelectorAll('.product.category-card'); // Select specifically
-
-             categories.forEach(category => {
-                 // Search text in heading and description
-                 const h3 = category.querySelector('h3');
-                 const description = category.querySelector('.product-description');
-                 const textValue = (h3 ? h3.textContent || h3.innerText : '') + ' ' + (description ? description.textContent || description.innerText : '');
-                 if (textValue.toUpperCase().indexOf(filter) > -1) {
-                     category.style.display = ""; // Show
-                 } else {
-                     category.style.display = "none"; // Hide
-                 }
-             });
-        }
-
-        // Search only products within the currently visible category container
-        function searchProductsInCategory() {
-            const input = document.getElementById('searchInput');
-            const filter = input.value.toUpperCase();
-            // Get the currently visible category products grid
-            const visibleProductGrid = document.querySelector('.category-products-container[style*="display: block"] .category-products-grid');
-
-            if (!visibleProductGrid) {
-                 console.warn("No visible product grid found for search.");
-                 return; // Should not happen if views are managed correctly
-            }
-
-            const products = visibleProductGrid.querySelectorAll('.product'); // Get products within the visible grid
-
-            products.forEach(product => {
-                 // Search text in heading, description, and price
-                 const h3 = product.querySelector('h3');
-                 const description = product.querySelector('.product-description');
-                 const priceElement = product.querySelector('.product-price'); // Include price in search
-                 const textValue = (h3 ? h3.textContent || h3.innerText : '') + ' ' +
-                                   (description ? description.textContent || description.innerText : '') + ' ' +
-                                   (priceElement ? priceElement.textContent || priceElement.innerText : '');
-
-
-                if (textValue.toUpperCase().indexOf(filter) > -1) {
-                    product.style.display = ""; // Show
-                } else {
-                    product.style.display = "none"; // Hide
-                }
-            });
-        }
-
-        // The search function used by the input's onkeyup will be set dynamically
-        let searchItems = searchCategories; // Initial function set on load
-
-
-        // --- Image Modal Functionality ---
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        const closeBtn = modal.querySelector('.close');
-
-        // Add click listener to the modal close button
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = 'none'; // Hide modal
-        });
-
-        // Add click listener to the modal background to close
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) { // Close only if clicking directly on the modal background
-                modal.style.display = 'none';
-            }
-        });
-
-        // Optional: Close with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && modal.style.display === 'flex') {
-                modal.style.display = 'none';
-            }
-        });
-
-
-        // --- Add to Cart & Billing/Payment Functionality ---
-        const cartIcon = document.getElementById('cartIcon');
-        const cartCountSpan = document.getElementById('cartCount');
-        const cartModal = document.getElementById('cartModal');
-        const closeCartModalBtn = document.getElementById('closeCartModal');
-        const cartItemsList = document.getElementById('cartItemsList');
-        const cartTotalDiv = document.getElementById('cartTotal');
-        const checkoutButton = document.getElementById('checkoutButton'); // This button now goes to billing
-        const emptyCartMessage = document.getElementById('emptyCartMessage');
-
-        const reviewItemsList = document.getElementById('reviewItemsList'); // Billing review list
-        const reviewSubtotalSpan = document.getElementById('reviewSubtotal');
-        const reviewDiscountLine = document.getElementById('reviewDiscountLine');
-        const reviewDiscountSpan = document.getElementById('reviewDiscount');
-        const reviewFinalTotalSpan = document.getElementById('reviewFinalTotal');
-        const orderCartDetailsInput = document.getElementById('orderCartDetails'); // Hidden input for cart data
-        const parsedOrderDetailsInput = document.getElementById('_parsedOrderDetails'); // Hidden input for structured data
-        const discountAppliedInput = document.getElementById('discountApplied'); // Hidden input for discount flag
-        const finalOrderTotalInput = document.getElementById('finalOrderTotal'); // Hidden input for final total
-
-        const couponCodeInput = document.getElementById('couponCode');
-        const applyCouponButton = document.getElementById('applyCouponButton');
-        const couponMessageDiv = document.getElementById('couponMessage');
-        const couponSectionDiv = document.getElementById('couponSection'); // Coupon section div
-
-
-        // Load cart from localStorage or initialize empty array
-        let cart = JSON.parse(localStorage.getItem('jk-gems-cart')) || [];
-
-        // Variables for coupon and total
-        let currentSubtotal = 0;
-        let discountPercentage = 0; // 0 for no discount
-        let isCouponApplied = false;
-
-
-        // Function to save cart to localStorage
-        function saveCart() {
-            localStorage.setItem('jk-gems-cart', JSON.stringify(cart));
-        }
-
-        // Function to update cart UI (count and list)
-        function updateCartUI() {
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartCountSpan.textContent = totalItems;
-
-            // Hide count if 0
-            cartCountSpan.style.display = totalItems > 0 ? 'block' : 'none';
-
-            // Render cart content only when modal is open or about to open
-             if (cartModal.style.display === 'flex') {
-                 renderCart();
-             }
-        }
-
-        // Function to add item to cart
-        function addToCart(product) {
-            const existingItemIndex = cart.findIndex(item => item.id === product.id);
-
-            if (existingItemIndex > -1) {
-                // Item already in cart, increase quantity
-                cart[existingItemIndex].quantity++;
-            } else {
-                // Item not in cart, add it
-                cart.push({...product, quantity: 1}); // Add quantity property
-            }
-
-            saveCart();
-            updateCartUI();
-             // Optional: Add visual feedback (e.g., fade-in message)
-             console.log(`${product.name} added to cart!`); // Log to console
-             // Simple alert for demonstration
-             // alert(`${product.name} added to cart!`);
-        }
-
-        // Function to remove item from cart
-        function removeFromCart(productId) {
-            cart = cart.filter(item => item.id !== productId);
-            saveCart();
-            updateCartUI();
-        }
-
-        // Function to render cart items in the modal
-        function renderCart() {
-            cartItemsList.innerHTML = ''; // Clear current list
-            let total = 0;
-
-            if (cart.length === 0) {
-                emptyCartMessage.style.display = 'block';
-                cartTotalDiv.style.display = 'none';
-                checkoutButton.style.display = 'none';
-            } else {
-                emptyCartMessage.style.display = 'none';
-                cartTotalDiv.style.display = 'block';
-                checkoutButton.style.display = 'block';
-
-                cart.forEach(item => {
-                    const listItem = document.createElement('li');
-                    const itemTotal = item.price * item.quantity;
-                    listItem.innerHTML = `
-                        <div class="item-details">
-                            <span class="item-name">${item.name}</span>
-                            <span class="item-quantity"> (x${item.quantity})</span>
-                            <br>
-                            <span class="item-price">₹${itemTotal.toFixed(2)}</span>
-                        </div>
-                        <button class="remove-item" data-product-id="${item.id}">Remove</button>
-                    `;
-                    cartItemsList.appendChild(listItem);
-                    total += item.price * item.quantity;
-                });
-
-                cartTotalDiv.textContent = `Total: ₹${total.toFixed(2)}`;
-            }
-        }
-
-         // Function to render order summary in the billing section
-         function renderOrderSummaryReview() {
-             reviewItemsList.innerHTML = ''; // Clear current list
-             currentSubtotal = 0; // Reset subtotal calculation
-
-             if (cart.length === 0) {
-                 // This case should ideally be prevented by checking before showing billing
-                 reviewItemsList.innerHTML = '<li>Cart is empty.</li>';
-                 reviewSubtotalSpan.textContent = '₹0.00';
-                 reviewDiscountLine.style.display = 'none';
-                 reviewDiscountSpan.textContent = '';
-                 reviewFinalTotalSpan.textContent = '₹0.00';
-             } else {
-                 cart.forEach(item => {
-                     const listItem = document.createElement('li');
-                     const itemTotal = item.price * item.quantity;
-                     listItem.innerHTML = `
-                         <span class="item-name">${item.name} (x${item.quantity})</span>
-                         <span class="item-price">₹${itemTotal.toFixed(2)}</span>
-                     `;
-                     reviewItemsList.appendChild(listItem);
-                     currentSubtotal += itemTotal; // Calculate subtotal
-                 });
-
-                 reviewSubtotalSpan.textContent = `₹${currentSubtotal.toFixed(2)}`;
-
-                 let finalTotal = currentSubtotal;
-                 let discountAmount = 0;
-
-                 if (isCouponApplied && discountPercentage > 0) {
-                     discountAmount = currentSubtotal * (discountPercentage / 100);
-                     finalTotal = currentSubtotal - discountAmount;
-                     reviewDiscountSpan.textContent = `- ₹${discountAmount.toFixed(2)}`;
-                     reviewDiscountLine.style.display = 'block';
-                 } else {
-                     reviewDiscountLine.style.display = 'none';
-                     reviewDiscountSpan.textContent = '';
-                 }
-
-                 reviewFinalTotalSpan.textContent = `₹${finalTotal.toFixed(2)}`;
-
-                 // Populate the hidden form fields with order details and final total
-                 const orderDetailsText = cart.map(item =>
-                     `${item.name} (Qty: ${item.quantity}) - ₹${(item.price * item.quantity).toFixed(2)}`
-                 ).join('\n');
-
-                 let fullOrderDetails = `Order Items:\n${orderDetailsText}\n\nSubtotal: ₹${currentSubtotal.toFixed(2)}`;
-
-                 if (isCouponApplied && discountPercentage > 0) {
-                     fullOrderDetails += `\nDiscount (${discountPercentage}%): -₹${discountAmount.toFixed(2)}`;
-                 }
-                 fullOrderDetails += `\nFinal Total: ₹${finalTotal.toFixed(2)}`;
-
-
-                 orderCartDetailsInput.value = fullOrderDetails; // Text version for general use
-
-                 // Optional: JSON version for potential future use or easier parsing
-                 const parsedDetails = {
-                     items: cart,
-                     subtotal: currentSubtotal.toFixed(2),
-                     discountApplied: isCouponApplied,
-                     discountPercentage: discountPercentage,
-                     discountAmount: discountAmount.toFixed(2),
-                     finalTotal: finalTotal.toFixed(2)
-                 };
-                 parsedOrderDetailsInput.value = JSON.stringify(parsedDetails, null, 2); // Pretty print JSON
-
-
-                 discountAppliedInput.value = isCouponApplied ? `Yes (${discountPercentage}%)` : 'No';
-                 finalOrderTotalInput.value = finalTotal.toFixed(2);
-
-
-             }
-         }
-
-         // Function to reset coupon state
-         function resetCoupon() {
-             discountPercentage = 0;
-             isCouponApplied = false;
-             couponCodeInput.value = '';
-             couponMessageDiv.textContent = ''; // Clear message
-             couponMessageDiv.className = ''; // Remove success/error classes
-         }
-
-         // Function to apply the coupon
-         function applyCoupon() {
-             const enteredCode = couponCodeInput.value.trim().toUpperCase(); // Case-insensitive check
-             const validCouponCode = "OFFER10"; // The secret coupon code
-
-             if (enteredCode === validCouponCode) {
-                 discountPercentage = 10; // Set discount percentage
-                 isCouponApplied = true;
-                 couponMessageDiv.textContent = 'Coupon Applied! 10% discount added.';
-                 couponMessageDiv.className = 'success'; // Apply success style
-                 renderOrderSummaryReview(); // Update review with discount
-             } else {
-                 resetCoupon(); // Reset if incorrect code entered
-                 couponMessageDiv.textContent = 'Invalid coupon code.';
-                 couponMessageDiv.className = 'error'; // Apply error style
-                 renderOrderSummaryReview(); // Update review (will show base total)
-             }
-         }
-
-
-        // --- Event listener for interactions within the #products section using delegation ---
-        document.getElementById('products').addEventListener('click', function(event) {
-            const target = event.target;
-
-            // --- Handle Clicks on Category Cards ---
-            // Find the closest ancestor that is a category card
-            const categoryCard = target.closest('.product.category-card');
-            if (categoryCard) {
-                const categoryId = categoryCard.dataset.categoryTarget;
-                if (categoryId) {
-                    showProductContainer(categoryId); // Call the function to show products for this category
-                    return; // Stop processing after handling category click
-                }
-            }
-
-            // --- Handle Clicks on "Add to Cart" Buttons ---
-            if (target.classList.contains('add-to-cart-button')) {
-                const productElement = target.closest('.product'); // Find the parent product div
-                if (productElement) { // Ensure we are inside a product card
-                    const product = {
-                        id: target.dataset.productId,
-                        name: target.dataset.productName,
-                        price: parseFloat(target.dataset.productPrice) // Parse price as number
-                    };
-                    // Validate data
-                    if (product.id && product.name && !isNaN(product.price)) {
-                         addToCart(product);
-                         // Optional: Add visual feedback (e.g., fade-in message)
-                         console.log(`${product.name} added to cart!`); // Log to console
-                    } else {
-                         console.error("Missing or invalid product data for Add to Cart:", product);
-                         alert("Could not add item to cart. Missing product details.");
-                    }
-                }
-                return; // Stop processing after handling add to cart
-            }
-
-            // --- Handle Clicks on Product Images for Modal ---
-            // Check if the clicked element is an IMG inside a .product card
-            // And make sure it's not within the billing section (which is outside #products)
-            if (target.tagName === 'IMG' && target.closest('.product') && !target.closest('#billingSection')) {
-                // Check if it's a product image within a product container
-                // We can simplify this check slightly if all images in products are intended for modal
-                 if (target.closest('.category-products-grid .product')) { // Only images in product grids
-                     modal.style.display = 'flex'; // Use flex to center
-                     modalImg.src = target.src; // Set modal image source
-                     modalImg.alt = target.alt; // Set modal image alt text for accessibility
-                 }
-            }
-        });
-
-
-         // Event listener for "Remove" buttons in the cart modal using delegation
-         cartItemsList.addEventListener('click', function(event) {
-             const target = event.target;
-             if (target.classList.contains('remove-item')) {
-                 const productId = target.dataset.productId;
-                 if (productId) {
-                     removeFromCart(productId);
-                 }
-             }
-         });
-
-
-        // Event listeners for Cart Modal
-        cartIcon.addEventListener('click', function() {
-            cartModal.style.display = 'flex'; // Show modal
-             renderCart(); // Render cart content every time modal opens
-        });
-
-        closeCartModalBtn.addEventListener('click', function() {
-            cartModal.style.display = 'none'; // Hide modal
-        });
-
-        // Close modal if user clicks outside of it
-        cartModal.addEventListener('click', function(e) {
-            if (e.target === cartModal) {
-                cartModal.style.display = 'none';
-            }
-        });
-
-        // Event listener for the "Proceed to Inquiry" button (in the cart modal)
-        checkoutButton.addEventListener('click', function() {
-            // cartModal.style.display = 'none'; // Hide cart modal - this is handled in showBillingSection
-            showBillingSection(); // Show the billing section
-        });
-
-         // Event listener for the coupon code apply button
-         applyCouponButton.addEventListener('click', applyCoupon);
-
-         // Allow applying coupon by pressing Enter in the input field
-         couponCodeInput.addEventListener('keypress', function(event) {
-             if (event.key === 'Enter') {
-                 event.preventDefault(); // Prevent form submission if input is inside a form
-                 applyCoupon();
-             }
-         });
-
-
-         // Event listener for the FIRST click on the billing form button
-         proceedToPaymentButton.addEventListener('click', function(event) {
-              // Prevent default form submission initially
-             // event.preventDefault(); // No form event listener on the button itself
-
-             // Validate and show payment info using HTML5 validation API
-             showPaymentInfo();
-
-             // The event listener for form submission will be on the form itself,
-             // and will only be triggered when submitOrderButton is clicked.
-
-         });
-
-         // Event listener for the SECOND click on the billing form button (now submitOrderButton)
-         // This button is type="submit" and is inside the form, so it naturally triggers form submission.
-         document.getElementById('billingForm').addEventListener('submit', function(event) {
-             // This listener is called when the submitOrderButton is clicked.
-
-             // Add client-side feedback
-             const submitButton = document.getElementById('submitOrderButton');
-             submitButton.textContent = 'Submitting...';
-             submitButton.disabled = true; // Disable button to prevent double clicks
-
-
-             // Optional: Add final checks before clearing cart and submitting
-             // e.g., confirm user has made payment - This is a manual step for the user after seeing payment info
-
-             // Clear the cart after the form submission attempt.
-             // As noted before, this is client-side and not server-side secure.
-             // Clearing AFTER the form submission is attempted is the correct place.
-              cart = [];
-              saveCart();
-              updateCartUI(); // Update header count immediately
-              // Reset coupon state on successful order/inquiry submission
-              resetCoupon();
-
-              // The form will submit normally via formsubmit.co's action
-              // The _next parameter will redirect the user.
-              // If submission fails (e.g., network error) before redirect, the button will remain disabled.
-              // For better error handling, one might use Fetch API instead of native form submit,
-              // but for simplicity with formsubmit.co, native submit is standard.
-         });
-
-        // --- Add Back Button Listeners (Ensure these exist and are correct) ---
-        document.querySelectorAll('.back-to-categories').forEach(button => {
-            button.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent default link behavior
-                showCategoryGrid(); // Show the category grid
-                 // Smooth scroll back to the top of the products section
-                 document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-
-        // Listener for the back to cart button in the billing section
-        document.querySelector('.back-to-cart').addEventListener('click', function(event) {
-            event.preventDefault();
-            hideBillingSection(); // Hide billing and show cart modal
-        });
-
-
-        // Initializers
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log("DOM Content Loaded. Initializing..."); // Debug log
-
-            // Apply theme preference from localStorage
-            applyThemePreference();
-
-            const initialCategoryCards = document.querySelectorAll('.category-card'); // Get cards immediately
-            console.log("Found", initialCategoryCards.length, "category cards on DOMContentLoaded."); // Debug log: Check count
-            showCategoryGrid(); // Make sure categories are shown initially
-            updateCartUI(); // Load and display initial cart state
-            // Delegation for image modal clicks is set up outside DOMContentLoaded
-        });
-
-
-        // Feature: Optional - Add a slight reveal animation on scroll
-        const sections = document.querySelectorAll('.section');
-
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                    observer.unobserve(entry.target); // Stop observing once visible
-                }
-            });
-        }, {
-            threshold: 0.1, // Trigger when 10% of the section is visible
-            rootMargin: '0px 0px -50px 0px' // Start observing slightly before it enters
-        });
-
-        sections.forEach(section => {
-             // Apply animation only to main sections, not modals or billing section
-             if (!section.id.includes('Modal') && section.id !== 'billingSection') {
-                section.style.opacity = 0;
-                section.style.transform = 'translateY(20px)';
-                section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-                observer.observe(section);
-             }
-        });
-
-    </script>
-
-</body>
-</html>
+             document.getElementById('products').scroll
