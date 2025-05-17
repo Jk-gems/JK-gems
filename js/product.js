@@ -65,14 +65,13 @@ const productsData = [
         category: 'yantra',
         whatsappMessage: "Hello, I'm interested in Sphatik Shree Yantra. Could you provide more details and pricing?"
     },
-     // Add more Yantra/Spiritual products here following the same structure...
+     // Add more Yantra/Spiritual products here...
 ];
 
 
 // Function to generate and display products for a specific category
-// This function is now in a separate file but made globally accessible
-// by being declared outside any specific scope within this file.
-function showProductContainer(category, targetGridId) {
+// Explicitly attach to window for guaranteed global access
+window.showProductContainer = function(category, targetGridId) {
      console.log("Attempting to show product container for category:", category); // Debug log
 
      // Get necessary elements from the DOM
@@ -109,6 +108,11 @@ function showProductContainer(category, targetGridId) {
       const productContainers = document.querySelectorAll('.category-products-container');
       productContainers.forEach(container => {
           container.style.display = 'none';
+           // Clear product grids when hiding their containers
+           const productGrid = container.querySelector('.category-products-grid');
+           if(productGrid) {
+               productGrid.innerHTML = '';
+           }
       });
 
 
@@ -156,6 +160,12 @@ function showProductContainer(category, targetGridId) {
           searchInput.placeholder = `Search ${categoryName} products...`; // Update search placeholder
           // Note: The onkeyup handler for the search input is updated in index.html
           // when the category is selected to point to searchProductsInCategory.
+          // Also, update the searchItems global reference here as it's used by the main script
+          searchItems = window.searchProductsInCategory; // Update the global reference
+          searchInput.onkeyup = window.searchProductsInCategory; // Attach the correct search function
+          searchInput.value = ''; // Clear search input
+          window.searchProductsInCategory(); // Apply search filter (will show all products initially)
+
      } else {
          console.warn("searchInput not found in products.js");
      }
@@ -169,12 +179,13 @@ function showProductContainer(category, targetGridId) {
           console.warn("#products section not found for scrolling.");
       }
      // Delegation for image modal clicks is set up in index.html and works on newly added elements
-}
+};
 
 
 // Function to search only products within the currently visible category container
 // This is also moved here as it operates on the dynamically generated products.
-function searchProductsInCategory() {
+// Explicitly attach to window for guaranteed global access
+window.searchProductsInCategory = function() {
     const input = document.getElementById('searchInput'); // Assuming searchInput is accessible
     const filter = input.value.toUpperCase();
     // Get the currently visible category products grid
@@ -206,18 +217,9 @@ function searchProductsInCategory() {
             productElement.style.display = "none"; // Hide
         }
     });
-}
+};
 
 // Note: The addToCart, removeFromCart, renderCart, etc., functions are still
 // in the main script in index.html. They will interact with the cart array
 // and UI elements in index.html. The main script will call addToCart,
 // passing the product object it finds from the productsData array.
-
-// Making functions globally accessible if needed by index.html script
-// window.showProductContainer = showProductContainer; // Alternative way if needed
-// window.searchProductsInCategory = searchProductsInCategory; // Alternative way if needed
-
-// However, the event listeners in index.html can directly reference
-// functions declared at the top level of products.js if products.js
-// is loaded before the main script in index.html, which is the case here.
-
