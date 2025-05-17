@@ -1912,25 +1912,6 @@
         const modalImg = document.getElementById('modalImage');
         const closeBtn = modal.querySelector('.close');
 
-        // Use event delegation on a common ancestor for image clicks
-        // The #products section contains all category and product images
-         document.getElementById('products').addEventListener('click', function(event) {
-             const target = event.target;
-             // Check if the clicked element is an IMG inside a .product card
-             // And make sure it's not within the billing section (which is outside #products)
-             if (target.tagName === 'IMG' && target.closest('.product') && !target.closest('#billingSection')) {
-                 // Check if it's a product image within a product container, or potentially a category image
-                 // For now, only trigger for images within the product containers
-                 // If you want category images to also open the modal, remove the '.category-products-container .product' check
-                 if (target.closest('.category-products-container .product')) {
-                      modal.style.display = 'flex'; // Use flex to center
-                      modalImg.src = target.src; // Set modal image source
-                      modalImg.alt = target.alt; // Set modal image alt text for accessibility
-                 }
-             }
-         });
-
-
         // Add click listener to the modal close button
         closeBtn.addEventListener('click', function() {
             modal.style.display = 'none'; // Hide modal
@@ -2048,12 +2029,13 @@
 
                 cart.forEach(item => {
                     const listItem = document.createElement('li');
+                    const itemTotal = item.price * item.quantity;
                     listItem.innerHTML = `
                         <div class="item-details">
                             <span class="item-name">${item.name}</span>
                             <span class="item-quantity"> (x${item.quantity})</span>
                             <br>
-                            <span class="item-price">₹${(item.price * item.quantity).toFixed(2)}</span>
+                            <span class="item-price">₹${itemTotal.toFixed(2)}</span>
                         </div>
                         <button class="remove-item" data-product-id="${item.id}">Remove</button>
                     `;
@@ -2169,25 +2151,57 @@
          }
 
 
-        // Event listener for "Add to Cart" buttons using delegation on the #products section
+        // --- Event listener for interactions within the #products section using delegation ---
         document.getElementById('products').addEventListener('click', function(event) {
             const target = event.target;
-            // Check if the clicked element is an Add to Cart button
-            if (target.classList.contains('add-to-cart-button')) {
-                const product = {
-                    id: target.dataset.productId,
-                    name: target.dataset.productName,
-                    price: parseFloat(target.dataset.productPrice) // Parse price as number
-                };
-                // Validate data
-                if (product.id && product.name && !isNaN(product.price)) {
-                     addToCart(product);
-                } else {
-                     console.error("Missing or invalid product data for Add to Cart:", product);
-                     alert("Could not add item to cart. Missing product details.");
+
+            // --- Handle Clicks on Category Cards ---
+            // Find the closest ancestor that is a category card
+            const categoryCard = target.closest('.product.category-card');
+            if (categoryCard) {
+                const categoryId = categoryCard.dataset.categoryTarget;
+                if (categoryId) {
+                    showProductContainer(categoryId); // Call the function to show products for this category
+                    return; // Stop processing after handling category click
                 }
             }
+
+            // --- Handle Clicks on "Add to Cart" Buttons ---
+            if (target.classList.contains('add-to-cart-button')) {
+                const productElement = target.closest('.product'); // Find the parent product div
+                if (productElement) { // Ensure we are inside a product card
+                    const product = {
+                        id: target.dataset.productId,
+                        name: target.dataset.productName,
+                        price: parseFloat(target.dataset.productPrice) // Parse price as number
+                    };
+                    // Validate data
+                    if (product.id && product.name && !isNaN(product.price)) {
+                         addToCart(product);
+                         // Optional: Add visual feedback (e.g., fade-in message)
+                         console.log(`${product.name} added to cart!`); // Log to console
+                    } else {
+                         console.error("Missing or invalid product data for Add to Cart:", product);
+                         alert("Could not add item to cart. Missing product details.");
+                    }
+                }
+                return; // Stop processing after handling add to cart
+            }
+
+            // --- Handle Clicks on Product Images for Modal ---
+            // Check if the clicked element is an IMG inside a .product card
+            // And make sure it's not within the billing section (which is outside #products)
+            if (target.tagName === 'IMG' && target.closest('.product') && !target.closest('#billingSection')) {
+                // Check if it's a product image within a product container
+                // We can simplify this check slightly if all images in products are intended for modal
+                 if (target.closest('.category-products-grid .product')) { // Only images in product grids
+                     modal.style.display = 'flex'; // Use flex to center
+                     modalImg.src = target.src; // Set modal image source
+                     modalImg.alt = target.alt; // Set modal image alt text for accessibility
+                 }
+            }
         });
+
 
          // Event listener for "Remove" buttons in the cart modal using delegation
          cartItemsList.addEventListener('click', function(event) {
@@ -2268,6 +2282,22 @@
               // The form will submit normally via formsubmit.co's action
               // The _next parameter will redirect the user.
          });
+
+        // --- Add Back Button Listeners (Ensure these exist and are correct) ---
+        document.querySelectorAll('.back-to-categories').forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default link behavior
+                showCategoryGrid(); // Show the category grid
+                 // Smooth scroll back to the top of the products section
+                 document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Listener for the back to cart button in the billing section
+        document.querySelector('.back-to-cart').addEventListener('click', function(event) {
+            event.preventDefault();
+            hideBillingSection(); // Hide billing and show cart modal
+        });
 
 
         // Initial view: Show category grid on load
