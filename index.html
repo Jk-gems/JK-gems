@@ -9,113 +9,153 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* --- Modern & Elegant Variables and Base Styles --- */
+        /* --- Color Palette Variables (Default: Light Theme) --- */
         :root {
-            /* New Thoughtful Color Palette: Deep Blues, Golds, Neutrals */
-            --primary-dark: #1A3A4E; /* Deep Navy/Teal: Headings, Header/Footer Background */
-            --secondary-accent: #B88A45; /* Slightly richer Muted Gold/Bronze: Links, Icons, Highlights, Button Hover */
-            --background-light: #F5F5DC; /* Light Beige/Cream: Body Background */
-            --text-color-dark: #333333; /* Dark Grey: Body Text */
-            --border-neutral: #D3D3D3; /* Light Grey: Borders, Separators */
-            --card-bg: #FFFFFF; /* White: Product Card Background */
+            /* Light Theme Colors */
+            --primary-color: #1A3A4E; /* Deep Navy/Teal: Headings, Header/Footer Background */
+            --secondary-color: #B88A45; /* Muted Gold/Bronze: Accent, Links, Highlights, Button Hover */
+            --background-color: #F5F5DC; /* Light Beige/Cream: Body Background */
+            --surface-color: #FFFFFF; /* Card/Modal/Section Background */
+            --text-color-dark: #333333; /* Dark Grey: Main Text */
+            --text-color-medium: #555555; /* Secondary Text/Descriptions */
+            --border-color: #D3D3D3; /* Light Grey: Borders, Separators */
 
-            --whatsapp-green: #25D366; /* Standard WhatsApp green */
+            --whatsapp-green: #25D366;
             --whatsapp-green-hover: #1DA851;
 
-            --footer-text-color: var(--background-light); /* Footer text color contrasting with dark footer background */
+            --footer-text-color: var(--text-color-dark);
 
-            --section-padding-vertical: 100px; /* Increased Vertical padding for sections - Intentional Layout/Whitespace */
-            --section-padding-horizontal: 25px; /* Slightly increased Horizontal padding for sections - Intentional Layout/Whitespace */
+            --section-padding-vertical: 100px;
+            --section-padding-horizontal: 25px;
 
-            --button-primary: var(--primary-dark); /* Define a primary button color */
-            --button-primary-text: var(--background-light);
-            --button-primary-hover: var(--secondary-accent);
-            --button-primary-hover-text: var(--primary-dark);
+            /* Button Colors */
+            --button-primary-bg: var(--primary-color);
+            --button-primary-text: var(--background-color);
+            --button-primary-hover-bg: var(--secondary-color);
+            --button-primary-hover-text: var(--primary-color);
 
-            --button-secondary: var(--secondary-accent); /* Define a secondary button color */
-            --button-secondary-text: var(--primary-dark);
-            --button-secondary-hover: var(--primary-dark);
-            --button-secondary-hover-text: var(--background-light);
+            --button-secondary-bg: var(--secondary-color);
+            --button-secondary-text: var(--primary-color);
+            --button-secondary-hover-bg: var(--primary-color);
+            --button-secondary-hover-text: var(--background-color);
         }
 
+        /* --- Dark Theme Variables --- */
+        body.dark-theme {
+            --primary-color: #B88A45; /* Gold becomes a primary accent */
+            --secondary-color: #1A3A4E; /* Deep Navy becomes a secondary accent/background element */
+            --background-color: #1e1e1e; /* Main Dark Background */
+            --surface-color: #282828; /* Card/Modal/Section Background */
+            --text-color-dark: #FFFFFF; /* White: Headings, Important Text */
+            --text-color-medium: #e0e0e0; /* Main Light Text */
+            --text-color-secondary: #b0b0b0; /* Secondary Text/Descriptions */
+            --border-color: #444444; /* Darker Borders/Separators */
+
+            --whatsapp-green: #25D366; /* Keep green */
+            --whatsapp-green-hover: #1DA851;
+
+            --footer-text-color: var(--text-color-secondary);
+
+            /* Button Colors adapted for dark theme */
+            --button-primary-bg: var(--primary-color); /* Use Gold */
+            --button-primary-text: var(--background-color); /* Dark text on gold */
+            --button-primary-hover-bg: #d4a863; /* Lighter gold on hover */
+            --button-primary-hover-text: var(--background-color);
+
+            --button-secondary-bg: var(--secondary-color); /* Use Deep Navy */
+            --button-secondary-text: var(--text-color-medium);
+            --button-secondary-hover-bg: #2a546a; /* Slightly lighter Navy */
+            --button-secondary-hover-text: var(--text-color-dark);
+        }
+
+
+        /* --- Base Styles (Using Variables) --- */
         body {
-            font-family: 'Lato', sans-serif; /* Effective Typography: Body font */
-            font-weight: 400; /* Adjusted body font weight for better contrast */
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
             margin: 0;
             padding: 0;
-            background-color: var(--background-light); /* Background color from new palette */
-            color: var(--text-color-dark); /* Main body text color from new palette */
-            line-height: 1.6; /* Effective Typography: Line height for readability */
-            overflow-x: hidden; /* Prevent horizontal scroll issues */
-            scroll-behavior: smooth; /* Smooth scroll for anchors */
+            background-color: var(--background-color);
+            color: var(--text-color-medium);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            transition: background-color 0.5s ease, color 0.5s ease; /* Smooth theme transition */
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Lora', serif; /* Effective Typography: Heading font */
-            color: var(--primary-dark); /* Headings color from new palette */
+            font-family: 'Lora', serif;
+            color: var(--primary-color);
             line-height: 1.3;
             margin-top: 0;
+            transition: color 0.5s ease; /* Smooth theme transition */
         }
 
         h2 {
-            font-size: 2.8em; /* Visual Hierarchy: Heading size */
-            margin-bottom: 40px; /* Intentional Layout/Whitespace */
+            font-size: 2.8em;
+            margin-bottom: 40px;
             text-align: center;
-            font-weight: 700; /* Visual Hierarchy: Heading weight */
+            font-weight: 700;
         }
 
         h3 {
-            font-size: 1.8em; /* Visual Hierarchy: Heading size */
-            margin-bottom: 20px; /* Intentional Layout/Whitespace */
-            font-weight: 600; /* Visual Hierarchy: Heading weight */
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
 
         p {
-            margin-bottom: 1.2em; /* Intentional Layout/Whitespace */
-            color: var(--text-color-dark); /* Paragraph text color from new palette */
+            margin-bottom: 1.2em;
+            color: var(--text-color-medium);
+            transition: color 0.5s ease; /* Smooth theme transition */
         }
 
         a {
-            color: var(--primary-dark); /* Default link color from new palette */
+            color: var(--primary-color);
             text-decoration: none;
-            transition: color 0.3s ease; /* Attention to Detail: Smooth transition */
+            transition: color 0.3s ease;
         }
 
         a:hover {
-            color: var(--secondary-accent); /* Link hover color from new palette - Attention to Detail */
+            color: var(--secondary-color);
         }
 
         .container {
-            max-width: 1200px; /* Intentional Layout: Max width for content */
-            margin: 0 auto; /* Intentional Layout: Center container */
-            padding: 0 var(--section-padding-horizontal); /* Intentional Layout/Whitespace */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--section-padding-horizontal);
         }
 
         .section {
-            padding: var(--section-padding-vertical) 0; /* Vertical padding only, horizontal handled by container */
+            padding: var(--section-padding-vertical) 0;
             text-align: center;
         }
 
         /* --- Header/Navigation --- */
         .header {
-            background-color: var(--primary-dark); /* Darkest color for header background - Thoughtful Color Palette */
-            padding: 15px 0; /* Vertical padding only, horizontal handled by container */
+            background-color: var(--surface-color); /* Header background */
+            padding: 15px 0;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Attention to Detail: Stronger shadow */
-            position: static; /* Default position */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: static;
             width: 100%;
             z-index: 1000;
+            transition: background-color 0.5s ease, box-shadow 0.5s ease; /* Smooth theme transition */
+        }
+        body.dark-theme .header {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Darker shadow in dark mode */
         }
 
+
         .header .container {
-             display: flex; /* Intentional Layout: Flexbox for logo and nav */
-             justify-content: space-between; /* Intentional Layout: Space between logo and nav */
+             display: flex;
+             justify-content: space-between;
              align-items: center;
-             flex-wrap: wrap; /* Responsiveness */
+             flex-wrap: wrap;
         }
 
         .header img {
-            max-width: 160px; /* Slightly smaller logo */
+            max-width: 160px;
             height: auto;
             display: block;
             margin: 0;
@@ -123,7 +163,7 @@
 
         .nav {
             margin-top: 0;
-            display: flex; /* Align nav and cart */
+            display: flex;
             align-items: center;
         }
 
@@ -131,23 +171,24 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            display: flex; /* User-Friendly Navigation: Flexbox for nav items */
-            flex-wrap: wrap; /* Responsiveness */
+            display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
         }
 
         .nav li {
-            margin-left: 30px; /* Intentional Layout/Whitespace */
+            margin-left: 30px;
         }
 
         .nav a {
-            color: var(--background-light); /* Lightest color for nav links on dark header - Thoughtful Color Palette */
-            font-family: 'Lato', sans-serif; /* Effective Typography */
-            font-weight: 600; /* Effective Typography */
+            color: var(--text-color-medium); /* Nav links color */
+            font-family: 'Lato', sans-serif;
+            font-weight: 600;
             font-size: 1.1em;
             padding: 5px 0;
             position: relative;
+            transition: color 0.5s ease; /* Smooth theme transition */
         }
 
         .nav a::after {
@@ -157,8 +198,8 @@
             bottom: 0;
             width: 0;
             height: 2px;
-            background-color: var(--secondary-accent); /* Gold accent for hover underline - Attention to Detail */
-            transition: width 0.3s ease-in-out; /* Attention to Detail: Smooth transition */
+            background-color: var(--secondary-color); /* Accent underline */
+            transition: width 0.3s ease-in-out, background-color 0.5s ease; /* Smooth theme transition */
         }
 
         .nav a:hover::after {
@@ -167,23 +208,23 @@
 
         /* Cart Icon in Header */
         .cart-icon-container {
-            margin-left: 30px; /* Space from last nav item */
+            margin-left: 30px;
             position: relative;
             cursor: pointer;
-            color: var(--background-light); /* Icon color */
+            color: var(--text-color-medium); /* Icon color */
             font-size: 1.5em;
             transition: color 0.3s ease;
         }
 
         .cart-icon-container:hover {
-            color: var(--secondary-accent); /* Hover color */
+            color: var(--primary-color); /* Hover color */
         }
 
         .cart-count {
             position: absolute;
             top: -8px;
             right: -8px;
-            background-color: red;
+            background-color: #e74c3c; /* Red remains visible */
             color: white;
             font-size: 0.7em;
             font-weight: 700;
@@ -194,6 +235,67 @@
             text-align: center;
         }
 
+         /* Theme Switch Styling */
+         .theme-switch-wrapper {
+             display: flex;
+             align-items: center;
+             margin-left: 20px; /* Space from cart */
+         }
+
+         .theme-switch {
+             position: relative;
+             display: inline-block;
+             width: 40px;
+             height: 24px;
+             cursor: pointer;
+         }
+
+         .theme-switch input {
+             opacity: 0;
+             width: 0;
+             height: 0;
+         }
+
+         .slider {
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             bottom: 0;
+             background-color: #ccc;
+             transition: 0.4s;
+             border-radius: 24px;
+         }
+
+         .slider:before {
+             position: absolute;
+             content: "";
+             height: 16px;
+             width: 16px;
+             left: 4px;
+             bottom: 4px;
+             background-color: white;
+             transition: 0.4s;
+             border-radius: 50%;
+         }
+
+         input:checked + .slider {
+             background-color: var(--primary-color); /* Uses current theme variable */
+         }
+
+         input:checked + .slider:before {
+             transform: translateX(16px);
+         }
+
+         /* Round slider */
+         .slider.round {
+             border-radius: 24px;
+         }
+
+         .slider.round:before {
+             border-radius: 50%;
+         }
+
 
          /* Responsiveness: Adjustments for Header/Navigation */
          @media (max-width: 768px) {
@@ -201,7 +303,7 @@
                  flex-direction: column;
              }
              .header img {
-                 margin-bottom: 15px; /* Reduced margin */
+                 margin-bottom: 15px;
              }
              .nav {
                  flex-direction: column;
@@ -212,28 +314,32 @@
                  flex-direction: column;
                  align-items: center;
                  width: 100%;
-                 margin-bottom: 15px; /* Space below nav list */
+                 margin-bottom: 15px;
              }
              .nav li {
-                 margin: 10px 0; /* Adjusted margin */
-                 width: 100%; /* Make list items take full width */
-                 border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+                 margin: 10px 0;
+                 width: 100%;
+                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
                  padding-bottom: 10px;
              }
              .nav li:last-child {
-                 border-bottom: none; /* No border on the last item */
+                 border-bottom: none;
                  padding-bottom: 0;
              }
              .nav a {
-                 display: block; /* Make links fill the width */
+                 display: block;
                  text-align: center;
              }
              .cart-icon-container {
-                 margin-left: 0; /* Remove left margin */
-                 margin-top: 10px; /* Add top margin below nav */
+                 margin-left: 0;
+                 margin-top: 10px;
+             }
+             .theme-switch-wrapper {
+                 margin-left: 0;
+                 margin-top: 10px; /* Space below cart icon */
              }
              .header {
-                 padding: 15px 0; /* Adjusted vertical padding */
+                 padding: 15px 0;
              }
          }
 
@@ -241,16 +347,16 @@
         /* --- Hero Section --- */
         .hero {
             position: relative;
-            height: 600px; /* Increased hero height */
+            height: 600px;
             /* High-Quality Visuals: Placeholder for your hero background image */
-            background: url('YOUR_HERO_IMAGE_URL.jpg') no-repeat center center/cover;
-            display: flex; /* Center content */
+            background: url('YOUR_HERO_IMAGE_URL.jpg') no-repeat center center/cover; /* REMEMBER TO REPLACE THIS URL */
+            display: flex;
             align-items: center;
             justify-content: center;
-            color: white; /* Text color for hero content */
-            overflow: hidden; /* Ensure parallax doesn't cause scroll issues */
-            background-attachment: fixed; /* Parallax effect */
-            padding: var(--section-padding-vertical) 0; /* Apply vertical padding */
+            color: white; /* Text color on the dark overlay */
+            overflow: hidden;
+            background-attachment: fixed;
+            padding: var(--section-padding-vertical) 0;
         }
 
         .hero::before {
@@ -260,52 +366,51 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Slightly darker overlay for text readability */
+            background: rgba(0, 0, 0, 0.5); /* Overlay for text readability */
             z-index: 1;
         }
+         body.dark-theme .hero::before {
+             background: rgba(0, 0, 0, 0.7); /* Darker overlay in dark mode */
+         }
+
 
         .hero .container {
             position: relative;
-            z-index: 2; /* Ensure content is above overlay */
-            text-align: center; /* Center the text within the container */
-        }
-
-        .hero-content {
-             /* This div is no longer needed for layout as container handles it */
-             /* If specific styling is needed, apply directly or re-evaluate structure */
-             /* Removed max-width and padding as container handles it */
+            z-index: 2;
+            text-align: center;
         }
 
 
-        .hero .container h1 { /* Target h1 within hero container */
-            color: #FFFFFF; /* White for hero heading */
+        .hero .container h1 {
+            color: #FFFFFF; /* White heading on overlay */
             font-size: 4em;
             margin-bottom: 20px;
             font-weight: 700;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
         }
 
-        .hero .container p { /* Target p within hero container */
-            color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for paragraph */
+        .hero .container p {
+            color: rgba(255, 255, 255, 0.9); /* Slightly transparent white text */
             font-size: 1.3em;
             margin-bottom: 30px;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* Text shadow for readability */
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
         }
 
         .hero-cta-button {
             display: inline-block;
-            background-color: var(--secondary-accent); /* Gold accent for CTA */
-            color: var(--primary-dark); /* Dark text on gold button */
+            background-color: var(--button-primary-bg);
+            color: var(--button-primary-text);
             padding: 15px 30px;
             font-size: 1.2em;
             font-weight: 700;
             border-radius: 30px; /* Pill shape */
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease; /* Smooth theme transition */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .hero-cta-button:hover {
-            background-color: #B0925B; /* Slightly darker gold on hover */
+             background-color: var(--button-primary-hover-bg);
+             color: var(--button-primary-hover-text);
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
@@ -314,58 +419,63 @@
         /* --- About Us & Contact Section (Consolidated) --- */
         .about-contact .container {
             text-align: left;
-             display: flex; /* Intentional Layout: Flexbox for content columns */
-             flex-wrap: wrap; /* Responsiveness */
+             display: flex;
+             flex-wrap: wrap;
              align-items: flex-start;
-             gap: 40px; /* Adjusted gap */
-             justify-content: center; /* Center columns if they don't fill width */
+             gap: 40px;
+             justify-content: center;
         }
 
          .about-content, .contact-info {
-             flex: 1; /* Intentional Layout: Allow columns to grow */
-             min-width: 300px; /* Adjusted min width before stacking */
+             flex: 1;
+             min-width: 300px;
          }
 
         .about-contact h2 {
             text-align: center;
             width: 100%;
-            margin-bottom: 50px; /* Adjusted margin */
+            margin-bottom: 50px;
         }
 
          .about-content h3, .contact-info h3 {
              text-align: left;
-             margin-bottom: 20px; /* Adjusted margin */
-             font-size: 1.7em; /* Visual Hierarchy */
-             color: var(--primary-dark); /* Subheadings color from new palette */
+             margin-bottom: 20px;
+             font-size: 1.7em;
+             color: var(--primary-color);
+             transition: color 0.5s ease; /* Smooth theme transition */
          }
 
         .about-contact p {
-            font-size: 1.05em; /* Adjusted font size */
+            font-size: 1.05em;
             margin-bottom: 1.2em;
-            color: var(--text-color-dark); /* Text color from new palette */
+            color: var(--text-color-medium);
+             transition: color 0.5s ease; /* Smooth theme transition */
         }
 
         .about-contact address {
              font-style: normal;
              margin-top: 15px;
-             font-size: 1.05em; /* Adjusted font size */
+             font-size: 1.05em;
              line-height: 1.7;
-             color: var(--text-color-dark); /* Text color from new palette */
-             margin-bottom: 20px; /* Adjusted margin */
+             color: var(--text-color-medium);
+             margin-bottom: 20px;
+             transition: color 0.5s ease; /* Smooth theme transition */
          }
 
          .contact-info p {
-             margin-bottom: 12px; /* Adjusted margin for contact lines */
-             color: var(--text-color-dark); /* Text color from new palette */
+             margin-bottom: 12px;
+             color: var(--text-color-medium);
              font-size: 1.05em;
+             transition: color 0.5s ease; /* Smooth theme transition */
          }
 
          .contact-info p i {
-             margin-right: 12px; /* Adjusted margin */
-             color: var(--secondary-accent); /* Icons color from new palette */
-             font-size: 1.2em; /* Slightly larger icons */
-             width: 20px; /* Fixed width for alignment */
+             margin-right: 12px;
+             color: var(--secondary-color);
+             font-size: 1.2em;
+             width: 20px;
              text-align: center;
+              transition: color 0.5s ease; /* Smooth theme transition */
          }
 
 
@@ -376,24 +486,35 @@
 
         /* Grid for Categories AND Products (applied to nested containers) */
         .category-grid,
-        .category-products-grid { /* Apply grid display to the specific containers */
+        .category-products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Allow flexible columns */
-            gap: 30px; /* Adjusted gap */
-            margin-top: 30px; /* Add some space below heading/search */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
         }
 
         /* Style for the Category Cards (clickable products) */
         .product.category-card {
-             cursor: pointer; /* Indicate it's clickable */
+             cursor: pointer;
              transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+             border-color: var(--border-color);
+             background-color: var(--surface-color);
+             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         .product.category-card:hover {
-             transform: translateY(-5px); /* More pronounced lift for category cards */
-             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Stronger hover shadow */
-             border-color: var(--secondary-accent);
+             transform: translateY(-5px);
+             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+             border-color: var(--secondary-color);
          }
+
+         body.dark-theme .product.category-card {
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Darker shadow */
+         }
+          body.dark-theme .product.category-card:hover {
+             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Stronger dark shadow */
+         }
+
 
         .product.category-card img {
             /* Image still zooms, ok */
@@ -401,128 +522,135 @@
 
          /* Style for actual Product Items within a category */
          .category-products-container .product {
-             cursor: default; /* Reset cursor for actual products */
-             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Keep transitions for products */
+             cursor: default;
+             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+             border-color: var(--border-color);
+             background-color: var(--surface-color);
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
          }
 
          .category-products-container .product:hover {
-             transform: translateY(-4px); /* Subtle lift for actual products */
-             box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12); /* Softer hover shadow for actual products */
-             border-color: var(--secondary-accent); /* Highlight border on hover */
+             transform: translateY(-4px);
+             box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+             border-color: var(--secondary-color);
+         }
+          body.dark-theme .category-products-container .product {
+             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Darker shadow */
+          }
+           body.dark-theme .category-products-container .product:hover {
+             box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4); /* Softer dark shadow */
          }
 
 
         .product {
-            /* REFINED CARD STYLE - Amazon-like adjustments */
-            border: 1px solid var(--border-neutral); /* Add a subtle border */
-            padding: 0; /* Remove padding from card itself */
-            text-align: left; /* Align text left like Amazon */
-            background-color: var(--card-bg); /* Card background color */
-            border-radius: 8px; /* Slightly less rounded corners */
-            box-shadow: 0 4fpx 12px rgba(0, 0, 0, 0.08); /* Softer shadow */
+            /* REFINED CARD STYLE */
+            border: 1px solid var(--border-color);
+            padding: 0;
+            text-align: left;
+            background-color: var(--surface-color);
+            border-radius: 8px;
             display: flex;
             flex-direction: column;
             overflow: hidden;
+             transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease; /* Smooth theme transition */
         }
 
 
         .product img {
-            width: 100%; /* Image fills card width */
-            height: 280px; /* Consistent height */
-            object-fit: cover; /* Ensures images cover the space */
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
             margin-bottom: 0;
-            border-bottom: 1px solid var(--border-neutral);
-            transition: transform 0.3s ease;
-            cursor: zoom-in; /* Indicate image is clickable */
+            border-bottom: 1px solid var(--border-color);
+            transition: transform 0.3s ease, border-color 0.5s ease; /* Smooth theme transition */
+            cursor: zoom-in;
         }
-
-         .product.category-card:hover img {
-             transform: scale(1.03); /* Slightly more zoom on category hover */
-         }
-         .category-products-container .product:hover img {
-              transform: scale(1.02); /* Standard zoom on product hover */
-         }
 
 
         .product-info {
-            padding: 15px; /* Ensure sufficient padding inside info area */
+            padding: 15px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
             background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white background */
             position: relative;
             z-index: 2;
-            text-align: left; /* Ensure text alignment */
+            text-align: left;
+             transition: background-color 0.5s ease; /* Smooth theme transition */
         }
+
+         /* Dark theme specific adjustment for product info background overlay */
+         body.dark-theme .product-info {
+             background-color: rgba(40, 40, 40, 0.95); /* Darker transparent background */
+         }
+
 
         .product-info h3 {
             margin-top: 0;
-            margin-bottom: 6px; /* Reduced margin */
-            font-size: 1.4em; /* Slightly adjusted title size */
-            color: var(--primary-dark);
+            margin-bottom: 6px;
+            font-size: 1.4em;
+            color: var(--primary-color);
             font-weight: 700;
             font-family: 'Lora', serif;
+             transition: color 0.5s ease; /* Smooth theme transition */
         }
 
         .product-info p.product-description {
-            font-size: 0.9em; /* Slightly smaller font for description */
-            color: #555; /* Lighter grey for description */
-            margin-bottom: 12px; /* Space below description */
-            flex-grow: 1; /* Allow description to take up available space */
-            line-height: 1.5; /* Adjust line height for readability */
+            font-size: 0.9em;
+            color: var(--text-color-secondary);
+            margin-bottom: 12px;
+            flex-grow: 1;
+            line-height: 1.5;
+             transition: color 0.5s ease; /* Smooth theme transition */
         }
+
 
         .product-price {
             font-size: 1.1em;
             font-weight: 700;
-            color: var(--secondary-accent); /* Price color */
-            margin-bottom: 15px; /* Space below price */
-            /* Added margin below price for consistent spacing when Add to Cart is missing */
-            min-height: 1.5em; /* Ensure some height even if content is small */
+            color: var(--secondary-color); /* Price color */
+            margin-bottom: 15px;
+            min-height: 1.5em;
+             transition: color 0.5s ease; /* Smooth theme transition */
         }
 
         /* Add to Cart Button */
         .add-to-cart-button {
-            display: block; /* Full width */
+            display: block;
             width: 100%;
             padding: 10px;
-            margin-bottom: 10px; /* Space between Add to Cart and WhatsApp */
-            background-color: var(--button-primary);
+            margin-bottom: 10px;
+            background-color: var(--button-primary-bg);
             color: var(--button-primary-text);
             border: none;
-            border-radius: 5px; /* Slightly rounded corners */
+            border-radius: 5px;
             font-size: 1em;
             font-weight: 600;
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
-            text-align: center; /* Center button text */
+            text-align: center;
         }
 
         .add-to-cart-button:hover {
-            background-color: var(--button-primary-hover);
+            background-color: var(--button-primary-hover-bg);
             color: var(--button-primary-hover-text);
         }
-
-         /* Style adjustment when only WhatsApp is present below price */
-         .product-info .whatsapp-button:first-child:last-child {
-             margin-top: 0; /* Remove top margin if it's the only button below price */
-         }
 
 
         /* Clear Calls to Action: WhatsApp button */
         .whatsapp-button {
             display: block;
-            width: calc(100% - 0px); /* Button width fills card width */
-            margin: 0 0 0 0; /* Adjusted margin to align with card edges below Add to Cart */
+            width: calc(100% - 0px);
+            margin: 0 0 0 0;
             padding: 12px;
-            background-color: var(--whatsapp-green); /* Standard WhatsApp green */
+            background-color: var(--whatsapp-green);
             color: white;
             text-decoration: none;
-            border-radius: 0 0 8px 8px; /* Match card bottom border radius */
-            font-size: 1em; /* Slightly smaller button text */
+            border-radius: 0 0 8px 8px;
+            font-size: 1em;
             font-weight: 600;
             letter-spacing: 0.5px;
-            box-shadow: none; /* Remove button shadow within card */
+            box-shadow: none;
             text-align: center;
             transition: background-color 0.3s ease;
         }
@@ -533,61 +661,68 @@
 
         .whatsapp-button:hover {
             background-color: var(--whatsapp-green-hover);
-            transform: none; /* Remove transform on hover for button inside card */
-            box-shadow: none; /* Remove button shadow on hover */
+            transform: none;
+            box-shadow: none;
         }
+
 
          /* User-Friendly Navigation: Search function layout */
          .search-container {
-             margin-bottom: 30px; /* Adjusted margin */
+             margin-bottom: 30px;
              text-align: center;
          }
 
          .search-container input {
-            width: calc(100% - 40px); /* Allow padding */
+            width: calc(100% - 40px);
             max-width: 500px;
             padding: 12px 20px;
-            border: 1px solid var(--border-neutral); /* Border color from new palette */
+            border: 1px solid var(--border-color);
             border-radius: 25px;
             font-size: 1em;
-            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            box-sizing: border-box;
             box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            color: var(--text-color-dark); /* Input text color */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease, color 0.5s ease; /* Smooth theme transition */
+            color: var(--text-color-medium);
+            background-color: var(--surface-color);
          }
+          body.dark-theme .search-container input {
+               box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3); /* Darker shadow */
+          }
+
 
         .search-container input::placeholder {
-             color: #888; /* Slightly lighter placeholder text */
+             color: var(--text-color-secondary);
          }
 
 
         .search-container input:focus {
-            border-color: var(--secondary-accent); /* Focus border with Gold Accent */
-            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1), 0 0 8px rgba(184, 138, 69, 0.6); /* Focus shadow with Gold Accent using updated color */
+            border-color: var(--primary-color);
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1), 0 0 8px rgba(184, 138, 69, 0.6); /* Gold focus glow */
             outline: none;
         }
 
          /* Style for the hidden product containers and back button */
          .category-products-container {
-             display: none; /* Initially hidden */
-             text-align: left; /* Align content left */
+             display: none;
+             text-align: left;
              margin-top: 30px;
          }
 
          .category-products-container h3 {
-             text-align: center; /* Center category title */
+             text-align: center;
              margin-bottom: 30px;
-             font-size: 2em; /* Visual Hierarchy */
-             color: var(--primary-dark);
+             font-size: 2em;
+             color: var(--primary-color);
+              transition: color 0.5s ease; /* Smooth theme transition */
          }
 
          .back-to-categories, .back-to-cart, .back-to-billing {
-             display: inline-block; /* Make it a clickable link */
+             display: inline-block;
              margin-bottom: 30px;
              font-size: 1.1em;
-             color: var(--primary-dark); /* Link color */
+             color: var(--text-color-secondary); /* Back links color */
              transition: color 0.3s ease;
-             cursor: pointer; /* Indicate it's clickable */
+             cursor: pointer;
          }
 
          .back-to-categories i, .back-to-cart i, .back-to-billing i {
@@ -595,26 +730,30 @@
          }
 
          .back-to-categories:hover, .back-to-cart:hover, .back-to-billing:hover {
-             color: var(--secondary-accent); /* Hover color */
+             color: var(--primary-color); /* Hover color */
              text-decoration: underline;
          }
 
 
         /* --- Image Modal/Lightbox --- */
         #imageModal {
-            display: none; /* Initially hidden */
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
-            z-index: 9999; /* Make sure it's on top */
-            justify-content: center; /* Use flex for centering */
-            align-items: center; /* Use flex for centering */
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
         }
+         body.dark-theme #imageModal {
+             background-color: rgba(0, 0, 0, 0.95); /* Darker overlay in dark mode */
+         }
 
-        #imageModal span { /* Close button */
+
+        #imageModal span {
             position: absolute;
             top: 20px;
             right: 30px;
@@ -625,50 +764,64 @@
         }
 
         #imageModal span:hover {
-            color: var(--secondary-accent); /* Gold accent on hover */
+            color: var(--secondary-color);
         }
 
         #modalImage {
             max-width: 90%;
             max-height: 90%;
-            object-fit: contain; /* Ensure the whole image is visible */
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add shadow to image */
+            object-fit: contain;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         }
+         body.dark-theme #modalImage {
+             box-shadow: 0 0 40px rgba(0, 0, 0, 0.9); /* Stronger shadow in dark mode */
+         }
+
 
          /* --- Cart Modal Styling --- */
          #cartModal {
-             display: none; /* Hidden by default */
+             display: none;
              position: fixed;
-             z-index: 10000; /* On top of everything */
+             z-index: 10000;
              left: 0;
              top: 0;
              width: 100%;
              height: 100%;
-             overflow: auto; /* Enable scroll if needed */
-             background-color: rgba(0, 0, 0, 0.6); /* Dim background */
-             justify-content: center; /* Center content */
-             align-items: center; /* Center content */
+             overflow: auto;
+             background-color: rgba(0, 0, 0, 0.6);
+             justify-content: center;
+             align-items: center;
+         }
+         body.dark-theme #cartModal {
+             background-color: rgba(0, 0, 0, 0.8); /* Darker dim background */
          }
 
+
          .cart-modal-content {
-             background-color: var(--card-bg);
+             background-color: var(--surface-color);
              margin: auto;
              padding: 30px;
              border-radius: 10px;
              width: 90%;
-             max-width: 600px; /* Limit width */
+             max-width: 600px;
              box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-             position: relative; /* Needed for close button absolute positioning */
-             max-height: 80vh; /* Limit height and enable scroll */
-             overflow-y: auto; /* Enable scrolling for cart items */
-             text-align: left; /* Align text left within modal */
+             position: relative;
+             max-height: 80vh;
+             overflow-y: auto;
+             text-align: left;
+             transition: background-color 0.5s ease, box-shadow 0.5s ease; /* Smooth theme transition */
          }
+         body.dark-theme .cart-modal-content {
+             box-shadow: 0 5px 20px rgba(0,0,0,0.5); /* Darker shadow */
+         }
+
 
          .cart-modal-content h2 {
              text-align: center;
              margin-top: 0;
              margin-bottom: 20px;
-             color: var(--primary-dark);
+             color: var(--primary-color);
+             transition: color 0.5s ease; /* Smooth theme transition */
          }
 
          .cart-modal-content .close {
@@ -686,6 +839,14 @@
          .cart-modal-content .close:focus {
              color: #333;
          }
+          body.dark-theme .cart-modal-content .close {
+             color: #b0b0b0; /* Lighter grey */
+          }
+           body.dark-theme .cart-modal-content .close:hover,
+           body.dark-theme .cart-modal-content .close:focus {
+               color: #e0e0e0; /* Even lighter grey */
+           }
+
 
          #cartItemsList {
              list-style: none;
@@ -694,13 +855,14 @@
          }
 
          #cartItemsList li {
-             border-bottom: 1px solid var(--border-neutral);
+             border-bottom: 1px solid var(--border-color);
              padding: 15px 0;
              display: flex;
              justify-content: space-between;
              align-items: center;
              font-size: 1.1em;
-             color: var(--text-color-dark);
+             color: var(--text-color-medium);
+             transition: color 0.5s ease, border-color 0.5s ease; /* Smooth theme transition */
          }
 
          #cartItemsList li:last-child {
@@ -714,13 +876,21 @@
 
          .item-details .item-name {
              font-weight: 600;
-             color: var(--primary-dark);
+             color: var(--text-color-dark);
+             transition: color 0.5s ease; /* Smooth theme transition */
          }
 
          .item-details .item-quantity {
              font-size: 0.9em;
-             color: #555;
+             color: var(--text-color-secondary);
+             transition: color 0.5s ease; /* Smooth theme transition */
          }
+
+         .item-details .item-price {
+              color: var(--primary-color);
+              transition: color 0.5s ease; /* Smooth theme transition */
+         }
+
 
          .remove-item {
              background-color: #e74c3c; /* Red color */
@@ -742,18 +912,23 @@
              text-align: right;
              font-size: 1.3em;
              font-weight: 700;
-             color: var(--primary-dark);
+             color: var(--text-color-dark);
              padding-top: 15px;
-             border-top: 1px solid var(--border-neutral);
+             border-top: 1px solid var(--border-color);
+             transition: color 0.5s ease, border-color 0.5s ease; /* Smooth theme transition */
          }
+          body.dark-theme .cart-total {
+              color: var(--primary-color); /* Total color in dark mode */
+          }
+
 
          .checkout-button {
              display: block;
              width: 100%;
              padding: 12px;
              margin-top: 20px;
-             background-color: var(--secondary-accent);
-             color: var(--primary-dark);
+             background-color: var(--button-primary-bg);
+             color: var(--button-primary-text);
              border: none;
              border-radius: 5px;
              font-size: 1.1em;
@@ -764,25 +939,28 @@
          }
 
          .checkout-button:hover {
-             background-color: #B0925B;
-             color: var(--primary-dark);
+             background-color: var(--button-primary-hover-bg);
+             color: var(--button-primary-hover-text);
          }
 
          /* Styling for empty cart message */
          #emptyCartMessage {
             text-align: center;
-            color: #555;
+            color: var(--text-color-secondary);
             margin-top: 20px;
             font-size: 1.1em;
+             transition: color 0.5s ease; /* Smooth theme transition */
          }
+
 
          /* --- Billing Section Styling --- */
          #billingSection {
-             display: none; /* Hidden by default */
+             display: none;
              text-align: left;
              margin-top: 40px;
              padding-top: 40px;
-             border-top: 1px solid var(--border-neutral);
+             border-top: 1px solid var(--border-color);
+             transition: border-top 0.5s ease; /* Smooth theme transition */
          }
 
          #billingSection h2 {
@@ -798,38 +976,52 @@
              display: block;
              margin-bottom: 8px;
              font-weight: 600;
-             color: var(--primary-dark);
+             color: var(--text-color-dark);
+             transition: color 0.5s ease; /* Smooth theme transition */
          }
 
          #billingForm input[type="text"],
          #billingForm input[type="email"],
          #billingForm input[type="tel"],
          #billingForm textarea {
-             width: calc(100% - 22px); /* Adjust for padding and border */
+             width: calc(100% - 22px);
              padding: 10px;
              margin-bottom: 20px;
-             border: 1px solid var(--border-neutral);
+             border: 1px solid var(--border-color);
              border-radius: 4px;
              font-size: 1em;
-             box-sizing: border-box; /* Include padding and border in element's total width and height */
-             transition: border-color 0.3s ease;
+             box-sizing: border-box;
+             transition: border-color 0.3s ease, background-color 0.5s ease, color 0.5s ease; /* Smooth theme transition */
+             color: var(--text-color-medium);
+             background-color: var(--surface-color);
          }
+
+          /* Style for invalid input */
+          #billingForm input:invalid {
+              border-color: #dc3545; /* Red */
+          }
+
+           /* Optional: Style for valid input (can be annoying) */
+           /* #billingForm input:valid {
+              border-color: #28a745; Green
+           } */
+
 
          #billingForm input[type="text"]:focus,
          #billingForm input[type="email"]:focus,
          #billingForm input[type="tel"]:focus,
          #billingForm textarea:focus {
-             border-color: var(--secondary-accent);
+             border-color: var(--primary-color);
              outline: none;
          }
-
 
          #orderSummaryReview {
              margin-bottom: 30px;
              padding: 20px;
-             border: 1px solid var(--border-neutral);
+             border: 1px solid var(--border-color);
              border-radius: 8px;
-             background-color: var(--card-bg);
+             background-color: var(--surface-color);
+              transition: background-color 0.5s ease, border-color 0.5s ease; /* Smooth theme transition */
          }
 
          #orderSummaryReview h3 {
@@ -837,6 +1029,8 @@
              margin-bottom: 15px;
              font-size: 1.5em;
              text-align: center;
+             color: var(--primary-color);
+              transition: color 0.5s ease; /* Smooth theme transition */
          }
 
          #orderSummaryReview ul {
@@ -846,12 +1040,13 @@
          }
 
          #orderSummaryReview li {
-             border-bottom: 1px dashed var(--border-neutral);
+             border-bottom: 1px dashed var(--border-color);
              padding: 10px 0;
              font-size: 1em;
-             color: var(--text-color-dark);
-             display: flex; /* Use flex for price alignment */
+             color: var(--text-color-medium);
+             display: flex;
              justify-content: space-between;
+              transition: color 0.5s ease, border-color 0.5s ease; /* Smooth theme transition */
          }
 
          #orderSummaryReview li:last-child {
@@ -860,32 +1055,50 @@
 
          #orderSummaryReview .item-name {
              font-weight: 600;
-             flex-grow: 1; /* Allow name to take space */
-             margin-right: 10px; /* Space between name and price */
+             flex-grow: 1;
+             margin-right: 10px;
+             color: var(--text-color-dark);
+              transition: color 0.5s ease; /* Smooth theme transition */
          }
+          body.dark-theme #orderSummaryReview .item-name {
+              color: var(--text-color-medium);
+          }
+
 
           #orderSummaryReview .item-price {
              font-weight: 600;
-             text-align: right; /* Ensure price aligns right */
+             text-align: right;
+             color: var(--secondary-color);
+              transition: color 0.5s ease; /* Smooth theme transition */
           }
+           body.dark-theme #orderSummaryReview .item-price {
+               color: var(--primary-color);
+           }
+
 
          /* Styles for the total, discount, and final total in review */
           .total-line {
               margin-top: 10px;
               padding-top: 10px;
-              border-top: 1px solid var(--border-neutral);
+              border-top: 1px solid var(--border-color);
               text-align: right;
+               transition: border-top 0.5s ease; /* Smooth theme transition */
           }
 
           .total-line span {
               display: inline-block;
-              min-width: 100px; /* Align values */
+              min-width: 100px;
           }
 
           .total-line strong {
               font-size: 1.1em;
-              color: var(--primary-dark);
+              color: var(--text-color-dark);
+               transition: color 0.5s ease; /* Smooth theme transition */
           }
+          body.dark-theme .total-line strong {
+               color: var(--text-color-medium);
+          }
+
 
            .discount-line {
                color: #28a745; /* Green for discount */
@@ -893,23 +1106,24 @@
                margin-top: 5px;
                text-align: right;
            }
-            .discount-line span {
-                display: inline-block;
-                min-width: 100px; /* Align values */
-           }
+            body.dark-theme .discount-line {
+                color: #2ecc71; /* Adjusted green for dark mode */
+            }
+
 
           .final-total-line {
               margin-top: 10px;
               padding-top: 10px;
-              border-top: 2px solid var(--primary-dark); /* Thicker line for final total */
+              border-top: 2px solid var(--primary-color);
               font-size: 1.3em;
               font-weight: 700;
-              color: var(--secondary-accent); /* Gold color for final total */
+              color: var(--secondary-color);
               text-align: right;
+               transition: color 0.5s ease, border-top 0.5s ease; /* Smooth theme transition */
           }
-           .final-total-line span {
-               display: inline-block;
-               min-width: 100px; /* Align values */
+           body.dark-theme .final-total-line {
+               color: var(--primary-color); /* Gold for final total in dark mode */
+               border-top-color: var(--secondary-color); /* Navy border for contrast */
            }
 
 
@@ -918,48 +1132,63 @@
               margin-top: 20px;
               margin-bottom: 30px;
               padding: 15px;
-              border: 1px solid var(--border-neutral);
+              border: 1px solid var(--border-color);
               border-radius: 8px;
-              background-color: #f9f9f9; /* Slightly different background */
+              background-color: #f9f9f9; /* Light background for contrast */
               display: flex;
-              flex-wrap: wrap; /* Allow wrapping on small screens */
-              gap: 10px; /* Space between items */
+              flex-wrap: wrap;
+              gap: 10px;
               align-items: center;
+               transition: background-color 0.5s ease, border-color 0.5s ease; /* Smooth theme transition */
           }
-
-           .coupon-section label {
-               margin-bottom: 0; /* Align with input/button */
-               margin-right: 10px;
-               font-weight: 600;
-               color: var(--primary-dark);
+           body.dark-theme .coupon-section {
+               background-color: #3a3a3a; /* Slightly darker background */
            }
 
+
+           .coupon-section label {
+               margin-bottom: 0;
+               margin-right: 10px;
+               font-weight: 600;
+               color: var(--text-color-dark);
+               transition: color 0.5s ease; /* Smooth theme transition */
+           }
+            body.dark-theme .coupon-section label {
+                color: var(--text-color-medium);
+            }
+
+
           .coupon-section input[type="text"] {
-              flex-grow: 1; /* Allow input to take available space */
-              min-width: 150px; /* Prevent it from becoming too small */
-              margin-bottom: 0; /* Remove margin */
+              flex-grow: 1;
+              min-width: 150px;
+              margin-bottom: 0;
               padding: 8px;
               border-radius: 4px;
-              border: 1px solid var(--border-neutral);
+              border: 1px solid var(--border-color);
+              transition: border-color 0.3s ease, background-color 0.5s ease, color 0.5s ease; /* Smooth theme transition */
+              color: var(--text-color-medium);
+              background-color: var(--surface-color);
           }
 
           .coupon-section button {
               padding: 8px 15px;
-              background-color: var(--secondary-accent);
-              color: var(--primary-dark);
+              background-color: var(--button-secondary-bg); /* Use secondary button style */
+              color: var(--button-secondary-text);
               border: none;
               border-radius: 4px;
               font-weight: 600;
               cursor: pointer;
-              transition: background-color 0.3s ease;
+              transition: background-color 0.3s ease, color 0.3s ease;
           }
 
           .coupon-section button:hover {
-              background-color: #B0925B;
+              background-color: var(--button-secondary-hover-bg);
+              color: var(--button-secondary-hover-text);
           }
 
+
           #couponMessage {
-              width: 100%; /* Take full width for message */
+              width: 100%;
               margin-top: 10px;
               font-size: 0.9em;
               text-align: center;
@@ -968,69 +1197,90 @@
           #couponMessage.success {
               color: #28a745; /* Green */
           }
+           body.dark-theme #couponMessage.success {
+               color: #2ecc71; /* Adjusted green */
+           }
 
            #couponMessage.error {
                color: #dc3545; /* Red */
            }
 
+
          /* Styling for Payment Info Section */
          #paymentInfo {
-             display: none; /* Initially hidden */
+             display: none;
              margin-top: 30px;
              padding-top: 30px;
-             border-top: 1px dashed var(--border-neutral);
-             text-align: center; /* Center payment details */
+             border-top: 1px dashed var(--border-color);
+             text-align: center;
+             transition: border-top 0.5s ease; /* Smooth theme transition */
          }
 
          #paymentInfo h3 {
-              text-align: center; /* Center payment heading */
+              text-align: center;
              margin-bottom: 20px;
-             color: var(--primary-dark);
+             color: var(--text-color-dark);
+              transition: color 0.5s ease; /* Smooth theme transition */
              font-size: 1.7em;
          }
+          body.dark-theme #paymentInfo h3 {
+              color: var(--text-color-medium);
+          }
+
 
           #paymentInfo p {
               font-size: 1.1em;
               margin-bottom: 15px;
-              color: var(--text-color-dark);
+              color: var(--text-color-medium);
+               transition: color 0.5s ease; /* Smooth theme transition */
           }
 
           #paymentInfo .upi-details {
               font-size: 1.3em;
               font-weight: 700;
-              color: var(--secondary-accent);
+              color: var(--primary-color);
               margin-bottom: 20px;
-              word-break: break-all; /* Prevent long UPI ID from overflowing */
+              word-break: break-all;
+              transition: color 0.5s ease; /* Smooth theme transition */
           }
 
           #paymentInfo img {
-              max-width: 250px; /* Control QR code size */
+              max-width: 250px;
               height: auto;
               margin-bottom: 20px;
-              border: 1px solid var(--border-neutral);
+              border: 1px solid var(--border-color);
               padding: 10px;
-              background-color: white;
+              background-color: white; /* Keep white background for QR code contrast */
               box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+               transition: border-color 0.5s ease; /* Smooth theme transition */
           }
+
+         body.dark-theme #paymentInfo img {
+             border-color: var(--border-color);
+             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Darker shadow */
+         }
+
 
           #paymentInfo .payment-instruction {
               font-size: 1em;
-              color: #555;
+              color: var(--text-color-secondary);
               margin-top: 15px;
               line-height: 1.6;
+               transition: color 0.5s ease; /* Smooth theme transition */
           }
+
 
          /* Buttons Container */
          .billing-buttons {
              display: flex;
-             gap: 20px; /* Space between buttons */
-             margin-top: 20px; /* Space above buttons */
+             gap: 20px;
+             margin-top: 20px;
          }
 
          .billing-buttons button,
          .billing-buttons a {
-             flex: 1; /* Allow buttons to grow and share space */
-             display: block; /* Make links behave like blocks */
+             flex: 1;
+             display: block;
              padding: 12px;
              border-radius: 5px;
              font-size: 1.1em;
@@ -1038,21 +1288,22 @@
              text-align: center;
              cursor: pointer;
              transition: background-color 0.3s ease, color 0.3s ease;
-             text-decoration: none; /* Remove underline from link */
-             box-sizing: border-box; /* Include padding and border */
+             text-decoration: none;
+             box-sizing: border-box;
          }
 
 
           .billing-buttons #proceedToPaymentButton,
           .billing-buttons #submitOrderButton {
-              background-color: var(--secondary-accent);
-              color: var(--primary-dark);
+              background-color: var(--button-primary-bg);
+              color: var(--button-primary-text);
               border: none;
           }
 
           .billing-buttons #proceedToPaymentButton:hover,
           .billing-buttons #submitOrderButton:hover {
-              background-color: #B0925B;
+              background-color: var(--button-primary-hover-bg);
+              color: var(--button-primary-hover-text);
           }
 
           .billing-buttons .whatsapp-billing-button {
@@ -1073,19 +1324,19 @@
          /* Responsive adjustment for buttons */
          @media (max-width: 600px) {
               .billing-buttons {
-                  flex-direction: column; /* Stack buttons on smaller screens */
-                  gap: 10px; /* Reduced gap when stacked */
+                  flex-direction: column;
+                  gap: 10px;
               }
                .coupon-section {
                    flex-direction: column;
-                   align-items: stretch; /* Stretch items to fill width */
+                   align-items: stretch;
                }
                 .coupon-section label {
                    margin-right: 0;
                    margin-bottom: 5px;
                 }
                  .coupon-section input[type="text"] {
-                     width: 100%; /* Full width */
+                     width: 100%;
                      min-width: auto;
                  }
          }
@@ -1093,32 +1344,40 @@
 
         /* --- Footer --- */
         .footer {
-            background-color: var(--primary-dark); /* Darkest color for footer background */
-            color: var(--footer-text-color); /* Lightest color for footer text */
+            background-color: var(--surface-color);
+            color: var(--footer-text-color);
             text-align: center;
-            padding: 40px 0; /* Vertical padding only, horizontal handled by container */
-            margin-top: 60px; /* Adjusted margin */
-            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+            padding: 40px 0;
+            margin-top: 60px;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
             font-size: 0.9em;
+            transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease; /* Smooth theme transition */
+        }
+        body.dark-theme .footer {
+             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.6); /* Darker shadow */
         }
 
+
         .social-links {
-            margin-top: 0; /* Adjusted margin */
-            margin-bottom: 0; /* Adjusted margin */
+            margin-top: 0;
+            margin-bottom: 0;
         }
 
         .social-links a {
             display: inline-block;
-            margin: 0 15px; /* Adjusted margin */
-            color: var(--secondary-accent); /* Social icons color from new palette */
-            font-size: 32px; /* Slightly larger icons */
-            transition: color 0.3s ease, transform 0.3s ease; /* Attention to Detail: Smooth animation */
+            margin: 0 15px;
+            color: var(--primary-color);
+            font-size: 32px;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .social-links a:hover {
-            color: var(--background-light); /* Social icon hover color from new palette */
-            transform: scale(1.1); /* More pronounced hover effect */
+            color: var(--text-color-dark);
         }
+        body.dark-theme .social-links a:hover {
+            color: var(--text-color-medium);
+        }
+
 
         /* --- Responsive Adjustments --- */
         @media (max-width: 1024px) {
@@ -1128,27 +1387,27 @@
              .hero {
                  height: 500px;
              }
-             .hero .container h1 { /* Target h1 within hero container */
+             .hero .container h1 {
                  font-size: 3em;
              }
-             .hero .container p { /* Target p within hero container */
+             .hero .container p {
                  font-size: 1.2em;
              }
               /* Grids adapt */
              .category-grid,
-             .category-products-grid { /* Apply grid display to the specific containers */
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Adjusted minmax */
+             .category-products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
                 gap: 25px;
             }
              .product img {
-                 height: 250px; /* Adjusted height */
+                 height: 250px;
              }
              .product-info {
-                 padding: 12px; /* Adjusted padding */
+                 padding: 12px;
              }
              .product-info h3 {
-                 font-size: 1.4em; /* Adjusted title size */
-                  margin-bottom: 6px; /* Reduced margin */
+                 font-size: 1.4em;
+                  margin-bottom: 6px;
              }
              .product-info p.product-description {
                  font-size: 0.9em;
@@ -1166,7 +1425,7 @@
                  margin-top: 8px;
              }
              .section {
-                 padding: 80px 0; /* Adjusted vertical padding */
+                 padding: 80px 0;
              }
              .category-products-container h3 {
                  font-size: 1.8em;
@@ -1201,25 +1460,25 @@
                .total-line span,
                .discount-line span,
                .final-total-line span {
-                   min-width: 80px; /* Adjust alignment width */
+                   min-width: 80px;
                }
 
          }
 
         @media (max-width: 768px) {
              .section {
-                 padding: 60px 0; /* Adjusted vertical padding */
+                 padding: 60px 0;
              }
             .section h2 {
                 font-size: 2em;
             }
              .hero {
-                 height: 400px; /* Adjusted height */
+                 height: 400px;
              }
-             .hero .container h1 { /* Target h1 within hero container */
+             .hero .container h1 {
                  font-size: 2.5em;
              }
-             .hero .container p { /* Target p within hero container */
+             .hero .container p {
                  font-size: 1.1em;
              }
              .hero-cta-button {
@@ -1228,7 +1487,7 @@
              }
              .about-contact .container {
                  flex-direction: column;
-                 gap: 30px; /* Adjusted gap */
+                 gap: 30px;
              }
              .about-contact h2, .about-content h3, .contact-info h3 {
                  text-align: center;
@@ -1238,19 +1497,19 @@
              }
               /* Grids adapt */
              .category-grid,
-             .category-products-grid { /* Apply grid display to the specific containers */
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjusted minmax for smaller screens */
+             .category-products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
                 gap: 20px;
             }
              .product img {
-                 height: 180px; /* Adjusted height for smaller cards */
+                 height: 180px;
              }
              .product-info {
-                 padding: 10px; /* Adjusted padding */
+                 padding: 10px;
              }
              .product-info h3 {
-                 font-size: 1.3em; /* Adjusted title size */
-                  margin-bottom: 5px; /* Reduced margin */
+                 font-size: 1.3em;
+                  margin-bottom: 5px;
              }
              .product-info p.product-description {
                  font-size: 0.85em;
@@ -1265,14 +1524,14 @@
                 padding: 8px;
              }
             .whatsapp-button {
-                 margin-top: 8px; /* Adjusted margin */
+                 margin-top: 8px;
             }
              .social-links a {
-                font-size: 28px; /* Adjusted icon size */
+                font-size: 28px;
                 margin: 0 12px;
             }
              .footer {
-                padding: 30px 0; /* Adjusted vertical padding */
+                padding: 30px 0;
              }
              .category-products-container h3 {
                  font-size: 1.6em;
@@ -1307,7 +1566,7 @@
                .total-line span,
                .discount-line span,
                .final-total-line span {
-                   min-width: 70px; /* Adjust alignment width */
+                   min-width: 70px;
                }
                #billingForm input, #billingForm textarea {
                   padding: 8px;
@@ -1320,18 +1579,18 @@
 
          @media (max-width: 480px) {
               .section {
-                 padding: 40px 0; /* Further reduced vertical padding */
+                 padding: 40px 0;
              }
              .section h2 {
                  font-size: 1.8em;
              }
              .hero {
-                 height: 350px; /* Further reduced height */
+                 height: 350px;
              }
-             .hero .container h1 { /* Target h1 within hero container */
+             .hero .container h1 {
                  font-size: 2em;
              }
-             .hero .container p { /* Target p within hero container */
+             .hero .container p {
                  font-size: 0.95em;
              }
              .hero-cta-button {
@@ -1346,19 +1605,19 @@
              }
               /* Grids stack to 1 column on smallest screens */
              .category-grid,
-             .category-products-grid { /* Apply grid display to the specific containers */
-                grid-template-columns: 1fr; /* Single column on very small screens */
-                gap: 15px; /* Reduced gap */
+             .category-products-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
             }
              .product img {
-                height: 160px; /* Reduced height */
+                height: 160px;
             }
              .product-info {
-                 padding: 8px; /* Adjusted padding */
+                 padding: 8px;
              }
              .product-info h3 {
-                 font-size: 1.2em; /* Adjusted title size */
-                 margin-bottom: 4px; /* Reduced margin */
+                 font-size: 1.2em;
+                 margin-bottom: 4px;
              }
              .product-info p.product-description {
                  font-size: 0.8em;
@@ -1373,14 +1632,14 @@
                 padding: 6px;
              }
             .whatsapp-button {
-                 margin-top: 6px; /* Adjusted margin */
+                 margin-top: 6px;
             }
              .social-links a {
-                font-size: 26px; /* Reduced icon size */
+                font-size: 26px;
                 margin: 0 8px;
             }
              .footer {
-                padding: 25px 0; /* Further reduced vertical padding */
+                padding: 25px 0;
              }
              .category-products-container h3 {
                  font-size: 1.4em;
@@ -1406,7 +1665,7 @@
                .total-line span,
                .discount-line span,
                .final-total-line span {
-                   min-width: 50px; /* Adjust alignment width */
+                   min-width: 50px;
                }
          }
 
@@ -1421,19 +1680,31 @@
             <nav class="nav">
                 <ul>
                     <li><a href="#about">About & Visit Us</a></li>
-                    <li><a href="#products">Categories</a></li> </ul>
+                    <li><a href="#products">Categories</a></li>
+                </ul>
+                 <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="theme-checkbox">
+                        <input type="checkbox" id="theme-checkbox" />
+                        <div class="slider round"></div>
+                    </label>
+                </div>
                  <div class="cart-icon-container" id="cartIcon">
                      <i class="fas fa-shopping-cart"></i>
                      <span class="cart-count" id="cartCount">0</span>
                  </div>
-                 </nav>
+            </nav>
         </div>
     </header>
 
     <section class="hero">
-        <div class="hero-content"> <div class="container"> <h1>Exquisite Gemstones & Spiritual Treasures</h1>
+        <div class="hero-content">
+            <div class="container">
+                <h1>Exquisite Gemstones & Spiritual Treasures</h1>
                 <p>Discover the perfect blend of beauty, authenticity, and spiritual energy at J.K Gems.</p>
-                <a href="#products" class="hero-cta-button">Explore Categories</a> </div> </div> </section>
+                <a href="#products" class="hero-cta-button">Explore Categories</a>
+            </div>
+        </div>
+    </section>
 
     <section id="about" class="section about-contact">
         <div class="container">
@@ -1456,7 +1727,8 @@
 
     <section id="products" class="section products">
         <div class="container">
-             <h2 id="products-heading">Our Categories</h2> <div class="search-container">
+             <h2 id="products-heading">Our Categories</h2>
+             <div class="search-container">
                  <input type="text" id="searchInput" onkeyup="searchItems()" placeholder="Search Categories or Products...">
              </div>
 
@@ -1464,8 +1736,9 @@
                 <div class="product category-card" data-category-target="gemstones">
                     <img src="IMG-20250516-WA0015.jpg" alt="Gem stones Category">
                     <div class="product-info">
-                        <h3>Gemstones</h3> <p class="product-description">Explore our collection of authentic, high-quality gemstones.</p>
-                         </div>
+                        <h3>Gemstones</h3>
+                        <p class="product-description">Explore our collection of authentic, high-quality gemstones.</p>
+                    </div>
                 </div>
 
                 <div class="product category-card" data-category-target="rudraksh">
@@ -1473,14 +1746,15 @@
                      <div class="product-info">
                         <h3>Rudraksh</h3>
                         <p class="product-description">Discover genuine Rudraksha beads and items for spiritual well-being.</p>
-                        </div>
+                    </div>
                 </div>
 
                 <div class="product category-card" data-category-target="yantra">
                     <img src="IMG-20250516-WA0001.jpg" alt="Yantra Category">
                      <div class="product-info">
-                        <h3>Yantra & Spiritual Items</h3> <p class="product-description">Sacred geometric diagrams, Sphatik items, and other spiritual treasures.</p>
-                        </div>
+                        <h3>Yantra & Spiritual Items</h3>
+                        <p class="product-description">Sacred geometric diagrams, Sphatik items, and other spiritual treasures.</p>
+                    </div>
                 </div>
 
                  </div>
@@ -1489,8 +1763,7 @@
                  <h3>Gemstones Collection</h3>
                  <div class="category-products-grid">
                      <div class="product">
-                         <img src="path/to/your_image1.jpg" alt="Example Gemstone 1">
-                         <div class="product-info">
+                         <img src="path/to/your_gemstone_image_1.jpg" alt="Example Gemstone 1"> <div class="product-info">
                              <h3>Example Gemstone 1</h3>
                              <p class="product-description">Brief description of Example Gemstone 1.</p>
                              <p class="product-price">₹5500.00</p> <button class="add-to-cart-button"
@@ -1498,12 +1771,11 @@
                                      data-product-name="Example Gemstone 1"
                                      data-product-price="5500"> Add to Cart
                              </button>
-                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Example%20Gemstone%201." class="whatsapp-button" target="_blank" aria-label="Inquire about Example Gemstone 1 on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Example%20Gemstone%201.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Example Gemstone 1 on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
                          </div>
                      </div>
                      <div class="product">
-                         <img src="IMG-20250516-WA0011.jpg" alt="Gemstone Rings">
-                         <div class="product-info">
+                         <img src="IMG-20250516-WA0011.jpg" alt="Gemstone Rings"> <div class="product-info">
                              <h3>Gemstone Rings</h3>
                              <p class="product-description">Beautiful rings featuring authentic gemstones for style and astrological benefits.</p>
                              <p class="product-price">₹999.00</p> <button class="add-to-cart-button"
@@ -1514,9 +1786,7 @@
                               <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gemstone%20Rings.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Gemstone Rings on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
                          </div>
                      </div>
-
-
-                     </div>
+                      </div>
             </div>
 
             <div id="rudraksh-products-container" class="category-products-container">
@@ -1525,16 +1795,17 @@
                 <div class="category-products-grid">
                      <div class="product">
                          <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh Mala"> <div class="product-info">
-                             <h3>Rudraksh Mala</h3> <p class="product-description">Genuine Rudraksha beads for spiritual connection and well-being.</p>
+                             <h3>Rudraksh Mala</h3>
+                             <p class="product-description">Genuine Rudraksha beads for spiritual connection and well-being.</p>
                              <p class="product-price">₹599.00</p> <button class="add-to-cart-button"
                                      data-product-id="rudraksh_mala_main"
                                      data-product-name="Rudraksh Mala" data-product-price="599"> Add to Cart
                              </button>
-                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Mala.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Mala on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a> </div>
+                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Mala.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Mala on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                         </div>
                      </div>
                      <div class="product">
-                         <img src="IMG-20250516-WA0016.jpg" alt="Rudraksh Bracelet">
-                          <div class="product-info">
+                         <img src="IMG-20250516-WA0016.jpg" alt="Rudraksh Bracelet"> <div class="product-info">
                              <h3>Rudraksh Bracelet</h3>
                              <p class="product-description">Wear the spiritual energy with authentic Rudraksh bracelets.</p>
                              <p class="product-price">₹5999.00</p> <button class="add-to-cart-button"
@@ -1545,7 +1816,7 @@
                               <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Bracelet.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Bracelet on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
                          </div>
                      </div>
-                     </div>
+                      </div>
             </div>
 
              <div id="yantra-products-container" class="category-products-container">
@@ -1553,8 +1824,7 @@
                 <h3>Yantra & Spiritual Collection</h3>
                 <div class="category-products-grid">
                      <div class="product">
-                         <img src="IMG-20250516-WA0001.jpg" alt="Yantra">
-                          <div class="product-info">
+                         <img src="IMG-20250516-WA0001.jpg" alt="Yantra"> <div class="product-info">
                              <h3>Yantra</h3>
                              <p class="product-description">Sacred geometric diagrams for meditation and energy focusing.</p>
                              <p class="product-price">₹999.00</p> <button class="add-to-cart-button"
@@ -1566,8 +1836,7 @@
                          </div>
                      </div>
                       <div class="product">
-                         <img src="61Fg6DsA4iL._AC_UF894,1000_QL80_.jpg" alt="Sphatik Shree Yantra">
-                         <div class="product-info">
+                         <img src="61Fg6DsA4iL._AC_UF894,1000_QL80_.jpg" alt="Sphatik Shree Yantra"> <div class="product-info">
                              <h3>Sphatik Shree Yantra</h3>
                              <p class="product-description">Clear quartz Shree Yantra for purity, prosperity, and positive energy.</p>
                               <p class="product-price">₹999.00</p> <button class="add-to-cart-button"
@@ -1578,7 +1847,7 @@
                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Sphatik%20Shree%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Sphatik Shree Yantra on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
                          </div>
                      </div>
-                     </div>
+                      </div>
             </div>
             </div>
     </section>
@@ -1594,6 +1863,7 @@
             <button class="checkout-button" id="checkoutButton">Proceed to Inquiry</button>
         </div>
     </div>
+
     <section id="billingSection" class="section">
          <div class="container">
              <a href="#" class="back-to-cart"><i class="fas fa-arrow-left"></i> Back to Cart</a>
@@ -1616,20 +1886,22 @@
                  <div id="couponMessage"></div>
              </div>
 
-
              <form id="billingForm" action="https://formsubmit.co/Gauravraningagoldjewellery@gmail.com" method="POST">
                  <input type="hidden" name="_subject" id="emailSubject" value="J.K Gems Website Order Inquiry">
-                 <input type="hidden" name="_template" value="box"> <input type="hidden" name="_next" value="YOUR_THANK_YOU_PAGE_URL_HERE">
+                 <input type="hidden" name="_template" value="box">
+                 <input type="hidden" name="_next" value="YOUR_THANK_YOU_PAGE_URL_HERE">
+                 <input type="text" name="_honeypot" style="display:none">
+
 
                  <div id="billingInputs">
                       <label for="customer_name">Full Name:</label>
-                     <input type="text" id="customer_name" name="Name" required>
+                      <input type="text" id="customer_name" name="Name" required pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+" title="Enter your full name (letters, spaces, hyphens, or apostrophes only)">
 
                      <label for="customer_email">Email (Optional):</label>
                      <input type="email" id="customer_email" name="Email">
 
                      <label for="customer_phone">Phone/WhatsApp Number:</label>
-                     <input type="tel" id="customer_phone" name="Phone" required>
+                     <input type="tel" id="customer_phone" name="Phone" required pattern="[\d\s\-\(\)+]+" title="Enter a valid phone number (digits, spaces, hyphens, parentheses, or plus sign allowed)">
 
                      <label for="customer_address">Shipping Address:</label>
                      <textarea id="customer_address" name="Address" rows="4" required></textarea>
@@ -1637,9 +1909,12 @@
 
 
                  <input type="hidden" name="Order Details" id="orderCartDetails">
-                 <input type="hidden" name="_parsed_order_details" id="_parsedOrderDetails"> <input type="hidden" name="Discount Applied" id="discountApplied"> <input type="hidden" name="Final Total" id="finalOrderTotal">
+                 <input type="hidden" name="_parsed_order_details" id="_parsedOrderDetails">
+                 <input type="hidden" name="Discount Applied" id="discountApplied">
+                 <input type="hidden" name="Final Total" id="finalOrderTotal">
                  <input type="hidden" name="UPI ID Shown" value="gauravraninga23@okhdfcbank">
                  <input type="hidden" name="Payment Instruction Shown" value="Please complete the payment via UPI using the details provided. Your order is confirmed only after payment is received. You will receive a confirmation email once payment is verified.">
+
 
                  <div id="paymentInfo">
                      <h3>Complete Your Payment via UPI</h3>
@@ -1650,7 +1925,7 @@
                      <p class="payment-instruction">
                          <strong>Important:</strong> Your order inquiry has been received. Your order will be confirmed only *after* the payment is successfully received. Please complete the UPI payment now. You will receive a confirmation email once your payment is verified.
                      </p>
-                     </div>
+                 </div>
 
                  <div class="billing-buttons">
                       <button type="button" id="proceedToPaymentButton">Proceed to Payment</button>
@@ -1661,21 +1936,50 @@
              </form>
          </div>
     </section>
+
     <footer class="footer">
-        <div class="container"> <div class="social-links">
+        <div class="container">
+            <div class="social-links">
                 <a href="https://www.instagram.com/j_k_gems" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE_ID" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="https://youtube.com/@jkgems-td3et?si=Ne4JWKic5aeZfBTa" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div> </footer>
+                <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE_ID" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a> <a href="https://youtube.com/@jkgems-td3et?si=Ne4JWKic5aeZfBTa" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a> </div>
+             <p>© 2025 J.K Gems. All rights reserved.</p>
+        </div>
+    </footer>
 
     <div id="imageModal">
         <span class="close">×</span>
         <img src="" id="modalImage" alt="Enlarged product image">
     </div>
 
-
     <script>
+        // --- Theme Switching Functionality ---
+        const themeCheckbox = document.getElementById('theme-checkbox');
+        const bodyElement = document.body;
+
+        // Function to apply the saved theme preference on load
+        function applyThemePreference() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                bodyElement.classList.add('dark-theme');
+                themeCheckbox.checked = true; // Set checkbox state
+            } else {
+                bodyElement.classList.remove('dark-theme');
+                themeCheckbox.checked = false; // Set checkbox state
+            }
+        }
+
+        // Event listener for the theme switch checkbox
+        themeCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                bodyElement.classList.add('dark-theme');
+                localStorage.setItem('theme', 'dark'); // Save preference
+            } else {
+                bodyElement.classList.remove('dark-theme');
+                localStorage.setItem('theme', 'light'); // Save preference
+            }
+        });
+
+
         // --- Category/Product View Switching ---
         const categoryGrid = document.getElementById('categoryGrid');
         const productContainers = document.querySelectorAll('.category-products-container');
@@ -1707,6 +2011,10 @@
             paymentInfoDiv.style.display = 'none'; // Hide payment info
             proceedToPaymentButton.style.display = 'block'; // Show proceed button
             submitOrderButton.style.display = 'none'; // Hide submit button
+            // Restore button text and state
+            submitOrderButton.textContent = 'Submit Inquiry / Payment Made';
+            submitOrderButton.disabled = false;
+
             backToCartButton.style.display = 'inline-block'; // Show back button
 
 
@@ -1749,6 +2057,10 @@
             paymentInfoDiv.style.display = 'none'; // Hide payment info
             proceedToPaymentButton.style.display = 'block'; // Show proceed button
             submitOrderButton.style.display = 'none'; // Hide submit button
+             // Restore button text and state
+             submitOrderButton.textContent = 'Submit Inquiry / Payment Made';
+             submitOrderButton.disabled = false;
+
             backToCartButton.style.display = 'inline-block'; // Show back button
 
 
@@ -1792,6 +2104,11 @@
              paymentInfoDiv.style.display = 'none';
              proceedToPaymentButton.style.display = 'block';
              submitOrderButton.style.display = 'none';
+             // Restore button text and state
+             submitOrderButton.textContent = 'Submit Inquiry / Payment Made';
+             submitOrderButton.disabled = false;
+
+
              backToCartButton.style.display = 'inline-block'; // Show back button
 
 
@@ -1804,15 +2121,14 @@
 
           // Function to show the payment information and hide billing inputs
           function showPaymentInfo() {
-              // Validate required fields before proceeding
-              const name = document.getElementById('customer_name').value.trim();
-              const phone = document.getElementById('customer_phone').value.trim();
-              const address = document.getElementById('customer_address').value.trim();
-
-              if (!name || !phone || !address) {
-                  alert("Please fill in all required billing details (Name, Phone, Address) before proceeding to payment.");
+              // Validate required fields before proceeding using the form's built-in validation
+              const billingForm = document.getElementById('billingForm');
+              if (!billingForm.checkValidity()) {
+                  // If form is invalid, trigger browser's default validation messages
+                  billingForm.reportValidity();
                   return false; // Prevent moving forward
               }
+
 
               billingInputs.style.display = 'none'; // Hide billing form inputs
               paymentInfoDiv.style.display = 'block'; // Show payment info
@@ -1843,6 +2159,11 @@
              paymentInfoDiv.style.display = 'none'; // Hide payment info
              proceedToPaymentButton.style.display = 'block'; // Show proceed button
              submitOrderButton.style.display = 'none'; // Hide submit button
+             // Restore button text and state
+             submitOrderButton.textContent = 'Submit Inquiry / Payment Made';
+             submitOrderButton.disabled = false;
+
+
              backToCartButton.style.display = 'inline-block'; // Show back button
 
              // Smooth scroll back to the top of the products section (which now shows categories/cart context)
@@ -2255,7 +2576,7 @@
               // Prevent default form submission initially
              // event.preventDefault(); // No form event listener on the button itself
 
-             // Validate and show payment info
+             // Validate and show payment info using HTML5 validation API
              showPaymentInfo();
 
              // The event listener for form submission will be on the form itself,
@@ -2268,11 +2589,18 @@
          document.getElementById('billingForm').addEventListener('submit', function(event) {
              // This listener is called when the submitOrderButton is clicked.
 
+             // Add client-side feedback
+             const submitButton = document.getElementById('submitOrderButton');
+             submitButton.textContent = 'Submitting...';
+             submitButton.disabled = true; // Disable button to prevent double clicks
+
+
              // Optional: Add final checks before clearing cart and submitting
-             // e.g., confirm user has made payment
+             // e.g., confirm user has made payment - This is a manual step for the user after seeing payment info
 
              // Clear the cart after the form submission attempt.
              // As noted before, this is client-side and not server-side secure.
+             // Clearing AFTER the form submission is attempted is the correct place.
               cart = [];
               saveCart();
               updateCartUI(); // Update header count immediately
@@ -2281,6 +2609,9 @@
 
               // The form will submit normally via formsubmit.co's action
               // The _next parameter will redirect the user.
+              // If submission fails (e.g., network error) before redirect, the button will remain disabled.
+              // For better error handling, one might use Fetch API instead of native form submit,
+              // but for simplicity with formsubmit.co, native submit is standard.
          });
 
         // --- Add Back Button Listeners (Ensure these exist and are correct) ---
@@ -2300,9 +2631,13 @@
         });
 
 
-        // Initial view: Show category grid on load
+        // Initializers
         document.addEventListener('DOMContentLoaded', () => {
             console.log("DOM Content Loaded. Initializing..."); // Debug log
+
+            // Apply theme preference from localStorage
+            applyThemePreference();
+
             const initialCategoryCards = document.querySelectorAll('.category-card'); // Get cards immediately
             console.log("Found", initialCategoryCards.length, "category cards on DOMContentLoaded."); // Debug log: Check count
             showCategoryGrid(); // Make sure categories are shown initially
