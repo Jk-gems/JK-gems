@@ -44,11 +44,11 @@
         body.dark-theme {
             --primary-color: #B88A45; /* Gold becomes a primary accent */
             --secondary-color: #1A3A4E; /* Deep Navy becomes a secondary accent/background element */
-            --background-color: #1e1e1e; /* Main Dark Background */
+            --background-color: #181818; /* Main Dark Background */
             --surface-color: #282828; /* Card/Modal/Section Background */
             --text-color-dark: #FFFFFF; /* White: Headings, Important Text */
-            --text-color-medium: #e0e0e0; /* Main Light Text */
-            --text-color-secondary: #b0b0b0; /* Secondary Text/Descriptions */
+            --text-color-medium: #E0E0E0; /* Main Light Text */
+            --text-color-secondary: #AAAAAA; /* Secondary Text/Descriptions */
             --border-color: #444444; /* Darker Borders/Separators */
 
             --whatsapp-green: #25D366; /* Keep green */
@@ -66,6 +66,11 @@
             --button-secondary-text: var(--text-color-medium);
             --button-secondary-hover-bg: #2a546a; /* Slightly lighter Navy */
             --button-secondary-hover-text: var(--text-color-dark);
+
+            /* Subtle Dark Background Pattern */
+            background-image: linear-gradient(45deg, #1f1f1f 25%, transparent 25%, transparent 75%, #1f1f1f 75%, #1f1f1f),
+                              linear-gradient(-45deg, #1f1f1f 25%, transparent 25%, transparent 75%, #1f1f1f 75%, #1f1f1f);
+            background-size: 20px 20px; /* Adjust size as needed */
         }
 
 
@@ -80,7 +85,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             scroll-behavior: smooth;
-            transition: background-color 0.5s ease, color 0.5s ease; /* Smooth theme transition */
+            transition: background-color 0.5s ease, color 0.5s ease, background-image 0.5s ease; /* Smooth theme transition */
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -478,7 +483,6 @@
               transition: color 0.5s ease; /* Smooth theme transition */
          }
 
-
         /* --- Products/Categories Section --- */
         .products .container {
              /* No grid directly on container anymore */
@@ -869,11 +873,6 @@
              border-bottom: none;
          }
 
-         .item-details {
-             flex-grow: 1;
-             margin-right: 15px;
-         }
-
          .item-details .item-name {
              font-weight: 600;
              color: var(--text-color-dark);
@@ -979,6 +978,10 @@
              color: var(--text-color-dark);
              transition: color 0.5s ease; /* Smooth theme transition */
          }
+         body.dark-theme #billingForm label {
+             color: var(--text-color-medium);
+         }
+
 
          #billingForm input[type="text"],
          #billingForm input[type="email"],
@@ -1297,7 +1300,6 @@
           .billing-buttons #submitOrderButton {
               background-color: var(--button-primary-bg);
               color: var(--button-primary-text);
-              border: none;
           }
 
           .billing-buttons #proceedToPaymentButton:hover,
