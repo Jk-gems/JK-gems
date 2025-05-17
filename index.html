@@ -1040,7 +1040,7 @@
 
          /* --- Billing Section Styling --- */
          #billingSection {
-             display: none;
+             display: none; /* Initially hidden */
              text-align: left;
              margin-top: 40px;
              padding-top: 40px;
@@ -1053,7 +1053,7 @@
          }
 
          #billingForm {
-             /* Initially visible */
+             /* This form container is always in the HTML but parts are hidden/shown */
          }
 
           #billingForm label {
@@ -1278,7 +1278,7 @@
 
          /* Styling for Payment Info Section */
          #paymentInfo {
-             display: none;
+             display: none; /* Initially hidden */
              margin-top: 30px;
              padding-top: 30px;
              border-top: 1px dashed var(--border-color); /* Dark dashed border */
@@ -1351,11 +1351,18 @@
          }
 
 
-          .billing-buttons #proceedToPaymentButton,
-          .billing-buttons #submitOrderButton {
+          .billing-buttons #proceedToPaymentButton {
+               /* This button is shown initially when billing section appears */
               background-color: var(--button-primary-bg); /* Primary style (Gold) */
               color: var(--button-primary-text);
           }
+           .billing-buttons #submitOrderButton {
+               /* This button is hidden initially when billing section appears */
+               display: none; /* Explicitly hidden here to be clear */
+               background-color: var(--button-primary-bg); /* Primary style (Gold) */
+               color: var(--button-primary-text);
+           }
+
 
           .billing-buttons #proceedToPaymentButton:hover,
           .billing-buttons #submitOrderButton:hover {
