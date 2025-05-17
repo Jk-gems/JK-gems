@@ -914,7 +914,7 @@
              color: var(--text-color-dark);
              padding-top: 15px;
              border-top: 1px solid var(--border-color);
-             transition: color 0.5s ease, border-top 0.5s ease; /* Smooth theme transition */
+             transition: color 0.5s ease, border-color 0.5s ease; /* Smooth theme transition */
          }
           body.dark-theme .cart-total {
               color: var(--primary-color); /* Total color in dark mode */
@@ -1355,11 +1355,6 @@
             font-size: 0.9em;
             transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease; /* Smooth theme transition */
         }
-         /* Hide the specific copyright paragraph */
-         .footer p {
-             display: none; /* Or visibility: hidden; or remove from HTML */
-         }
-
         body.dark-theme .footer {
              box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.6); /* Darker shadow */
         }
@@ -1676,85 +1671,6 @@
                }
          }
 
-        /* --- Theme Choice Modal Styling --- */
-         #themeChoiceModal {
-             display: none; /* Hidden by default */
-             position: fixed;
-             z-index: 10001; /* Higher than other modals */
-             left: 0;
-             top: 0;
-             width: 100%;
-             height: 100%;
-             overflow: auto;
-             background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
-             justify-content: center;
-             align-items: center;
-         }
-
-         .theme-choice-modal-content {
-             background-color: var(--surface-color);
-             margin: auto;
-             padding: 30px;
-             border-radius: 10px;
-             width: 90%;
-             max-width: 400px; /* Smaller than cart modal */
-             box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-             text-align: center;
-             transition: background-color 0.5s ease, box-shadow 0.5s ease; /* Smooth theme transition */
-         }
-          body.dark-theme .theme-choice-modal-content {
-              box-shadow: 0 5px 20px rgba(0,0,0,0.8); /* Darker shadow */
-          }
-
-         .theme-choice-modal-content h3 {
-             margin-top: 0;
-             margin-bottom: 20px;
-             color: var(--primary-color);
-              transition: color 0.5s ease; /* Smooth theme transition */
-         }
-
-         .theme-choice-modal-content .theme-buttons {
-             display: flex;
-             gap: 20px;
-             justify-content: center;
-         }
-
-         .theme-choice-modal-content button {
-             padding: 10px 20px;
-             font-size: 1em;
-             font-weight: 600;
-             border: none;
-             border-radius: 5px;
-             cursor: pointer;
-             transition: background-color 0.3s ease, color 0.3s ease;
-         }
-
-         #chooseLightButton {
-             background-color: var(--background-color); /* Light theme background */
-             color: var(--text-color-dark); /* Dark text */
-             border: 1px solid var(--border-color); /* Subtle border */
-         }
-          #chooseLightButton:hover {
-             background-color: #e0e0e0; /* Slightly darker light */
-          }
-          body.dark-theme #chooseLightButton { /* Ensure looks OK in dark mode context */
-               background-color: var(--surface-color);
-               color: var(--text-color-medium);
-               border-color: var(--border-color);
-          }
-            body.dark-theme #chooseLightButton:hover {
-               background-color: #3a3a3a;
-            }
-
-
-         #chooseDarkButton {
-             background-color: var(--primary-color); /* Primary color (Gold in dark) */
-             color: var(--button-primary-text); /* Text on primary button */
-         }
-          #chooseDarkButton:hover {
-              background-color: var(--button-primary-hover-bg);
-              color: var(--button-primary-hover-text);
-          }
 
     </style>
 </head>
@@ -1815,11 +1731,11 @@
         <div class="container">
              <h2 id="products-heading">Our Categories</h2>
              <div class="search-container">
-                 <input type="text" id="searchInput" onkeyup="searchCategories()" placeholder="Search Categories...">
+                 <input type="text" id="searchInput" onkeyup="searchItems()" placeholder="Search Categories or Products...">
              </div>
 
             <div class="category-grid" id="categoryGrid">
-                <div class="product category-card" data-category="gemstones">
+                <div class="product category-card" data-category-target="gemstones">
                     <img src="IMG-20250516-WA0015.jpg" alt="Gem stones Category">
                     <div class="product-info">
                         <h3>Gemstones</h3>
@@ -1827,7 +1743,7 @@
                     </div>
                 </div>
 
-                <div class="product category-card" data-category="rudraksh">
+                <div class="product category-card" data-category-target="rudraksh">
                     <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh Category">
                      <div class="product-info">
                         <h3>Rudraksh</h3>
@@ -1835,7 +1751,7 @@
                     </div>
                 </div>
 
-                <div class="product category-card" data-category="yantra">
+                <div class="product category-card" data-category-target="yantra">
                     <img src="IMG-20250516-WA0001.jpg" alt="Yantra Category">
                      <div class="product-info">
                         <h3>Yantra & Spiritual Items</h3>
@@ -1846,20 +1762,94 @@
                  </div>
             <div id="gemstones-products-container" class="category-products-container">
                  <a href="#products" class="back-to-categories"><i class="fas fa-arrow-left"></i> Back to Categories</a>
-                 <h3 id="gemstones-products-heading"></h3> <div class="category-products-grid" id="gemstones-products-grid">
+                 <h3>Gemstones Collection</h3>
+                 <div class="category-products-grid">
+                     <div class="product">
+                         <img src="path/to/your_gemstone_image_1.jpg" alt="Example Gemstone 1"> <div class="product-info">
+                             <h3>Example Gemstone 1</h3>
+                             <p class="product-description">Brief description of Example Gemstone 1.</p>
+                             <p class="product-price">₹5500.00</p> <button class="add-to-cart-button"
+                                     data-product-id="gemstone_ex1"
+                                     data-product-name="Example Gemstone 1"
+                                     data-product-price="5500"> Add to Cart
+                             </button>
+                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Example%20Gemstone%201.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Example Gemstone 1 on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                         </div>
                      </div>
+                     <div class="product">
+                         <img src="IMG-20250516-WA0011.jpg" alt="Gemstone Rings"> <div class="product-info">
+                             <h3>Gemstone Rings</h3>
+                             <p class="product-description">Beautiful rings featuring authentic gemstones for style and astrological benefits.</p>
+                             <p class="product-price">₹999.00</p> <button class="add-to-cart-button"
+                                     data-product-id="gemstone_rings_main"
+                                     data-product-name="Gemstone Rings"
+                                     data-product-price="999"> Add to Cart
+                             </button>
+                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gemstone%20Rings.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Gemstone Rings on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                         </div>
+                     </div>
+                      </div>
             </div>
 
             <div id="rudraksh-products-container" class="category-products-container">
                 <a href="#products" class="back-to-categories"><i class="fas fa-arrow-left"></i> Back to Categories</a>
-                <h3 id="rudraksh-products-heading"></h3> <div class="category-products-grid" id="rudraksh-products-grid">
-                    </div>
+                <h3>Rudraksh Items</h3>
+                <div class="category-products-grid">
+                     <div class="product">
+                         <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh Mala"> <div class="product-info">
+                             <h3>Rudraksh Mala</h3>
+                             <p class="product-description">Genuine Rudraksha beads for spiritual connection and well-being.</p>
+                             <p class="product-price">₹599.00</p> <button class="add-to-cart-button"
+                                     data-product-id="rudraksh_mala_main"
+                                     data-product-name="Rudraksh Mala" data-product-price="599"> Add to Cart
+                             </button>
+                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Mala.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Mala on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                         </div>
+                     </div>
+                     <div class="product">
+                         <img src="IMG-20250516-WA0016.jpg" alt="Rudraksh Bracelet"> <div class="product-info">
+                             <h3>Rudraksh Bracelet</h3>
+                             <p class="product-description">Wear the spiritual energy with authentic Rudraksh bracelets.</p>
+                             <p class="product-price">₹5999.00</p> <button class="add-to-cart-button"
+                                     data-product-id="rudraksh_bracelet_main"
+                                     data-product-name="Rudraksh Bracelet"
+                                     data-product-price="5999"> Add to Cart
+                             </button>
+                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Bracelet.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Bracelet on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                         </div>
+                     </div>
+                      </div>
             </div>
 
              <div id="yantra-products-container" class="category-products-container">
                 <a href="#products" class="back-to-categories"><i class="fas fa-arrow-left"></i> Back to Categories</a>
-                <h3 id="yantra-products-heading"></h3> <div class="category-products-grid" id="yantra-products-grid">
+                <h3>Yantra & Spiritual Collection</h3>
+                <div class="category-products-grid">
+                     <div class="product">
+                         <img src="IMG-20250516-WA0001.jpg" alt="Yantra"> <div class="product-info">
+                             <h3>Yantra</h3>
+                             <p class="product-description">Sacred geometric diagrams for meditation and energy focusing.</p>
+                             <p class="product-price">₹999.00</p> <button class="add-to-cart-button"
+                                     data-product-id="yantra_main"
+                                     data-product-name="Yantra"
+                                     data-product-price="999"> Add to Cart
+                             </button>
+                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Yantra on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                         </div>
                      </div>
+                      <div class="product">
+                         <img src="61Fg6DsA4iL._AC_UF894,1000_QL80_.jpg" alt="Sphatik Shree Yantra"> <div class="product-info">
+                             <h3>Sphatik Shree Yantra</h3>
+                             <p class="product-description">Clear quartz Shree Yantra for purity, prosperity, and positive energy.</p>
+                              <p class="product-price">₹999.00</p> <button class="add-to-cart-button"
+                                     data-product-id="sphatik_yantra_main"
+                                     data-product-name="Sphatik Shree Yantra"
+                                     data-product-price="999"> Add to Cart
+                             </button>
+                             <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Sphatik%20Shree%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Sphatik Shree Yantra on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                         </div>
+                     </div>
+                      </div>
             </div>
             </div>
     </section>
@@ -1954,7 +1944,8 @@
             <div class="social-links">
                 <a href="https://www.instagram.com/j_k_gems" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE_ID" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a> <a href="https://youtube.com/@jkgems-td3et?si=Ne4JWKic5aeZfBTa" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a> </div>
-            </div>
+             <p>© 2025 J.K Gems. All rights reserved.</p>
+        </div>
     </footer>
 
     <div id="imageModal">
@@ -1962,53 +1953,24 @@
         <img src="" id="modalImage" alt="Enlarged product image">
     </div>
 
-    <div id="themeChoiceModal">
-         <div class="theme-choice-modal-content">
-             <h3>Choose Your Theme</h3>
-             <p>Please select your preferred website theme.</p>
-             <div class="theme-buttons">
-                 <button id="chooseLightButton">Light Theme</button>
-                 <button id="chooseDarkButton">Dark Theme</button>
-             </div>
-         </div>
-     </div>
-
-    <script src="js/products.js"></script>
-
     <script>
         // --- Theme Switching Functionality ---
         const themeCheckbox = document.getElementById('theme-checkbox');
         const bodyElement = document.body;
-        const themeChoiceModal = document.getElementById('themeChoiceModal');
 
         // Function to apply the saved theme preference on load
-        // Returns true if a theme was applied, false otherwise
         function applyThemePreference() {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
                 bodyElement.classList.add('dark-theme');
-                themeCheckbox.checked = true; // Sync checkbox state
-                return true;
-            } else if (savedTheme === 'light') { // Explicitly check for 'light'
+                themeCheckbox.checked = true; // Set checkbox state
+            } else {
                 bodyElement.classList.remove('dark-theme');
-                themeCheckbox.checked = false; // Sync checkbox state
-                return true;
+                themeCheckbox.checked = false; // Set checkbox state
             }
-            return false; // Indicate no theme was found/applied
         }
 
-        // Function to show the theme choice modal
-        function showThemeChoiceModal() {
-            themeChoiceModal.style.display = 'flex';
-        }
-
-         // Function to hide the theme choice modal
-         function hideThemeChoiceModal() {
-             themeChoiceModal.style.display = 'none';
-         }
-
-
-        // Event listener for the theme switch checkbox (for manual switching after initial choice)
+        // Event listener for the theme switch checkbox
         themeCheckbox.addEventListener('change', function() {
             if (this.checked) {
                 bodyElement.classList.add('dark-theme');
@@ -2019,36 +1981,19 @@
             }
         });
 
-        // Event listeners for the theme choice modal buttons
-        document.getElementById('chooseLightButton').addEventListener('click', () => {
-            bodyElement.classList.remove('dark-theme');
-            themeCheckbox.checked = false; // Sync checkbox state
-            localStorage.setItem('theme', 'light');
-            hideThemeChoiceModal();
-        });
 
-        document.getElementById('chooseDarkButton').addEventListener('click', () => {
-            bodyElement.classList.add('dark-theme');
-            themeCheckbox.checked = true; // Sync checkbox state
-            localStorage.setItem('theme', 'dark');
-            hideThemeChoiceModal();
-        });
-
-
-        // --- General UI and Navigation Functions (kept in index.html script) ---
+        // --- Category/Product View Switching ---
         const categoryGrid = document.getElementById('categoryGrid');
         const productContainers = document.querySelectorAll('.category-products-container');
         const productsHeading = document.getElementById('products-heading');
         const searchInput = document.getElementById('searchInput');
-        // Note: categoryCards is no longer strictly needed here for filtering,
-        // the click logic is handled by delegation on #products
-
+        const categoryCards = document.querySelectorAll('.category-card'); // Select these once
         const backButtons = document.querySelectorAll('.back-to-categories');
-        const billingSection = document.getElementById('billingSection');
-        const billingInputs = document.getElementById('billingInputs');
-        const paymentInfoDiv = document.getElementById('paymentInfo');
-        const proceedToPaymentButton = document.getElementById('proceedToPaymentButton');
-        const submitOrderButton = document.getElementById('submitOrderButton');
+        const billingSection = document.getElementById('billingSection'); // Reference to the billing section
+        const billingInputs = document.getElementById('billingInputs'); // Container for billing form inputs
+        const paymentInfoDiv = document.getElementById('paymentInfo'); // Container for payment info
+        const proceedToPaymentButton = document.getElementById('proceedToPaymentButton'); // Button to show payment info
+        const submitOrderButton = document.getElementById('submitOrderButton'); // Button to submit the form
         const backToCartButton = document.querySelector('.back-to-cart');
 
 
@@ -2060,11 +2005,6 @@
             categoryGrid.style.display = 'grid'; // Show the category grid
             productContainers.forEach(container => {
                 container.style.display = 'none'; // Hide all product containers
-                 // Clear product grids when hiding their containers
-                 const productGrid = container.querySelector('.category-products-grid');
-                 if(productGrid) {
-                     productGrid.innerHTML = '';
-                 }
             });
             billingSection.style.display = 'none'; // Hide billing section
 
@@ -2089,6 +2029,59 @@
             // No need to re-add image modal listeners here as delegation is used on #products
         }
 
+        // Function to show a specific product container
+        function showProductContainer(categoryId) {
+             console.log("Attempting to show product container for categoryId:", categoryId); // Debug log
+             const containerId = categoryId + '-products-container';
+             const containerToShow = document.getElementById(containerId);
+             console.log("Looking for container with ID:", containerId); // Debug log
+             console.log("Found container:", containerToShow); // Debug log: Check if it's found (should not be null)
+
+             if (!containerToShow) {
+                 console.error("Product container not found for category:", categoryId);
+                 showCategoryGrid(); // Fallback to category grid
+                 return;
+             }
+             // Capitalize first letter for heading
+             const categoryName = categoryId.charAt(0).toUpperCase() + categoryId.slice(1);
+             productsHeading.textContent = `${categoryName} Collection`; // Update heading
+             searchInput.placeholder = `Search ${categoryName} products...`; // Update search placeholder
+             searchInput.style.display = 'block'; // Show search bar
+
+             categoryGrid.style.display = 'none'; // Hide the category grid
+             productContainers.forEach(container => {
+                 container.style.display = 'none'; // Hide all product containers
+             });
+             billingSection.style.display = 'none'; // Hide billing section
+
+              // Reset billing section state when navigating away
+            billingInputs.style.display = 'block'; // Show form inputs
+            paymentInfoDiv.style.display = 'none'; // Hide payment info
+            proceedToPaymentButton.style.display = 'block'; // Show proceed button
+            submitOrderButton.style.display = 'none'; // Hide submit button
+             // Restore button text and state
+             submitOrderButton.textContent = 'Submit Inquiry / Payment Made';
+             submitOrderButton.disabled = false;
+
+            backToCartButton.style.display = 'inline-block'; // Show back button
+
+
+             containerToShow.style.display = 'block'; // Show the selected product container (use 'block' for container wrapper)
+             console.log("Set display to 'block' for container:", containerToShow); // Debug log
+
+
+             // Set search to work on products within this category
+             searchItems = searchProductsInCategory; // Update the global searchItems function reference
+             searchInput.onkeyup = searchItems; // Attach the correct search function to the input
+             searchInput.value = ''; // Clear search input
+             searchItems(); // Apply search filter if any text was present (should be empty)
+
+
+             // Smooth scroll to the top of the products section
+             document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+             // No need to re-add image modal listeners here as delegation is used on #products
+        }
+
          // Function to show the billing section (initial state with form inputs)
          function showBillingSection() {
              if (cart.length === 0) {
@@ -2103,11 +2096,6 @@
              categoryGrid.style.display = 'none'; // Hide categories
              productContainers.forEach(container => {
                  container.style.display = 'none'; // Hide products
-                 // Clear product grids when hiding their containers
-                  const productGrid = container.querySelector('.category-products-grid');
-                  if(productGrid) {
-                      productGrid.innerHTML = '';
-                  }
              });
              cartModal.style.display = 'none'; // Hide cart modal
 
@@ -2148,6 +2136,10 @@
               paymentInfoDiv.style.display = 'block'; // Show payment info
               proceedToPaymentButton.style.display = 'none'; // Hide proceed button
               submitOrderButton.style.display = 'block'; // Show submit button
+              // Keep Back to Cart visible, maybe rename it conceptually or add Back to Billing?
+              // Let's keep Back to Cart but add a Back to Billing option.
+              // We can change the backToCartButton's behavior or add a new button.
+              // Let's add a new "Back to Billing" button within #paymentInfo.
 
               // Update the email subject now that we are at the payment step
               document.getElementById('emailSubject').value = `J.K Gems Order Inquiry - Payment Details Shown`;
@@ -2181,7 +2173,7 @@
          }
 
 
-        // --- Updated Search Functionality (Kept here for category search) ---
+        // --- Updated Search Functionality ---
         // Search only categories when the category grid is visible
         function searchCategories() {
              const input = document.getElementById('searchInput');
@@ -2202,8 +2194,39 @@
              });
         }
 
+        // Search only products within the currently visible category container
+        function searchProductsInCategory() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toUpperCase();
+            // Get the currently visible category products grid
+            const visibleProductGrid = document.querySelector('.category-products-container[style*="display: block"] .category-products-grid');
+
+            if (!visibleProductGrid) {
+                 console.warn("No visible product grid found for search.");
+                 return; // Should not happen if views are managed correctly
+            }
+
+            const products = visibleProductGrid.querySelectorAll('.product'); // Get products within the visible grid
+
+            products.forEach(product => {
+                 // Search text in heading, description, and price
+                 const h3 = product.querySelector('h3');
+                 const description = product.querySelector('.product-description');
+                 const priceElement = product.querySelector('.product-price'); // Include price in search
+                 const textValue = (h3 ? h3.textContent || h3.innerText : '') + ' ' +
+                                   (description ? description.textContent || description.innerText : '') + ' ' +
+                                   (priceElement ? priceElement.textContent || priceElement.innerText : '');
+
+
+                if (textValue.toUpperCase().indexOf(filter) > -1) {
+                    product.style.display = ""; // Show
+                } else {
+                    product.style.display = "none"; // Hide
+                }
+            });
+        }
+
         // The search function used by the input's onkeyup will be set dynamically
-        // It will be set to searchCategories or searchProductsInCategory by the UI logic
         let searchItems = searchCategories; // Initial function set on load
 
 
@@ -2232,7 +2255,7 @@
         });
 
 
-        // --- Add to Cart & Billing/Payment Functionality (Most kept here) ---
+        // --- Add to Cart & Billing/Payment Functionality ---
         const cartIcon = document.getElementById('cartIcon');
         const cartCountSpan = document.getElementById('cartCount');
         const cartModal = document.getElementById('cartModal');
@@ -2266,91 +2289,86 @@
         let discountPercentage = 0; // 0 for no discount
         let isCouponApplied = false;
 
-         // Function to save cart to localStorage
-         function saveCart() {
-             localStorage.setItem('jk-gems-cart', JSON.stringify(cart));
-         }
 
-         // Function to update cart UI (count and list)
-         function updateCartUI() {
-             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-             cartCountSpan.textContent = totalItems;
+        // Function to save cart to localStorage
+        function saveCart() {
+            localStorage.setItem('jk-gems-cart', JSON.stringify(cart));
+        }
 
-             // Hide count if 0
-             cartCountSpan.style.display = totalItems > 0 ? 'block' : 'none';
+        // Function to update cart UI (count and list)
+        function updateCartUI() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCountSpan.textContent = totalItems;
 
-             // Render cart content only when modal is open or about to open
-              if (cartModal.style.display === 'flex') {
-                  renderCart();
-              }
-         }
+            // Hide count if 0
+            cartCountSpan.style.display = totalItems > 0 ? 'block' : 'none';
 
-         // Function to add item to cart
-         // This function now expects a product object, which will be retrieved
-         // from the productsData array in products.js based on the button's data-product-id
-         function addToCart(product) {
-             if (!product) {
-                 console.error("Attempted to add invalid product to cart.");
-                 alert("Could not add item to cart. Product details missing.");
-                 return;
+            // Render cart content only when modal is open or about to open
+             if (cartModal.style.display === 'flex') {
+                 renderCart();
              }
+        }
 
-             const existingItemIndex = cart.findIndex(item => item.id === product.id);
+        // Function to add item to cart
+        function addToCart(product) {
+            const existingItemIndex = cart.findIndex(item => item.id === product.id);
 
-             if (existingItemIndex > -1) {
-                 // Item already in cart, increase quantity
-                 cart[existingItemIndex].quantity++;
-             } else {
-                 // Item not in cart, add it
-                 cart.push({...product, quantity: 1}); // Add quantity property
-             }
+            if (existingItemIndex > -1) {
+                // Item already in cart, increase quantity
+                cart[existingItemIndex].quantity++;
+            } else {
+                // Item not in cart, add it
+                cart.push({...product, quantity: 1}); // Add quantity property
+            }
 
-             saveCart();
-             updateCartUI();
-              // Optional: Add visual feedback (e.g., fade-in message)
-              console.log(`${product.name} added to cart!`); // Log to console
-         }
+            saveCart();
+            updateCartUI();
+             // Optional: Add visual feedback (e.g., fade-in message)
+             console.log(`${product.name} added to cart!`); // Log to console
+             // Simple alert for demonstration
+             // alert(`${product.name} added to cart!`);
+        }
 
-         // Function to remove item from cart
-         function removeFromCart(productId) {
-             cart = cart.filter(item => item.id !== productId);
-             saveCart();
-             updateCartUI();
-         }
+        // Function to remove item from cart
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            saveCart();
+            updateCartUI();
+        }
 
-         // Function to render cart items in the modal
-         function renderCart() {
-             cartItemsList.innerHTML = ''; // Clear current list
-             let total = 0;
+        // Function to render cart items in the modal
+        function renderCart() {
+            cartItemsList.innerHTML = ''; // Clear current list
+            let total = 0;
 
-             if (cart.length === 0) {
-                 emptyCartMessage.style.display = 'block';
-                 cartTotalDiv.style.display = 'none';
-                 checkoutButton.style.display = 'none';
-             } else {
-                 emptyCartMessage.style.display = 'none';
-                 cartTotalDiv.style.display = 'block';
-                 checkoutButton.style.display = 'block';
+            if (cart.length === 0) {
+                emptyCartMessage.style.display = 'block';
+                cartTotalDiv.style.display = 'none';
+                checkoutButton.style.display = 'none';
+            } else {
+                emptyCartMessage.style.display = 'none';
+                cartTotalDiv.style.display = 'block';
+                checkoutButton.style.display = 'block';
 
-                 cart.forEach(item => {
-                     const listItem = document.createElement('li');
-                     const itemTotal = item.price * item.quantity;
-                     listItem.innerHTML = `
-                         <div class="item-details">
-                             <span class="item-name">${item.name}</span>
-                             <span class="item-quantity"> (x${item.quantity})</span>
-                             <br>
-                             <span class="item-price">₹${itemTotal.toFixed(2)}</span>
-                         </div>
-                         <button class="remove-item" data-product-id="${item.id}">Remove</button>
-                     `;
-                     cartItemsList.appendChild(listItem);
-                     total += item.price * item.quantity;
-                 });
+                cart.forEach(item => {
+                    const listItem = document.createElement('li');
+                    const itemTotal = item.price * item.quantity;
+                    listItem.innerHTML = `
+                        <div class="item-details">
+                            <span class="item-name">${item.name}</span>
+                            <span class="item-quantity"> (x${item.quantity})</span>
+                            <br>
+                            <span class="item-price">₹${itemTotal.toFixed(2)}</span>
+                        </div>
+                        <button class="remove-item" data-product-id="${item.id}">Remove</button>
+                    `;
+                    cartItemsList.appendChild(listItem);
+                    total += item.price * item.quantity;
+                });
 
-                 cartTotalDiv.textContent = `Total: ₹${total.toFixed(2)}`;
-             }
-         }
+                cartTotalDiv.textContent = `Total: ₹${total.toFixed(2)}`;
+            }
+        }
 
          // Function to render order summary in the billing section
          function renderOrderSummaryReview() {
@@ -2457,7 +2475,6 @@
 
 
         // --- Event listener for interactions within the #products section using delegation ---
-        // This listener is now responsible for handling category clicks, add to cart clicks, and image clicks
         document.getElementById('products').addEventListener('click', function(event) {
             const target = event.target;
 
@@ -2465,49 +2482,42 @@
             // Find the closest ancestor that is a category card
             const categoryCard = target.closest('.product.category-card');
             if (categoryCard) {
-                const category = categoryCard.dataset.category; // Get category from data-category
-                 // Define which grid element corresponds to this category
-                 const targetGridId = category + '-products-grid';
-                if (category) {
-                    // Call the function from products.js
-                    showProductContainer(category, targetGridId);
-                    // Update search to search products instead of categories
-                    searchInput.onkeyup = searchProductsInCategory;
-                    // Update the global searchItems reference
-                    searchItems = searchProductsInCategory;
-                    searchInput.value = ''; // Clear search input
-                    searchItems(); // Apply search filter (will show all products initially)
-
+                const categoryId = categoryCard.dataset.categoryTarget;
+                if (categoryId) {
+                    showProductContainer(categoryId); // Call the function to show products for this category
                     return; // Stop processing after handling category click
                 }
             }
 
             // --- Handle Clicks on "Add to Cart" Buttons ---
-            // Check if the clicked element or its ancestor is an "Add to Cart" button
-            const addToCartButton = target.closest('.add-to-cart-button');
-            if (addToCartButton) {
-                 const productId = addToCartButton.dataset.productId;
-                 // Find the product in the productsData array (defined in products.js)
-                 const productToAdd = productsData.find(p => p.id === productId);
-                 if (productToAdd) {
-                     addToCart(productToAdd); // Call the function to add to cart
-                 } else {
-                     console.error("Product not found in data array:", productId);
-                     alert("Could not add item to cart. Product not found.");
-                 }
+            if (target.classList.contains('add-to-cart-button')) {
+                const productElement = target.closest('.product'); // Find the parent product div
+                if (productElement) { // Ensure we are inside a product card
+                    const product = {
+                        id: target.dataset.productId,
+                        name: target.dataset.productName,
+                        price: parseFloat(target.dataset.productPrice) // Parse price as number
+                    };
+                    // Validate data
+                    if (product.id && product.name && !isNaN(product.price)) {
+                         addToCart(product);
+                         // Optional: Add visual feedback (e.g., fade-in message)
+                         console.log(`${product.name} added to cart!`); // Log to console
+                    } else {
+                         console.error("Missing or invalid product data for Add to Cart:", product);
+                         alert("Could not add item to cart. Missing product details.");
+                    }
+                }
                 return; // Stop processing after handling add to cart
             }
-
-             // --- Handle Clicks on WhatsApp Buttons (Inquire Now) ---
-             // This is already handled by the standard <a> tag behavior, no extra JS needed here.
-
 
             // --- Handle Clicks on Product Images for Modal ---
             // Check if the clicked element is an IMG inside a .product card
             // And make sure it's not within the billing section (which is outside #products)
             if (target.tagName === 'IMG' && target.closest('.product') && !target.closest('#billingSection')) {
-                // Check if it's a product image within a product grid (dynamically loaded products)
-                 if (target.closest('.category-products-grid .product img')) {
+                // Check if it's a product image within a product container
+                // We can simplify this check slightly if all images in products are intended for modal
+                 if (target.closest('.category-products-grid .product')) { // Only images in product grids
                      modal.style.display = 'flex'; // Use flex to center
                      modalImg.src = target.src; // Set modal image source
                      modalImg.alt = target.alt; // Set modal image alt text for accessibility
@@ -2628,12 +2638,10 @@
             console.log("DOM Content Loaded. Initializing..."); // Debug log
 
             // Apply theme preference from localStorage
-            const themeApplied = applyThemePreference(); // Check if a theme was applied
+            applyThemePreference();
 
-            if (!themeApplied) { // If no theme was applied from localStorage
-                showThemeChoiceModal(); // Prompt the user
-            }
-
+            const initialCategoryCards = document.querySelectorAll('.category-card'); // Get cards immediately
+            console.log("Found", initialCategoryCards.length, "category cards on DOMContentLoaded."); // Debug log: Check count
             showCategoryGrid(); // Make sure categories are shown initially
             updateCartUI(); // Load and display initial cart state
             // Delegation for image modal clicks is set up outside DOMContentLoaded
