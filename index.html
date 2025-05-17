@@ -914,7 +914,7 @@
              color: var(--text-color-dark);
              padding-top: 15px;
              border-top: 1px solid var(--border-color);
-             transition: color 0.5s ease, border-color 0.5s ease; /* Smooth theme transition */
+             transition: color 0.5s ease, border-top 0.5s ease; /* Smooth theme transition */
          }
           body.dark-theme .cart-total {
               color: var(--primary-color); /* Total color in dark mode */
@@ -1815,11 +1815,11 @@
         <div class="container">
              <h2 id="products-heading">Our Categories</h2>
              <div class="search-container">
-                 <input type="text" id="searchInput" onkeyup="searchItems()" placeholder="Search Categories or Products...">
+                 <input type="text" id="searchInput" onkeyup="searchCategories()" placeholder="Search Categories...">
              </div>
 
             <div class="category-grid" id="categoryGrid">
-                <div class="product category-card" data-category-target="gemstones">
+                <div class="product category-card" data-category="gemstones">
                     <img src="IMG-20250516-WA0015.jpg" alt="Gem stones Category">
                     <div class="product-info">
                         <h3>Gemstones</h3>
@@ -1827,7 +1827,7 @@
                     </div>
                 </div>
 
-                <div class="product category-card" data-category-target="rudraksh">
+                <div class="product category-card" data-category="rudraksh">
                     <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh Category">
                      <div class="product-info">
                         <h3>Rudraksh</h3>
@@ -1835,7 +1835,7 @@
                     </div>
                 </div>
 
-                <div class="product category-card" data-category-target="yantra">
+                <div class="product category-card" data-category="yantra">
                     <img src="IMG-20250516-WA0001.jpg" alt="Yantra Category">
                      <div class="product-info">
                         <h3>Yantra & Spiritual Items</h3>
@@ -1846,94 +1846,20 @@
                  </div>
             <div id="gemstones-products-container" class="category-products-container">
                  <a href="#products" class="back-to-categories"><i class="fas fa-arrow-left"></i> Back to Categories</a>
-                 <h3>Gemstones Collection</h3>
-                 <div class="category-products-grid">
-                     <div class="product">
-                         <img src="path/to/your_gemstone_image_1.jpg" alt="Example Gemstone 1"> <div class="product-info">
-                             <h3>Example Gemstone 1</h3>
-                             <p class="product-description">Brief description of Example Gemstone 1.</p>
-                             <p class="product-price">₹5500.00</p> <button class="add-to-cart-button"
-                                     data-product-id="gemstone_ex1"
-                                     data-product-name="Example Gemstone 1"
-                                     data-product-price="5500"> Add to Cart
-                             </button>
-                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Example%20Gemstone%201.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Example Gemstone 1 on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
-                         </div>
+                 <h3 id="gemstones-products-heading"></h3> <div class="category-products-grid" id="gemstones-products-grid">
                      </div>
-                     <div class="product">
-                         <img src="IMG-20250516-WA0011.jpg" alt="Gemstone Rings"> <div class="product-info">
-                             <h3>Gemstone Rings</h3>
-                             <p class="product-description">Beautiful rings featuring authentic gemstones for style and astrological benefits.</p>
-                             <p class="product-price">₹999.00</p> <button class="add-to-cart-button"
-                                     data-product-id="gemstone_rings_main"
-                                     data-product-name="Gemstone Rings"
-                                     data-product-price="999"> Add to Cart
-                             </button>
-                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gemstone%20Rings.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Gemstone Rings on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
-                         </div>
-                     </div>
-                      </div>
             </div>
 
             <div id="rudraksh-products-container" class="category-products-container">
                 <a href="#products" class="back-to-categories"><i class="fas fa-arrow-left"></i> Back to Categories</a>
-                <h3>Rudraksh Items</h3>
-                <div class="category-products-grid">
-                     <div class="product">
-                         <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh Mala"> <div class="product-info">
-                             <h3>Rudraksh Mala</h3>
-                             <p class="product-description">Genuine Rudraksha beads for spiritual connection and well-being.</p>
-                             <p class="product-price">₹599.00</p> <button class="add-to-cart-button"
-                                     data-product-id="rudraksh_mala_main"
-                                     data-product-name="Rudraksh Mala" data-product-price="599"> Add to Cart
-                             </button>
-                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Mala.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Mala on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
-                         </div>
-                     </div>
-                     <div class="product">
-                         <img src="IMG-20250516-WA0016.jpg" alt="Rudraksh Bracelet"> <div class="product-info">
-                             <h3>Rudraksh Bracelet</h3>
-                             <p class="product-description">Wear the spiritual energy with authentic Rudraksh bracelets.</p>
-                             <p class="product-price">₹5999.00</p> <button class="add-to-cart-button"
-                                     data-product-id="rudraksh_bracelet_main"
-                                     data-product-name="Rudraksh Bracelet"
-                                     data-product-price="5999"> Add to Cart
-                             </button>
-                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Bracelet.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Bracelet on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
-                         </div>
-                     </div>
-                      </div>
+                <h3 id="rudraksh-products-heading"></h3> <div class="category-products-grid" id="rudraksh-products-grid">
+                    </div>
             </div>
 
              <div id="yantra-products-container" class="category-products-container">
                 <a href="#products" class="back-to-categories"><i class="fas fa-arrow-left"></i> Back to Categories</a>
-                <h3>Yantra & Spiritual Collection</h3>
-                <div class="category-products-grid">
-                     <div class="product">
-                         <img src="IMG-20250516-WA0001.jpg" alt="Yantra"> <div class="product-info">
-                             <h3>Yantra</h3>
-                             <p class="product-description">Sacred geometric diagrams for meditation and energy focusing.</p>
-                             <p class="product-price">₹999.00</p> <button class="add-to-cart-button"
-                                     data-product-id="yantra_main"
-                                     data-product-name="Yantra"
-                                     data-product-price="999"> Add to Cart
-                             </button>
-                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Yantra on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
-                         </div>
+                <h3 id="yantra-products-heading"></h3> <div class="category-products-grid" id="yantra-products-grid">
                      </div>
-                      <div class="product">
-                         <img src="61Fg6DsA4iL._AC_UF894,1000_QL80_.jpg" alt="Sphatik Shree Yantra"> <div class="product-info">
-                             <h3>Sphatik Shree Yantra</h3>
-                             <p class="product-description">Clear quartz Shree Yantra for purity, prosperity, and positive energy.</p>
-                              <p class="product-price">₹999.00</p> <button class="add-to-cart-button"
-                                     data-product-id="sphatik_yantra_main"
-                                     data-product-name="Sphatik Shree Yantra"
-                                     data-product-price="999"> Add to Cart
-                             </button>
-                             <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Sphatik%20Shree%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Sphatik Shree Yantra on WhatsApp"><i class="fab fa-whatsapp"></i> Inquire Now</a>
-                         </div>
-                     </div>
-                      </div>
             </div>
             </div>
     </section>
@@ -2047,6 +1973,7 @@
          </div>
      </div>
 
+    <script src="js/products.js"></script>
 
     <script>
         // --- Theme Switching Functionality ---
@@ -2108,18 +2035,20 @@
         });
 
 
-        // --- Category/Product View Switching ---
+        // --- General UI and Navigation Functions (kept in index.html script) ---
         const categoryGrid = document.getElementById('categoryGrid');
         const productContainers = document.querySelectorAll('.category-products-container');
         const productsHeading = document.getElementById('products-heading');
         const searchInput = document.getElementById('searchInput');
-        const categoryCards = document.querySelectorAll('.category-card'); // Select these once
+        // Note: categoryCards is no longer strictly needed here for filtering,
+        // the click logic is handled by delegation on #products
+
         const backButtons = document.querySelectorAll('.back-to-categories');
-        const billingSection = document.getElementById('billingSection'); // Reference to the billing section
-        const billingInputs = document.getElementById('billingInputs'); // Container for billing form inputs
-        const paymentInfoDiv = document.getElementById('paymentInfo'); // Container for payment info
-        const proceedToPaymentButton = document.getElementById('proceedToPaymentButton'); // Button to show payment info
-        const submitOrderButton = document.getElementById('submitOrderButton'); // Button to submit the form
+        const billingSection = document.getElementById('billingSection');
+        const billingInputs = document.getElementById('billingInputs');
+        const paymentInfoDiv = document.getElementById('paymentInfo');
+        const proceedToPaymentButton = document.getElementById('proceedToPaymentButton');
+        const submitOrderButton = document.getElementById('submitOrderButton');
         const backToCartButton = document.querySelector('.back-to-cart');
 
 
@@ -2131,6 +2060,11 @@
             categoryGrid.style.display = 'grid'; // Show the category grid
             productContainers.forEach(container => {
                 container.style.display = 'none'; // Hide all product containers
+                 // Clear product grids when hiding their containers
+                 const productGrid = container.querySelector('.category-products-grid');
+                 if(productGrid) {
+                     productGrid.innerHTML = '';
+                 }
             });
             billingSection.style.display = 'none'; // Hide billing section
 
@@ -2155,53 +2089,584 @@
             // No need to re-add image modal listeners here as delegation is used on #products
         }
 
-        // Function to show a specific product container
-        function showProductContainer(categoryId) {
-             console.log("Attempting to show product container for categoryId:", categoryId); // Debug log
-             const containerId = categoryId + '-products-container';
-             const containerToShow = document.getElementById(containerId);
-             console.log("Looking for container with ID:", containerId); // Debug log
-             console.log("Found container:", containerToShow); // Debug log: Check if it's found (should not be null)
-
-             if (!containerToShow) {
-                 console.error("Product container not found for category:", categoryId);
-                 showCategoryGrid(); // Fallback to category grid
-                 return;
+         // Function to show the billing section (initial state with form inputs)
+         function showBillingSection() {
+             if (cart.length === 0) {
+                 alert("Your cart is empty. Please add items before proceeding.");
+                 cartModal.style.display = 'none'; // Close cart modal
+                 return; // Prevent showing billing if cart is empty
              }
-             // Capitalize first letter for heading
-             const categoryName = categoryId.charAt(0).toUpperCase() + categoryId.slice(1);
-             productsHeading.textContent = `${categoryName} Collection`; // Update heading
-             searchInput.placeholder = `Search ${categoryName} products...`; // Update search placeholder
-             searchInput.style.display = 'block'; // Show search bar
 
-             categoryGrid.style.display = 'none'; // Hide the category grid
+             productsHeading.textContent = 'Order Inquiry & Payment'; // Update heading
+             searchInput.style.display = 'none'; // Hide search bar on billing page
+
+             categoryGrid.style.display = 'none'; // Hide categories
              productContainers.forEach(container => {
-                 container.style.display = 'none'; // Hide all product containers
+                 container.style.display = 'none'; // Hide products
+                 // Clear product grids when hiding their containers
+                  const productGrid = container.querySelector('.category-products-grid');
+                  if(productGrid) {
+                      productGrid.innerHTML = '';
+                  }
              });
-             billingSection.style.display = 'none'; // Hide billing section
+             cartModal.style.display = 'none'; // Hide cart modal
 
-              // Reset billing section state when navigating away
-            billingInputs.style.display = 'block'; // Show form inputs
-            paymentInfoDiv.style.display = 'none'; // Hide payment info
-            proceedToPaymentButton.style.display = 'block'; // Show proceed button
-            submitOrderButton.style.display = 'none'; // Hide submit button
+             billingSection.style.display = 'block'; // Show billing section
+
+             // Ensure initial state is billing form inputs visible, payment info hidden
+             billingInputs.style.display = 'block';
+             paymentInfoDiv.style.display = 'none';
+             proceedToPaymentButton.style.display = 'block';
+             submitOrderButton.style.display = 'none';
              // Restore button text and state
              submitOrderButton.textContent = 'Submit Inquiry / Payment Made';
              submitOrderButton.disabled = false;
 
-            backToCartButton.style.display = 'inline-block'; // Show back button
+
+             backToCartButton.style.display = 'inline-block'; // Show back button
 
 
-             containerToShow.style.display = 'block'; // Show the selected product container (use 'block' for container wrapper)
-             console.log("Set display to 'block' for container:", containerToShow); // Debug log
+             resetCoupon(); // Reset coupon state when showing billing
+             renderOrderSummaryReview(); // Populate the review section
+
+             // Smooth scroll to the top of the billing section
+             billingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+         }
+
+          // Function to show the payment information and hide billing inputs
+          function showPaymentInfo() {
+              // Validate required fields before proceeding using the form's built-in validation
+              const billingForm = document.getElementById('billingForm');
+              if (!billingForm.checkValidity()) {
+                  // If form is invalid, trigger browser's default validation messages
+                  billingForm.reportValidity();
+                  return false; // Prevent moving forward
+              }
 
 
-             // Set search to work on products within this category
-             searchItems = searchProductsInCategory; // Update the global searchItems function reference
-             searchInput.onkeyup = searchItems; // Attach the correct search function to the input
-             searchInput.value = ''; // Clear search input
-             searchItems(); // Apply search filter if any text was present (should be empty)
+              billingInputs.style.display = 'none'; // Hide billing form inputs
+              paymentInfoDiv.style.display = 'block'; // Show payment info
+              proceedToPaymentButton.style.display = 'none'; // Hide proceed button
+              submitOrderButton.style.display = 'block'; // Show submit button
+
+              // Update the email subject now that we are at the payment step
+              document.getElementById('emailSubject').value = `J.K Gems Order Inquiry - Payment Details Shown`;
 
 
-             // Smooth scroll to the top of the products section
-             document.getElementById('products').scroll
+              return true; // Indicate success
+          }
+
+
+         // Function to hide the billing section and show the cart modal
+         function hideBillingSection() {
+             billingSection.style.display = 'none'; // Hide billing section
+             cartModal.style.display = 'flex'; // Show cart modal again
+             productsHeading.textContent = 'Your Cart'; // Change heading temporarily
+             searchInput.style.display = 'none'; // Keep search hidden in modal
+
+             // Reset billing section state when going back to cart
+             billingInputs.style.display = 'block'; // Show form inputs
+             paymentInfoDiv.style.display = 'none'; // Hide payment info
+             proceedToPaymentButton.style.display = 'block'; // Show proceed button
+             submitOrderButton.style.display = 'none'; // Hide submit button
+             // Restore button text and state
+             submitOrderButton.textContent = 'Submit Inquiry / Payment Made';
+             submitOrderButton.disabled = false;
+
+
+             backToCartButton.style.display = 'inline-block'; // Show back button
+
+             // Smooth scroll back to the top of the products section (which now shows categories/cart context)
+              document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+         }
+
+
+        // --- Updated Search Functionality (Kept here for category search) ---
+        // Search only categories when the category grid is visible
+        function searchCategories() {
+             const input = document.getElementById('searchInput');
+             const filter = input.value.toUpperCase();
+             // Get only the category cards within the visible category grid
+             const categories = categoryGrid.querySelectorAll('.product.category-card'); // Select specifically
+
+             categories.forEach(category => {
+                 // Search text in heading and description
+                 const h3 = category.querySelector('h3');
+                 const description = category.querySelector('.product-description');
+                 const textValue = (h3 ? h3.textContent || h3.innerText : '') + ' ' + (description ? description.textContent || description.innerText : '');
+                 if (textValue.toUpperCase().indexOf(filter) > -1) {
+                     category.style.display = ""; // Show
+                 } else {
+                     category.style.display = "none"; // Hide
+                 }
+             });
+        }
+
+        // The search function used by the input's onkeyup will be set dynamically
+        // It will be set to searchCategories or searchProductsInCategory by the UI logic
+        let searchItems = searchCategories; // Initial function set on load
+
+
+        // --- Image Modal Functionality ---
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = modal.querySelector('.close');
+
+        // Add click listener to the modal close button
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none'; // Hide modal
+        });
+
+        // Add click listener to the modal background to close
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) { // Close only if clicking directly on the modal background
+                modal.style.display = 'none';
+            }
+        });
+
+        // Optional: Close with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.style.display === 'flex') {
+                modal.style.display = 'none';
+            }
+        });
+
+
+        // --- Add to Cart & Billing/Payment Functionality (Most kept here) ---
+        const cartIcon = document.getElementById('cartIcon');
+        const cartCountSpan = document.getElementById('cartCount');
+        const cartModal = document.getElementById('cartModal');
+        const closeCartModalBtn = document.getElementById('closeCartModal');
+        const cartItemsList = document.getElementById('cartItemsList');
+        const cartTotalDiv = document.getElementById('cartTotal');
+        const checkoutButton = document.getElementById('checkoutButton'); // This button now goes to billing
+        const emptyCartMessage = document.getElementById('emptyCartMessage');
+
+        const reviewItemsList = document.getElementById('reviewItemsList'); // Billing review list
+        const reviewSubtotalSpan = document.getElementById('reviewSubtotal');
+        const reviewDiscountLine = document.getElementById('reviewDiscountLine');
+        const reviewDiscountSpan = document.getElementById('reviewDiscount');
+        const reviewFinalTotalSpan = document.getElementById('reviewFinalTotal');
+        const orderCartDetailsInput = document.getElementById('orderCartDetails'); // Hidden input for cart data
+        const parsedOrderDetailsInput = document.getElementById('_parsedOrderDetails'); // Hidden input for structured data
+        const discountAppliedInput = document.getElementById('discountApplied'); // Hidden input for discount flag
+        const finalOrderTotalInput = document.getElementById('finalOrderTotal'); // Hidden input for final total
+
+        const couponCodeInput = document.getElementById('couponCode');
+        const applyCouponButton = document.getElementById('applyCouponButton');
+        const couponMessageDiv = document.getElementById('couponMessage');
+        const couponSectionDiv = document.getElementById('couponSection'); // Coupon section div
+
+
+        // Load cart from localStorage or initialize empty array
+        let cart = JSON.parse(localStorage.getItem('jk-gems-cart')) || [];
+
+        // Variables for coupon and total
+        let currentSubtotal = 0;
+        let discountPercentage = 0; // 0 for no discount
+        let isCouponApplied = false;
+
+         // Function to save cart to localStorage
+         function saveCart() {
+             localStorage.setItem('jk-gems-cart', JSON.stringify(cart));
+         }
+
+         // Function to update cart UI (count and list)
+         function updateCartUI() {
+             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+             cartCountSpan.textContent = totalItems;
+
+             // Hide count if 0
+             cartCountSpan.style.display = totalItems > 0 ? 'block' : 'none';
+
+             // Render cart content only when modal is open or about to open
+              if (cartModal.style.display === 'flex') {
+                  renderCart();
+              }
+         }
+
+         // Function to add item to cart
+         // This function now expects a product object, which will be retrieved
+         // from the productsData array in products.js based on the button's data-product-id
+         function addToCart(product) {
+             if (!product) {
+                 console.error("Attempted to add invalid product to cart.");
+                 alert("Could not add item to cart. Product details missing.");
+                 return;
+             }
+
+             const existingItemIndex = cart.findIndex(item => item.id === product.id);
+
+             if (existingItemIndex > -1) {
+                 // Item already in cart, increase quantity
+                 cart[existingItemIndex].quantity++;
+             } else {
+                 // Item not in cart, add it
+                 cart.push({...product, quantity: 1}); // Add quantity property
+             }
+
+             saveCart();
+             updateCartUI();
+              // Optional: Add visual feedback (e.g., fade-in message)
+              console.log(`${product.name} added to cart!`); // Log to console
+         }
+
+         // Function to remove item from cart
+         function removeFromCart(productId) {
+             cart = cart.filter(item => item.id !== productId);
+             saveCart();
+             updateCartUI();
+         }
+
+         // Function to render cart items in the modal
+         function renderCart() {
+             cartItemsList.innerHTML = ''; // Clear current list
+             let total = 0;
+
+             if (cart.length === 0) {
+                 emptyCartMessage.style.display = 'block';
+                 cartTotalDiv.style.display = 'none';
+                 checkoutButton.style.display = 'none';
+             } else {
+                 emptyCartMessage.style.display = 'none';
+                 cartTotalDiv.style.display = 'block';
+                 checkoutButton.style.display = 'block';
+
+                 cart.forEach(item => {
+                     const listItem = document.createElement('li');
+                     const itemTotal = item.price * item.quantity;
+                     listItem.innerHTML = `
+                         <div class="item-details">
+                             <span class="item-name">${item.name}</span>
+                             <span class="item-quantity"> (x${item.quantity})</span>
+                             <br>
+                             <span class="item-price">₹${itemTotal.toFixed(2)}</span>
+                         </div>
+                         <button class="remove-item" data-product-id="${item.id}">Remove</button>
+                     `;
+                     cartItemsList.appendChild(listItem);
+                     total += item.price * item.quantity;
+                 });
+
+                 cartTotalDiv.textContent = `Total: ₹${total.toFixed(2)}`;
+             }
+         }
+
+         // Function to render order summary in the billing section
+         function renderOrderSummaryReview() {
+             reviewItemsList.innerHTML = ''; // Clear current list
+             currentSubtotal = 0; // Reset subtotal calculation
+
+             if (cart.length === 0) {
+                 // This case should ideally be prevented by checking before showing billing
+                 reviewItemsList.innerHTML = '<li>Cart is empty.</li>';
+                 reviewSubtotalSpan.textContent = '₹0.00';
+                 reviewDiscountLine.style.display = 'none';
+                 reviewDiscountSpan.textContent = '';
+                 reviewFinalTotalSpan.textContent = '₹0.00';
+             } else {
+                 cart.forEach(item => {
+                     const listItem = document.createElement('li');
+                     const itemTotal = item.price * item.quantity;
+                     listItem.innerHTML = `
+                         <span class="item-name">${item.name} (x${item.quantity})</span>
+                         <span class="item-price">₹${itemTotal.toFixed(2)}</span>
+                     `;
+                     reviewItemsList.appendChild(listItem);
+                     currentSubtotal += itemTotal; // Calculate subtotal
+                 });
+
+                 reviewSubtotalSpan.textContent = `₹${currentSubtotal.toFixed(2)}`;
+
+                 let finalTotal = currentSubtotal;
+                 let discountAmount = 0;
+
+                 if (isCouponApplied && discountPercentage > 0) {
+                     discountAmount = currentSubtotal * (discountPercentage / 100);
+                     finalTotal = currentSubtotal - discountAmount;
+                     reviewDiscountSpan.textContent = `- ₹${discountAmount.toFixed(2)}`;
+                     reviewDiscountLine.style.display = 'block';
+                 } else {
+                     reviewDiscountLine.style.display = 'none';
+                     reviewDiscountSpan.textContent = '';
+                 }
+
+                 reviewFinalTotalSpan.textContent = `₹${finalTotal.toFixed(2)}`;
+
+                 // Populate the hidden form fields with order details and final total
+                 const orderDetailsText = cart.map(item =>
+                     `${item.name} (Qty: ${item.quantity}) - ₹${(item.price * item.quantity).toFixed(2)}`
+                 ).join('\n');
+
+                 let fullOrderDetails = `Order Items:\n${orderDetailsText}\n\nSubtotal: ₹${currentSubtotal.toFixed(2)}`;
+
+                 if (isCouponApplied && discountPercentage > 0) {
+                     fullOrderDetails += `\nDiscount (${discountPercentage}%): -₹${discountAmount.toFixed(2)}`;
+                 }
+                 fullOrderDetails += `\nFinal Total: ₹${finalTotal.toFixed(2)}`;
+
+
+                 orderCartDetailsInput.value = fullOrderDetails; // Text version for general use
+
+                 // Optional: JSON version for potential future use or easier parsing
+                 const parsedDetails = {
+                     items: cart,
+                     subtotal: currentSubtotal.toFixed(2),
+                     discountApplied: isCouponApplied,
+                     discountPercentage: discountPercentage,
+                     discountAmount: discountAmount.toFixed(2),
+                     finalTotal: finalTotal.toFixed(2)
+                 };
+                 parsedOrderDetailsInput.value = JSON.stringify(parsedDetails, null, 2); // Pretty print JSON
+
+
+                 discountAppliedInput.value = isCouponApplied ? `Yes (${discountPercentage}%)` : 'No';
+                 finalOrderTotalInput.value = finalTotal.toFixed(2);
+
+
+             }
+         }
+
+         // Function to reset coupon state
+         function resetCoupon() {
+             discountPercentage = 0;
+             isCouponApplied = false;
+             couponCodeInput.value = '';
+             couponMessageDiv.textContent = ''; // Clear message
+             couponMessageDiv.className = ''; // Remove success/error classes
+         }
+
+         // Function to apply the coupon
+         function applyCoupon() {
+             const enteredCode = couponCodeInput.value.trim().toUpperCase(); // Case-insensitive check
+             const validCouponCode = "OFFER10"; // The secret coupon code
+
+             if (enteredCode === validCouponCode) {
+                 discountPercentage = 10; // Set discount percentage
+                 isCouponApplied = true;
+                 couponMessageDiv.textContent = 'Coupon Applied! 10% discount added.';
+                 couponMessageDiv.className = 'success'; // Apply success style
+                 renderOrderSummaryReview(); // Update review with discount
+             } else {
+                 resetCoupon(); // Reset if incorrect code entered
+                 couponMessageDiv.textContent = 'Invalid coupon code.';
+                 couponMessageDiv.className = 'error'; // Apply error style
+                 renderOrderSummaryReview(); // Update review (will show base total)
+             }
+         }
+
+
+        // --- Event listener for interactions within the #products section using delegation ---
+        // This listener is now responsible for handling category clicks, add to cart clicks, and image clicks
+        document.getElementById('products').addEventListener('click', function(event) {
+            const target = event.target;
+
+            // --- Handle Clicks on Category Cards ---
+            // Find the closest ancestor that is a category card
+            const categoryCard = target.closest('.product.category-card');
+            if (categoryCard) {
+                const category = categoryCard.dataset.category; // Get category from data-category
+                 // Define which grid element corresponds to this category
+                 const targetGridId = category + '-products-grid';
+                if (category) {
+                    // Call the function from products.js
+                    showProductContainer(category, targetGridId);
+                    // Update search to search products instead of categories
+                    searchInput.onkeyup = searchProductsInCategory;
+                    // Update the global searchItems reference
+                    searchItems = searchProductsInCategory;
+                    searchInput.value = ''; // Clear search input
+                    searchItems(); // Apply search filter (will show all products initially)
+
+                    return; // Stop processing after handling category click
+                }
+            }
+
+            // --- Handle Clicks on "Add to Cart" Buttons ---
+            // Check if the clicked element or its ancestor is an "Add to Cart" button
+            const addToCartButton = target.closest('.add-to-cart-button');
+            if (addToCartButton) {
+                 const productId = addToCartButton.dataset.productId;
+                 // Find the product in the productsData array (defined in products.js)
+                 const productToAdd = productsData.find(p => p.id === productId);
+                 if (productToAdd) {
+                     addToCart(productToAdd); // Call the function to add to cart
+                 } else {
+                     console.error("Product not found in data array:", productId);
+                     alert("Could not add item to cart. Product not found.");
+                 }
+                return; // Stop processing after handling add to cart
+            }
+
+             // --- Handle Clicks on WhatsApp Buttons (Inquire Now) ---
+             // This is already handled by the standard <a> tag behavior, no extra JS needed here.
+
+
+            // --- Handle Clicks on Product Images for Modal ---
+            // Check if the clicked element is an IMG inside a .product card
+            // And make sure it's not within the billing section (which is outside #products)
+            if (target.tagName === 'IMG' && target.closest('.product') && !target.closest('#billingSection')) {
+                // Check if it's a product image within a product grid (dynamically loaded products)
+                 if (target.closest('.category-products-grid .product img')) {
+                     modal.style.display = 'flex'; // Use flex to center
+                     modalImg.src = target.src; // Set modal image source
+                     modalImg.alt = target.alt; // Set modal image alt text for accessibility
+                 }
+            }
+        });
+
+
+         // Event listener for "Remove" buttons in the cart modal using delegation
+         cartItemsList.addEventListener('click', function(event) {
+             const target = event.target;
+             if (target.classList.contains('remove-item')) {
+                 const productId = target.dataset.productId;
+                 if (productId) {
+                     removeFromCart(productId);
+                 }
+             }
+         });
+
+
+        // Event listeners for Cart Modal
+        cartIcon.addEventListener('click', function() {
+            cartModal.style.display = 'flex'; // Show modal
+             renderCart(); // Render cart content every time modal opens
+        });
+
+        closeCartModalBtn.addEventListener('click', function() {
+            cartModal.style.display = 'none'; // Hide modal
+        });
+
+        // Close modal if user clicks outside of it
+        cartModal.addEventListener('click', function(e) {
+            if (e.target === cartModal) {
+                cartModal.style.display = 'none';
+            }
+        });
+
+        // Event listener for the "Proceed to Inquiry" button (in the cart modal)
+        checkoutButton.addEventListener('click', function() {
+            // cartModal.style.display = 'none'; // Hide cart modal - this is handled in showBillingSection
+            showBillingSection(); // Show the billing section
+        });
+
+         // Event listener for the coupon code apply button
+         applyCouponButton.addEventListener('click', applyCoupon);
+
+         // Allow applying coupon by pressing Enter in the input field
+         couponCodeInput.addEventListener('keypress', function(event) {
+             if (event.key === 'Enter') {
+                 event.preventDefault(); // Prevent form submission if input is inside a form
+                 applyCoupon();
+             }
+         });
+
+
+         // Event listener for the FIRST click on the billing form button
+         proceedToPaymentButton.addEventListener('click', function(event) {
+              // Prevent default form submission initially
+             // event.preventDefault(); // No form event listener on the button itself
+
+             // Validate and show payment info using HTML5 validation API
+             showPaymentInfo();
+
+             // The event listener for form submission will be on the form itself,
+             // and will only be triggered when submitOrderButton is clicked.
+
+         });
+
+         // Event listener for the SECOND click on the billing form button (now submitOrderButton)
+         // This button is type="submit" and is inside the form, so it naturally triggers form submission.
+         document.getElementById('billingForm').addEventListener('submit', function(event) {
+             // This listener is called when the submitOrderButton is clicked.
+
+             // Add client-side feedback
+             const submitButton = document.getElementById('submitOrderButton');
+             submitButton.textContent = 'Submitting...';
+             submitButton.disabled = true; // Disable button to prevent double clicks
+
+
+             // Optional: Add final checks before clearing cart and submitting
+             // e.g., confirm user has made payment - This is a manual step for the user after seeing payment info
+
+             // Clear the cart after the form submission attempt.
+             // As noted before, this is client-side and not server-side secure.
+             // Clearing AFTER the form submission is attempted is the correct place.
+              cart = [];
+              saveCart();
+              updateCartUI(); // Update header count immediately
+              // Reset coupon state on successful order/inquiry submission
+              resetCoupon();
+
+              // The form will submit normally via formsubmit.co's action
+              // The _next parameter will redirect the user.
+              // If submission fails (e.g., network error) before redirect, the button will remain disabled.
+              // For better error handling, one might use Fetch API instead of native form submit,
+              // but for simplicity with formsubmit.co, native submit is standard.
+         });
+
+        // --- Add Back Button Listeners (Ensure these exist and are correct) ---
+        document.querySelectorAll('.back-to-categories').forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default link behavior
+                showCategoryGrid(); // Show the category grid
+                 // Smooth scroll back to the top of the products section
+                 document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Listener for the back to cart button in the billing section
+        document.querySelector('.back-to-cart').addEventListener('click', function(event) {
+            event.preventDefault();
+            hideBillingSection(); // Hide billing and show cart modal
+        });
+
+
+        // Initializers
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("DOM Content Loaded. Initializing..."); // Debug log
+
+            // Apply theme preference from localStorage
+            const themeApplied = applyThemePreference(); // Check if a theme was applied
+
+            if (!themeApplied) { // If no theme was applied from localStorage
+                showThemeChoiceModal(); // Prompt the user
+            }
+
+            showCategoryGrid(); // Make sure categories are shown initially
+            updateCartUI(); // Load and display initial cart state
+            // Delegation for image modal clicks is set up outside DOMContentLoaded
+        });
+
+
+        // Feature: Optional - Add a slight reveal animation on scroll
+        const sections = document.querySelectorAll('.section');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, {
+            threshold: 0.1, // Trigger when 10% of the section is visible
+            rootMargin: '0px 0px -50px 0px' // Start observing slightly before it enters
+        });
+
+        sections.forEach(section => {
+             // Apply animation only to main sections, not modals or billing section
+             if (!section.id.includes('Modal') && section.id !== 'billingSection') {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(section);
+             }
+        });
+
+    </script>
+
+</body>
+</html>
