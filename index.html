@@ -10,55 +10,57 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Lora:wght400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* --- Color Palette Variables (Inspired by NSL Forge, Adapted for JK Gems) --- */
+        /* --- Color Palette Variables (Adapted to Dark Blue, Slate Blue, Copper) --- */
         :root {
-            /* Adapted Palette Colors */
-            --color-accent-tan: #B68D40;      /* Used for secondary accents, like Tan in NSL Forge */
-            --color-light-cream: #F4EBD0;     /* Used for main text on dark, like Cream in NSL Forge */
-            --color-dark-charcoal: #122620;   /* Used for main dark backgrounds, like Charcoal in NSL Forge */
-            --color-bg-surface: #182D26;      /* Used for card/modal backgrounds, slightly lighter charcoal */
-            --color-accent-gold: #D6AD60;     /* Used for primary accents, links, buttons, like Gold in NSL Forge */
+            /* New Palette Colors */
+            --color-accent-copper: #B87333; /* Copper */
+            --color-slate-blue: #526173; /* Slate Blue */
+            --color-light-grey: #D3D3D3; /* Light Grey */
+            --color-dark-blue: #222831; /* Dark Blue */
+            --color-white: #FFFFFF; /* White */
 
-            /* Semantic Mapping to Adapted Palette */
-            --primary-color: var(--color-accent-gold);    /* Gold as primary accent */
-            --secondary-color: var(--color-accent-tan);   /* Tan as secondary accent */
-            --background-color: var(--color-dark-charcoal); /* Deep Charcoal background */
-            --surface-color: var(--color-bg-surface);     /* Lighter Charcoal surfaces */
-            --text-color-dark: var(--color-light-cream);  /* Cream for main text/headings */
-            --text-color-medium: var(--color-light-cream);/* Cream for general body text */
-            --text-color-secondary: var(--color-accent-tan); /* Tan for secondary text/descriptions */
-            --border-color: #2A3C36;                      /* Dark border color */
+
+            /* Semantic Mapping to New Palette */
+            --primary-color: var(--color-accent-copper);    /* Copper as primary accent */
+            --secondary-color: var(--color-slate-blue);   /* Slate Blue as secondary accent */
+            --background-color: var(--color-dark-blue); /* Dark Blue background */
+            --surface-color: #2a323f;      /* Slightly lighter Dark Blue for surfaces */
+            --text-color-dark: var(--color-light-grey);  /* Light Grey for main text/headings */
+            --text-color-medium: var(--color-light-grey);/* Light Grey for general body text */
+            --text-color-secondary: var(--color-slate-blue); /* Slate Blue for secondary text/descriptions */
+            --border-color: #3b4555;                      /* Border color based on dark blue/slate */
+
 
             --whatsapp-green: #25D366; /* Standard WhatsApp green remains */
             --whatsapp-green-hover: #1DA851;
 
-            --footer-text-color: var(--text-color-secondary); /* Tan for footer text */
+            --footer-text-color: var(--text-color-secondary); /* Slate Blue for footer text */
 
             --section-padding-vertical: 100px;
             --section-padding-horizontal: 25px;
 
-             /* Shadows inspired by NSL Forge */
+             /* Shadows based on dark backgrounds */
             --shadow-deep: 0 12px 24px rgba(0,0,0,0.7);
             --shadow-medium: 0 8px 16px rgba(0,0,0,0.6);
             --shadow-light: 0 4px 8px rgba(0,0,0,0.5);
 
-            /* Gradients inspired by NSL Forge */
-            --gradient-primary: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); /* Gold to Tan */
-            --gradient-highlight: linear-gradient(90deg, var(--primary-color), var(--color-accent-tan)); /* Gold to Tan */
+            /* Gradients using new primary and secondary colors */
+            --gradient-primary: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); /* Copper to Slate Blue */
+            --gradient-highlight: linear-gradient(90deg, var(--primary-color), var(--color-slate-blue)); /* Copper to Slate Blue */
 
 
             /* Button Colors adapted for the dark theme */
-            --button-primary-bg: var(--primary-color); /* Use Gold */
-            --button-primary-text: var(--background-color); /* Dark text on gold */
-            --button-primary-hover-bg: var(--secondary-color); /* Tan on hover */
+            --button-primary-bg: var(--primary-color); /* Use Copper */
+            --button-primary-text: var(--background-color); /* Dark Blue text on copper */
+            --button-primary-hover-bg: var(--secondary-color); /* Slate Blue on hover */
             --button-primary-hover-text: var(--background-color);
 
-            --button-secondary-bg: var(--secondary-color); /* Use Tan */
-            --button-secondary-text: var(--background-color); /* Dark text on tan */
-            --button-secondary-hover-bg: var(--primary-color); /* Gold on hover */
+            --button-secondary-bg: var(--secondary-color); /* Use Slate Blue */
+            --button-secondary-text: var(--background-color); /* Dark Blue text on Slate Blue */
+            --button-secondary-hover-bg: var(--primary-color); /* Copper on hover */
             --button-secondary-hover-text: var(--background-color);
 
-             /* Error color */
+             /* Error color - kept for visibility */
              --color-alert: #cf6679;
              --color-error-text: #cf6679;
         }
@@ -75,15 +77,15 @@
             line-height: 1.6;
             overflow-x: hidden;
             scroll-behavior: smooth;
-             /* Subtle Dark Background Pattern adapted from NSL Forge concept */
-            background-image: linear-gradient(45deg, #1f1f1f 25%, transparent 25%, transparent 75%, #1f1f1f 75%, #1f1f1f),
-                              linear-gradient(-45deg, #1f1f1f 25%, transparent 25%, transparent 75%, #1f1f1f 75%, #1f1f1f);
+             /* Subtle Dark Background Pattern adapted */
+            background-image: linear-gradient(45deg, #2c3440 25%, transparent 25%, transparent 75%, #2c3440 75%, #2c3440),
+                              linear-gradient(-45deg, #2c3440 25%, transparent 25%, transparent 75%, #2c3440 75%, #2c3440);
             background-size: 20px 20px; /* Adjust size as needed */
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Lora', serif;
-            color: var(--primary-color); /* Headings use Gold */
+            color: var(--primary-color); /* Headings use Copper */
             line-height: 1.3;
             margin-top: 0;
              letter-spacing: 0.5px;
@@ -100,7 +102,7 @@
          h2::after {
              content: ''; position: absolute; bottom: 0; left: 50%;
              transform: translateX(-50%); height: 3px; width: 80px;
-             background: var(--gradient-primary); /* Gold to Tan gradient underline */
+             background: var(--gradient-primary); /* Copper to Slate Blue gradient underline */
              border-radius: 2px;
          }
 
@@ -109,22 +111,22 @@
             font-size: 1.8em;
             margin-bottom: 20px;
             font-weight: 600;
-            color: var(--text-color-dark); /* Subheadings use Cream */
+            color: var(--text-color-dark); /* Subheadings use Light Grey */
         }
 
         p {
             margin-bottom: 1.2em;
-            color: var(--text-color-medium); /* Paragraphs use Cream */
+            color: var(--text-color-medium); /* Paragraphs use Light Grey */
         }
 
         a {
-            color: var(--primary-color); /* Links use Gold */
+            color: var(--primary-color); /* Links use Copper */
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         a:hover {
-            color: var(--secondary-color); /* Links turn Tan on hover */
+            color: var(--secondary-color); /* Links turn Slate Blue on hover */
         }
 
         .container {
@@ -167,7 +169,7 @@
 
         /* --- Header/Navigation --- */
         .header {
-            background-color: var(--surface-color); /* Header background is Lighter Charcoal */
+            background-color: var(--surface-color); /* Header background is slightly lighter Dark Blue */
             padding: 10px 0; /* Reduced padding */
             text-align: center;
             box-shadow: var(--shadow-medium); /* Medium shadow */
@@ -219,7 +221,7 @@
         }
 
         .nav a {
-            color: var(--text-color-secondary); /* Nav links color is Tan */
+            color: var(--text-color-secondary); /* Nav links color is Slate Blue */
             font-family: 'Lato', sans-serif;
             font-weight: 600;
             font-size: 1.1em;
@@ -231,8 +233,8 @@
         }
          /* Custom focus style */
          .nav a:focus {
-              color: var(--text-color-dark); /* Cream on focus */
-              outline: 2px solid var(--primary-color); /* Gold outline */
+              color: var(--text-color-dark); /* Light Grey on focus */
+              outline: 2px solid var(--primary-color); /* Copper outline */
               outline-offset: 3px;
               border-radius: 2px;
          }
@@ -248,7 +250,7 @@
             transition: width 0.4s ease-in-out;
         }
 
-        .nav a:hover, .nav a.active { color: var(--text-color-dark); transform: translateY(-2px);} /* Cream on hover/active */
+        .nav a:hover, .nav a.active { color: var(--text-color-dark); transform: translateY(-2px);} /* Light Grey on hover/active */
         .nav a:hover::after, .nav a.active::after { width: 100%; }
 
         /* Cart Icon in Header */
@@ -256,7 +258,7 @@
             margin-left: 30px;
             position: relative;
             cursor: pointer;
-            color: var(--text-color-secondary); /* Icon color is Tan */
+            color: var(--text-color-secondary); /* Icon color is Slate Blue */
             font-size: 1.5em;
             transition: color 0.3s ease, transform 0.3s ease;
              /* Added focus state */
@@ -266,12 +268,12 @@
         }
 
         .cart-icon-container:hover {
-            color: var(--primary-color); /* Hover color is Gold */
+            color: var(--primary-color); /* Hover color is Copper */
             transform: scale(1.1);
         }
          .cart-icon-container:focus {
-             color: var(--primary-color); /* Gold on focus */
-             outline: 2px solid var(--primary-color); /* Gold outline */
+             color: var(--primary-color); /* Copper on focus */
+             outline: 2px solid var(--primary-color); /* Copper outline */
              outline-offset: 2px;
          }
 
@@ -327,13 +329,13 @@
              .nav a {
                  display: block;
                  text-align: center;
-                 color: var(--text-color-dark); /* Cream for mobile links */
+                 color: var(--text-color-dark); /* Light Grey for mobile links */
              }
               .nav a::after {
                 content: none; /* Remove underline animation on mobile */
             }
               .nav a:hover, .nav a.active {
-                 color: var(--primary-color); /* Gold on hover/active */
+                 color: var(--primary-color); /* Copper on hover/active */
                  transform: none; /* Remove translateY effect */
             }
              .cart-icon-container {
@@ -351,7 +353,7 @@
             position: relative;
             height: 600px;
             /* High-Quality Visuals: Placeholder for your hero background image */
-            background: linear-gradient(rgba(18, 38, 32, 0.9), rgba(18, 38, 32, 0.9)), url('YOUR_HERO_IMAGE_URL.jpg') no-repeat center center/cover; /* Dark overlay + Background Image */
+            background: linear-gradient(rgba(34, 40, 49, 0.9), rgba(34, 40, 49, 0.9)), url('YOUR_HERO_IMAGE_URL.jpg') no-repeat center center/cover; /* Dark overlay + Background Image */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -387,10 +389,10 @@
             height: 300px; /* Size of the rotating element */
             transform-style: preserve-3d; /* Allow child (or itself) to have 3D position */
             transform: translate(-50%, -50%) rotateX(45deg) rotateY(45deg); /* Center and initial rotation */
-            /* Subtle gem-like appearance */
-            background: linear-gradient(135deg, rgba(214, 173, 96, 0.2) 0%, rgba(182, 141, 64, 0.2) 50%, rgba(214, 173, 96, 0.2) 100%); /* Subtle Gold/Tan gradient with opacity */
-            border: 1px solid rgba(182, 141, 64, 0.3); /* Subtle border */
-            box-shadow: 0 0 20px rgba(214, 173, 96, 0.4); /* Subtle glow */
+            /* Subtle gem-like appearance using new colors */
+            background: linear-gradient(135deg, rgba(184, 115, 51, 0.2) 0%, rgba(82, 97, 115, 0.2) 50%, rgba(184, 115, 51, 0.2) 100%); /* Subtle Copper/Slate Blue gradient with opacity */
+            border: 1px solid rgba(82, 97, 115, 0.3); /* Subtle border */
+            box-shadow: 0 0 20px rgba(184, 115, 51, 0.4); /* Subtle glow */
             opacity: 0.4; /* Make it translucent */
             animation: rotateShape 30s infinite linear; /* Apply animation */
             pointer-events: none; /* Ensure it doesn't interfere with clicks */
@@ -457,7 +459,7 @@
 
 
         .hero .container h1 {
-            color: var(--text-color-dark); /* Cream heading on overlay */
+            color: var(--text-color-dark); /* Light Grey heading on overlay */
             font-size: 4em;
             margin-bottom: 20px;
             font-weight: 700;
@@ -465,7 +467,7 @@
         }
 
         .hero .container p {
-            color: var(--text-color-medium); /* Cream text */
+            color: var(--text-color-medium); /* Light Grey text */
             font-size: 1.3em;
             margin-bottom: 30px;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
@@ -473,8 +475,8 @@
 
         .hero-cta-button {
             display: inline-block;
-            background: var(--gradient-primary); /* Gold to Tan gradient */
-            color: var(--background-color); /* Dark Charcoal text */
+            background: var(--gradient-primary); /* Copper to Slate Blue gradient */
+            color: var(--background-color); /* Dark Blue text */
             padding: 15px 30px;
             font-size: 1.2em;
             font-weight: 700;
@@ -496,7 +498,7 @@
              left: -100%;
              width: 100%;
              height: 100%;
-             background: var(--gradient-highlight); /* Gold to Tan gradient */
+             background: var(--gradient-highlight); /* Copper to Slate Blue gradient */
              transition: left 0.4s ease-out;
              z-index: -1;
          }
@@ -507,12 +509,12 @@
 
         .hero-cta-button:hover {
              background: transparent; /* Transparent background on hover */
-             color: var(--text-color-dark); /* Cream text on hover */
+             color: var(--text-color-dark); /* Light Grey text on hover */
              transform: translateY(-4px); /* More pronounced lift */
              box-shadow: var(--shadow-deep); /* Deeper shadow */
         }
          .hero-cta-button:focus {
-             outline: 2px solid var(--primary-color); /* Gold outline */
+             outline: 2px solid var(--primary-color); /* Copper outline */
              outline-offset: 3px;
              border-radius: 30px;
          }
@@ -543,13 +545,13 @@
              text-align: left;
              margin-bottom: 20px;
              font-size: 1.7em;
-             color: var(--text-color-dark); /* Cream subheadings */
+             color: var(--text-color-dark); /* Light Grey subheadings */
          }
 
         .about-contact p {
             font-size: 1.05em;
             margin-bottom: 1.2em;
-            color: var(--text-color-medium); /* Cream text */
+            color: var(--text-color-medium); /* Light Grey text */
         }
 
         .about-contact address {
@@ -557,19 +559,19 @@
              margin-top: 15px;
              font-size: 1.05em;
              line-height: 1.7;
-             color: var(--text-color-medium); /* Cream text */
+             color: var(--text-color-medium); /* Light Grey text */
              margin-bottom: 20px;
          }
 
          .contact-info p {
              margin-bottom: 12px;
-             color: var(--text-color-medium); /* Cream text */
+             color: var(--text-color-medium); /* Light Grey text */
              font-size: 1.05em;
          }
 
          .contact-info p i {
              margin-right: 12px;
-             color: var(--secondary-color); /* Icons use Tan */
+             color: var(--secondary-color); /* Icons use Slate Blue */
              font-size: 1.2em;
              width: 20px;
              text-align: center;
@@ -592,10 +594,10 @@
 
         .product {
             /* REFINED CARD STYLE */
-            border: 1px solid var(--border-color); /* Dark border */
+            border: 1px solid var(--border-color); /* Border color */
             padding: 0;
             text-align: left;
-            background-color: var(--surface-color); /* Lighter Charcoal background */
+            background-color: var(--surface-color); /* Surface color */
             border-radius: 8px;
             display: flex;
             flex-direction: column;
@@ -606,8 +608,8 @@
         .product:hover {
              transform: translateY(-5px); /* Lift on hover */
              box-shadow: var(--shadow-medium); /* Medium shadow on hover */
-             border-color: var(--primary-color); /* Gold border on hover */
-             background-color: #2a3d36; /* Slightly different background on hover */
+             border-color: var(--primary-color); /* Copper border on hover */
+             background-color: #333c4b; /* Slightly different background on hover */
         }
 
 
@@ -616,7 +618,7 @@
             height: 280px;
             object-fit: cover;
             margin-bottom: 0;
-            border-bottom: 1px solid var(--border-color); /* Dark border */
+            border-bottom: 1px solid var(--border-color); /* Border color */
             transition: transform 0.3s ease, border-color 0.3s ease, filter 0.3s ease;
             cursor: zoom-in;
             filter: brightness(0.9); /* Slightly dimmed initially */
@@ -626,10 +628,10 @@
         .product img:hover {
              transform: scale(1.05); /* Zoom on hover */
              filter: brightness(1.1); /* Brighter on hover */
-             border-color: var(--primary-color); /* Gold border on hover */
+             border-color: var(--primary-color); /* Copper border on hover */
         }
          .product img:focus {
-             outline: 3px solid var(--primary-color); /* Gold outline */
+             outline: 3px solid var(--primary-color); /* Copper outline */
              outline-offset: 3px;
              border-color: var(--primary-color);
              filter: brightness(1.1);
@@ -652,14 +654,14 @@
             margin-top: 0;
             margin-bottom: 6px;
             font-size: 1.4em;
-            color: var(--primary-color); /* Gold for product titles */
+            color: var(--primary-color); /* Copper for product titles */
             font-weight: 700;
             font-family: 'Lora', serif;
         }
 
         .product-info p.product-description {
             font-size: 0.9em;
-            color: var(--text-color-secondary); /* Tan for description */
+            color: var(--text-color-secondary); /* Slate Blue for description */
             margin-bottom: 12px;
             flex-grow: 1;
             line-height: 1.5;
@@ -669,7 +671,7 @@
         .product-price {
             font-size: 1.1em;
             font-weight: 700;
-            color: var(--secondary-color); /* Price color is Tan */
+            color: var(--secondary-color); /* Price color is Slate Blue */
             margin-bottom: 15px;
             min-height: 1.5em;
         }
@@ -699,7 +701,7 @@
              transform: translateY(-2px); /* Subtle lift */
         }
          .add-to-cart-button:focus {
-              outline: 2px solid var(--secondary-color); /* Tan outline */
+              outline: 2px solid var(--secondary-color); /* Slate Blue outline */
               outline-offset: 2px;
               border-radius: 5px;
          }
@@ -735,7 +737,7 @@
             box-shadow: none;
         }
          .whatsapp-button:focus {
-              outline: 2px solid var(--secondary-color); /* Tan outline */
+              outline: 2px solid var(--secondary-color); /* Slate Blue outline */
               outline-offset: 2px;
               border-radius: 0 0 8px 8px;
          }
@@ -751,26 +753,26 @@
             width: calc(100% - 40px);
             max-width: 500px;
             padding: 12px 20px;
-            border: 1px solid var(--border-color); /* Dark border */
+            border: 1px solid var(--border-color); /* Border color */
             border-radius: 25px;
             font-size: 1em;
             box-sizing: border-box;
             box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
             transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-            color: var(--text-color-medium); /* Cream text */
-            background-color: var(--surface-color); /* Lighter Charcoal background */
+            color: var(--text-color-medium); /* Light Grey text */
+            background-color: var(--surface-color); /* Surface color */
             outline: none;
          }
 
 
         .search-container input::placeholder {
-             color: var(--text-color-secondary); /* Tan placeholder */
+             color: var(--text-color-secondary); /* Slate Blue placeholder */
          }
 
 
         .search-container input:focus {
-            border-color: var(--primary-color); /* Gold focus border */
-            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3), 0 0 8px rgba(214, 173, 96, 0.6); /* Gold focus glow */
+            border-color: var(--primary-color); /* Copper focus border */
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3), 0 0 8px rgba(184, 115, 51, 0.6); /* Copper focus glow */
             outline: none;
         }
 
@@ -785,14 +787,14 @@
              text-align: center;
              margin-bottom: 30px;
              font-size: 2em;
-             color: var(--primary-color); /* Gold heading */
+             color: var(--primary-color); /* Copper heading */
          }
 
          .back-to-categories, .back-to-cart, .back-to-billing {
              display: inline-block;
              margin-bottom: 30px;
              font-size: 1.1em;
-             color: var(--text-color-secondary); /* Back links color is Tan */
+             color: var(--text-color-secondary); /* Back links color is Slate Blue */
              transition: color 0.3s ease;
              cursor: pointer;
              /* Added focus state */
@@ -806,12 +808,12 @@
          }
 
          .back-to-categories:hover, .back-to-cart:hover, .back-to-billing:hover {
-             color: var(--primary-color); /* Hover color is Gold */
+             color: var(--primary-color); /* Hover color is Copper */
              text-decoration: underline;
          }
          .back-to-categories:focus, .back-to-cart:focus, .back-to-billing:focus {
-             color: var(--primary-color); /* Gold on focus */
-             outline: 2px solid var(--primary-color); /* Gold outline */
+             color: var(--primary-color); /* Copper on focus */
+             outline: 2px solid var(--primary-color); /* Copper outline */
              outline-offset: 2px;
          }
 
@@ -845,11 +847,11 @@
         }
 
         #imageModal span:hover {
-            color: var(--secondary-color); /* Tan on hover */
+            color: var(--secondary-color); /* Slate Blue on hover */
         }
          #imageModal span:focus {
-             color: var(--secondary-color); /* Tan on focus */
-             outline: 2px solid var(--secondary-color); /* Tan outline */
+             color: var(--secondary-color); /* Slate Blue on focus */
+             outline: 2px solid var(--secondary-color); /* Slate Blue outline */
              outline-offset: 2px;
          }
 
@@ -859,7 +861,7 @@
             max-height: 90%;
             object-fit: contain;
             box-shadow: 0 0 40px rgba(0, 0, 0, 0.9); /* Stronger shadow */
-             border: 1px solid var(--primary-color); /* Gold border */
+             border: 1px solid var(--primary-color); /* Copper border */
              border-radius: 8px;
         }
 
@@ -880,7 +882,7 @@
          }
 
          .modal-content {
-             background-color: var(--surface-color); /* Lighter Charcoal background */
+             background-color: var(--surface-color); /* Surface color */
              margin: auto;
              padding: 30px;
              border-radius: 10px;
@@ -891,7 +893,7 @@
              max-height: 80vh;
              overflow-y: auto;
              text-align: left;
-             border: 1px solid var(--border-color); /* Dark border */
+             border: 1px solid var(--border-color); /* Border color */
              color: var(--text-color-medium); /* Default text color for modal content */
          }
 
@@ -899,7 +901,7 @@
              text-align: center;
              margin-top: 0;
              margin-bottom: 20px;
-             color: var(--primary-color); /* Gold heading */
+             color: var(--primary-color); /* Copper heading */
               padding-bottom: 10px;
          }
           .modal-content h2::after {
@@ -911,7 +913,7 @@
              position: absolute;
              top: 15px;
              right: 25px;
-             color: var(--text-color-secondary); /* Tan close button */
+             color: var(--text-color-secondary); /* Slate Blue close button */
              font-size: 35px;
              font-weight: bold;
              cursor: pointer;
@@ -924,7 +926,7 @@
 
          .modal-content .close:hover,
          .modal-content .close:focus {
-             color: var(--primary-color); /* Gold on hover/focus */
+             color: var(--primary-color); /* Copper on hover/focus */
          }
 
 
@@ -936,13 +938,13 @@
          }
 
          #cartItemsList li, #billingItemsList li {
-             border-bottom: 1px solid var(--border-color); /* Dark border */
+             border-bottom: 1px solid var(--border-color); /* Border color */
              padding: 15px 0;
              display: flex;
              justify-content: space-between;
              align-items: center;
              font-size: 1.1em;
-             color: var(--text-color-medium); /* Cream text */
+             color: var(--text-color-medium); /* Light Grey text */
          }
 
          #cartItemsList li:last-child, #billingItemsList li:last-child {
@@ -951,16 +953,16 @@
 
          .item-details .item-name {
              font-weight: 600;
-             color: var(--text-color-dark); /* Cream item name */
+             color: var(--text-color-dark); /* Light Grey item name */
          }
 
          .item-details .item-quantity {
              font-size: 0.9em;
-             color: var(--text-color-secondary); /* Tan quantity */
+             color: var(--text-color-secondary); /* Slate Blue quantity */
          }
 
          .item-details .item-price {
-              color: var(--primary-color); /* Gold price */
+              color: var(--primary-color); /* Copper price */
          }
 
 
@@ -982,7 +984,7 @@
              transform: scale(1.05); /* Subtle scale */
          }
           .remove-item:focus {
-              outline: 2px solid var(--secondary-color); /* Tan outline */
+              outline: 2px solid var(--secondary-color); /* Slate Blue outline */
               outline-offset: 2px;
               border-radius: 4px;
           }
@@ -993,9 +995,9 @@
              text-align: right;
              font-size: 1.3em;
              font-weight: 700;
-             color: var(--primary-color); /* Total color is Gold */
+             color: var(--primary-color); /* Total color is Copper */
              padding-top: 15px;
-             border-top: 1px solid var(--border-color); /* Dark border */
+             border-top: 1px solid var(--border-color); /* Border color */
          }
           .billing-summary p {
               margin: 5px 0;
@@ -1038,7 +1040,7 @@
               transform: translateY(-2px); /* Subtle lift */
          }
           .checkout-button:focus, .place-order-button:focus {
-               outline: 2px solid var(--secondary-color); /* Tan outline */
+               outline: 2px solid var(--secondary-color); /* Slate Blue outline */
                outline-offset: 2px;
                border-radius: 5px;
           }
@@ -1047,7 +1049,7 @@
          /* Styling for empty cart message */
          #emptyCartMessage {
             text-align: center;
-            color: var(--text-color-secondary); /* Tan text */
+            color: var(--text-color-secondary); /* Slate Blue text */
             margin-top: 20px;
             font-size: 1.1em;
          }
@@ -1072,7 +1074,7 @@
              display: block;
              margin-bottom: 5px;
              font-weight: 600;
-             color: var(--text-color-dark); /* Cream label */
+             color: var(--text-color-dark); /* Light Grey label */
              font-size: 0.95em;
          }
 
@@ -1085,7 +1087,7 @@
              border: 1px solid var(--border-color);
              border-radius: 5px;
              box-sizing: border-box;
-             background-color: var(--background-color); /* Slightly darker input background */
+             background-color: var(--background-color); /* Background color for input */
              color: var(--text-color-medium);
              font-size: 1em;
              transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -1095,7 +1097,7 @@
           #billingModal input[type="email"]::placeholder,
           #billingModal input[type="tel"]::placeholder,
           #billingModal textarea::placeholder {
-             color: var(--text-color-secondary); /* Tan placeholder */
+             color: var(--text-color-secondary); /* Slate Blue placeholder */
           }
 
 
@@ -1103,8 +1105,8 @@
          #billingModal input[type="email"]:focus,
          #billingModal input[type="tel"]:focus,
          #billingModal textarea:focus {
-              border-color: var(--primary-color); /* Gold focus border */
-              box-shadow: 0 0 5px rgba(214, 173, 96, 0.5); /* Gold glow */
+              border-color: var(--primary-color); /* Copper focus border */
+              box-shadow: 0 0 5px rgba(184, 115, 51, 0.5); /* Copper glow */
          }
 
          #billingModal textarea {
@@ -1127,8 +1129,8 @@
 
          .coupon-section button {
              padding: 10px 15px;
-             background-color: var(--secondary-color); /* Use Tan */
-             color: var(--background-color); /* Dark text */
+             background-color: var(--secondary-color); /* Use Slate Blue */
+             color: var(--background-color); /* Dark Blue text */
              border: none;
              border-radius: 0 5px 5px 0; /* Rounded right side */
              cursor: pointer;
@@ -1139,7 +1141,7 @@
          }
 
          .coupon-section button:hover {
-             background-color: var(--primary-color); /* Gold on hover */
+             background-color: var(--primary-color); /* Copper on hover */
              color: var(--background-color);
          }
           .coupon-section button:focus {
@@ -1169,7 +1171,7 @@
 
          .payment-info h3 {
              font-size: 1.6em;
-             color: var(--text-color-dark); /* Cream */
+             color: var(--text-color-dark); /* Light Grey */
              margin-bottom: 15px;
              text-align: center;
          }
@@ -1180,7 +1182,7 @@
              margin-bottom: 10px;
          }
           .payment-info strong {
-              color: var(--primary-color); /* Gold */
+              color: var(--primary-color); /* Copper */
           }
 
 
@@ -1191,27 +1193,27 @@
              display: block;
              border: 1px solid var(--border-color);
              padding: 10px;
-             background-color: white; /* White background for QR code readability */
+             background-color: var(--color-white); /* White background for QR code readability */
              border-radius: 5px;
          }
 
          .payment-instructions {
              font-size: 0.9em;
-             color: var(--text-color-secondary); /* Tan instructions */
+             color: var(--text-color-secondary); /* Slate Blue instructions */
              margin-top: 20px;
          }
 
 
          /* --- Footer --- */
         .footer {
-            background-color: var(--surface-color); /* Lighter Charcoal */
-            color: var(--footer-text-color); /* Tan */
+            background-color: var(--surface-color); /* Surface color */
+            color: var(--footer-text-color); /* Slate Blue */
             text-align: center;
             padding: 40px 0;
             margin-top: 60px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Darker shadow */
             font-size: 0.9em;
-             border-top: 1px solid var(--border-color); /* Dark border */
+             border-top: 1px solid var(--border-color); /* Border color */
         }
 
 
@@ -1223,29 +1225,29 @@
         .social-links a {
             display: inline-block;
             margin: 0 15px;
-            color: var(--primary-color); /* Gold */
+            color: var(--primary-color); /* Copper */
             font-size: 32px;
             transition: color 0.3s ease, transform 0.3s ease;
              outline: none; /* Base outline removed */
         }
          .social-links a:focus {
-             color: var(--secondary-color); /* Tan on focus */
-             outline: 2px solid var(--secondary-color); /* Tan outline */
+             color: var(--secondary-color); /* Slate Blue on focus */
+             outline: 2px solid var(--secondary-color); /* Slate Blue outline */
              outline-offset: 3px;
              border-radius: 50%; /* Match shape */
          }
 
 
         .social-links a:hover {
-            color: var(--secondary-color); /* Tan on hover */
+            color: var(--secondary-color); /* Slate Blue on hover */
             transform: scale(1.2); /* Subtle scale */
         }
 
 
          /* --- Scroll to Top Button --- */
         .scroll-to-top {
-            position: fixed; bottom: 30px; right: 30px; background-color: var(--primary-color); /* Use Gold */
-            color: var(--background-color); /* Use Charcoal for text/icon */
+            position: fixed; bottom: 30px; right: 30px; background-color: var(--primary-color); /* Use Copper */
+            color: var(--background-color); /* Use Dark Blue for text/icon */
             width: 50px; height: 50px; border-radius: 50%; /* Button size */
             text-align: center; line-height: 50px; font-size: 1.5rem; /* Icon size */
             box-shadow: var(--shadow-medium); /* Medium shadow */
@@ -1255,14 +1257,14 @@
             outline: none; /* Base outline removed */
         }
          .scroll-to-top:focus {
-             background-color: var(--secondary-color); /* Tan on focus */
-             outline: 2px solid var(--secondary-color); /* Tan outline */
+             background-color: var(--secondary-color); /* Slate Blue on focus */
+             outline: 2px solid var(--secondary-color); /* Slate Blue outline */
              outline-offset: 3px;
              border-radius: 50%;
          }
 
         .scroll-to-top.visible { opacity: 1; visibility: visible; }
-        .scroll-to-top:hover { background-color: var(--secondary-color); transform: scale(1.1); } /* Tan on hover */
+        .scroll-to-top:hover { background-color: var(--secondary-color); transform: scale(1.1); } /* Slate Blue on hover */
 
 
         /* --- Responsive Adjustments --- */
@@ -1605,7 +1607,7 @@
          textarea:focus,
          select:focus,
          [tabindex]:focus {
-             outline: 2px dashed var(--primary-color); /* Gold dashed outline */
+             outline: 2px dashed var(--primary-color); /* Copper dashed outline */
              outline-offset: 3px;
              border-radius: 3px; /* Basic border-radius, specific elements override this */
          }
