@@ -1047,10 +1047,20 @@
              border-top: 1px solid var(--border-color); /* Dark border */
          }
 
-         /* Added rule to ensure billing inputs are block when section is visible */
+         /* Added rules to help ensure billing inputs are visible when section is visible */
          #billingSection[style*="display: block"] #billingInputs {
-             display: block !important;
+             display: block !important; /* Ensure display is block */
+             visibility: visible !important; /* Ensure visibility */
+             opacity: 1 !important; /* Ensure opacity */
          }
+
+         /* Also explicitly set visibility and opacity for the direct children */
+          #billingSection[style*="display: block"] #billingInputs label,
+          #billingSection[style*="display: block"] #billingInputs input,
+          #billingSection[style*="display: block"] #billingInputs textarea {
+               visibility: visible !important;
+               opacity: 1 !important;
+          }
 
 
          #billingSection h2 {
@@ -1846,7 +1856,7 @@
             <img src="GridArt_20250516_180656516.png" alt="J.K Gems Logo">
             <nav class="nav">
                 <ul>
-                    <li><a href="#about">About & Visit Us</a></li>
+                    <li><a href="#about">About J.K Gems</a></li>
                     <li><a href="#products">Categories</a></li>
                 </ul>
                 <div class="cart-icon-container" id="cartIcon" role="button" tabindex="0" aria-label="Shopping Cart">
@@ -1868,8 +1878,7 @@
 
     <section id="about" class="section about-contact">
         <div class="container">
-            <h2>About J.K Gems & Visit Us</h2>
-            <div class="about-content">
+            <h2>About J.K Gems</h2> <div class="about-content">
                 <h3>Our Story</h3>
                 <p>J.K Gems is a well-known and trusted firm, serving customers with exquisite gemstones and spiritual products since 1965. Founded on principles of quality, authenticity, and integrity, we have built a reputation as a cornerstone in Junagadh's Soni Bajar.</p>
                 <p>For generations, we have been dedicated to sourcing the finest gemstones and authentic spiritual items, offering expert guidance and personalized service to our valued customers. Our legacy is built on trust, and our commitment to providing genuine products remains unwavering.</p>
@@ -2101,8 +2110,7 @@
             <div class="social-links">
                 <a href="https://www.instagram.com/j_k_gems" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE_ID" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a> <a href="https://youtube.com/@jkgems-td3et?si=Ne4JWKic5aeZfBTa" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a> </div>
-             <p>© 2025 J.K Gems. All rights reserved.</p>
-        </div>
+             <p>J.K Gems.</p> </div>
     </footer>
 
     <div id="imageModal">
