@@ -1040,12 +1040,18 @@
 
          /* --- Billing Section Styling --- */
          #billingSection {
-             display: none;
+             display: none; /* Hidden by default, shown by JS */
              text-align: left;
              margin-top: 40px;
              padding-top: 40px;
              border-top: 1px solid var(--border-color); /* Dark border */
          }
+
+         /* Added rule to ensure billing inputs are block when section is visible */
+         #billingSection[style*="display: block"] #billingInputs {
+             display: block !important;
+         }
+
 
          #billingSection h2 {
              text-align: center;
@@ -1053,7 +1059,7 @@
          }
 
          #billingForm {
-             /* Initially visible */
+             /* Initially visible, managed by JS */
          }
 
           #billingForm label {
@@ -1075,26 +1081,29 @@
              border-radius: 4px;
              font-size: 1em;
              box-sizing: border-box;
-             transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+             transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
              color: var(--text-color-medium); /* Cream text */
              background-color: var(--surface-color); /* Lighter Charcoal background */
              outline: none;
          }
 
+
+        #billingForm input[type="text"]:focus,
+        #billingForm input[type="email"]:focus,
+        #billingForm input[type="tel"]:focus,
+        #billingForm textarea:focus {
+            border-color: var(--primary-color); /* Gold focus border */
+            outline: none;
+            box-shadow: 0 0 8px rgba(214, 173, 96, 0.6); /* Gold glow */
+        }
+
           /* Style for invalid input */
-          #billingForm input:invalid {
+          #billingForm input:invalid,
+          #billingForm textarea:invalid {
               border-color: var(--color-alert); /* Alert color for invalid */
+              box-shadow: 0 0 8px rgba(207, 102, 121, 0.6); /* Alert color glow */
           }
 
-
-         #billingForm input[type="text"]:focus,
-         #billingForm input[type="email"]:focus,
-         #billingForm input[type="tel"]:focus,
-         #billingForm textarea:focus {
-             border-color: var(--primary-color); /* Gold focus border */
-             outline: none;
-             box-shadow: 0 0 8px rgba(214, 173, 96, 0.6); /* Gold glow */
-         }
 
          #orderSummaryReview {
              margin-bottom: 30px;
@@ -1278,7 +1287,7 @@
 
          /* Styling for Payment Info Section */
          #paymentInfo {
-             display: none;
+             display: none; /* Hidden by default, shown by JS */
              margin-top: 30px;
              padding-top: 30px;
              border-top: 1px dashed var(--border-color); /* Dark dashed border */
@@ -2215,10 +2224,10 @@
              billingSection.style.display = 'block'; // Show billing section
 
              // Ensure initial state is billing form inputs visible, payment info hidden
-             billingInputs.style.display = 'block';
-             paymentInfoDiv.style.display = 'none';
-             proceedToPaymentButton.style.display = 'block';
-             submitOrderButton.style.display = 'none';
+             billingInputs.style.display = 'block'; // Show form inputs
+             paymentInfoDiv.style.display = 'none'; // Hide payment info
+             proceedToPaymentButton.style.display = 'block'; // Show proceed button
+             submitOrderButton.style.display = 'none'; // Hide submit button
              submitOrderButton.textContent = 'Submit Inquiry / Payment Made';
              submitOrderButton.disabled = false;
 
@@ -2236,6 +2245,12 @@
               const billingForm = document.getElementById('billingForm');
               if (!billingForm.checkValidity()) {
                   billingForm.reportValidity(); // Trigger browser's default validation
+                  // Scroll to the first invalid element for better UX (optional)
+                  const firstInvalidElement = billingForm.querySelector(':invalid');
+                  if (firstInvalidElement) {
+                       firstInvalidElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                       firstInvalidElement.focus();
+                  }
                   return false; // Prevent moving forward
               }
 
