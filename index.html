@@ -382,23 +382,58 @@
          .hero-background-animation::before {
              content: '';
              position: absolute;
-             /* Position relative to the animation container */
-             top: 50%; /* Center vertically */
-             left: 50%; /* Center horizontally */
-             width: 80px; /* Size for diamond */
-             height: 80px; /* Size for diamond */
-             transform-style: preserve-3d; /* Allow child (or itself) to have 3D position */
-             /* Center and initial rotation for a diamond look */
+             top: 50%;
+             left: 50%;
+             /* Adjust size for diamond */
+             width: 100px;
+             height: 120px; /* Make it slightly taller than wide */
+             transform-style: preserve-3d;
+             /* Initial rotation and position for a diamond look */
              transform: translate(-50%, -50%) rotateX(-60deg) rotateY(0deg) rotateZ(45deg);
-             /* Subtle gem-like appearance using new colors */
-             background: linear-gradient(45deg, rgba(184, 115, 51, 0.3) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(82, 97, 115, 0.3) 100%); /* Subtle Copper/White/Slate Blue gradient with opacity for facets */
-             border: 1px solid rgba(82, 97, 115, 0.2); /* Very subtle border */
-             box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Subtle white glow */
-             opacity: 0.6; /* Slightly more visible */
-             animation: rotateDiamond 10s infinite linear; /* Apply animation */
+
+             /* Background to simulate facets and light */
+             background: radial-gradient(circle at center,
+                 rgba(255, 255, 255, 0.8) 0%, /* White highlight center */
+                 rgba(var(--color-light-grey), 0.6) 10%,
+                 rgba(var(--primary-color), 0.4) 30%, /* Copper hint */
+                 rgba(var(--secondary-color), 0.4) 60%, /* Slate blue hint */
+                 rgba(var(--background-color), 0.2) 90% /* Darker edges */
+             );
+
+             /* Multiple box-shadows to simulate facets and sparkle */
+             box-shadow:
+                /* Top facets */
+                0 -10px 15px -5px rgba(255, 255, 255, 0.5),
+                0 -5px 10px -3px rgba(var(--primary-color), 0.4),
+                /* Side facets */
+                -15px 0 20px -8px rgba(var(--color-light-grey), 0.3),
+                15px 0 20px -8px rgba(var(--color-light-grey), 0.3),
+                /* Bottom facets / Culet */
+                0 15px 20px -5px rgba(var(--secondary-color), 0.4),
+                 inset 0 0 30px rgba(255, 255, 255, 0.2), /* Inner light */
+                 inset 0 0 15px rgba(var(--primary-color), 0.1), /* Inner copper */
+                 inset 0 0 15px rgba(var(--secondary-color), 0.1); /* Inner slate blue */
+
+
+             opacity: 0.5; /* Subtle transparency */
+             animation: rotateDiamond 12s infinite linear; /* Apply animation */
              pointer-events: none; /* Ensure it doesn't interfere with clicks */
-             /* Clip-path for a diamond shape */
-             clip-path: polygon(50% 0%, 80% 50%, 50% 100%, 20% 50%);
+
+             /* Clip-path for a diamond shape outline */
+             /* This polygon creates an 8-sided shape like the top view of a brilliant cut */
+             clip-path: polygon(
+                 50% 0%,
+                 65% 15%,
+                 100% 40%,
+                 100% 60%,
+                 65% 85%,
+                 50% 100%,
+                 35% 85%,
+                 0% 60%,
+                 0% 40%,
+                 35% 15%
+             );
+
          }
 
 
@@ -420,23 +455,23 @@
          /* Optional: Make it slightly smaller/faster on smaller screens */
          @media (max-width: 1024px) {
              .hero-background-animation::before {
-                 width: 60px;
-                 height: 60px;
-                 animation-duration: 8s; /* Faster rotation */
+                 width: 80px;
+                 height: 100px;
+                 animation-duration: 10s; /* Faster rotation */
              }
          }
          @media (max-width: 768px) {
              .hero-background-animation::before {
-                 width: 45px;
-                 height: 45px;
-                 animation-duration: 6s; /* Faster rotation */
+                 width: 60px;
+                 height: 80px;
+                 animation-duration: 8s; /* Faster rotation */
              }
          }
          @media (max-width: 480px) {
              .hero-background-animation::before {
-                 width: 30px;
-                 height: 30px;
-                 animation-duration: 4s; /* Even faster */
+                 width: 40px;
+                 height: 60px;
+                 animation-duration: 6s; /* Even faster */
              }
          }
 
