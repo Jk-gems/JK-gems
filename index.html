@@ -7,7 +7,7 @@
     <meta name="description" content="Explore exquisite gemstones, Rudraksha, and spiritual items from J.K Gems, a trusted firm serving Junagadh since 1965.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Lora:wght400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* --- Color Palette Variables (Inspired by NSL Forge, Adapted for JK Gems) --- */
@@ -864,11 +864,11 @@
         }
 
 
-         /* --- Cart Modal Styling --- */
-         #cartModal {
+         /* --- Modal Base Styling (for Cart and Billing) --- */
+         .modal {
              display: none;
              position: fixed;
-             z-index: 10000;
+             z-index: 10000; /* Higher than other page content */
              left: 0;
              top: 0;
              width: 100%;
@@ -879,8 +879,7 @@
              align-items: center;
          }
 
-
-         .cart-modal-content {
+         .modal-content {
              background-color: var(--surface-color); /* Lighter Charcoal background */
              margin: auto;
              padding: 30px;
@@ -893,22 +892,22 @@
              overflow-y: auto;
              text-align: left;
              border: 1px solid var(--border-color); /* Dark border */
+             color: var(--text-color-medium); /* Default text color for modal content */
          }
 
-
-         .cart-modal-content h2 {
+         .modal-content h2 {
              text-align: center;
              margin-top: 0;
              margin-bottom: 20px;
              color: var(--primary-color); /* Gold heading */
               padding-bottom: 10px;
          }
-          .cart-modal-content h2::after {
+          .modal-content h2::after {
               height: 2px; width: 50px; /* Thinner, shorter underline */
           }
 
 
-         .cart-modal-content .close {
+         .modal-content .close {
              position: absolute;
              top: 15px;
              right: 25px;
@@ -923,19 +922,20 @@
             border-radius: 4px;
          }
 
-         .cart-modal-content .close:hover,
-         .cart-modal-content .close:focus {
+         .modal-content .close:hover,
+         .modal-content .close:focus {
              color: var(--primary-color); /* Gold on hover/focus */
          }
 
 
-         #cartItemsList {
+         #cartItemsList, #billingItemsList {
              list-style: none;
              padding: 0;
              margin: 0;
+             margin-bottom: 20px;
          }
 
-         #cartItemsList li {
+         #cartItemsList li, #billingItemsList li {
              border-bottom: 1px solid var(--border-color); /* Dark border */
              padding: 15px 0;
              display: flex;
@@ -945,7 +945,7 @@
              color: var(--text-color-medium); /* Cream text */
          }
 
-         #cartItemsList li:last-child {
+         #cartItemsList li:last-child, #billingItemsList li:last-child {
              border-bottom: none;
          }
 
@@ -988,7 +988,7 @@
           }
 
 
-         .cart-total {
+         .cart-total, .billing-summary {
              margin-top: 20px;
              text-align: right;
              font-size: 1.3em;
@@ -997,9 +997,24 @@
              padding-top: 15px;
              border-top: 1px solid var(--border-color); /* Dark border */
          }
+          .billing-summary p {
+              margin: 5px 0;
+              font-size: 1em; /* Smaller font inside summary */
+              font-weight: 400;
+              color: var(--text-color-medium);
+          }
+           .billing-summary p strong {
+               color: var(--text-color-dark);
+           }
+           .billing-summary .final-total {
+               font-size: 1.3em;
+               font-weight: 700;
+               color: var(--primary-color);
+               margin-top: 10px;
+           }
 
 
-         .checkout-button {
+         .checkout-button, .place-order-button {
              display: block;
              width: 100%;
              padding: 12px;
@@ -1017,12 +1032,12 @@
             outline: none;
          }
 
-         .checkout-button:hover {
+         .checkout-button:hover, .place-order-button:hover {
              background-color: var(--button-primary-hover-bg);
              color: var(--button-primary-hover-text);
               transform: translateY(-2px); /* Subtle lift */
          }
-          .checkout-button:focus {
+          .checkout-button:focus, .place-order-button:focus {
                outline: 2px solid var(--secondary-color); /* Tan outline */
                outline-offset: 2px;
                border-radius: 5px;
@@ -1038,399 +1053,156 @@
          }
 
 
-         /* --- Billing Section Styling --- */
-         #billingSection {
-             display: none; /* Hidden by default, shown by JS */
-             text-align: left;
-             margin-top: 40px;
-             padding-top: 40px;
-             border-top: 1px solid var(--border-color); /* Dark border */
+         /* --- Billing Modal Specific Styles --- */
+         #billingModal .modal-content {
+             max-width: 700px; /* Wider for the form */
          }
 
-         /* Structure for billing content */
-         .billing-content-wrapper {
-             display: block; /* Ensure this wrapper is visible */
-         }
-
-         /* Style for the billing form inputs container */
-         #billingInputs {
-             display: block; /* Ensure this is block by default when parent is visible */
-             visibility: visible; /* Ensure visibility */
-             opacity: 1; /* Ensure opacity */
-         }
-
-
-         #billingSection h2 {
-             text-align: center;
+         #billingModal h2 {
              margin-bottom: 30px;
          }
 
-         #billingForm {
-             /* Managed by JS display state */
+         #billingModal form {
+             margin-top: 20px;
+             display: grid;
+             gap: 15px;
          }
 
-          #billingForm label {
+         #billingModal label {
              display: block;
-             margin-bottom: 8px;
+             margin-bottom: 5px;
              font-weight: 600;
              color: var(--text-color-dark); /* Cream label */
+             font-size: 0.95em;
          }
 
-
-         #billingForm input[type="text"],
-         #billingForm input[type="email"],
-         #billingForm input[type="tel"],
-         #billingForm textarea {
-             width: calc(100% - 22px);
-             padding: 10px;
-             margin-bottom: 20px;
-             border: 1px solid var(--border-color); /* Dark border */
-             border-radius: 4px;
-             font-size: 1em;
+         #billingModal input[type="text"],
+         #billingModal input[type="email"],
+         #billingModal input[type="tel"],
+         #billingModal textarea {
+             width: 100%;
+             padding: 12px;
+             border: 1px solid var(--border-color);
+             border-radius: 5px;
              box-sizing: border-box;
-             transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-             color: var(--text-color-medium); /* Cream text */
-             background-color: var(--surface-color); /* Lighter Charcoal background */
+             background-color: var(--background-color); /* Slightly darker input background */
+             color: var(--text-color-medium);
+             font-size: 1em;
+             transition: border-color 0.3s ease, box-shadow 0.3s ease;
+             outline: none;
+         }
+          #billingModal input[type="text"]::placeholder,
+          #billingModal input[type="email"]::placeholder,
+          #billingModal input[type="tel"]::placeholder,
+          #billingModal textarea::placeholder {
+             color: var(--text-color-secondary); /* Tan placeholder */
+          }
+
+
+         #billingModal input[type="text"]:focus,
+         #billingModal input[type="email"]:focus,
+         #billingModal input[type="tel"]:focus,
+         #billingModal textarea:focus {
+              border-color: var(--primary-color); /* Gold focus border */
+              box-shadow: 0 0 5px rgba(214, 173, 96, 0.5); /* Gold glow */
+         }
+
+         #billingModal textarea {
+             resize: vertical;
+             min-height: 80px;
+         }
+
+         .coupon-section {
+             display: flex;
+             gap: 10px;
+             margin-bottom: 20px;
+             align-items: center;
+         }
+         .coupon-section input[type="text"] {
+             flex-grow: 1;
+             width: auto; /* Override the 100% width above */
+             padding: 10px;
+             border-radius: 5px 0 0 5px; /* Rounded left side */
+         }
+
+         .coupon-section button {
+             padding: 10px 15px;
+             background-color: var(--secondary-color); /* Use Tan */
+             color: var(--background-color); /* Dark text */
+             border: none;
+             border-radius: 0 5px 5px 0; /* Rounded right side */
+             cursor: pointer;
+             font-size: 0.95em;
+             font-weight: 600;
+             transition: background-color 0.3s ease, transform 0.2s ease;
              outline: none;
          }
 
-
-        #billingForm input[type="text"]:focus,
-        #billingForm input[type="email"]:focus,
-        #billingForm input[type="tel"]:focus,
-        #billingForm textarea:focus {
-            border-color: var(--primary-color); /* Gold focus border */
-            outline: none;
-            box-shadow: 0 0 8px rgba(214, 173, 96, 0.6); /* Gold glow */
-        }
-
-          /* Style for invalid input */
-          #billingForm input:invalid,
-          #billingForm textarea:invalid {
-              border-color: var(--color-alert); /* Alert color for invalid */
-              box-shadow: 0 0 8px rgba(207, 102, 121, 0.6); /* Alert color glow */
+         .coupon-section button:hover {
+             background-color: var(--primary-color); /* Gold on hover */
+             color: var(--background-color);
+         }
+          .coupon-section button:focus {
+              outline: 2px solid var(--primary-color);
+              outline-offset: 2px;
+              border-radius: 0 5px 5px 0;
           }
 
 
-         #orderSummaryReview {
-             margin-bottom: 30px;
-             padding: 20px;
-             border: 1px solid var(--border-color); /* Dark border */
-             border-radius: 8px;
-             background-color: var(--surface-color); /* Lighter Charcoal background */
-             box-shadow: var(--shadow-light); /* Light shadow */
-         }
-
-         #orderSummaryReview h3 {
-             margin-top: 0;
+         #couponMessage {
+             font-size: 0.9em;
+             margin-top: -10px;
              margin-bottom: 15px;
-             font-size: 1.5em;
              text-align: center;
-             color: var(--text-color-dark); /* Cream subheading */
-             padding-bottom: 8px;
+             min-height: 1.2em; /* Reserve space */
          }
-          #orderSummaryReview h3::after {
-               content: ''; position: absolute; bottom: 0; left: 50%;
-               transform: translateX(-50%); height: 2px; width: 40px;
-               background: var(--primary-color); /* Gold underline */
-               border-radius: 1px;
-          }
+         #couponMessage.success { color: var(--whatsapp-green); } /* Green for success */
+         #couponMessage.error { color: var(--color-alert); } /* Red for error */
 
 
-         #orderSummaryReview ul {
-             list-style: none;
-             padding: 0;
-             margin: 0;
-         }
-
-         #orderSummaryReview li {
-             border-bottom: 1px dashed var(--border-color); /* Dark dashed border */
-             padding: 10px 0;
-             font-size: 1em;
-             color: var(--text-color-medium); /* Cream text */
-             display: flex;
-             justify-content: space-between;
-         }
-
-         #orderSummaryReview li:last-child {
-             border-bottom: none;
-         }
-
-         #orderSummaryReview .item-name {
-             font-weight: 600;
-             flex-grow: 1;
-             margin-right: 10px;
-             color: var(--text-color-dark); /* Cream item name */
-         }
-
-          #orderSummaryReview .item-price {
-             font-weight: 600;
-             text-align: right;
-             color: var(--secondary-color); /* Tan price */
-          }
-
-
-         /* Styles for the total, discount, and final total in review */
-          .total-line {
-              margin-top: 10px;
-              padding-top: 10px;
-              border-top: 1px solid var(--border-color); /* Dark border */
-              text-align: right;
-              color: var(--text-color-medium); /* Cream text */
-          }
-
-          .total-line span {
-              display: inline-block;
-              min-width: 100px;
-          }
-
-          .total-line strong {
-              font-size: 1.1em;
-              color: var(--text-color-dark); /* Cream text */
-          }
-
-
-           .discount-line {
-               color: #2ecc71; /* Green for discount */
-               font-weight: 600;
-               margin-top: 5px;
-               text-align: right;
-           }
-
-
-          .final-total-line {
-              margin-top: 10px;
-              padding-top: 10px;
-              border-top: 2px solid var(--primary-color); /* Gold border */
-              font-size: 1.3em;
-              font-weight: 700;
-              color: var(--primary-color); /* Gold total */
-              text-align: right;
-          }
-
-
-         /* Coupon Section Styling */
-          .coupon-section {
-              margin-top: 20px;
-              margin-bottom: 30px;
-              padding: 15px;
-              border: 1px solid var(--border-color); /* Dark border */
-              border-radius: 8px;
-              background-color: #3a3a3a; /* Slightly different dark background */
-              display: flex;
-              flex-wrap: wrap;
-              gap: 10px;
-              align-items: center;
-              box-shadow: var(--shadow-light); /* Light shadow */
-          }
-
-
-           .coupon-section label {
-               margin-bottom: 0;
-               margin-right: 10px;
-               font-weight: 600;
-               color: var(--text-color-dark); /* Cream label */
-           }
-
-
-          .coupon-section input[type="text"] {
-              flex-grow: 1;
-              min-width: 150px;
-              margin-bottom: 0;
-              padding: 8px;
-              border-radius: 4px;
-              border: 1px solid var(--border-color); /* Dark border */
-              transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-              color: var(--text-color-medium); /* Cream text */
-              background-color: var(--background-color); /* Dark Charcoal input background */
-               outline: none;
-          }
-           .coupon-section input[type="text"]:focus {
-               border-color: var(--secondary-color); /* Tan focus border */
-               box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3), 0 0 8px rgba(182, 141, 64, 0.6); /* Tan glow */
-               outline: none;
-           }
-
-
-          .coupon-section button {
-              padding: 8px 15px;
-              background-color: var(--button-secondary-bg); /* Use secondary button style (Tan) */
-              color: var(--button-secondary-text);
-              border: none;
-              border-radius: 4px;
-              font-weight: 600;
-              cursor: pointer;
-              transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-               outline: none;
-          }
-
-          .coupon-section button:hover {
-              background-color: var(--button-secondary-hover-bg);
-              color: var(--button-secondary-hover-text);
-              transform: translateY(-2px); /* Subtle lift */
-          }
-           .coupon-section button:focus {
-               outline: 2px solid var(--primary-color); /* Gold outline */
-               outline-offset: 2px;
-               border-radius: 4px;
-           }
-
-
-          #couponMessage {
-              width: 100%;
-              margin-top: 10px;
-              font-size: 0.9em;
-              text-align: center;
-          }
-
-          #couponMessage.success {
-              color: #2ecc71; /* Green */
-          }
-
-           #couponMessage.error {
-               color: var(--color-error-text); /* Alert color */
-           }
-
-
-         /* Styling for Payment Info Section */
-         #paymentInfo {
-             display: none; /* Hidden by default, shown by JS */
+         .payment-info {
              margin-top: 30px;
-             padding-top: 30px;
-             border-top: 1px dashed var(--border-color); /* Dark dashed border */
+             padding-top: 20px;
+             border-top: 1px solid var(--border-color);
              text-align: center;
          }
 
-         #paymentInfo h3 {
-              text-align: center;
-             margin-bottom: 20px;
-             color: var(--text-color-dark); /* Cream subheading */
-             font-size: 1.7em;
+         .payment-info h3 {
+             font-size: 1.6em;
+             color: var(--text-color-dark); /* Cream */
+             margin-bottom: 15px;
+             text-align: center;
          }
 
-
-          #paymentInfo p {
-              font-size: 1.1em;
-              margin-bottom: 15px;
-              color: var(--text-color-medium); /* Cream text */
-          }
-
-          #paymentInfo .upi-details {
-              font-size: 1.3em;
-              font-weight: 700;
-              color: var(--primary-color); /* Gold UPI details */
-              margin-bottom: 20px;
-              word-break: break-all;
-          }
-
-          #paymentInfo img {
-              max-width: 250px;
-              height: auto;
-              margin-bottom: 20px;
-              border: 1px solid var(--border-color); /* Dark border */
-              padding: 10px;
-              background-color: white; /* Keep white background for QR code contrast */
-              box-shadow: var(--shadow-light); /* Light shadow */
-              border-radius: 4px;
+         .payment-info p {
+             font-size: 1em;
+             color: var(--text-color-medium);
+             margin-bottom: 10px;
+         }
+          .payment-info strong {
+              color: var(--primary-color); /* Gold */
           }
 
 
-          #paymentInfo .payment-instruction {
-              font-size: 1em;
-              color: var(--text-color-secondary); /* Tan text */
-              margin-top: 15px;
-              line-height: 1.6;
-          }
+         .payment-info img {
+             max-width: 150px;
+             height: auto;
+             margin: 15px auto;
+             display: block;
+             border: 1px solid var(--border-color);
+             padding: 10px;
+             background-color: white; /* White background for QR code readability */
+             border-radius: 5px;
+         }
 
-
-         /* Buttons Container */
-         .billing-buttons {
-             display: flex;
-             gap: 20px;
+         .payment-instructions {
+             font-size: 0.9em;
+             color: var(--text-color-secondary); /* Tan instructions */
              margin-top: 20px;
          }
 
-         .billing-buttons button,
-         .billing-buttons a {
-             flex: 1;
-             display: block;
-             padding: 12px;
-             border-radius: 5px;
-             font-size: 1.1em;
-             font-weight: 700;
-             text-align: center;
-             cursor: pointer;
-             transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-             text-decoration: none;
-             box-sizing: border-box;
-              outline: none; /* Base outline removed, specific buttons add their own */
-         }
 
-
-          .billing-buttons #proceedToPaymentButton,
-          .billing-buttons #submitOrderButton {
-              background-color: var(--button-primary-bg); /* Primary style (Gold) */
-              color: var(--button-primary-text);
-          }
-
-          .billing-buttons #proceedToPaymentButton:hover,
-          .billing-buttons #submitOrderButton:hover {
-              background-color: var(--button-primary-hover-bg);
-              color: var(--button-primary-hover-text);
-              transform: translateY(-2px); /* Subtle lift */
-          }
-           .billing-buttons #proceedToPaymentButton:focus,
-           .billing-buttons #submitOrderButton:focus {
-                outline: 2px solid var(--secondary-color); /* Tan outline */
-                outline-offset: 2px;
-                border-radius: 5px;
-           }
-
-
-          .billing-buttons .whatsapp-billing-button {
-              background-color: var(--whatsapp-green);
-              color: white;
-              border: none;
-          }
-
-          .billing-buttons .whatsapp-billing-button:hover {
-              background-color: var(--whatsapp-green-hover);
-               transform: translateY(-2px); /* Subtle lift */
-          }
-           .billing-buttons .whatsapp-billing-button:focus {
-               outline: 2px solid var(--secondary-color); /* Tan outline */
-               outline-offset: 2px;
-               border-radius: 5px;
-           }
-
-
-          .billing-buttons .whatsapp-billing-button i {
-              margin-right: 8px;
-          }
-
-
-         /* Responsive adjustment for buttons */
-         @media (max-width: 600px) {
-              .billing-buttons {
-                  flex-direction: column;
-                  gap: 10px;
-              }
-               .coupon-section {
-                   flex-direction: column;
-                   align-items: stretch;
-               }
-                .coupon-section label {
-                   margin-right: 0;
-                   margin-bottom: 5px;
-                }
-                 .coupon-section input[type="text"] {
-                     width: 100%;
-                     min-width: auto;
-                 }
-         }
-
-
-        /* --- Footer --- */
+         /* --- Footer --- */
         .footer {
             background-color: var(--surface-color); /* Lighter Charcoal */
             color: var(--footer-text-color); /* Tan */
@@ -1545,10 +1317,10 @@
              .category-products-container h3 {
                  font-size: 1.8em;
              }
-             .cart-modal-content {
+             .modal-content {
                  padding: 20px;
              }
-              #cartItemsList li {
+              #cartItemsList li, #billingItemsList li {
                  font-size: 1em;
                  padding: 10px 0;
              }
@@ -1559,21 +1331,6 @@
               .cart-total {
                  font-size: 1.2em;
              }
-              #billingSection h2 {
-                 font-size: 2em;
-             }
-              #billingSection h2::after { width: 50px; }
-             #orderSummaryReview h3 {
-                 font-size: 1.3em;
-             }
-              #orderSummaryReview li {
-                  font-size: 0.95em;
-              }
-               .total-line span,
-               .discount-line span,
-               .final-total-line span {
-                   min-width: 80px;
-               }
                .social-links a {
                    font-size: 28px;
                    margin: 0 12px;
@@ -1581,6 +1338,19 @@
                 .scroll-to-top {
                    width: 45px; height: 45px; line-height: 45px; font-size: 1.4rem;
                 }
+             #billingModal form {
+                 gap: 12px;
+             }
+             #billingModal input[type="text"],
+             #billingModal input[type="email"],
+             #billingModal input[type="tel"],
+             #billingModal textarea {
+                  padding: 10px;
+             }
+             .coupon-section input[type="text"],
+             .coupon-section button {
+                  padding: 8px;
+             }
 
          }
 
@@ -1664,10 +1434,10 @@
              .category-products-container h3 {
                  font-size: 1.6em;
              }
-             .cart-modal-content {
+             .modal-content {
                  padding: 20px;
              }
-              #cartItemsList li {
+              #cartItemsList li, #billingItemsList li {
                  font-size: 1em;
                  padding: 10px 0;
              }
@@ -1678,33 +1448,44 @@
               .cart-total {
                  font-size: 1.2em;
              }
-              #billingSection h2 {
-                 font-size: 1.8em;
-             }
-              #billingSection h2::after { width: 40px; }
-              #orderSummaryReview h3 {
-                  font-size: 1.2em;
-              }
-               #orderSummaryReview h3::after { width: 30px; }
-              #orderSummaryReview li {
-                  font-size: 0.9em;
-              }
-               .total-line span,
-               .discount-line span,
-               .final-total-line span {
-                   min-width: 70px;
-               }
-               #billingForm input, #billingForm textarea {
-                  padding: 8px;
-                  margin-bottom: 15px;
-               }
-               #billingForm label {
-                  margin-bottom: 5px;
-               }
                 .scroll-to-top {
                    width: 40px; height: 40px; line-height: 40px; font-size: 1.3rem;
                    bottom: 15px; right: 15px;
                 }
+             #billingModal form {
+                 gap: 10px;
+             }
+              #billingModal input[type="text"],
+              #billingModal input[type="email"],
+              #billingModal input[type="tel"],
+              #billingModal textarea {
+                   padding: 8px;
+              }
+             .coupon-section {
+                 flex-direction: column;
+                 gap: 8px;
+             }
+             .coupon-section input[type="text"] {
+                 width: 100%;
+                 border-radius: 5px; /* Full rounded */
+                 text-align: center;
+             }
+             .coupon-section button {
+                 width: 100%;
+                 border-radius: 5px; /* Full rounded */
+             }
+             .payment-info h3 {
+                 font-size: 1.4em;
+             }
+             .payment-info p {
+                 font-size: 0.95em;
+             }
+             .payment-info img {
+                 max-width: 120px;
+             }
+              .payment-instructions {
+                 font-size: 0.85em;
+             }
          }
 
          @media (max-width: 480px) {
@@ -1776,10 +1557,10 @@
              .category-products-container h3 {
                  font-size: 1.4em;
              }
-              .cart-modal-content {
+              .modal-content {
                  padding: 15px;
              }
-              #cartItemsList li {
+              #cartItemsList li, #billingItemsList li {
                  font-size: 0.95em;
                  padding: 8px 0;
              }
@@ -1790,15 +1571,31 @@
               .cart-total {
                  font-size: 1.1em;
              }
-              .checkout-button {
-                font-size: 1em;
-                padding: 10px;
+             #billingModal form {
+                 gap: 8px;
+             }
+              #billingModal input[type="text"],
+              #billingModal input[type="email"],
+              #billingModal input[type="tel"],
+              #billingModal textarea {
+                   padding: 6px;
               }
-               .total-line span,
-               .discount-line span,
-               .final-total-line span {
-                   min-width: 50px;
-               }
+             .coupon-section input[type="text"],
+             .coupon-section button {
+                  padding: 6px;
+             }
+             .payment-info h3 {
+                 font-size: 1.3em;
+             }
+             .payment-info p {
+                 font-size: 0.9em;
+             }
+              .payment-info img {
+                 max-width: 100px;
+             }
+              .payment-instructions {
+                 font-size: 0.8em;
+             }
          }
           /* Accessibility: Highlighting interactive elements on focus */
           /* Apply a consistent dashed outline to most interactive elements */
@@ -1815,31 +1612,28 @@
 
           /* Override for elements with custom focus styles defined above */
           /* This prevents the generic dashed outline from overwriting specific styles */
-         .nav a:focus,
-         .cart-icon-container:focus,
-         .hero-cta-button:focus,
-         .product img:focus,
-         .add-to-cart-button:focus,
-         .whatsapp-button:focus,
-         .search-container input:focus,
-         .back-to-categories:focus,
-         .back-to-cart:focus,
-         .back-to-billing:focus,
-         #imageModal span:focus,
-         .cart-modal-content .close:focus,
-         .remove-item:focus,
-         .checkout-button:focus,
-         #billingForm input[type="text"]:focus,
-         #billingForm input[type="email"]:focus,
-         #billingForm input[type="tel"]:focus,
-         #billingForm textarea:focus,
-         .coupon-section input[type="text"]:focus,
-         .coupon-section button:focus,
-         .billing-buttons #proceedToPaymentButton:focus,
-         .billing-buttons #submitOrderButton:focus,
-         .billing-buttons .whatsapp-billing-button:focus,
-         .social-links a:focus,
-         .scroll-to-top:focus {
+          .nav a:focus,
+          .cart-icon-container:focus,
+          .hero-cta-button:focus,
+          .product img:focus,
+          .add-to-cart-button:focus,
+          .whatsapp-button:focus,
+          .search-container input:focus,
+          .back-to-categories:focus,
+          .back-to-cart:focus,
+          .back-to-billing:focus,
+          #imageModal span:focus,
+          .modal-content .close:focus, /* Applies to both cart and billing close */
+          .remove-item:focus,
+          .checkout-button:focus,
+          .place-order-button:focus, /* New place order button */
+          .coupon-section button:focus, /* Coupon button */
+          .social-links a:focus,
+          .scroll-to-top:focus,
+          #billingModal input[type="text"]:focus, /* Explicitly keep custom glow */
+          #billingModal input[type="email"]:focus,
+          #billingModal input[type="tel"]:focus,
+          #billingModal textarea:focus {
              outline: none; /* Remove default outline */
              /* Custom focus styles are defined above for these specific elements */
          }
@@ -1853,7 +1647,8 @@
             <img src="GridArt_20250516_180656516.png" alt="J.K Gems Logo">
             <nav class="nav">
                 <ul>
-                    <li><a href="#about">About J.K Gems</a></li> <li><a href="#products">Categories</a></li>
+                    <li><a href="#about">About J.K Gems</a></li>
+                    <li><a href="#products">Categories</a></li>
                 </ul>
                 <div class="cart-icon-container" id="cartIcon" role="button" tabindex="0" aria-label="Shopping Cart">
                      <i class="fas fa-shopping-cart"></i>
@@ -1864,7 +1659,9 @@
     </header>
 
     <section class="hero">
-        <div class="hero-background-animation"></div> <div class="hero-content"> <div class="container">
+        <div class="hero-background-animation"></div>
+        <div class="hero-content">
+            <div class="container">
                 <h1>Exquisite Gemstones & Spiritual Treasures</h1>
                 <p>Discover the perfect blend of beauty, authenticity, and spiritual energy at J.K Gems.</p>
                 <a href="#products" class="hero-cta-button">Explore Categories</a>
@@ -1874,7 +1671,8 @@
 
     <section id="about" class="section about-contact">
         <div class="container">
-            <h2>About J.K Gems</h2> <div class="about-content">
+            <h2>About J.K Gems</h2>
+            <div class="about-content">
                 <h3>Our Story</h3>
                 <p>J.K Gems is a well-known and trusted firm, serving customers with exquisite gemstones and spiritual products since 1965. Founded on principles of quality, authenticity, and integrity, we have built a reputation as a cornerstone in Junagadh's Soni Bajar.</p>
                 <p>For generations, we have been dedicated to sourcing the finest gemstones and authentic spiritual items, offering expert guidance and personalized service to our valued customers. Our legacy is built on trust, and our commitment to providing genuine products remains unwavering.</p>
@@ -1928,10 +1726,11 @@
                  <h3>Gemstones Collection</h3>
                  <div class="category-products-grid">
                      <div class="product">
-                         <img src="path/to/your_gemstone_image_1.jpg" alt="Example Gemstone 1" tabindex="0"> <div class="product-info">
+                         <img src="path/to/your_gemstone_image_1.jpg" alt="Example Gemstone 1" tabindex="0">
+                         <div class="product-info">
                              <h3>Example Gemstone 1</h3>
                              <p class="product-description">Brief description of Example Gemstone 1.</p>
-                             <p class="product-price">₹5500.00</p> <button class="add-to-cart-button"
+                             <p class="product-price" data-price="5500">₹5500.00</p> <button class="add-to-cart-button"
                                      data-product-id="gemstone_ex1"
                                      data-product-name="Example Gemstone 1"
                                      data-product-price="5500"> Add to Cart
@@ -1940,10 +1739,11 @@
                          </div>
                      </div>
                      <div class="product">
-                         <img src="IMG-20250516-WA0011.jpg" alt="Gemstone Rings" tabindex="0"> <div class="product-info">
+                         <img src="IMG-20250516-WA0011.jpg" alt="Gemstone Rings" tabindex="0">
+                         <div class="product-info">
                              <h3>Gemstone Rings</h3>
                              <p class="product-description">Beautiful rings featuring authentic gemstones for style and astrological benefits.</p>
-                             <p class="product-price">₹999.00</p> <button class="add-to-cart-button"
+                             <p class="product-price" data-price="999">₹999.00</p> <button class="add-to-cart-button"
                                      data-product-id="gemstone_rings_main"
                                      data-product-name="Gemstone Rings"
                                      data-product-price="999"> Add to Cart
@@ -1959,10 +1759,11 @@
                 <h3>Rudraksh Items</h3>
                 <div class="category-products-grid">
                      <div class="product">
-                         <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh Mala" tabindex="0"> <div class="product-info">
+                         <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh Mala" tabindex="0">
+                         <div class="product-info">
                              <h3>Rudraksh Mala</h3>
                              <p class="product-description">Genuine Rudraksha beads for spiritual connection and well-being.</p>
-                             <p class="product-price">₹599.00</p> <button class="add-to-cart-button"
+                             <p class="product-price" data-price="599">₹599.00</p> <button class="add-to-cart-button"
                                      data-product-id="rudraksh_mala_main"
                                      data-product-name="Rudraksh Mala" data-product-price="599"> Add to Cart
                              </button>
@@ -1970,10 +1771,11 @@
                          </div>
                      </div>
                      <div class="product">
-                         <img src="IMG-20250516-WA0016.jpg" alt="Rudraksh Bracelet" tabindex="0"> <div class="product-info">
+                         <img src="IMG-20250516-WA0016.jpg" alt="Rudraksh Bracelet" tabindex="0">
+                         <div class="product-info">
                              <h3>Rudraksh Bracelet</h3>
                              <p class="product-description">Wear the spiritual energy with authentic Rudraksh bracelets.</p>
-                             <p class="product-price">₹5999.00</p> <button class="add-to-cart-button"
+                             <p class="product-price" data-price="5999">₹5999.00</p> <button class="add-to-cart-button"
                                      data-product-id="rudraksh_bracelet_main"
                                      data-product-name="Rudraksh Bracelet"
                                      data-product-price="5999"> Add to Cart
@@ -1989,10 +1791,11 @@
                 <h3>Yantra & Spiritual Collection</h3>
                 <div class="category-products-grid">
                      <div class="product">
-                         <img src="IMG-20250516-WA0001.jpg" alt="Yantra" tabindex="0"> <div class="product-info">
+                         <img src="IMG-20250516-WA0001.jpg" alt="Yantra" tabindex="0">
+                         <div class="product-info">
                              <h3>Yantra</h3>
                              <p class="product-description">Sacred geometric diagrams for meditation and energy focusing.</p>
-                             <p class="product-price">₹999.00</p> <button class="add-to-cart-button"
+                             <p class="product-price" data-price="999">₹999.00</p> <button class="add-to-cart-button"
                                      data-product-id="yantra_main"
                                      data-product-name="Yantra"
                                      data-product-price="999"> Add to Cart
@@ -2001,10 +1804,11 @@
                          </div>
                      </div>
                       <div class="product">
-                         <img src="61Fg6DsA4iL._AC_UF894,1000_QL80_.jpg" alt="Sphatik Shree Yantra" tabindex="0"> <div class="product-info">
+                         <img src="61Fg6DsA4iL._AC_UF894,1000_QL80_.jpg" alt="Sphatik Shree Yantra" tabindex="0">
+                         <div class="product-info">
                              <h3>Sphatik Shree Yantra</h3>
                              <p class="product-description">Clear quartz Shree Yantra for purity, prosperity, and positive energy.</p>
-                              <p class="product-price">₹999.00</p> <button class="add-to-cart-button"
+                              <p class="product-price" data-price="999">₹999.00</p> <button class="add-to-cart-button"
                                      data-product-id="sphatik_yantra_main"
                                      data-product-name="Sphatik Shree Yantra"
                                      data-product-price="999"> Add to Cart
@@ -2017,98 +1821,88 @@
             </div>
     </section>
 
-    <div id="cartModal">
-        <div class="cart-modal-content">
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
             <span class="close" id="closeCartModal" role="button" tabindex="0" aria-label="Close Cart">×</span>
             <h2>Your Cart</h2>
             <div id="emptyCartMessage">Your cart is empty.</div>
             <ul id="cartItemsList">
                 </ul>
             <div class="cart-total" id="cartTotal"></div>
-            <button class="checkout-button" id="checkoutButton">Proceed to Inquiry</button>
-        </div>
+            <button class="checkout-button" id="checkoutButton">Proceed to Inquiry</button> </div>
     </div>
 
-    <section id="billingSection" class="section">
-         <div class="container">
-             <a href="#" class="back-to-cart" role="button" tabindex="0"><i class="fas fa-arrow-left"></i> Back to Cart</a>
-             <h2>Order Inquiry & Payment</h2>
+    <div id="billingModal" class="modal">
+         <div class="modal-content">
+              <span class="close" id="closeBillingModal" role="button" tabindex="0" aria-label="Close Order Form">×</span>
+              <h2>Order Inquiry</h2>
 
-             <div class="billing-content-wrapper">
-                 <div id="orderSummaryReview">
-                     <h3>Order Summary</h3>
-                     <ul id="reviewItemsList">
-                         </ul>
-                     <div class="total-line">Subtotal: <span id="reviewSubtotal"></span></div>
-                      <div class="discount-line" id="reviewDiscountLine" style="display: none;">Discount: <span id="reviewDiscount"></span></div>
-                      <div class="final-total-line">Total: <span id="reviewFinalTotal"></span></div>
+              <a href="#" class="back-to-cart" id="backToCartButton" role="button" tabindex="0"><i class="fas fa-arrow-left"></i> Back to Cart</a>
 
-                 </div>
+              <h3>Items in Your Inquiry</h3>
+              <ul id="billingItemsList">
+                   </ul>
 
-                 <div class="coupon-section" id="couponSection">
-                     <label for="couponCode">Coupon Code:</label>
-                     <input type="text" id="couponCode" placeholder="Enter coupon code">
-                     <button type="button" id="applyCouponButton">Apply Coupon</button>
-                     <div id="couponMessage"></div>
-                 </div>
-
-                 <form id="billingForm" action="https://formsubmit.co/Gauravraningagoldjewellery@gmail.com" method="POST">
-                     <input type="hidden" name="_subject" id="emailSubject" value="J.K Gems Website Order Inquiry">
-                     <input type="hidden" name="_template" value="box">
-                     <input type="hidden" name="_next" value="YOUR_THANK_YOU_PAGE_URL_HERE"> <input type="text" name="_honeypot" style="display:none">
+              <div class="coupon-section">
+                   <input type="text" id="couponCodeInput" placeholder="Enter coupon code">
+                   <button id="applyCouponButton">Apply Coupon</button>
+              </div>
+               <div id="couponMessage" aria-live="polite"></div> <div class="billing-summary">
+                   <p>Subtotal: <span id="subtotal">₹0.00</span></p>
+                    <p>Discount: <span id="discount">₹0.00</span></p>
+                   <p class="final-total">Total: <span id="finalTotal">₹0.00</span></p>
+              </div>
 
 
-                     <div id="billingInputs">
-                          <label for="customer_name">Full Name:</label>
-                          <input type="text" id="customer_name" name="Name" required pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+" title="Enter your full name (letters, spaces, hyphens, or apostrophes only)">
-
-                         <label for="customer_email">Email (Optional):</label>
-                         <input type="email" id="customer_email" name="Email">
-
-                         <label for="customer_phone">Phone/WhatsApp Number:</label>
-                         <input type="tel" id="customer_phone" name="Phone" required pattern="[\d\s\-\(\)+]+" title="Enter a valid phone number (digits, spaces, hyphens, parentheses, or plus sign allowed)">
-
-                         <label for="customer_address">Shipping Address:</label>
-                         <textarea id="customer_address" name="Address" rows="4" required></textarea>
-                     </div>
+              <h3>Your Details</h3>
+               <form id="orderForm" action="https://formsubmit.co/gauravraningagoldjewellery@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New J.K Gems Order Inquiry">
+                    <input type="hidden" name="_template" value="table"> <input type="hidden" name="_next" value="YOUR_SUCCESS_PAGE_URL"> <input type="hidden" name="_autoresponse" value="Thank you for your inquiry to J.K Gems. We have received your request and will contact you shortly to confirm the order details and guide you through the payment process. Your order is a request until payment is confirmed."> <input type="hidden" name="Order Details" id="orderCartDetails">
+                    <input type="hidden" name="Total Amount (After Discount)" id="orderFinalTotal">
+                    <input type="hidden" name="Coupon Applied" id="couponAppliedStatus" value="No">
 
 
-                     <input type="hidden" name="Order Details" id="orderCartDetails">
-                     <input type="hidden" name="_parsed_order_details" id="_parsedOrderDetails">
-                     <input type="hidden" name="Discount Applied" id="discountApplied">
-                     <input type="hidden" name="Final Total" id="finalOrderTotal">
-                     <input type="hidden" name="UPI ID Shown" value="gauravraninga23@okhdfcbank">
-                     <input type="hidden" name="Payment Instruction Shown" value="Please complete the payment via UPI using the details provided. Your order is confirmed only after payment is received. You will receive a confirmation email once payment is verified.">
+                   <div>
+                        <label for="customerName">Full Name:</label>
+                        <input type="text" id="customerName" name="Name" required>
+                   </div>
+                   <div>
+                        <label for="customerEmail">Email:</label>
+                        <input type="email" id="customerEmail" name="Email" required>
+                   </div>
+                   <div>
+                        <label for="customerPhone">Phone Number:</label>
+                        <input type="tel" id="customerPhone" name="Phone" required>
+                   </div>
+                   <div>
+                        <label for="customerAddress">Shipping Address:</label>
+                        <textarea id="customerAddress" name="Shipping Address" required></textarea>
+                   </div>
 
+                    <div class="payment-info">
+                        <h3>Payment via UPI</h3>
+                        <p>Please send the total amount to the following UPI ID:</p>
+                         <p><strong>gauravraninga23@okhdfcbank</strong></p>
+                         <p>Or scan the QR code:</p>
+                         <img src="IMG-20250517-WA0001.jpg" alt="UPI QR Code">
+                         <p class="payment-instructions">Note: Your submission below is an **Order Inquiry Request**. Your order will only be confirmed **AFTER** successful payment is received via UPI and verified by J.K Gems. We will contact you manually to confirm once payment is done.</p>
+                    </div>
 
-                     <div id="paymentInfo">
-                         <h3>Complete Your Payment via UPI</h3>
-                         <p>Please transfer the total amount to the UPI ID below:</p>
-                         <div class="upi-details">gauravraninga23@okhdfcbank</div>
-                         <p>Scan the QR code to pay:</p>
-                         <img src="IMG-20250517-WA0001.jpg" alt="UPI QR Code for Payment">
-                         <p class="payment-instruction">
-                             <strong>Important:</strong> Your order inquiry has been received. Your order will be confirmed only *after* the payment is successfully received. Please complete the UPI payment now. You will receive a confirmation email once your payment is verified.
-                         </p>
-                     </div>
-
-                     <div class="billing-buttons">
-                          <button type="button" id="proceedToPaymentButton">Proceed to Payment</button>
-                          <button type="submit" id="submitOrderButton" style="display: none;">Submit Inquiry / Payment Made</button>
-                     </div>
-                     <a href="https://wa.me/919723197899?text=Hello,%20I have a general query regarding my order inquiry." class="whatsapp-billing-button" target="_blank" aria-label="WhatsApp Query"><i class="fab fa-whatsapp"></i> WhatsApp Query</a>
-
-                 </form>
-             </div>
+                   <button type="submit" class="place-order-button">Place Order Inquiry</button>
+              </form>
          </div>
-    </section>
+    </div>
+
 
     <footer class="footer">
         <div class="container">
             <div class="social-links">
                 <a href="https://www.instagram.com/j_k_gems" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE_ID" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a> <a href="https://youtube.com/@jkgems-td3et?si=Ne4JWKic5aeZfBTa" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a> </div>
-             <p>J.K Gems.</p> </div>
+                <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE_ID" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://youtube.com/@jkgems-td3et?si=Ne4JWKic5aeZfBTa" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+             <p>J.K Gems.</p>
+        </div>
     </footer>
 
     <div id="imageModal">
@@ -2127,16 +1921,7 @@
         const productContainers = document.querySelectorAll('.category-products-container');
         const productsHeading = document.getElementById('products-heading');
         const searchInput = document.getElementById('searchInput');
-        // categoryCards variable is no longer needed globally if using delegation
-        const backButtons = document.querySelectorAll('.back-to-categories'); // Keep these for event listeners
-        const billingSection = document.getElementById('billingSection');
-        const billingInputs = document.getElementById('billingInputs');
-        const paymentInfoDiv = document.getElementById('paymentInfo');
-        const proceedToPaymentButton = document.getElementById('proceedToPaymentButton');
-        const submitOrderButton = document.getElementById('submitOrderButton');
-        const backToCartButton = document.querySelector('.back-to-cart'); // Select specifically
-        const billingContentWrapper = document.querySelector('.billing-content-wrapper'); // Added wrapper
-
+        const backButtons = document.querySelectorAll('.back-to-categories');
 
 
         // Function to show only the category grid
@@ -2148,21 +1933,6 @@
             productContainers.forEach(container => {
                 container.style.display = 'none'; // Hide all product containers
             });
-            billingSection.style.display = 'none'; // Hide billing section
-
-            // Reset billing section state when going back from billing/payment
-            // Ensure billing inputs are shown and payment info is hidden
-            billingInputs.style.display = 'block';
-            paymentInfoDiv.style.display = 'none';
-            proceedToPaymentButton.style.display = 'block';
-            submitOrderButton.style.display = 'none';
-            submitOrderButton.textContent = 'Submit Inquiry / Payment Made'; // Restore button text
-            submitOrderButton.disabled = false;
-             // Ensure the wrapper is visible
-             if (billingContentWrapper) {
-                billingContentWrapper.style.display = 'block';
-             }
-
 
             // Set search to work on categories
             searchItems = searchCategories; // Update the global searchItems function reference
@@ -2193,23 +1963,8 @@
              productContainers.forEach(container => {
                  container.style.display = 'none'; // Hide all product containers
              });
-             billingSection.style.display = 'none'; // Hide billing section
-
-              // Reset billing section state when navigating away
-            billingInputs.style.display = 'block';
-            paymentInfoDiv.style.display = 'none';
-            proceedToPaymentButton.style.display = 'block';
-            submitOrderButton.style.display = 'none';
-            submitOrderButton.textContent = 'Submit Inquiry / Payment Made';
-            submitOrderButton.disabled = false;
-             // Ensure the wrapper is visible
-             if (billingContentWrapper) {
-                billingContentWrapper.style.display = 'block';
-             }
-
 
              containerToShow.style.display = 'block'; // Show the selected product container
-
 
              // Set search to work on products within this category
              searchItems = searchProductsInCategory; // Update the global searchItems function reference
@@ -2220,98 +1975,6 @@
              // Smooth scroll to the top of the products section
              document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-
-         // Function to show the billing section (initial state with form inputs)
-         function showBillingSection() {
-             if (cart.length === 0) {
-                 alert("Your cart is empty. Please add items before proceeding.");
-                 cartModal.style.display = 'none'; // Close cart modal
-                 return; // Prevent showing billing if cart is empty
-             }
-
-             productsHeading.textContent = 'Order Inquiry & Payment'; // Update heading
-             searchInput.style.display = 'none'; // Hide search bar on billing page
-
-             categoryGrid.style.display = 'none'; // Hide categories
-             productContainers.forEach(container => {
-                 container.style.display = 'none'; // Hide products
-             });
-             cartModal.style.display = 'none'; // Hide cart modal
-
-             billingSection.style.display = 'block'; // Show billing section
-             // Ensure the wrapper is visible
-             if (billingContentWrapper) {
-                billingContentWrapper.style.display = 'block';
-             }
-
-
-             // Ensure initial state is billing form inputs visible, payment info hidden
-             billingInputs.style.display = 'block'; // Show form inputs
-             paymentInfoDiv.style.display = 'none'; // Hide payment info
-             proceedToPaymentButton.style.display = 'block'; // Show proceed button
-             submitOrderButton.style.display = 'none'; // Hide submit button
-             submitOrderButton.textContent = 'Submit Inquiry / Payment Made';
-             submitOrderButton.disabled = false;
-
-
-             resetCoupon(); // Reset coupon state when showing billing
-             renderOrderSummaryReview(); // Populate the review section
-
-             // Smooth scroll to the top of the billing section
-             billingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-         }
-
-          // Function to show the payment information and hide billing inputs
-          function showPaymentInfo() {
-              // Validate required fields before proceeding using the form's built-in validation
-              const billingForm = document.getElementById('billingForm');
-              if (!billingForm.checkValidity()) {
-                  billingForm.reportValidity(); // Trigger browser's default validation
-                  // Scroll to the first invalid element for better UX (optional)
-                  const firstInvalidElement = billingForm.querySelector(':invalid');
-                  if (firstInvalidElement) {
-                       firstInvalidElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                       firstInvalidElement.focus();
-                  }
-                  return false; // Prevent moving forward
-              }
-
-
-              billingInputs.style.display = 'none'; // Hide billing form inputs
-              paymentInfoDiv.style.display = 'block'; // Show payment info
-              proceedToPaymentButton.style.display = 'none'; // Hide proceed button
-              submitOrderButton.style.display = 'block'; // Show submit button
-
-              // Update the email subject now that we are at the payment step
-              document.getElementById('emailSubject').value = `J.K Gems Order Inquiry - Payment Details Shown`;
-
-
-              return true; // Indicate success
-          }
-
-
-         // Function to hide the billing section and show the cart modal
-         function hideBillingSection() {
-             billingSection.style.display = 'none'; // Hide billing section
-              // Ensure the wrapper is hidden when the section is hidden
-             if (billingContentWrapper) {
-                billingContentWrapper.style.display = 'none';
-             }
-             cartModal.style.display = 'flex'; // Show cart modal again
-             productsHeading.textContent = 'Your Cart'; // Change heading temporarily
-             searchInput.style.display = 'none'; // Keep search hidden in modal
-
-             // Reset billing section state when going back to cart
-             billingInputs.style.display = 'block'; // Show form inputs
-             paymentInfoDiv.style.display = 'none'; // Hide payment info
-             proceedToPaymentButton.style.display = 'block'; // Show proceed button
-             submitOrderButton.style.display = 'none'; // Hide submit button
-             submitOrderButton.textContent = 'Submit Inquiry / Payment Made';
-             submitOrderButton.disabled = false;
-
-             // Smooth scroll back to the top of the products section (which now shows categories/cart context)
-              document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
-         }
 
 
         // --- Updated Search Functionality ---
@@ -2374,14 +2037,15 @@
         // --- Image Modal Functionality ---
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImage');
-        const closeBtn = modal.querySelector('.close');
+        const closeImageModalBtn = modal.querySelector('.close'); // Renamed for clarity
+
 
         // Add click listener to the modal close button
-        closeBtn.addEventListener('click', function() {
+        closeImageModalBtn.addEventListener('click', function() {
             modal.style.display = 'none'; // Hide modal
         });
         // Add keydown listener for accessibility (Space or Enter)
-        closeBtn.addEventListener('keydown', function(e) {
+        closeImageModalBtn.addEventListener('keydown', function(e) {
              if (e.key === ' ' || e.key === 'Enter') {
                   e.preventDefault(); // Prevent default spacebar action or form submission
                   modal.style.display = 'none'; // Hide modal
@@ -2404,39 +2068,38 @@
         });
 
 
-        // --- Add to Cart & Billing/Payment Functionality ---
+        // --- Cart & Billing/Payment Functionality ---
         const cartIcon = document.getElementById('cartIcon');
         const cartCountSpan = document.getElementById('cartCount');
         const cartModal = document.getElementById('cartModal');
         const closeCartModalBtn = document.getElementById('closeCartModal');
         const cartItemsList = document.getElementById('cartItemsList');
         const cartTotalDiv = document.getElementById('cartTotal');
-        const checkoutButton = document.getElementById('checkoutButton');
+        const checkoutButton = document.getElementById('checkoutButton'); // This button now opens billing modal
         const emptyCartMessage = document.getElementById('emptyCartMessage');
 
-        const reviewItemsList = document.getElementById('reviewItemsList');
-        const reviewSubtotalSpan = document.getElementById('reviewSubtotal');
-        const reviewDiscountLine = document.getElementById('reviewDiscountLine');
-        const reviewDiscountSpan = document.getElementById('reviewDiscount');
-        const reviewFinalTotalSpan = document.getElementById('reviewFinalTotal');
-        const orderCartDetailsInput = document.getElementById('orderCartDetails');
-        const parsedOrderDetailsInput = document.getElementById('_parsedOrderDetails');
-        const discountAppliedInput = document.getElementById('discountApplied');
-        const finalOrderTotalInput = document.getElementById('finalOrderTotal');
-
-        const couponCodeInput = document.getElementById('couponCode');
+        // New Billing Modal Elements
+        const billingModal = document.getElementById('billingModal');
+        const closeBillingModalBtn = document.getElementById('closeBillingModal');
+        const backToCartButton = document.getElementById('backToCartButton');
+        const billingItemsList = document.getElementById('billingItemsList');
+        const couponCodeInput = document.getElementById('couponCodeInput');
         const applyCouponButton = document.getElementById('applyCouponButton');
         const couponMessageDiv = document.getElementById('couponMessage');
-        // couponSectionDiv is no longer needed globally
+        const subtotalSpan = document.getElementById('subtotal');
+        const discountSpan = document.getElementById('discount');
+        const finalTotalSpan = document.getElementById('finalTotal');
+        const orderForm = document.getElementById('orderForm');
+        const orderCartDetailsInput = document.getElementById('orderCartDetails');
+        const orderFinalTotalInput = document.getElementById('orderFinalTotal');
+        const couponAppliedStatusInput = document.getElementById('couponAppliedStatus');
 
 
         // Load cart from localStorage or initialize empty array
         let cart = JSON.parse(localStorage.getItem('jk-gems-cart')) || [];
-
-        // Variables for coupon and total
-        let currentSubtotal = 0;
-        let discountPercentage = 0;
-        let isCouponApplied = false;
+        let currentSubtotal = 0; // To store the subtotal before discount
+        let currentTotal = 0; // To store the total after discount
+        let couponApplied = false; // To track if a coupon is active
 
 
         // Function to save cart to localStorage
@@ -2456,6 +2119,7 @@
              if (cartModal.style.display === 'flex') {
                  renderCart();
              }
+             // Don't render billing content here, only when billing modal opens
         }
 
         // Function to add item to cart
@@ -2473,6 +2137,8 @@
             saveCart();
             updateCartUI();
              console.log(`${product.name} added to cart!`);
+             // Optional: Provide feedback to the user, e.g., a small temporary message
+             // alert(`${product.name} added to cart!`);
         }
 
         // Function to remove item from cart
@@ -2480,6 +2146,10 @@
             cart = cart.filter(item => item.id !== productId);
             saveCart();
             updateCartUI();
+             // If billing modal is open, re-render its content
+             if (billingModal.style.display === 'flex') {
+                 renderBillingContent();
+             }
         }
 
         // Function to render cart items in the modal
@@ -2490,11 +2160,12 @@
             if (cart.length === 0) {
                 emptyCartMessage.style.display = 'block';
                 cartTotalDiv.style.display = 'none';
-                checkoutButton.style.display = 'none';
+                checkoutButton.style.display = 'none'; // Hide checkout if cart is empty
             } else {
                 emptyCartMessage.style.display = 'none';
                 cartTotalDiv.style.display = 'block';
-                checkoutButton.style.display = 'block';
+                checkoutButton.style.display = 'block'; // Show checkout if cart has items
+
 
                 cart.forEach(item => {
                     const listItem = document.createElement('li');
@@ -2516,273 +2187,290 @@
             }
         }
 
-         // Function to render order summary in the billing section
-         function renderOrderSummaryReview() {
-             reviewItemsList.innerHTML = '';
-             currentSubtotal = 0;
+        // Function to render content in the billing modal
+        function renderBillingContent() {
+            billingItemsList.innerHTML = ''; // Clear current list
+            currentSubtotal = 0;
+            couponApplied = false; // Reset coupon status when rendering billing
 
-             if (cart.length === 0) {
-                 reviewItemsList.innerHTML = '<li>Cart is empty.</li>';
-                 reviewSubtotalSpan.textContent = '₹0.00';
-                 reviewDiscountLine.style.display = 'none';
-                 reviewDiscountSpan.textContent = '';
-                 reviewFinalTotalSpan.textContent = '₹0.00';
-             } else {
-                 cart.forEach(item => {
-                     const listItem = document.createElement('li');
-                     const itemTotal = item.price * item.quantity;
-                     listItem.innerHTML = `
-                         <span class="item-name">${item.name} (x${item.quantity})</span>
-                         <span class="item-price">₹${itemTotal.toFixed(2)}</span>
-                     `;
-                     reviewItemsList.appendChild(listItem);
-                     currentSubtotal += itemTotal;
-                 });
+            if (cart.length === 0) {
+                 // If cart is empty, close billing and show empty cart message in cart modal
+                 closeBillingModal();
+                 openCartModal(); // Or just show the empty cart message directly if cart is already open
+                 return;
+            }
 
-                 reviewSubtotalSpan.textContent = `₹${currentSubtotal.toFixed(2)}`;
+            cart.forEach(item => {
+                const listItem = document.createElement('li');
+                const itemTotal = item.price * item.quantity;
+                listItem.innerHTML = `
+                    <div class="item-details">
+                        <span class="item-name">${item.name}</span>
+                        <span class="item-quantity"> (x${item.quantity})</span>
+                        <br>
+                        <span class="item-price">₹${itemTotal.toFixed(2)}</span>
+                    </div>
+                    <button class="remove-item" data-product-id="${item.id}" aria-label="Remove ${item.name} from inquiry" tabindex="0">Remove</button>
+                `;
+                billingItemsList.appendChild(listItem);
+                currentSubtotal += itemTotal;
+            });
 
-                 let finalTotal = currentSubtotal;
-                 let discountAmount = 0;
+            // Update summary
+            subtotalSpan.textContent = `₹${currentSubtotal.toFixed(2)}`;
+            discountSpan.textContent = `₹0.00`;
+            finalTotalSpan.textContent = `₹${currentSubtotal.toFixed(2)}`;
+            currentTotal = currentSubtotal; // Initial total is subtotal
 
-                 if (isCouponApplied && discountPercentage > 0) {
-                     discountAmount = currentSubtotal * (discountPercentage / 100);
-                     finalTotal = currentSubtotal - discountAmount;
-                     reviewDiscountSpan.textContent = `- ₹${discountAmount.toFixed(2)}`;
-                     reviewDiscountLine.style.display = 'block';
-                 } else {
-                     reviewDiscountLine.style.display = 'none';
-                     reviewDiscountSpan.textContent = '';
-                 }
+            // Reset coupon input and message
+            couponCodeInput.value = '';
+            couponMessageDiv.textContent = '';
+             couponMessageDiv.className = ''; // Clear classes
 
-                 reviewFinalTotalSpan.textContent = `₹${finalTotal.toFixed(2)}`;
+            // Update hidden form fields
+             updateHiddenOrderDetails();
+        }
 
-                 // Populate the hidden form fields
-                 const orderDetailsText = cart.map(item =>
-                     `${item.name} (Qty: ${item.quantity}) - ₹${(item.price * item.quantity).toFixed(2)}`
-                 ).join('\n');
-
-                 let fullOrderDetails = `Order Items:\n${orderDetailsText}\n\nSubtotal: ₹${currentSubtotal.toFixed(2)}`;
-
-                 if (isCouponApplied && discountPercentage > 0) {
-                     fullOrderDetails += `\nDiscount (${discountPercentage}%): -₹${discountAmount.toFixed(2)}`;
-                 }
-                 fullOrderDetails += `\nFinal Total: ₹${finalTotal.toFixed(2)}`;
-
-
-                 orderCartDetailsInput.value = fullOrderDetails;
-
-                 const parsedDetails = {
-                     items: cart,
-                     subtotal: currentSubtotal.toFixed(2),
-                     discountApplied: isCouponApplied,
-                     discountPercentage: discountPercentage,
-                     discountAmount: discountAmount.toFixed(2),
-                     finalTotal: finalTotal.toFixed(2)
-                 };
-                 parsedOrderDetailsInput.value = JSON.stringify(parsedDetails, null, 2);
-
-
-                 discountAppliedInput.value = isCouponApplied ? `Yes (${discountPercentage}%)` : 'No';
-                 finalOrderTotalInput.value = finalTotal.toFixed(2);
-
-             }
-         }
-
-         // Function to reset coupon state
-         function resetCoupon() {
-             discountPercentage = 0;
-             isCouponApplied = false;
-             couponCodeInput.value = '';
-             couponMessageDiv.textContent = ''; // Clear message
-             couponMessageDiv.className = ''; // Remove success/error classes
-             renderOrderSummaryReview(); // Update display
-         }
-
-         // Function to apply the coupon
+         // Function to apply coupon
          function applyCoupon() {
-             const enteredCode = couponCodeInput.value.trim().toUpperCase();
-             const validCouponCode = "OFFER10"; // The secret coupon code
+             const couponCode = couponCodeInput.value.trim().toLowerCase();
+             const discountRate = 0.10; // 10%
 
-             if (enteredCode === validCouponCode) {
-                 if (!isCouponApplied) { // Only apply if not already applied
-                    discountPercentage = 10;
-                    isCouponApplied = true;
-                    couponMessageDiv.textContent = 'Coupon Applied! 10% discount added.';
-                    couponMessageDiv.className = 'success';
-                    renderOrderSummaryReview();
-                 } else {
-                     couponMessageDiv.textContent = 'Coupon is already applied.';
-                     couponMessageDiv.className = 'error'; // Or a different class for already applied
-                 }
-             } else {
-                 if (isCouponApplied) { // If a valid coupon was applied, reset it first
-                     resetCoupon();
-                     couponMessageDiv.textContent = 'Invalid coupon code. Discount removed.';
-                     couponMessageDiv.className = 'error';
-                 } else { // No coupon was applied or it was invalid
-                     couponMessageDiv.textContent = 'Invalid coupon code.';
-                     couponMessageDiv.className = 'error';
-                 }
-                  renderOrderSummaryReview(); // Update display
+             // Reset message and status
+             couponMessageDiv.textContent = '';
+             couponMessageDiv.className = '';
+             discountSpan.textContent = `₹0.00`;
+             couponApplied = false;
+             couponAppliedStatusInput.value = "No";
+
+             if (couponCode === "") {
+                 // No code entered, just show the subtotal as total
+                 finalTotalSpan.textContent = `₹${currentSubtotal.toFixed(2)}`;
+                 currentTotal = currentSubtotal;
+                 updateHiddenOrderDetails();
+                 return; // Exit if input is empty
              }
+
+             if (couponCode === 'offer10') { // Check for the secret code
+                 const discountAmount = currentSubtotal * discountRate;
+                 currentTotal = currentSubtotal - discountAmount;
+
+                 discountSpan.textContent = `- ₹${discountAmount.toFixed(2)}`;
+                 finalTotalSpan.textContent = `₹${currentTotal.toFixed(2)}`;
+                 couponMessageDiv.textContent = 'Coupon "OFFER10" applied successfully!';
+                 couponMessageDiv.classList.add('success');
+                 couponApplied = true;
+                 couponAppliedStatusInput.value = "Yes";
+
+             } else {
+                 // Invalid coupon code
+                 finalTotalSpan.textContent = `₹${currentSubtotal.toFixed(2)}`; // Revert to subtotal
+                 currentTotal = currentSubtotal;
+                 couponMessageDiv.textContent = 'Invalid coupon code.';
+                 couponMessageDiv.classList.add('error');
+                 couponApplied = false;
+                 couponAppliedStatusInput.value = "No";
+             }
+
+             updateHiddenOrderDetails(); // Update hidden fields after applying coupon
+         }
+
+         // Function to update the hidden input field with order details
+         function updateHiddenOrderDetails() {
+             const orderSummary = cart.map(item => {
+                 return `${item.name} (x${item.quantity}) - ₹${(item.price * item.quantity).toFixed(2)}`;
+             }).join(', '); // Format items into a readable string
+
+              let detailsString = `Items: ${orderSummary}. Subtotal: ₹${currentSubtotal.toFixed(2)}.`;
+
+              if (couponApplied) {
+                  const discountAmount = currentSubtotal - currentTotal;
+                  detailsString += ` Discount Applied: ₹${discountAmount.toFixed(2)}.`;
+              }
+
+              detailsString += ` Final Total: ₹${currentTotal.toFixed(2)}.`;
+
+
+             orderCartDetailsInput.value = detailsString;
+             orderFinalTotalInput.value = currentTotal.toFixed(2); // Store final total
          }
 
 
-        // --- Event listener for interactions within the #products section using delegation ---
-        document.getElementById('products').addEventListener('click', function(event) {
-            const target = event.target;
+        // --- Modal Open/Close Functions ---
+        function openCartModal() {
+            cartModal.style.display = 'flex';
+            renderCart(); // Render cart content every time modal opens
+             // Add focus to the close button for accessibility
+            closeCartModalBtn.focus();
+        }
 
-            // --- Handle Clicks on Category Cards ---
-            const categoryCard = target.closest('.product.category-card');
-            if (categoryCard && !categoryCard.classList.contains('product-item')) { // Ensure it's a category card, not a product item
-                const categoryId = categoryCard.dataset.categoryTarget;
-                if (categoryId) {
-                    showProductContainer(categoryId);
-                    return;
-                }
-            }
+        function closeCartModal() {
+            cartModal.style.display = 'none';
+        }
 
-            // --- Handle Clicks on "Add to Cart" Buttons ---
-            if (target.classList.contains('add-to-cart-button')) {
-                const productElement = target.closest('.product');
-                if (productElement) {
-                    const product = {
-                        id: target.dataset.productId,
-                        name: target.dataset.productName,
-                        price: parseFloat(target.dataset.productPrice)
-                    };
-                    if (product.id && product.name && !isNaN(product.price)) {
-                         addToCart(product);
-                    } else {
-                         console.error("Missing or invalid product data for Add to Cart:", product);
-                         alert("Could not add item to cart. Missing product details.");
-                    }
-                }
-                return;
-            }
+         function openBillingModal() {
+             if (cart.length === 0) {
+                 alert("Your cart is empty. Please add items before proceeding with an inquiry.");
+                 // Optionally close cart modal here if needed
+                 // closeCartModal();
+                 return;
+             }
+             closeCartModal(); // Close cart modal before opening billing modal
+             billingModal.style.display = 'flex';
+             renderBillingContent(); // Render billing content
+              // Add focus to the close button for accessibility
+             closeBillingModalBtn.focus();
+         }
 
-            // --- Handle Clicks on Product Images for Modal ---
-            // Check if the clicked element is an IMG inside a .product card within the product grid
-            if (target.tagName === 'IMG' && target.closest('.category-products-grid .product')) {
-                 modal.style.display = 'flex';
-                 modalImg.src = target.src;
-                 modalImg.alt = target.alt;
-                 // Add focus to the close button for accessibility
-                 modal.querySelector('.close').focus();
+         function closeBillingModal() {
+             billingModal.style.display = 'none';
+         }
+
+
+        // --- Event listeners for Modals ---
+
+        // Cart Icon click/keydown
+        cartIcon.addEventListener('click', openCartModal);
+         cartIcon.addEventListener('keydown', function(e) {
+              if (e.key === ' ' || e.key === 'Enter') {
+                   e.preventDefault();
+                   openCartModal();
+              }
+         });
+
+        // Close Cart Modal click/keydown
+        closeCartModalBtn.addEventListener('click', closeCartModal);
+         closeCartModalBtn.addEventListener('keydown', function(e) {
+              if (e.key === ' ' || e.key === 'Enter') {
+                   e.preventDefault();
+                   closeCartModal();
+              }
+         });
+
+        // Close Cart Modal on outside click
+        cartModal.addEventListener('click', function(e) {
+            if (e.target === cartModal) {
+                closeCartModal();
             }
         });
 
-        // Add keydown listener to Category Cards for accessibility (Space or Enter)
-         document.getElementById('products').addEventListener('keydown', function(event) {
-             const target = event.target;
-              const categoryCard = target.closest('.product.category-card');
-             if (categoryCard && !categoryCard.classList.contains('product-item') && (event.key === ' ' || event.key === 'Enter')) {
-                  event.preventDefault();
-                  const categoryId = categoryCard.dataset.categoryTarget;
-                  if (categoryId) {
-                      showProductContainer(categoryId);
-                  }
-             }
-              // Add keydown for product images too if needed, but click is often sufficient with tab index
+        // Checkout button click (now opens Billing Modal)
+        checkoutButton.addEventListener('click', openBillingModal);
+
+
+        // Close Billing Modal click/keydown
+        closeBillingModalBtn.addEventListener('click', closeBillingModal);
+         closeBillingModalBtn.addEventListener('keydown', function(e) {
+              if (e.key === ' ' || e.key === 'Enter') {
+                   e.preventDefault();
+                   closeBillingModal();
+              }
          });
 
 
-         // Event listener for "Remove" buttons in the cart modal using delegation
-         cartItemsList.addEventListener('click', function(event) {
+        // Close Billing Modal on outside click
+        billingModal.addEventListener('click', function(e) {
+            if (e.target === billingModal) {
+                closeBillingModal();
+            }
+        });
+
+        // Back to Cart button in Billing Modal click/keydown
+        backToCartButton.addEventListener('click', function(event) {
+             event.preventDefault(); // Prevent default link behavior
+             closeBillingModal();
+             openCartModal();
+        });
+         backToCartButton.addEventListener('keydown', function(e) {
+              if (e.key === ' ' || e.key === 'Enter') {
+                   e.preventDefault();
+                   closeBillingModal();
+                   openCartModal();
+              }
+         });
+
+
+         // Event listener for "Remove" buttons within *any* modal (using delegation on body)
+         // This handles remove buttons in both cart and billing modals
+         document.body.addEventListener('click', function(event) {
              const target = event.target;
              if (target.classList.contains('remove-item')) {
                  const productId = target.dataset.productId;
                  if (productId) {
                      removeFromCart(productId);
-                      // Re-render cart after removal
-                     renderCart();
+                     // renderCart() and renderBillingContent() are called by removeFromCart if their respective modals are open
                  }
              }
          });
-          // Add keydown listener for remove buttons (Space or Enter)
-          cartItemsList.addEventListener('keydown', function(event) {
-             const target = event.target;
-             if (target.classList.contains('remove-item') && (event.key === ' ' || event.key === 'Enter')) {
-                  event.preventDefault();
-                 const productId = target.dataset.productId;
-                 if (productId) {
-                     removeFromCart(productId);
-                      // Re-render cart after removal
-                     renderCart();
-                 }
-             }
-         });
-
-
-        // Event listeners for Cart Modal
-        cartIcon.addEventListener('click', function() {
-            cartModal.style.display = 'flex';
-             renderCart(); // Render cart content every time modal opens
-             // Add focus to the close button for accessibility
-            closeCartModalBtn.focus();
-        });
-         // Add keydown listener for Cart Icon (Space or Enter)
-         cartIcon.addEventListener('keydown', function(e) {
-              if (e.key === ' ' || e.key === 'Enter') {
-                   e.preventDefault();
-                   cartModal.style.display = 'flex';
-                   renderCart();
-                   closeCartModalBtn.focus();
+          // Add keydown listener for remove buttons (Space or Enter) using delegation
+          document.body.addEventListener('keydown', function(event) {
+              const target = event.target;
+              if (target.classList.contains('remove-item') && (event.key === ' ' || event.key === 'Enter')) {
+                   event.preventDefault();
+                  const productId = target.dataset.productId;
+                  if (productId) {
+                      removeFromCart(productId);
+                      // renderCart() and renderBillingContent() are called by removeFromCart
+                  }
               }
-         });
+          });
 
 
-        closeCartModalBtn.addEventListener('click', function() {
-            cartModal.style.display = 'none'; // Hide modal
+         // Apply Coupon button click/keydown
+         applyCouponButton.addEventListener('click', applyCoupon);
+          applyCouponButton.addEventListener('keydown', function(e) {
+               if (e.key === ' ' || e.key === 'Enter') {
+                    e.preventDefault();
+                    applyCoupon();
+               }
+          });
+          // Allow applying coupon by pressing Enter in the input field
+          couponCodeInput.addEventListener('keypress', function(e) {
+              if (e.key === 'Enter') {
+                   e.preventDefault(); // Prevent form submission if input is inside form
+                   applyCoupon();
+              }
+          });
+
+
+        // Order Form submission (handled by FormSubmit.co)
+        orderForm.addEventListener('submit', function(event) {
+             // FormSubmit will handle the actual submission to the action URL
+             // We just need to make sure the hidden fields are updated before submission
+             updateHiddenOrderDetails(); // Ensure details are current
+
+             // You might want to add client-side validation here if needed
+             // For this example, we rely on the 'required' attributes in HTML
+
+             // Prevent default form submission to test in console if needed, otherwise let FormSubmit handle it
+             // event.preventDefault();
+             console.log("Form submitted!");
+             console.log("Order Details:", orderCartDetailsInput.value);
+             console.log("Final Total:", orderFinalTotalInput.value);
+             console.log("Coupon Applied:", couponAppliedStatusInput.value);
+
+             // Clear the cart after successful submission (optional, depends on flow)
+             // If you clear here, the user won't see the items in the cart if they go back
+             // It might be better to clear the cart *after* the user is redirected to the success page via _next
+             // cart = [];
+             // saveCart();
+             // updateCartUI();
         });
 
 
-        // Close modal if user clicks outside of it
-        cartModal.addEventListener('click', function(e) {
-            if (e.target === cartModal) {
-                cartModal.style.display = 'none';
+        // Optional: Close any modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (billingModal.style.display === 'flex') {
+                    closeBillingModal();
+                } else if (cartModal.style.display === 'flex') {
+                    closeCartModal();
+                } else if (modal.style.display === 'flex') { // Image modal
+                    modal.style.display = 'none';
+                }
             }
         });
 
-        // Event listener for the "Proceed to Inquiry" button (in the cart modal)
-        checkoutButton.addEventListener('click', function() {
-            showBillingSection(); // Show the billing section
-        });
-
-         // Event listener for the coupon code apply button
-         applyCouponButton.addEventListener('click', applyCoupon);
-
-         // Allow applying coupon by pressing Enter in the input field
-         couponCodeInput.addEventListener('keypress', function(event) {
-             if (event.key === 'Enter') {
-                 event.preventDefault();
-                 applyCoupon();
-             }
-         });
-
-
-         // Event listener for the FIRST click on the billing form button
-         proceedToPaymentButton.addEventListener('click', function(event) {
-             showPaymentInfo(); // Validate and show payment info
-         });
-
-
-         // Event listener for the SECOND click on the billing form button (now submitOrderButton)
-         // This listener is called when the submitOrderButton is clicked.
-         document.getElementById('billingForm').addEventListener('submit', function(event) {
-             const submitButton = document.getElementById('submitOrderButton');
-             submitButton.textContent = 'Submitting...';
-             submitButton.disabled = true;
-
-              // Clear the cart after the form submission attempt.
-              cart = [];
-              saveCart();
-              updateCartUI(); // Update header count immediately
-              resetCoupon(); // Reset coupon state
-
-              // The form will submit normally via formsubmit.co's action
-              // The _next parameter will redirect the user.
-         });
 
         // --- Add Back Button Listeners ---
         document.querySelectorAll('.back-to-categories').forEach(button => {
@@ -2799,25 +2487,12 @@
              });
         });
 
-        // Listener for the back to cart button in the billing section
-        document.querySelector('.back-to-cart').addEventListener('click', function(event) {
-            event.preventDefault();
-            hideBillingSection();
-        });
-         // Add keydown listener for accessibility
-          document.querySelector('.back-to-cart').addEventListener('keydown', function(e) {
-              if (e.key === ' ' || e.key === 'Enter') {
-                   e.preventDefault();
-                   hideBillingSection();
-              }
-          });
-
 
         // --- Section Scroll Animation (IntersectionObserver) ---
         // Ensure this runs after the DOM is fully loaded
         document.addEventListener('DOMContentLoaded', () => {
-            // Exclude modals and the billing section
-            const sections = document.querySelectorAll('section:not(#imageModal):not(#cartModal):not(#billingSection)');
+            // Exclude modals
+            const sections = document.querySelectorAll('section:not(.modal)'); // Use .modal class
 
             const observerOptions = {
                 root: null, // viewport as the root
@@ -2883,8 +2558,71 @@
         // Initializers
         document.addEventListener('DOMContentLoaded', () => {
             showCategoryGrid(); // Make sure categories are shown initially
-            updateCartUI(); // Load and display initial cart state
+            updateCartUI(); // Load and display initial cart state (updates count)
+             // Add delegation for image clicks on product images
+             document.getElementById('products').addEventListener('click', handleProductSectionClick);
+             document.getElementById('products').addEventListener('keydown', handleProductSectionKeydown);
         });
+
+         // Centralized click handler for #products section
+         function handleProductSectionClick(event) {
+             const target = event.target;
+
+             // --- Handle Clicks on Category Cards ---
+             const categoryCard = target.closest('.product.category-card');
+             if (categoryCard && !categoryCard.classList.contains('product-item')) { // Ensure it's a category card
+                 const categoryId = categoryCard.dataset.categoryTarget;
+                 if (categoryId) {
+                     showProductContainer(categoryId);
+                     return;
+                 }
+             }
+
+             // --- Handle Clicks on "Add to Cart" Buttons ---
+             if (target.classList.contains('add-to-cart-button')) {
+                 const productElement = target.closest('.product');
+                 if (productElement) {
+                     const product = {
+                         id: target.dataset.productId,
+                         name: target.dataset.productName,
+                         price: parseFloat(target.dataset.productPrice) // Ensure price is a number
+                     };
+                     if (product.id && product.name && !isNaN(product.price)) {
+                          addToCart(product);
+                     } else {
+                          console.error("Missing or invalid product data for Add to Cart:", product);
+                          alert("Could not add item to cart. Missing product details.");
+                     }
+                 }
+                 return;
+             }
+
+             // --- Handle Clicks on Product Images for Modal ---
+             // Check if the clicked element is an IMG inside a .product card within a products grid (not category card)
+             if (target.tagName === 'IMG' && target.closest('.category-products-grid .product')) {
+                  modal.style.display = 'flex'; // Open image modal
+                  modalImg.src = target.src;
+                  modalImg.alt = target.alt;
+                  // Add focus to the close button for accessibility
+                  modal.querySelector('.close').focus();
+             }
+         }
+
+         // Centralized keydown handler for #products section (for accessibility)
+         function handleProductSectionKeydown(event) {
+              const target = event.target;
+               // Handle keydown on Category Cards (Space or Enter)
+               const categoryCard = target.closest('.product.category-card');
+              if (categoryCard && !categoryCard.classList.contains('product-item') && (event.key === ' ' || event.key === 'Enter')) {
+                   event.preventDefault();
+                   const categoryId = categoryCard.dataset.categoryTarget;
+                   if (categoryId) {
+                       showProductContainer(categoryId);
+                   }
+              }
+               // Add keydown for add-to-cart buttons too if needed, but Space/Enter often works by default on buttons
+          }
+
 
         // Ensure smooth scrolling for header navigation links
          document.querySelectorAll('nav ul li a[href^="#"]').forEach(anchor => {
@@ -2895,7 +2633,7 @@
                  const targetElement = document.querySelector(targetId);
 
                  if (targetElement) {
-                     const headerHeight = document.querySelector('.header').offsetHeight; // Get dynamic header height
+                     // const headerHeight = document.querySelector('.header').offsetHeight; // Get dynamic header height
                      const elementPosition = targetElement.getBoundingClientRect().top;
                      // Removed offsetHeight subtraction to scroll directly to the section top
                      const offsetPosition = elementPosition + window.scrollY;
