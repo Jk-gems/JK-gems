@@ -385,53 +385,50 @@
              top: 50%;
              left: 50%;
              /* Adjust size for diamond */
-             width: 100px;
-             height: 120px; /* Make it slightly taller than wide */
+             width: 120px; /* Slightly larger */
+             height: 140px; /* Slightly larger and taller */
              transform-style: preserve-3d;
-             /* Initial rotation and position for a diamond look */
-             transform: translate(-50%, -50%) rotateX(-60deg) rotateY(0deg) rotateZ(45deg);
+             /* Initial rotation and position for a diamond look - adjusted rotation */
+             transform: translate(-50%, -50%) rotateX(-75deg) rotateY(0deg) rotateZ(45deg); /* More tilt */
 
-             /* Background to simulate facets and light */
+             /* Background to simulate facets and light - adjusted colors and opacity */
              background: radial-gradient(circle at center,
-                 rgba(255, 255, 255, 0.8) 0%, /* White highlight center */
-                 rgba(var(--color-light-grey), 0.6) 10%,
-                 rgba(var(--primary-color), 0.4) 30%, /* Copper hint */
-                 rgba(var(--secondary-color), 0.4) 60%, /* Slate blue hint */
-                 rgba(var(--background-color), 0.2) 90% /* Darker edges */
+                 rgba(var(--color-white), 0.9) 0%, /* More opaque white highlight center */
+                 rgba(var(--color-light-grey), 0.7) 15%,
+                 rgba(var(--primary-color), 0.5) 35%, /* More opaque copper hint */
+                 rgba(var(--secondary-color), 0.5) 65%, /* More opaque slate blue hint */
+                 rgba(var(--background-color), 0.3) 95% /* Darker edges */
              );
 
-             /* Multiple box-shadows to simulate facets and sparkle */
+             /* Multiple box-shadows to simulate facets and sparkle - adjusted values and colors */
              box-shadow:
                 /* Top facets */
-                0 -10px 15px -5px rgba(255, 255, 255, 0.5),
-                0 -5px 10px -3px rgba(var(--primary-color), 0.4),
+                0 -12px 20px -5px rgba(var(--color-white), 0.6), /* Stronger white highlight */
+                0 -6px 12px -3px rgba(var(--primary-color), 0.5), /* Stronger copper */
                 /* Side facets */
-                -15px 0 20px -8px rgba(var(--color-light-grey), 0.3),
-                15px 0 20px -8px rgba(var(--color-light-grey), 0.3),
+                -18px 0 25px -8px rgba(var(--color-light-grey), 0.4), /* Stronger grey */
+                18px 0 25px -8px rgba(var(--color-light-grey), 0.4), /* Stronger grey */
                 /* Bottom facets / Culet */
-                0 15px 20px -5px rgba(var(--secondary-color), 0.4),
-                 inset 0 0 30px rgba(255, 255, 255, 0.2), /* Inner light */
-                 inset 0 0 15px rgba(var(--primary-color), 0.1), /* Inner copper */
-                 inset 0 0 15px rgba(var(--secondary-color), 0.1); /* Inner slate blue */
+                0 18px 25px -5px rgba(var(--secondary-color), 0.5), /* Stronger slate blue */
+                 inset 0 0 40px rgba(var(--color-white), 0.3), /* Inner light */
+                 inset 0 0 20px rgba(var(--primary-color), 0.2), /* Inner copper */
+                 inset 0 0 20px rgba(var(--secondary-color), 0.2); /* Inner slate blue */
 
 
-             opacity: 0.5; /* Subtle transparency */
-             animation: rotateDiamond 12s infinite linear; /* Apply animation */
+             opacity: 0.8; /* Increased opacity */
+             animation: rotateDiamond 15s infinite linear; /* Adjusted animation speed */
              pointer-events: none; /* Ensure it doesn't interfere with clicks */
 
-             /* Clip-path for a diamond shape outline */
-             /* This polygon creates an 8-sided shape like the top view of a brilliant cut */
+             /* Clip-path for a diamond shape outline (slightly adjusted points) */
              clip-path: polygon(
                  50% 0%,
-                 65% 15%,
-                 100% 40%,
-                 100% 60%,
-                 65% 85%,
+                 70% 15%,
+                 100% 50%,
+                 70% 85%,
                  50% 100%,
-                 35% 85%,
-                 0% 60%,
-                 0% 40%,
-                 35% 15%
+                 30% 85%,
+                 0% 50%,
+                 30% 15%
              );
 
          }
@@ -439,10 +436,10 @@
 
          @keyframes rotateDiamond {
              0% {
-                 transform: translate(-50%, -50%) rotateX(-60deg) rotateY(0deg) rotateZ(0deg);
+                 transform: translate(-50%, -50%) rotateX(-75deg) rotateY(0deg) rotateZ(0deg);
              }
              100% {
-                 transform: translate(-50%, -50%) rotateX(-60deg) rotateY(360deg) rotateZ(0deg); /* Rotate around Y-axis for a spin */
+                 transform: translate(-50%, -50%) rotateX(-75deg) rotateY(360deg) rotateZ(0deg); /* Rotate around Y-axis for a spin */
              }
          }
 
@@ -455,23 +452,23 @@
          /* Optional: Make it slightly smaller/faster on smaller screens */
          @media (max-width: 1024px) {
              .hero-background-animation::before {
+                 width: 100px;
+                 height: 120px;
+                 animation-duration: 12s; /* Faster rotation */
+             }
+         }
+         @media (max-width: 768px) {
+             .hero-background-animation::before {
                  width: 80px;
                  height: 100px;
                  animation-duration: 10s; /* Faster rotation */
              }
          }
-         @media (max-width: 768px) {
+         @media (max-width: 480px) {
              .hero-background-animation::before {
                  width: 60px;
                  height: 80px;
-                 animation-duration: 8s; /* Faster rotation */
-             }
-         }
-         @media (max-width: 480px) {
-             .hero-background-animation::before {
-                 width: 40px;
-                 height: 60px;
-                 animation-duration: 6s; /* Even faster */
+                 animation-duration: 8s; /* Even faster */
              }
          }
 
