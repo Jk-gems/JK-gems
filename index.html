@@ -1047,20 +1047,17 @@
              border-top: 1px solid var(--border-color); /* Dark border */
          }
 
-         /* Added rules to help ensure billing inputs are visible when section is visible */
-         #billingSection[style*="display: block"] #billingInputs {
-             display: block !important; /* Ensure display is block */
-             visibility: visible !important; /* Ensure visibility */
-             opacity: 1 !important; /* Ensure opacity */
+         /* Structure for billing content */
+         .billing-content-wrapper {
+             display: block; /* Ensure this wrapper is visible */
          }
 
-         /* Also explicitly set visibility and opacity for the direct children */
-          #billingSection[style*="display: block"] #billingInputs label,
-          #billingSection[style*="display: block"] #billingInputs input,
-          #billingSection[style*="display: block"] #billingInputs textarea {
-               visibility: visible !important;
-               opacity: 1 !important;
-          }
+         /* Style for the billing form inputs container */
+         #billingInputs {
+             display: block; /* Ensure this is block by default when parent is visible */
+             visibility: visible; /* Ensure visibility */
+             opacity: 1; /* Ensure opacity */
+         }
 
 
          #billingSection h2 {
@@ -1069,7 +1066,7 @@
          }
 
          #billingForm {
-             /* Initially visible, managed by JS */
+             /* Managed by JS display state */
          }
 
           #billingForm label {
@@ -1856,8 +1853,7 @@
             <img src="GridArt_20250516_180656516.png" alt="J.K Gems Logo">
             <nav class="nav">
                 <ul>
-                    <li><a href="#about">About J.K Gems</a></li>
-                    <li><a href="#products">Categories</a></li>
+                    <li><a href="#about">About J.K Gems</a></li> <li><a href="#products">Categories</a></li>
                 </ul>
                 <div class="cart-icon-container" id="cartIcon" role="button" tabindex="0" aria-label="Shopping Cart">
                      <i class="fas fa-shopping-cart"></i>
@@ -2038,70 +2034,72 @@
              <a href="#" class="back-to-cart" role="button" tabindex="0"><i class="fas fa-arrow-left"></i> Back to Cart</a>
              <h2>Order Inquiry & Payment</h2>
 
-             <div id="orderSummaryReview">
-                 <h3>Order Summary</h3>
-                 <ul id="reviewItemsList">
-                     </ul>
-                 <div class="total-line">Subtotal: <span id="reviewSubtotal"></span></div>
-                  <div class="discount-line" id="reviewDiscountLine" style="display: none;">Discount: <span id="reviewDiscount"></span></div>
-                  <div class="final-total-line">Total: <span id="reviewFinalTotal"></span></div>
+             <div class="billing-content-wrapper">
+                 <div id="orderSummaryReview">
+                     <h3>Order Summary</h3>
+                     <ul id="reviewItemsList">
+                         </ul>
+                     <div class="total-line">Subtotal: <span id="reviewSubtotal"></span></div>
+                      <div class="discount-line" id="reviewDiscountLine" style="display: none;">Discount: <span id="reviewDiscount"></span></div>
+                      <div class="final-total-line">Total: <span id="reviewFinalTotal"></span></div>
 
+                 </div>
+
+                 <div class="coupon-section" id="couponSection">
+                     <label for="couponCode">Coupon Code:</label>
+                     <input type="text" id="couponCode" placeholder="Enter coupon code">
+                     <button type="button" id="applyCouponButton">Apply Coupon</button>
+                     <div id="couponMessage"></div>
+                 </div>
+
+                 <form id="billingForm" action="https://formsubmit.co/Gauravraningagoldjewellery@gmail.com" method="POST">
+                     <input type="hidden" name="_subject" id="emailSubject" value="J.K Gems Website Order Inquiry">
+                     <input type="hidden" name="_template" value="box">
+                     <input type="hidden" name="_next" value="YOUR_THANK_YOU_PAGE_URL_HERE"> <input type="text" name="_honeypot" style="display:none">
+
+
+                     <div id="billingInputs">
+                          <label for="customer_name">Full Name:</label>
+                          <input type="text" id="customer_name" name="Name" required pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+" title="Enter your full name (letters, spaces, hyphens, or apostrophes only)">
+
+                         <label for="customer_email">Email (Optional):</label>
+                         <input type="email" id="customer_email" name="Email">
+
+                         <label for="customer_phone">Phone/WhatsApp Number:</label>
+                         <input type="tel" id="customer_phone" name="Phone" required pattern="[\d\s\-\(\)+]+" title="Enter a valid phone number (digits, spaces, hyphens, parentheses, or plus sign allowed)">
+
+                         <label for="customer_address">Shipping Address:</label>
+                         <textarea id="customer_address" name="Address" rows="4" required></textarea>
+                     </div>
+
+
+                     <input type="hidden" name="Order Details" id="orderCartDetails">
+                     <input type="hidden" name="_parsed_order_details" id="_parsedOrderDetails">
+                     <input type="hidden" name="Discount Applied" id="discountApplied">
+                     <input type="hidden" name="Final Total" id="finalOrderTotal">
+                     <input type="hidden" name="UPI ID Shown" value="gauravraninga23@okhdfcbank">
+                     <input type="hidden" name="Payment Instruction Shown" value="Please complete the payment via UPI using the details provided. Your order is confirmed only after payment is received. You will receive a confirmation email once payment is verified.">
+
+
+                     <div id="paymentInfo">
+                         <h3>Complete Your Payment via UPI</h3>
+                         <p>Please transfer the total amount to the UPI ID below:</p>
+                         <div class="upi-details">gauravraninga23@okhdfcbank</div>
+                         <p>Scan the QR code to pay:</p>
+                         <img src="IMG-20250517-WA0001.jpg" alt="UPI QR Code for Payment">
+                         <p class="payment-instruction">
+                             <strong>Important:</strong> Your order inquiry has been received. Your order will be confirmed only *after* the payment is successfully received. Please complete the UPI payment now. You will receive a confirmation email once your payment is verified.
+                         </p>
+                     </div>
+
+                     <div class="billing-buttons">
+                          <button type="button" id="proceedToPaymentButton">Proceed to Payment</button>
+                          <button type="submit" id="submitOrderButton" style="display: none;">Submit Inquiry / Payment Made</button>
+                     </div>
+                     <a href="https://wa.me/919723197899?text=Hello,%20I have a general query regarding my order inquiry." class="whatsapp-billing-button" target="_blank" aria-label="WhatsApp Query"><i class="fab fa-whatsapp"></i> WhatsApp Query</a>
+
+                 </form>
              </div>
-
-             <div class="coupon-section" id="couponSection">
-                 <label for="couponCode">Coupon Code:</label>
-                 <input type="text" id="couponCode" placeholder="Enter coupon code">
-                 <button type="button" id="applyCouponButton">Apply Coupon</button>
-                 <div id="couponMessage"></div>
-             </div>
-
-             <form id="billingForm" action="https://formsubmit.co/Gauravraningagoldjewellery@gmail.com" method="POST">
-                 <input type="hidden" name="_subject" id="emailSubject" value="J.K Gems Website Order Inquiry">
-                 <input type="hidden" name="_template" value="box">
-                 <input type="hidden" name="_next" value="YOUR_THANK_YOU_PAGE_URL_HERE"> <input type="text" name="_honeypot" style="display:none">
-
-
-                 <div id="billingInputs">
-                      <label for="customer_name">Full Name:</label>
-                      <input type="text" id="customer_name" name="Name" required pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+" title="Enter your full name (letters, spaces, hyphens, or apostrophes only)">
-
-                     <label for="customer_email">Email (Optional):</label>
-                     <input type="email" id="customer_email" name="Email">
-
-                     <label for="customer_phone">Phone/WhatsApp Number:</label>
-                     <input type="tel" id="customer_phone" name="Phone" required pattern="[\d\s\-\(\)+]+" title="Enter a valid phone number (digits, spaces, hyphens, parentheses, or plus sign allowed)">
-
-                     <label for="customer_address">Shipping Address:</label>
-                     <textarea id="customer_address" name="Address" rows="4" required></textarea>
-                 </div>
-
-
-                 <input type="hidden" name="Order Details" id="orderCartDetails">
-                 <input type="hidden" name="_parsed_order_details" id="_parsedOrderDetails">
-                 <input type="hidden" name="Discount Applied" id="discountApplied">
-                 <input type="hidden" name="Final Total" id="finalOrderTotal">
-                 <input type="hidden" name="UPI ID Shown" value="gauravraninga23@okhdfcbank">
-                 <input type="hidden" name="Payment Instruction Shown" value="Please complete the payment via UPI using the details provided. Your order is confirmed only after payment is received. You will receive a confirmation email once payment is verified.">
-
-
-                 <div id="paymentInfo">
-                     <h3>Complete Your Payment via UPI</h3>
-                     <p>Please transfer the total amount to the UPI ID below:</p>
-                     <div class="upi-details">gauravraninga23@okhdfcbank</div>
-                     <p>Scan the QR code to pay:</p>
-                     <img src="IMG-20250517-WA0001.jpg" alt="UPI QR Code for Payment">
-                     <p class="payment-instruction">
-                         <strong>Important:</strong> Your order inquiry has been received. Your order will be confirmed only *after* the payment is successfully received. Please complete the UPI payment now. You will receive a confirmation email once your payment is verified.
-                     </p>
-                 </div>
-
-                 <div class="billing-buttons">
-                      <button type="button" id="proceedToPaymentButton">Proceed to Payment</button>
-                      <button type="submit" id="submitOrderButton" style="display: none;">Submit Inquiry / Payment Made</button>
-                 </div>
-                 <a href="https://wa.me/919723197899?text=Hello,%20I have a general query regarding my order inquiry." class="whatsapp-billing-button" target="_blank" aria-label="WhatsApp Query"><i class="fab fa-whatsapp"></i> WhatsApp Query</a>
-
-             </form>
          </div>
     </section>
 
@@ -2137,6 +2135,8 @@
         const proceedToPaymentButton = document.getElementById('proceedToPaymentButton');
         const submitOrderButton = document.getElementById('submitOrderButton');
         const backToCartButton = document.querySelector('.back-to-cart'); // Select specifically
+        const billingContentWrapper = document.querySelector('.billing-content-wrapper'); // Added wrapper
+
 
 
         // Function to show only the category grid
@@ -2151,12 +2151,17 @@
             billingSection.style.display = 'none'; // Hide billing section
 
             // Reset billing section state when going back from billing/payment
-            billingInputs.style.display = 'block'; // Show form inputs
-            paymentInfoDiv.style.display = 'none'; // Hide payment info
-            proceedToPaymentButton.style.display = 'block'; // Show proceed button
-            submitOrderButton.style.display = 'none'; // Hide submit button
+            // Ensure billing inputs are shown and payment info is hidden
+            billingInputs.style.display = 'block';
+            paymentInfoDiv.style.display = 'none';
+            proceedToPaymentButton.style.display = 'block';
+            submitOrderButton.style.display = 'none';
             submitOrderButton.textContent = 'Submit Inquiry / Payment Made'; // Restore button text
             submitOrderButton.disabled = false;
+             // Ensure the wrapper is visible
+             if (billingContentWrapper) {
+                billingContentWrapper.style.display = 'block';
+             }
 
 
             // Set search to work on categories
@@ -2197,6 +2202,10 @@
             submitOrderButton.style.display = 'none';
             submitOrderButton.textContent = 'Submit Inquiry / Payment Made';
             submitOrderButton.disabled = false;
+             // Ensure the wrapper is visible
+             if (billingContentWrapper) {
+                billingContentWrapper.style.display = 'block';
+             }
 
 
              containerToShow.style.display = 'block'; // Show the selected product container
@@ -2230,6 +2239,11 @@
              cartModal.style.display = 'none'; // Hide cart modal
 
              billingSection.style.display = 'block'; // Show billing section
+             // Ensure the wrapper is visible
+             if (billingContentWrapper) {
+                billingContentWrapper.style.display = 'block';
+             }
+
 
              // Ensure initial state is billing form inputs visible, payment info hidden
              billingInputs.style.display = 'block'; // Show form inputs
@@ -2279,6 +2293,10 @@
          // Function to hide the billing section and show the cart modal
          function hideBillingSection() {
              billingSection.style.display = 'none'; // Hide billing section
+              // Ensure the wrapper is hidden when the section is hidden
+             if (billingContentWrapper) {
+                billingContentWrapper.style.display = 'none';
+             }
              cartModal.style.display = 'flex'; // Show cart modal again
              productsHeading.textContent = 'Your Cart'; // Change heading temporarily
              searchInput.style.display = 'none'; // Keep search hidden in modal
