@@ -367,110 +367,95 @@
              transition: none;
          }
 
-         /* --- 3D Background Animation in Hero (using ::before and ::after for diamond shape) --- */
+         /* --- 3D Background Animation in Hero --- */
          .hero-background-animation {
              position: absolute;
              top: 0;
              left: 0;
-             width: 100%;
-             height: 100%;
-             overflow: hidden;
-             z-index: 0;
-             perspective: 1000px; /* Add perspective to the container */
-             pointer-events: none; /* Prevent clicks */
+             width: 100%; /* Covers the full width */
+             height: 100%; /* Covers the full height */
+             overflow: hidden; /* Hide parts that rotate outside */
+             z-index: 0; /* Ensure it's behind the hero content */
+             perspective: 1000px; /* Add perspective to the container for 3D effect */
+             pointer-events: none; /* Ensure it doesn't interfere with clicks on content */
          }
 
-         /* Top half of the diamond */
          .hero-background-animation::before {
-             content: "";
+             content: '';
              position: absolute;
+             top: 50%;
              left: 50%;
-             bottom: 50%; /* Position the bottom edge at the vertical center */
-             transform: translateX(-50%); /* Center horizontally */
-             box-sizing: content-box; /* Ensure border adds to size */
-             height: 0;
-             width: 160px; /* Base width of the top triangle */
-             /* Create the top triangle with borders */
-             border-style: solid;
-             border-color: transparent transparent rgba(184, 115, 51, 0.7) transparent; /* Transparent top/sides, semi-transparent copper bottom */
-             border-width: 0 80px 100px 80px; /* Adjust border width to form triangle shape and height */
+             /* Increased size for better visibility */
+             /* Adjusted dimensions for a slightly taller/thinner gem shape */
+             width: 200px; /* Increased width */
+             height: 250px; /* Increased height */
+             transform-style: preserve-3d;
+             /* Initial rotation and position */
+             /* Adjust rotations for a better view of the 'gem' */
+             transform: translate(-50%, -50%) rotateX(-60deg) rotateY(0deg) rotateZ(30deg); /* Adjusted initial rotation */
 
-             /* Apply the 3D rotation animation */
-             animation: rotateGem 15s infinite linear;
-             transform-style: preserve-3d; /* Ensure children are 3D transformed if applicable (though not needed with just border) */
 
+             /* --- Updated Styling for Eye-Catching, Transparent Orange/Copper Gem --- */
+             /* Using a gradient and slightly transparent color */
+             background: radial-gradient(circle at center,
+                         rgba(255, 165, 0, 0.6) 0%, /* Center (Orange, semi-transparent) */
+                         rgba(184, 115, 51, 0.5) 40%, /* Primary Color (Copper, semi-transparent) */
+                         rgba(82, 97, 115, 0.4) 80%, /* Secondary Color (Slate Blue, more transparent) */
+                         transparent 100%); /* Fade to transparent */
+
+             /* Add a subtle border and glow effect */
+             border: 1px solid rgba(var(--color-accent-copper), 0.8); /* Semi-transparent Copper border */
+             box-shadow:
+                 0 0 15px rgba(184, 115, 51, 0.7), /* Copper glow */
+                 0 0 30px rgba(184, 115, 51, 0.5),
+                 0 0 45px rgba(184, 115, 51, 0.3);
+
+
+             opacity: 1; /* Keep fully opaque for gradient visibility */
+             /* Removed debugging styles and clip-path */
+
+
+             animation: rotateGem 15s infinite linear; /* Apply animation */
          }
 
-         /* Bottom half of the diamond */
-         .hero-background-animation::after {
-             content: "";
-             position: absolute;
-             left: 50%;
-             top: 50%; /* Position the top edge at the vertical center */
-             transform: translateX(-50%); /* Center horizontally */
-             box-sizing: content-box; /* Ensure border adds to size */
-             height: 0;
-             width: 160px; /* Base width of the bottom triangle - matches top */
-             /* Create the bottom triangle with borders */
-             border-style: solid;
-             border-color: rgba(184, 115, 51, 0.7) transparent transparent transparent; /* Semi-transparent copper top, transparent sides/bottom */
-             border-width: 100px 80px 0 80px; /* Adjust border width to form triangle shape and height */
 
-             /* Apply the SAME 3D rotation animation */
-             animation: rotateGem 15s infinite linear;
-             transform-style: preserve-3d; /* Ensure children are 3D transformed */
-         }
-
-
-         /* Updated Keyframes for Rotation (applies to both ::before and ::after) */
+         /* Updated Keyframes for Rotation */
          @keyframes rotateGem {
              0% {
-                 /* Start rotation - you can adjust initial angle */
                  transform: translate(-50%, -50%) rotateX(-60deg) rotateY(0deg) rotateZ(30deg);
              }
              100% {
-                 /* End rotation - spin around Y axis */
-                 transform: translate(-50%, -50%) rotateX(-60deg) rotateY(360deg) rotateZ(30deg); /* Keep initial X and Z angles */
+                 transform: translate(-50%, -50%) rotateX(-60deg) rotateY(360deg) rotateZ(30deg); /* Rotate around Y-axis for a spin, keep initial X and Z */
              }
          }
-
 
          /* Ensure hero-content stays on top */
          .hero .hero-content {
-             position: relative;
+             position: relative; /* Already has z-index: 2 */
              z-index: 2; /* Make sure content is above the background animation */
          }
 
-         /* Optional: Adjust size on smaller screens */
+         /* Optional: Make it slightly smaller/faster on smaller screens */
          @media (max-width: 1024px) {
-              .hero-background-animation::before,
-              .hero-background-animation::after {
-                  width: 120px;
-                  border-width: auto 60px auto 60px; /* Adjust side borders */
-                  animation-duration: 12s; /* Faster rotation */
-              }
-               .hero-background-animation::before { border-bottom-width: 80px; } /* Adjust height */
-               .hero-background-animation::after { border-top-width: 80px; } /* Adjust height */
+             .hero-background-animation::before {
+                 width: 150px;
+                 height: 200px;
+                 animation-duration: 12s; /* Faster rotation */
+             }
          }
          @media (max-width: 768px) {
-              .hero-background-animation::before,
-              .hero-background-animation::after {
-                  width: 100px;
-                  border-width: auto 50px auto 50px; /* Adjust side borders */
-                  animation-duration: 10s; /* Faster rotation */
-              }
-               .hero-background-animation::before { border-bottom-width: 70px; } /* Adjust height */
-               .hero-background-animation::after { border-top-width: 70px; } /* Adjust height */
+             .hero-background-animation::before {
+                 width: 120px;
+                 height: 160px;
+                 animation-duration: 10s; /* Faster rotation */
+             }
          }
          @media (max-width: 480px) {
-             .hero-background-animation::before,
-             .hero-background-animation::after {
-                 width: 70px;
-                 border-width: auto 35px auto 35px; /* Adjust side borders */
+             .hero-background-animation::before {
+                 width: 90px;
+                 height: 120px;
                  animation-duration: 8s; /* Even faster */
              }
-              .hero-background-animation::before { border-bottom-width: 50px; } /* Adjust height */
-              .hero-background-animation::after { border-top-width: 50px; } /* Adjust height */
          }
 
 
