@@ -1,72 +1,171 @@
 <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>J.K Gems - Exquisite Gemstones & Spiritual Items</title>
-     <meta name="description" content="Explore exquisite gemstones, Rudraksha, and spiritual items from J.K Gems, a trusted firm serving Junagadh since 1965.">
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Lora:wght400;500;700&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-     <style>
-         /* --- Color Palette Variables (Adapted to Dark Blue, Slate Blue, Copper) --- */
-         :root {
-             /* New Palette Colors */
-             --color-accent-copper: #B87333; /* Copper */
-             --color-slate-blue: #526173; /* Slate Blue */
-             --color-light-grey: #D3D3D3; /* Light Grey */
-             --color-dark-blue: #222831; /* Dark Blue */
-             --color-white: #FFFFFF; /* White */
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.K Gems - Exquisite Gemstones & Spiritual Items</title>
+    <meta name="description" content="Explore exquisite gemstones, Rudraksha, and spiritual items from J.K Gems, a trusted firm serving Junagadh since 1965.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --color-accent-copper: #B87333;
+            --color-slate-blue: #526173;
+            --color-light-grey: #D3D3D3;
+            --color-dark-blue: #222831;
+            --color-white: #FFFFFF;
+            --primary-color: var(--color-accent-copper);
+            --secondary-color: var(--color-slate-blue);
+            --background-color: var(--color-dark-blue);
+            --surface-color: #2a323f;
+            --text-color-dark: var(--color-light-grey);
+            --text-color-medium: var(--color-light-grey);
+            --text-color-secondary: var(--color-slate-blue);
+            --border-color: #3b4555;
+            --whatsapp-green: #25D366;
+            --whatsapp-green-hover: #1DA851;
+            --footer-text-color: var(--text-color-secondary);
+            --section-padding-vertical: 100px;
+            --section-padding-horizontal: 25px;
+            --shadow-deep: 0 12px 24px rgba(0,0,0,0.7);
+            --shadow-medium: 0 8px 16px rgba(0,0,0,0.6);
+            --shadow-light: 0 4px 8px rgba(0,0,0,0.5);
+            --gradient-primary: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            --gradient-highlight: linear-gradient(90deg, var(--primary-color), var(--color-slate-blue));
+            --button-primary-bg: var(--primary-color);
+            --button-primary-text: var(--background-color);
+            --button-primary-hover-bg: var(--secondary-color);
+            --button-primary-hover-text: var(--background-color);
+            --button-secondary-bg: var(--secondary-color);
+            --button-secondary-text: var(--background-color);
+            --button-secondary-hover-bg: var(--primary-color);
+            --button-secondary-hover-text: var(--background-color);
+            --color-alert: #cf6679;
+            --color-error-text: #cf6679;
+        }
+
+        /* Enhanced Gemstone Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes sparkle {
+            0% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0); }
+        }
+
+        .product:hover::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 10%, transparent 70%);
+            animation: sparkle 0.8s ease-out;
+            pointer-events: none;
+        }
+
+        /* Improved Grid Layout */
+        .category-grid, .category-products-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px; /* Increased gap */
+            padding: 20px 0; /* Added padding */
+        }
+
+        /* Enhanced Product Cards */
+        .product {
+            /* REFINED CARD STYLE from old CSS, merged with new perspective enhancements */
+            border: 1px solid var(--border-color);
+            padding: 0;
+            text-align: left;
+            background-color: var(--surface-color);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            /* overflow: hidden; Removed for 3D effect, manage child overflow if needed */
+            box-shadow: var(--shadow-light);
+            transform-style: preserve-3d; /* From new */
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* From new, replacing old transition */
+            position: relative; /* From new */
+            overflow: visible; /* From new */
+        }
+
+        .product:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg); /* From new, enhanced hover */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8); /* From new, deeper shadow */
+            border-color: var(--primary-color);
+            background-color: #333c4b;
+        }
 
 
-             /* Semantic Mapping to New Palette */
-             --primary-color: var(--color-accent-copper);    /* Copper as primary accent */
-             --secondary-color: var(--color-slate-blue);   /* Slate Blue as secondary accent */
-             --background-color: var(--color-dark-blue); /* Dark Blue background */
-             --surface-color: #2a323f;      /* Slightly lighter Dark Blue for surfaces */
-             --text-color-dark: var(--color-light-grey);  /* Light Grey for main text/headings */
-             --text-color-medium: var(--color-light-grey);/* Light Grey for general body text */
-             --text-color-secondary: var(--color-slate-blue); /* Slate Blue for secondary text/descriptions */
-             --border-color: #3b4555;                      /* Border color based on dark blue/slate */
+        /* Floating Gemstone Particles */
+        .gem-particle {
+            position: absolute; /* Changed to absolute if particlesContainer is fixed. Or fixed if particlesContainer is body */
+            width: 15px;
+            height: 15px;
+            background: var(--primary-color);
+            opacity: 0.3; /* Reduced opacity */
+            animation: float 6s infinite ease-in-out; /* Added ease-in-out */
+            border-radius: 50%;
+            pointer-events: none; /* Ensure particles don't interfere */
+        }
 
+        /* Enhanced Image Zoom */
+        .product img {
+            /* From old CSS */
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            margin-bottom: 0;
+            border-bottom: 1px solid var(--border-color);
+            cursor: zoom-in;
+            filter: brightness(0.9);
+            outline: none;
+            /* From new CSS */
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.3s ease, filter 0.3s ease; /* Merged transitions */
+        }
 
-             --whatsapp-green: #25D366; /* Standard WhatsApp green remains */
-             --whatsapp-green-hover: #1DA851;
-
-             --footer-text-color: var(--text-color-secondary); /* Slate Blue for footer text */
-
-             --section-padding-vertical: 100px;
-             --section-padding-horizontal: 25px;
-
-              /* Shadows based on dark backgrounds */
-             --shadow-deep: 0 12px 24px rgba(0,0,0,0.7);
-             --shadow-medium: 0 8px 16px rgba(0,0,0,0.6);
-             --shadow-light: 0 4px 8px rgba(0,0,0,0.5);
-
-             /* Gradients using new primary and secondary colors */
-             --gradient-primary: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); /* Copper to Slate Blue */
-             --gradient-highlight: linear-gradient(90deg, var(--primary-color), var(--color-slate-blue)); /* Copper to Slate Blue */
-
-
-             /* Button Colors adapted for the dark theme */
-             --button-primary-bg: var(--primary-color); /* Use Copper */
-             --button-primary-text: var(--background-color); /* Dark Blue text on copper */
-             --button-primary-hover-bg: var(--secondary-color); /* Slate Blue on hover */
-             --button-primary-hover-text: var(--background-color);
-
-             --button-secondary-bg: var(--secondary-color); /* Use Slate Blue */
-             --button-secondary-text: var(--background-color); /* Dark Blue text on Slate Blue */
-             --button-secondary-hover-bg: var(--primary-color); /* Copper on hover */
-             --button-secondary-hover-text: var(--background-color);
-
-              /* Error color - kept for visibility */
-              --color-alert: #cf6679;
-              --color-error-text: #cf6679;
+        .product img:hover {
+            /* From new CSS */
+            transform: scale(1.1) rotateZ(1deg); /* Enhanced zoom */
+            /* From old CSS */
+            filter: brightness(1.1);
+            border-color: var(--primary-color);
+        }
+         .product img:focus { /* From old CSS, ensure it's still relevant */
+             outline: 3px solid var(--primary-color);
+             outline-offset: 3px;
+             border-color: var(--primary-color);
+             filter: brightness(1.1);
          }
 
 
-         /* --- Base Styles --- */
+        /* Modern Cart Notification */
+        .cart-notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: var(--background-color);
+            padding: 15px 25px;
+            border-radius: 30px; /* Pill shape */
+            box-shadow: var(--shadow-deep);
+            transform: translateY(100px); /* Start off-screen */
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            z-index: 10000; /* Ensure it's above most elements */
+        }
+
+        .cart-notification.show {
+            transform: translateY(0); /* Slide in */
+        }
+
+        /* --- Base Styles (from old code, potentially adjusted by new :root) --- */
          body {
              font-family: 'Lato', sans-serif;
              font-weight: 400;
@@ -77,18 +176,17 @@
              line-height: 1.6;
              overflow-x: hidden;
              scroll-behavior: smooth;
-              /* Subtle Dark Background Pattern adapted */
              background-image: linear-gradient(45deg, #2c3440 25%, transparent 25%, transparent 75%, #2c3440 75%, #2c3440),
                                linear-gradient(-45deg, #2c3440 25%, transparent 25%, transparent 75%, #2c3440 75%, #2c3440);
-             background-size: 20px 20px; /* Adjust size as needed */
+             background-size: 20px 20px;
          }
 
          h1, h2, h3, h4, h5, h6 {
              font-family: 'Lora', serif;
-             color: var(--primary-color); /* Headings use Copper */
+             color: var(--primary-color);
              line-height: 1.3;
              margin-top: 0;
-              letter-spacing: 0.5px;
+             letter-spacing: 0.5px;
          }
 
          h2 {
@@ -102,31 +200,30 @@
           h2::after {
               content: ''; position: absolute; bottom: 0; left: 50%;
               transform: translateX(-50%); height: 3px; width: 80px;
-              background: var(--gradient-primary); /* Copper to Slate Blue gradient underline */
+              background: var(--gradient-primary);
               border-radius: 2px;
           }
 
-
-         h3 {
+         h3 { /* This specific h3 styling might be overridden by .product-info h3 etc. */
              font-size: 1.8em;
              margin-bottom: 20px;
              font-weight: 600;
-             color: var(--text-color-dark); /* Subheadings use Light Grey */
+             color: var(--text-color-dark);
          }
 
          p {
              margin-bottom: 1.2em;
-             color: var(--text-color-medium); /* Paragraphs use Light Grey */
+             color: var(--text-color-medium);
          }
 
          a {
-             color: var(--primary-color); /* Links use Copper */
+             color: var(--primary-color);
              text-decoration: none;
              transition: color 0.3s ease;
          }
 
          a:hover {
-             color: var(--secondary-color); /* Links turn Slate Blue on hover */
+             color: var(--secondary-color);
          }
 
          .container {
@@ -138,46 +235,42 @@
          .section {
              padding: var(--section-padding-vertical) 0;
              text-align: center;
-              background-color: var(--background-color); /* Ensure section background matches body */
-              border-bottom: 1px solid var(--border-color);
-              position: relative;
-              overflow: hidden;
-
-              /* Initial state for scroll-in animation */
-              opacity: 0;
-              transform: translateY(30px);
-              transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-              will-change: transform, opacity;
+             background-color: var(--background-color);
+             border-bottom: 1px solid var(--border-color);
+             position: relative;
+             overflow: hidden; /* Keep for sections */
+             /* Initial state for scroll-in animation, will be managed by AOS */
+             /* opacity: 0; */
+             /* transform: translateY(30px); */
+             /* transition: opacity 0.8s ease-out, transform 0.8s ease-out; */
+             /* will-change: transform, opacity; */
          }
-          /* Sections that should start visible (like Hero) */
-          .section:first-of-type { /* Assuming hero is the first section */
-              opacity: 1;
-              transform: none;
-              transition: none;
+          .section:first-of-type { /* Hero section doesn't need AOS initial hidden state */
+              /* opacity: 1; */
+              /* transform: none; */
+              /* transition: none; */
           }
-           /* The 'is-visible' class overrides the initial state */
-          .section.is-visible {
-              opacity: 1;
-              transform: translateY(0);
-          }
+         .section.is-visible { /* This class was for custom observer, AOS handles its own */
+              /* opacity: 1; */
+              /* transform: translateY(0); */
+         }
 
          .section:last-of-type {
               border-bottom: none;
               margin-bottom: 0;
          }
 
-
          /* --- Header/Navigation --- */
          .header {
-             background-color: var(--surface-color); /* Header background is slightly lighter Dark Blue */
-             padding: 10px 0; /* Reduced padding */
+             background-color: var(--surface-color);
+             padding: 10px 0;
              text-align: center;
-             box-shadow: var(--shadow-medium); /* Medium shadow */
-             position: static; /* Changed from fixed to static */
+             box-shadow: var(--shadow-medium);
+             position: static;
              width: 100%;
              top: 0;
              left: 0;
-             z-index: 1000;
+             z-index: 1000; /* Ensure header is above gem particles if they are on body */
          }
 
          .header .container {
@@ -185,7 +278,7 @@
               justify-content: space-between;
               align-items: center;
               flex-wrap: wrap;
-              padding: 0 20px; /* Consistent horizontal padding */
+              padding: 0 20px;
          }
 
          .header img {
@@ -193,2483 +286,1180 @@
              height: auto;
              display: block;
              margin: 0;
-              transition: transform 0.3s ease;
+             transition: transform 0.3s ease;
          }
           .header img:hover {
               transform: scale(1.05);
           }
-
 
          .nav {
              margin-top: 0;
              display: flex;
              align-items: center;
          }
-
-         .nav ul {
-             list-style: none;
-             padding: 0;
-             margin: 0;
-             display: flex;
-             flex-wrap: wrap;
-             justify-content: center;
-             align-items: center;
-         }
-
-         .nav li {
-             margin-left: 30px;
-         }
-
+         .nav ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; }
+         .nav li { margin-left: 30px; }
          .nav a {
-             color: var(--text-color-secondary); /* Nav links color is Slate Blue */
-             font-family: 'Lato', sans-serif;
-             font-weight: 600;
-             font-size: 1.1em;
-             padding: 5px 0;
-             position: relative;
-             transition: color 0.3s ease, transform 0.2s ease;
-              /* Added focus state for keyboard navigation */
+             color: var(--text-color-secondary);
+             font-family: 'Lato', sans-serif; font-weight: 600; font-size: 1.1em;
+             padding: 5px 0; position: relative; transition: color 0.3s ease, transform 0.2s ease;
              outline: none;
          }
-          /* Custom focus style */
-          .nav a:focus {
-               color: var(--text-color-dark); /* Light Grey on focus */
-               outline: 2px solid var(--primary-color); /* Copper outline */
-               outline-offset: 3px;
-               border-radius: 2px;
-          }
-
-         .nav a::after {
-             content: '';
-             position: absolute;
-             left: 0;
-             bottom: 0;
-             width: 0;
-             height: 2px;
-             background: var(--gradient-primary); /* Gradient underline */
-             transition: width 0.4s ease-in-out;
-         }
-
-         .nav a:hover, .nav a.active { color: var(--text-color-dark); transform: translateY(-2px);} /* Light Grey on hover/active */
+         .nav a:focus { color: var(--text-color-dark); outline: 2px solid var(--primary-color); outline-offset: 3px; border-radius: 2px; }
+         .nav a::after { content: ''; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: var(--gradient-primary); transition: width 0.4s ease-in-out; }
+         .nav a:hover, .nav a.active { color: var(--text-color-dark); transform: translateY(-2px);}
          .nav a:hover::after, .nav a.active::after { width: 100%; }
 
-         /* Cart Icon in Header */
          .cart-icon-container {
-             margin-left: 30px;
-             position: relative;
-             cursor: pointer;
-             color: var(--text-color-secondary); /* Icon color is Slate Blue */
-             font-size: 1.5em;
+             margin-left: 30px; position: relative; cursor: pointer;
+             color: var(--text-color-secondary); font-size: 1.5em;
              transition: color 0.3s ease, transform 0.3s ease;
-              /* Added focus state */
-             outline: none;
-             padding: 5px; /* Add padding for easier clicking/focusing */
-             border-radius: 4px;
+             outline: none; padding: 5px; border-radius: 4px;
          }
-
-         .cart-icon-container:hover {
-             color: var(--primary-color); /* Hover color is Copper */
-             transform: scale(1.1);
-         }
-          .cart-icon-container:focus {
-              color: var(--primary-color); /* Copper on focus */
-              outline: 2px solid var(--primary-color); /* Copper outline */
-              outline-offset: 2px;
-          }
-
+         .cart-icon-container:hover { color: var(--primary-color); transform: scale(1.1); }
+         .cart-icon-container:focus { color: var(--primary-color); outline: 2px solid var(--primary-color); outline-offset: 2px; }
 
          .cart-count {
-             position: absolute;
-             top: -8px;
-             right: -8px;
-             background-color: #e74c3c; /* Red remains visible */
-             color: white;
-             font-size: 0.7em;
-             font-weight: 700;
-             border-radius: 50%;
-             padding: 2px 6px;
-             line-height: 1;
-             min-width: 10px;
-             text-align: center;
-             display: none; /* Hidden by default */
+             position: absolute; top: -8px; right: -8px; background-color: #e74c3c;
+             color: white; font-size: 0.7em; font-weight: 700; border-radius: 50%;
+             padding: 2px 6px; line-height: 1; min-width: 10px; text-align: center; display: none;
          }
 
-          /* Theme Switch Styling - REMOVED as theme is now permanent */
-
-
-          /* Responsiveness: Adjustments for Header/Navigation */
-          @media (max-width: 768px) {
-              .header .container {
-                  flex-direction: column;
-              }
-              .header img {
-                  margin-bottom: 15px;
-              }
-              .nav {
-                  flex-direction: column;
-                  align-items: center;
-                  width: 100%;
-              }
-              .nav ul {
-                  flex-direction: column;
-                  align-items: center;
-                  width: 100%;
-                  margin-bottom: 15px;
-              }
-              .nav li {
-                  margin: 10px 0;
-                  width: 100%;
-                  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
-                  padding-bottom: 10px;
-              }
-              .nav li:last-child {
-                  border-bottom: none;
-                  padding-bottom: 0;
-              }
-              .nav a {
-                  display: block;
-                  text-align: center;
-                  color: var(--text-color-dark); /* Light Grey for mobile links */
-              }
-               .nav a::after {
-                 content: none; /* Remove underline animation on mobile */
-             }
-               .nav a:hover, .nav a.active {
-                  color: var(--primary-color); /* Copper on hover/active */
-                  transform: none; /* Remove translateY effect */
-             }
-              .cart-icon-container {
-                  margin-left: 0;
-                  margin-top: 10px;
-              }
-              .header {
-                  padding: 15px 0;
-              }
-          }
-
-
-         /* --- Hero Section --- */
+        /* --- Hero Section (Styles from old, content from new) --- */
          .hero {
              position: relative;
              height: 600px;
-             /* High-Quality Visuals: Placeholder for your hero background image */
-             background: linear-gradient(rgba(34, 40, 49, 0.9), rgba(34, 40, 49, 0.9)), url('YOUR_HERO_IMAGE_URL.jpg') no-repeat center center/cover; /* Dark overlay + Background Image */
+             background: linear-gradient(rgba(34, 40, 49, 0.9), rgba(34, 40, 49, 0.9)), url('YOUR_HERO_IMAGE_URL.jpg') no-repeat center center/cover;
              display: flex;
              align-items: center;
              justify-content: center;
              color: white;
              overflow: hidden;
-             background-attachment: fixed; /* Parallax effect */
+             background-attachment: fixed;
              padding: var(--section-padding-vertical) 0;
-             /* Ensure hero is fully visible on load */
-             opacity: 1;
-             transform: none;
-             transition: none;
          }
-
-         /* --- 3D Background Animation in Hero --- */
          .hero-background-animation {
-             position: absolute;
-             top: 0;
-             left: 0;
-             width: 100%; /* Covers the full width */
-             height: 100%; /* Covers the full height */
-             overflow: hidden; /* Hide parts that rotate outside */
-             z-index: 0; /* Ensure it's behind the hero content */
-             perspective: 1000px; /* Add perspective to the container for 3D effect */
-             pointer-events: none; /* Ensure it doesn't interfere with clicks on content */
+             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+             overflow: hidden; z-index: 0; perspective: 1000px; pointer-events: none;
          }
-
          .hero-background-animation::before {
-             content: '';
-             position: absolute;
-             top: 50%;
-             left: 50%;
-             /* Increased size for better visibility */
-             /* Adjusted dimensions for a slightly taller/thinner gem shape */
-             width: 200px; /* Increased width */
-             height: 250px; /* Increased height */
-             transform-style: preserve-3d;
-             /* Initial rotation and position */
-             /* Adjust rotations for a better view of the 'gem' */
-             transform: translate(-50%, -50%) rotateX(-60deg) rotateY(0deg) rotateZ(30deg); /* Adjusted initial rotation */
-
-
-             /* --- Updated Styling for Eye-Catching, Transparent Orange/Copper Gem --- */
-             /* Using a gradient and slightly transparent color */
+             content: ''; position: absolute; top: 50%; left: 50%;
+             width: 200px; height: 250px; transform-style: preserve-3d;
+             transform: translate(-50%, -50%) rotateX(-60deg) rotateY(0deg) rotateZ(30deg);
              background: radial-gradient(circle at center,
-                         rgba(255, 165, 0, 0.6) 0%, /* Center (Orange, semi-transparent) */
-                         rgba(184, 115, 51, 0.5) 40%, /* Primary Color (Copper, semi-transparent) */
-                         rgba(82, 97, 115, 0.4) 80%, /* Secondary Color (Slate Blue, more transparent) */
-                         transparent 100%); /* Fade to transparent */
-
-             /* Add a subtle border and glow effect */
-             border: 1px solid rgba(var(--color-accent-copper), 0.8); /* Semi-transparent Copper border */
-             box-shadow:
-                 0 0 15px rgba(184, 115, 51, 0.7), /* Copper glow */
-                 0 0 30px rgba(184, 115, 51, 0.5),
-                 0 0 45px rgba(184, 115, 51, 0.3);
-
-
-             opacity: 1; /* Keep fully opaque for gradient visibility */
-             /* Removed debugging styles and clip-path */
-
-
-             animation: rotateGem 15s infinite linear; /* Apply animation */
+                         rgba(255, 165, 0, 0.6) 0%,
+                         rgba(184, 115, 51, 0.5) 40%,
+                         rgba(82, 97, 115, 0.4) 80%,
+                         transparent 100%);
+             border: 1px solid rgba(var(--color-accent-copper), 0.8);
+             box-shadow: 0 0 15px rgba(184, 115, 51, 0.7), 0 0 30px rgba(184, 115, 51, 0.5), 0 0 45px rgba(184, 115, 51, 0.3);
+             opacity: 1;
+             animation: rotateGem 15s infinite linear;
          }
-
-
-         /* Updated Keyframes for Rotation */
          @keyframes rotateGem {
-             0% {
-                 transform: translate(-50%, -50%) rotateX(-60deg) rotateY(0deg) rotateZ(30deg);
-             }
-             100% {
-                 transform: translate(-50%, -50%) rotateX(-60deg) rotateY(360deg) rotateZ(30deg); /* Rotate around Y-axis for a spin, keep initial X and Z */
-             }
+             0% { transform: translate(-50%, -50%) rotateX(-60deg) rotateY(0deg) rotateZ(30deg); }
+             100% { transform: translate(-50%, -50%) rotateX(-60deg) rotateY(360deg) rotateZ(30deg); }
          }
-
-         /* Ensure hero-content stays on top */
-         .hero .hero-content {
-             position: relative; /* Already has z-index: 2 */
-             z-index: 2; /* Make sure content is above the background animation */
+         .hero .hero-content { position: relative; z-index: 2; } /* Ensured hero content is on top */
+         .hero::before { /* Old overlay, ensure it works with new z-indexing or remove if redundant with background gradient */
+             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+             z-index: 1; /* Between animation (0) and content (2) */
          }
-
-         /* Optional: Make it slightly smaller/faster on smaller screens */
-         @media (max-width: 1024px) {
-             .hero-background-animation::before {
-                 width: 150px;
-                 height: 200px;
-                 animation-duration: 12s; /* Faster rotation */
-             }
-         }
-         @media (max-width: 768px) {
-             .hero-background-animation::before {
-                 width: 120px;
-                 height: 160px;
-                 animation-duration: 10s; /* Faster rotation */
-             }
-         }
-         @media (max-width: 480px) {
-             .hero-background-animation::before {
-                 width: 90px;
-                 height: 120px;
-                 animation-duration: 8s; /* Even faster */
-             }
-         }
-
-
-         .hero::before {
-             content: '';
-             position: absolute;
-             top: 0;
-             left: 0;
-             width: 100%;
-             height: 100%;
-              /* Removed redundant overlay - integrated into background */
-             z-index: 1; /* Ensure overlay is between animation (0) and content (2) */
-         }
-
-         .hero .container {
-             position: relative;
-             z-index: 2; /* Ensure container content is above overlay and animation */
-             text-align: center;
-         }
-
-
-         .hero .container h1 {
-             color: var(--text-color-dark); /* Light Grey heading on overlay */
-             font-size: 4em;
-             margin-bottom: 20px;
-             font-weight: 700;
+         .hero .container { position: relative; z-index: 2; text-align: center; }
+         .hero .container h1 { /* Adjusted to use text-color-dark for better contrast on overlay */
+             color: var(--text-color-dark);
+             font-size: 4em; margin-bottom: 20px; font-weight: 700;
              text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
          }
-
-         .hero .container p {
-             color: var(--text-color-medium); /* Light Grey text */
-             font-size: 1.3em;
-             margin-bottom: 30px;
+         .hero .container p { /* Adjusted for new hero content */
+             color: var(--text-color-medium);
+             font-size: 1.3em; margin-bottom: 30px;
              text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
          }
-
          .hero-cta-button {
-             display: inline-block;
-             background: var(--gradient-primary); /* Copper to Slate Blue gradient */
-             color: var(--background-color); /* Dark Blue text */
-             padding: 15px 30px;
-             font-size: 1.2em;
-             font-weight: 700;
-             border-radius: 30px; /* Pill shape */
+             display: inline-block; background: var(--gradient-primary);
+             color: var(--button-primary-text); /* Adjusted to use CSS var for text color */
+             padding: 15px 30px; font-size: 1.2em; font-weight: 700;
+             border-radius: 30px;
              transition: background 0.4s ease, transform 0.3s ease-out, box-shadow 0.4s ease, color 0.4s ease;
-             box-shadow: var(--shadow-medium); /* Medium shadow */
-              border: none;
-             cursor: pointer;
-             overflow: hidden;
-             position: relative;
-             z-index: 1;
-              /* Added focus state */
-             outline: none;
+             box-shadow: var(--shadow-medium); border: none; cursor: pointer;
+             overflow: hidden; position: relative; z-index: 1; outline: none;
          }
          .hero-cta-button::before {
-              content: '';
-              position: absolute;
-              top: 0;
-              left: -100%;
-              width: 100%;
-              height: 100%;
-              background: var(--gradient-highlight); /* Copper to Slate Blue gradient */
-              transition: left 0.4s ease-out;
-              z-index: -1;
+              content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+              background: var(--gradient-highlight); transition: left 0.4s ease-out; z-index: -1;
           }
-
-         .hero-cta-button:hover::before {
-             left: 0;
-         }
-
+         .hero-cta-button:hover::before { left: 0; }
          .hero-cta-button:hover {
-              background: transparent; /* Transparent background on hover */
-              color: var(--text-color-dark); /* Light Grey text on hover */
-              transform: translateY(-4px); /* More pronounced lift */
-              box-shadow: var(--shadow-deep); /* Deeper shadow */
+              background: transparent; color: var(--text-color-dark);
+              transform: translateY(-4px); box-shadow: var(--shadow-deep);
          }
-          .hero-cta-button:focus {
-              outline: 2px solid var(--primary-color); /* Copper outline */
-              outline-offset: 3px;
-              border-radius: 30px;
-          }
+         .hero-cta-button:focus { outline: 2px solid var(--primary-color); outline-offset: 3px; border-radius: 30px; }
 
-
-         /* --- About Us & Contact Section (Consolidated) --- */
+        /* --- About Us & Contact Section --- */
          .about-contact .container {
-             text-align: left;
-              display: flex;
-              flex-wrap: wrap;
-              align-items: flex-start;
-              gap: 40px;
-              justify-content: center;
+             text-align: left; display: flex; flex-wrap: wrap;
+             align-items: flex-start; gap: 40px; justify-content: center;
          }
-
-          .about-content, .contact-info {
-              flex: 1;
-              min-width: 300px;
-          }
-
-         .about-contact h2 {
-             text-align: center;
-             width: 100%;
-             margin-bottom: 50px;
+         .about-content, .contact-info { flex: 1; min-width: 300px; }
+         .about-contact h2 { text-align: center; width: 100%; margin-bottom: 50px; }
+         .about-content h3, .contact-info h3 {
+             text-align: left; margin-bottom: 20px; font-size: 1.7em; color: var(--text-color-dark);
          }
-
-          .about-content h3, .contact-info h3 {
-              text-align: left;
-              margin-bottom: 20px;
-              font-size: 1.7em;
-              color: var(--text-color-dark); /* Light Grey subheadings */
-          }
-
-         .about-contact p {
-             font-size: 1.05em;
-             margin-bottom: 1.2em;
-             color: var(--text-color-medium); /* Light Grey text */
-         }
-
+         .about-contact p { font-size: 1.05em; margin-bottom: 1.2em; color: var(--text-color-medium); }
          .about-contact address {
-              font-style: normal;
-              margin-top: 15px;
-              font-size: 1.05em;
-              line-height: 1.7;
-              color: var(--text-color-medium); /* Light Grey text */
-              margin-bottom: 20px;
+              font-style: normal; margin-top: 15px; font-size: 1.05em;
+              line-height: 1.7; color: var(--text-color-medium); margin-bottom: 20px;
+          }
+         .contact-info p { margin-bottom: 12px; color: var(--text-color-medium); font-size: 1.05em; }
+         .contact-info p i {
+              margin-right: 12px; color: var(--secondary-color);
+              font-size: 1.2em; width: 20px; text-align: center;
           }
 
-          .contact-info p {
-              margin-bottom: 12px;
-              color: var(--text-color-medium); /* Light Grey text */
-              font-size: 1.05em;
-          }
-
-          .contact-info p i {
-              margin-right: 12px;
-              color: var(--secondary-color); /* Icons use Slate Blue */
-              font-size: 1.2em;
-              width: 20px;
-              text-align: center;
-          }
-
-         /* --- Products/Categories Section --- */
-         .products .container {
-              /* No grid directly on container anymore */
-         }
-
-         /* Grid for Categories AND Products (applied to nested containers) */
-         .category-grid,
-         .category-products-grid {
-             display: grid;
-             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-             gap: 30px;
-             margin-top: 30px;
-         }
-
-
-         .product {
-             /* REFINED CARD STYLE */
-             border: 1px solid var(--border-color); /* Border color */
-             padding: 0;
-             text-align: left;
-             background-color: var(--surface-color); /* Surface color */
-             border-radius: 8px;
-             display: flex;
-             flex-direction: column;
-             overflow: hidden;
-             box-shadow: var(--shadow-light); /* Light shadow */
-             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
-         }
-         .product:hover {
-              transform: translateY(-5px); /* Lift on hover */
-              box-shadow: var(--shadow-medium); /* Medium shadow on hover */
-              border-color: var(--primary-color); /* Copper border on hover */
-              background-color: #333c4b; /* Slightly different background on hover */
-         }
-
-
-         .product img {
-             width: 100%;
-             height: 280px;
-             object-fit: cover;
-             margin-bottom: 0;
-             border-bottom: 1px solid var(--border-color); /* Border color */
-             transition: transform 0.3s ease, border-color 0.3s ease, filter 0.3s ease;
-             cursor: zoom-in;
-             filter: brightness(0.9); /* Slightly dimmed initially */
-              /* Added focus state for keyboard navigation */
-              outline: none;
-         }
-         .product img:hover {
-              transform: scale(1.05); /* Zoom on hover */
-              filter: brightness(1.1); /* Brighter on hover */
-              border-color: var(--primary-color); /* Copper border on hover */
-         }
-          .product img:focus {
-              outline: 3px solid var(--primary-color); /* Copper outline */
-              outline-offset: 3px;
-              border-color: var(--primary-color);
-              filter: brightness(1.1);
-          }
-
-
+        /* --- Products/Categories Section --- */
+        /* .product-info styles from old CSS, ensure they work with new card structure */
          .product-info {
-             padding: 15px;
-             display: flex;
-             flex-direction: column;
-             flex-grow: 1;
-              /* Removed transparent background */
-             position: relative;
-             z-index: 2;
-             text-align: left;
+             padding: 15px; display: flex; flex-direction: column;
+             flex-grow: 1; position: relative; z-index: 2; text-align: left;
          }
-
-
          .product-info h3 {
-             margin-top: 0;
-             margin-bottom: 6px;
-             font-size: 1.4em;
-             color: var(--primary-color); /* Copper for product titles */
-             font-weight: 700;
-             font-family: 'Lora', serif;
+             margin-top: 0; margin-bottom: 6px; font-size: 1.4em;
+             color: var(--primary-color); font-weight: 700; font-family: 'Lora', serif;
          }
-
          .product-info p.product-description {
-             font-size: 0.9em;
-             color: var(--text-color-secondary); /* Slate Blue for description */
-             margin-bottom: 12px;
-             flex-grow: 1;
-             line-height: 1.5;
+             font-size: 0.9em; color: var(--text-color-secondary);
+             margin-bottom: 12px; flex-grow: 1; line-height: 1.5;
          }
-
-
          .product-price {
-             font-size: 1.1em;
-             font-weight: 700;
-             color: var(--secondary-color); /* Price color is Slate Blue */
-             margin-bottom: 15px;
-             min-height: 1.5em;
+             font-size: 1.1em; font-weight: 700; color: var(--secondary-color);
+             margin-bottom: 15px; min-height: 1.5em;
          }
-
-         /* Add to Cart Button */
          .add-to-cart-button {
-             display: block;
-             width: 100%;
-             padding: 10px;
-             margin-bottom: 10px;
-             background-color: var(--button-primary-bg); /* Primary Button style */
-             color: var(--button-primary-text);
-             border: none;
-             border-radius: 5px;
-             font-size: 1em;
-             font-weight: 600;
-             cursor: pointer;
-             transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-             text-align: center;
-              /* Added focus state */
-             outline: none;
+             display: block; width: 100%; padding: 10px; margin-bottom: 10px;
+             background-color: var(--button-primary-bg); color: var(--button-primary-text);
+             border: none; border-radius: 5px; font-size: 1em; font-weight: 600;
+             cursor: pointer; transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+             text-align: center; outline: none;
          }
-
          .add-to-cart-button:hover {
-             background-color: var(--button-primary-hover-bg);
-             color: var(--button-primary-hover-text);
-              transform: translateY(-2px); /* Subtle lift */
+             background-color: var(--button-primary-hover-bg); color: var(--button-primary-hover-text);
+             transform: translateY(-2px);
          }
-          .add-to-cart-button:focus {
-               outline: 2px solid var(--secondary-color); /* Slate Blue outline */
-               outline-offset: 2px;
-               border-radius: 5px;
-          }
+         .add-to-cart-button:focus { outline: 2px solid var(--secondary-color); outline-offset: 2px; border-radius: 5px; }
 
-
-         /* Clear Calls to Action: WhatsApp button */
          .whatsapp-button {
-             display: block;
-             width: calc(100% - 0px);
-             margin: 0 0 0 0;
-             padding: 12px;
-             background-color: var(--whatsapp-green);
-             color: white;
-             text-decoration: none;
-             border-radius: 0 0 8px 8px;
-             font-size: 1em;
-             font-weight: 600;
-             letter-spacing: 0.5px;
-             box-shadow: none;
-             text-align: center;
-             transition: background-color 0.3s ease, transform 0.2s ease;
-              /* Added focus state */
-             outline: none;
+             display: block; width: calc(100% - 0px); margin: 0; padding: 12px;
+             background-color: var(--whatsapp-green); color: white; text-decoration: none;
+             border-radius: 0 0 8px 8px; /* Adjusted for card */
+             font-size: 1em; font-weight: 600; letter-spacing: 0.5px; box-shadow: none;
+             text-align: center; transition: background-color 0.3s ease, transform 0.2s ease; outline: none;
          }
+         .whatsapp-button i { margin-right: 8px; }
+         .whatsapp-button:hover { background-color: var(--whatsapp-green-hover); transform: translateY(-2px); box-shadow: none; }
+         .whatsapp-button:focus { outline: 2px solid var(--secondary-color); outline-offset: 2px; border-radius: 0 0 8px 8px; }
 
-         .whatsapp-button i {
-             margin-right: 8px;
-         }
-
-         .whatsapp-button:hover {
-             background-color: var(--whatsapp-green-hover);
-             transform: translateY(-2px); /* Subtle lift */
-             box-shadow: none;
-         }
-          .whatsapp-button:focus {
-               outline: 2px solid var(--secondary-color); /* Slate Blue outline */
-               outline-offset: 2px;
-               border-radius: 0 0 8px 8px;
-          }
-
-
-          /* User-Friendly Navigation: Search function layout */
-          .search-container {
-              margin-bottom: 30px;
-              text-align: center;
-          }
-
-          .search-container input {
-             width: calc(100% - 40px);
-             max-width: 500px;
-             padding: 12px 20px;
-             border: 1px solid var(--border-color); /* Border color */
-             border-radius: 25px;
-             font-size: 1em;
-             box-sizing: border-box;
-             box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+         .search-container { margin-bottom: 30px; text-align: center; }
+         .search-container input {
+             width: calc(100% - 40px); max-width: 500px; padding: 12px 20px;
+             border: 1px solid var(--border-color); border-radius: 25px; font-size: 1em;
+             box-sizing: border-box; box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
              transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-             color: var(--text-color-medium); /* Light Grey text */
-             background-color: var(--surface-color); /* Surface color */
-             outline: none;
-          }
-
-
-         .search-container input::placeholder {
-              color: var(--text-color-secondary); /* Slate Blue placeholder */
-          }
-
-
+             color: var(--text-color-medium); background-color: var(--surface-color); outline: none;
+         }
+         .search-container input::placeholder { color: var(--text-color-secondary); }
          .search-container input:focus {
-             border-color: var(--primary-color); /* Copper focus border */
-             box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3), 0 0 8px rgba(184, 115, 51, 0.6); /* Copper focus glow */
+             border-color: var(--primary-color);
+             box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3), 0 0 8px rgba(184, 115, 51, 0.6);
              outline: none;
          }
+         .category-products-container { display: none; text-align: left; margin-top: 30px; }
+         .category-products-container h3 {
+             text-align: center; margin-bottom: 30px; font-size: 2em; color: var(--primary-color);
+         }
+         .back-to-categories, .back-to-cart, .back-to-billing {
+             display: inline-block; margin-bottom: 30px; font-size: 1.1em;
+             color: var(--text-color-secondary); transition: color 0.3s ease; cursor: pointer;
+             outline: none; border-radius: 4px; padding: 5px;
+         }
+         .back-to-categories i, .back-to-cart i, .back-to-billing i { margin-right: 8px; }
+         .back-to-categories:hover, .back-to-cart:hover, .back-to-billing:hover { color: var(--primary-color); text-decoration: underline; }
+         .back-to-categories:focus, .back-to-cart:focus, .back-to-billing:focus { color: var(--primary-color); outline: 2px solid var(--primary-color); outline-offset: 2px; }
 
-          /* Style for the hidden product containers and back button */
-          .category-products-container {
-              display: none;
-              text-align: left;
-              margin-top: 30px;
-          }
-
-          .category-products-container h3 {
-              text-align: center;
-              margin-bottom: 30px;
-              font-size: 2em;
-              color: var(--primary-color); /* Copper heading */
-          }
-
-          .back-to-categories, .back-to-cart, .back-to-billing {
-              display: inline-block;
-              margin-bottom: 30px;
-              font-size: 1.1em;
-              color: var(--text-color-secondary); /* Back links color is Slate Blue */
-              transition: color 0.3s ease;
-              cursor: pointer;
-              /* Added focus state */
-             outline: none;
-             border-radius: 4px;
-             padding: 5px;
-          }
-
-          .back-to-categories i, .back-to-cart i, .back-to-billing i {
-              margin-right: 8px;
-          }
-
-          .back-to-categories:hover, .back-to-cart:hover, .back-to-billing:hover {
-              color: var(--primary-color); /* Hover color is Copper */
-              text-decoration: underline;
-          }
-          .back-to-categories:focus, .back-to-cart:focus, .back-to-billing:focus {
-              color: var(--primary-color); /* Copper on focus */
-              outline: 2px solid var(--primary-color); /* Copper outline */
-              outline-offset: 2px;
-          }
-
-
-         /* --- Image Modal/Lightbox --- */
+        /* --- Image Modal/Lightbox --- */
          #imageModal {
-             display: none;
-             position: fixed;
-             top: 0;
-             left: 0;
-             width: 100%;
-             height: 100%;
-             background-color: rgba(0, 0, 0, 0.95); /* Darker overlay */
-             z-index: 9999;
-             justify-content: center;
-             align-items: center;
+             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+             background-color: rgba(0, 0, 0, 0.95); z-index: 9999;
+             justify-content: center; align-items: center;
          }
-
          #imageModal span {
-             position: absolute;
-             top: 20px;
-             right: 30px;
-             font-size: 40px;
-             color: white;
-             cursor: pointer;
-             transition: color 0.3s ease;
-              /* Added focus state */
-             outline: none;
-             padding: 5px;
-             border-radius: 4px;
+             position: absolute; top: 20px; right: 30px; font-size: 40px; color: white;
+             cursor: pointer; transition: color 0.3s ease;
+             outline: none; padding: 5px; border-radius: 4px;
          }
-
-         #imageModal span:hover {
-             color: var(--secondary-color); /* Slate Blue on hover */
-         }
-          #imageModal span:focus {
-              color: var(--secondary-color); /* Slate Blue on focus */
-              outline: 2px solid var(--secondary-color); /* Slate Blue outline */
-              outline-offset: 2px;
-          }
-
-
+         #imageModal span:hover { color: var(--secondary-color); }
+         #imageModal span:focus { color: var(--secondary-color); outline: 2px solid var(--secondary-color); outline-offset: 2px; }
          #modalImage {
-             max-width: 90%;
-             max-height: 90%;
-             object-fit: contain;
-             box-shadow: 0 0 40px rgba(0, 0, 0, 0.9); /* Stronger shadow */
-              border: 1px solid var(--primary-color); /* Copper border */
-              border-radius: 8px;
+             max-width: 90%; max-height: 90%; object-fit: contain;
+             box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+             border: 1px solid var(--primary-color); border-radius: 8px;
          }
 
+        /* --- Modal Base Styling (for Cart and Billing) --- */
+         .modal {
+             display: none; position: fixed; z-index: 10000;
+             left: 0; top: 0; width: 100%; height: 100%; overflow: auto;
+             background-color: rgba(0, 0, 0, 0.8);
+             justify-content: center; align-items: center;
+         }
+         .modal-content {
+             background-color: var(--surface-color); margin: auto; padding: 30px;
+             border-radius: 10px; width: 90%; max-width: 600px;
+             box-shadow: var(--shadow-deep); position: relative; max-height: 80vh;
+             overflow-y: auto; text-align: left; border: 1px solid var(--border-color);
+             color: var(--text-color-medium);
+         }
+         .modal-content h2 {
+             text-align: center; margin-top: 0; margin-bottom: 20px;
+             color: var(--primary-color); padding-bottom: 10px;
+         }
+         .modal-content h2::after { height: 2px; width: 50px; }
+         .modal-content .close {
+             position: absolute; top: 15px; right: 25px; color: var(--text-color-secondary);
+             font-size: 35px; font-weight: bold; cursor: pointer; transition: color 0.3s ease;
+             outline: none; padding: 5px; border-radius: 4px;
+         }
+         .modal-content .close:hover, .modal-content .close:focus { color: var(--primary-color); }
+         #cartItemsList, #billingItemsList { list-style: none; padding: 0; margin: 0 0 20px 0; }
+         #cartItemsList li, #billingItemsList li {
+             border-bottom: 1px solid var(--border-color); padding: 15px 0;
+             display: flex; justify-content: space-between; align-items: center;
+             font-size: 1.1em; color: var(--text-color-medium);
+         }
+         #cartItemsList li:last-child, #billingItemsList li:last-child { border-bottom: none; }
+         .item-details .item-name { font-weight: 600; color: var(--text-color-dark); }
+         .item-details .item-quantity { font-size: 0.9em; color: var(--text-color-secondary); }
+         .item-details .item-price { color: var(--primary-color); }
+         .remove-item {
+             background-color: #e74c3c; color: white; border: none; border-radius: 4px;
+             padding: 5px 10px; cursor: pointer; font-size: 0.9em;
+             transition: background-color 0.3s ease, transform 0.2s ease; outline: none;
+         }
+         .remove-item:hover { background-color: #c0392b; transform: scale(1.05); }
+         .remove-item:focus { outline: 2px solid var(--secondary-color); outline-offset: 2px; border-radius: 4px; }
+         .cart-total, .billing-summary {
+             margin-top: 20px; text-align: right; font-size: 1.3em; font-weight: 700;
+             color: var(--primary-color); padding-top: 15px; border-top: 1px solid var(--border-color);
+         }
+         .billing-summary p { margin: 5px 0; font-size: 1em; font-weight: 400; color: var(--text-color-medium); }
+         .billing-summary p strong { color: var(--text-color-dark); }
+         .billing-summary .final-total { font-size: 1.3em; font-weight: 700; color: var(--primary-color); margin-top: 10px; }
+         .checkout-button, .place-order-button {
+             display: block; width: 100%; padding: 12px; margin-top: 20px;
+             background-color: var(--button-primary-bg); color: var(--button-primary-text);
+             border: none; border-radius: 5px; font-size: 1.1em; font-weight: 700;
+             text-align: center; cursor: pointer;
+             transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; outline: none;
+         }
+         .checkout-button:hover, .place-order-button:hover {
+             background-color: var(--button-primary-hover-bg); color: var(--button-primary-hover-text);
+             transform: translateY(-2px);
+         }
+         .checkout-button:focus, .place-order-button:focus { outline: 2px solid var(--secondary-color); outline-offset: 2px; border-radius: 5px; }
+         #emptyCartMessage { text-align: center; color: var(--text-color-secondary); margin-top: 20px; font-size: 1.1em; }
 
-          /* --- Modal Base Styling (for Cart and Billing) --- */
-          .modal {
-              display: none;
-              position: fixed;
-              z-index: 10000; /* Higher than other page content */
-              left: 0;
-              top: 0;
-              width: 100%;
-              height: 100%;
-              overflow: auto;
-              background-color: rgba(0, 0, 0, 0.8); /* Darker dim background */
-              justify-content: center;
-              align-items: center;
-          }
+        /* --- Billing Modal Specific Styles --- */
+         #billingModal .modal-content { max-width: 700px; }
+         #billingModal h2 { margin-bottom: 30px; }
+         #billingModal form { margin-top: 20px; display: grid; gap: 15px; }
+         #billingModal label { display: block; margin-bottom: 5px; font-weight: 600; color: var(--text-color-dark); font-size: 0.95em; }
+         #billingModal input[type="text"], #billingModal input[type="email"], #billingModal input[type="tel"], #billingModal textarea {
+             width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 5px;
+             box-sizing: border-box; background-color: var(--background-color); color: var(--text-color-medium);
+             font-size: 1em; transition: border-color 0.3s ease, box-shadow 0.3s ease; outline: none;
+         }
+         #billingModal input[type="text"]::placeholder, #billingModal input[type="email"]::placeholder, #billingModal input[type="tel"]::placeholder, #billingModal textarea::placeholder { color: var(--text-color-secondary); }
+         #billingModal input[type="text"]:focus, #billingModal input[type="email"]:focus, #billingModal input[type="tel"]:focus, #billingModal textarea:focus {
+             border-color: var(--primary-color); box-shadow: 0 0 5px rgba(184, 115, 51, 0.5);
+         }
+         #billingModal textarea { resize: vertical; min-height: 80px; }
+         .coupon-section { display: flex; gap: 10px; margin-bottom: 20px; align-items: center; }
+         .coupon-section input[type="text"] { flex-grow: 1; width: auto; padding: 10px; border-radius: 5px 0 0 5px; }
+         .coupon-section button {
+             padding: 10px 15px; background-color: var(--secondary-color); color: var(--background-color);
+             border: none; border-radius: 0 5px 5px 0; cursor: pointer; font-size: 0.95em; font-weight: 600;
+             transition: background-color 0.3s ease, transform 0.2s ease; outline: none;
+         }
+         .coupon-section button:hover { background-color: var(--primary-color); color: var(--background-color); }
+         .coupon-section button:focus { outline: 2px solid var(--primary-color); outline-offset: 2px; border-radius: 0 5px 5px 0; }
+         #couponMessage { font-size: 0.9em; margin-top: -10px; margin-bottom: 15px; text-align: center; min-height: 1.2em; }
+         #couponMessage.success { color: var(--whatsapp-green); }
+         #couponMessage.error { color: var(--color-alert); }
+         .payment-info { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color); text-align: center; }
+         .payment-info h3 { font-size: 1.6em; color: var(--text-color-dark); margin-bottom: 15px; text-align: center; }
+         .payment-info p { font-size: 1em; color: var(--text-color-medium); margin-bottom: 10px; }
+         .payment-info strong { color: var(--primary-color); }
+         .payment-info img {
+             max-width: 150px; height: auto; margin: 15px auto; display: block;
+             border: 1px solid var(--border-color); padding: 10px; background-color: var(--color-white);
+             border-radius: 5px;
+         }
+         .payment-instructions { font-size: 0.9em; color: var(--text-color-secondary); margin-top: 20px; }
 
-          .modal-content {
-              background-color: var(--surface-color); /* Surface color */
-              margin: auto;
-              padding: 30px;
-              border-radius: 10px;
-              width: 90%;
-              max-width: 600px;
-              box-shadow: var(--shadow-deep); /* Deep shadow */
-              position: relative;
-              max-height: 80vh;
-              overflow-y: auto;
-              text-align: left;
-              border: 1px solid var(--border-color); /* Border color */
-              color: var(--text-color-medium); /* Default text color for modal content */
-          }
-
-          .modal-content h2 {
-              text-align: center;
-              margin-top: 0;
-              margin-bottom: 20px;
-              color: var(--primary-color); /* Copper heading */
-               padding-bottom: 10px;
-          }
-           .modal-content h2::after {
-               height: 2px; width: 50px; /* Thinner, shorter underline */
-           }
-
-
-          .modal-content .close {
-              position: absolute;
-              top: 15px;
-              right: 25px;
-              color: var(--text-color-secondary); /* Slate Blue close button */
-              font-size: 35px;
-              font-weight: bold;
-              cursor: pointer;
-              transition: color 0.3s ease;
-               /* Added focus state */
-             outline: none;
-             padding: 5px;
-             border-radius: 4px;
-          }
-
-          .modal-content .close:hover,
-          .modal-content .close:focus {
-              color: var(--primary-color); /* Copper on hover/focus */
-          }
-
-
-          #cartItemsList, #billingItemsList {
-              list-style: none;
-              padding: 0;
-              margin: 0;
-              margin-bottom: 20px;
-          }
-
-          #cartItemsList li, #billingItemsList li {
-              border-bottom: 1px solid var(--border-color); /* Border color */
-              padding: 15px 0;
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              font-size: 1.1em;
-              color: var(--text-color-medium); /* Light Grey text */
-          }
-
-          #cartItemsList li:last-child, #billingItemsList li:last-child {
-              border-bottom: none;
-          }
-
-          .item-details .item-name {
-              font-weight: 600;
-              color: var(--text-color-dark); /* Light Grey item name */
-          }
-
-          .item-details .item-quantity {
-              font-size: 0.9em;
-              color: var(--text-color-secondary); /* Slate Blue quantity */
-          }
-
-          .item-details .item-price {
-               color: var(--primary-color); /* Copper price */
-          }
-
-
-          .remove-item {
-              background-color: #e74c3c; /* Red remains visible */
-              color: white;
-              border: none;
-              border-radius: 4px;
-              padding: 5px 10px;
-              cursor: pointer;
-              font-size: 0.9em;
-              transition: background-color 0.3s ease, transform 0.2s ease;
-               /* Added focus state */
-             outline: none;
-          }
-
-          .remove-item:hover {
-              background-color: #c0392b; /* Darker red */
-              transform: scale(1.05); /* Subtle scale */
-          }
-           .remove-item:focus {
-               outline: 2px solid var(--secondary-color); /* Slate Blue outline */
-               outline-offset: 2px;
-               border-radius: 4px;
-           }
-
-
-          .cart-total, .billing-summary {
-              margin-top: 20px;
-              text-align: right;
-              font-size: 1.3em;
-              font-weight: 700;
-              color: var(--primary-color); /* Total color is Copper */
-              padding-top: 15px;
-              border-top: 1px solid var(--border-color); /* Border color */
-          }
-           .billing-summary p {
-               margin: 5px 0;
-               font-size: 1em; /* Smaller font inside summary */
-               font-weight: 400;
-               color: var(--text-color-medium);
-           }
-            .billing-summary p strong {
-                color: var(--text-color-dark);
-            }
-            .billing-summary .final-total {
-                font-size: 1.3em;
-                font-weight: 700;
-                color: var(--primary-color);
-                margin-top: 10px;
-            }
-
-
-          .checkout-button, .place-order-button {
-              display: block;
-              width: 100%;
-              padding: 12px;
-              margin-top: 20px;
-              background-color: var(--button-primary-bg); /* Primary button style */
-              color: var(--button-primary-text);
-              border: none;
-              border-radius: 5px;
-              font-size: 1.1em;
-              font-weight: 700;
-              text-align: center;
-              cursor: pointer;
-              transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-               /* Added focus state */
-             outline: none;
-          }
-
-          .checkout-button:hover, .place-order-button:hover {
-              background-color: var(--button-primary-hover-bg);
-              color: var(--button-primary-hover-text);
-               transform: translateY(-2px); /* Subtle lift */
-          }
-           .checkout-button:focus, .place-order-button:focus {
-                outline: 2px solid var(--secondary-color); /* Slate Blue outline */
-                outline-offset: 2px;
-                border-radius: 5px;
-           }
-
-
-          /* Styling for empty cart message */
-          #emptyCartMessage {
-             text-align: center;
-             color: var(--text-color-secondary); /* Slate Blue text */
-             margin-top: 20px;
-             font-size: 1.1em;
-          }
-
-
-          /* --- Billing Modal Specific Styles --- */
-          #billingModal .modal-content {
-              max-width: 700px; /* Wider for the form */
-          }
-
-          #billingModal h2 {
-              margin-bottom: 30px;
-          }
-
-          #billingModal form {
-              margin-top: 20px;
-              display: grid;
-              gap: 15px;
-          }
-
-          #billingModal label {
-              display: block;
-              margin-bottom: 5px;
-              font-weight: 600;
-              color: var(--text-color-dark); /* Light Grey label */
-              font-size: 0.95em;
-          }
-
-          #billingModal input[type="text"],
-          #billingModal input[type="email"],
-          #billingModal input[type="tel"],
-          #billingModal textarea {
-              width: 100%;
-              padding: 12px;
-              border: 1px solid var(--border-color);
-              border-radius: 5px;
-              box-sizing: border-box;
-              background-color: var(--background-color); /* Background color for input */
-              color: var(--text-color-medium);
-              font-size: 1em;
-              transition: border-color 0.3s ease, box-shadow 0.3s ease;
-              outline: none;
-          }
-           #billingModal input[type="text"]::placeholder,
-           #billingModal input[type="email"]::placeholder,
-           #billingModal input[type="tel"]::placeholder,
-           #billingModal textarea::placeholder {
-              color: var(--text-color-secondary); /* Slate Blue placeholder */
-           }
-
-
-          #billingModal input[type="text"]:focus,
-          #billingModal input[type="email"]:focus,
-          #billingModal input[type="tel"]:focus,
-          #billingModal textarea:focus {
-               border-color: var(--primary-color); /* Copper focus border */
-               box-shadow: 0 0 5px rgba(184, 115, 51, 0.5); /* Copper glow */
-          }
-
-          #billingModal textarea {
-              resize: vertical;
-              min-height: 80px;
-          }
-
-          .coupon-section {
-              display: flex;
-              gap: 10px;
-              margin-bottom: 20px;
-              align-items: center;
-          }
-          .coupon-section input[type="text"] {
-              flex-grow: 1;
-              width: auto; /* Override the 100% width above */
-              padding: 10px;
-              border-radius: 5px 0 0 5px; /* Rounded left side */
-          }
-
-          .coupon-section button {
-              padding: 10px 15px;
-              background-color: var(--secondary-color); /* Use Slate Blue */
-              color: var(--background-color); /* Dark Blue text */
-              border: none;
-              border-radius: 0 5px 5px 0; /* Rounded right side */
-              cursor: pointer;
-              font-size: 0.95em;
-              font-weight: 600;
-              transition: background-color 0.3s ease, transform 0.2s ease;
-              outline: none;
-          }
-
-          .coupon-section button:hover {
-              background-color: var(--primary-color); /* Copper on hover */
-              color: var(--background-color);
-          }
-           .coupon-section button:focus {
-               outline: 2px solid var(--primary-color);
-               outline-offset: 2px;
-               border-radius: 0 5px 5px 0;
-           }
-
-
-          #couponMessage {
-              font-size: 0.9em;
-              margin-top: -10px;
-              margin-bottom: 15px;
-              text-align: center;
-              min-height: 1.2em; /* Reserve space */
-          }
-          #couponMessage.success { color: var(--whatsapp-green); } /* Green for success */
-          #couponMessage.error { color: var(--color-alert); } /* Red for error */
-
-
-          .payment-info {
-              margin-top: 30px;
-              padding-top: 20px;
-              border-top: 1px solid var(--border-color);
-              text-align: center;
-          }
-
-          .payment-info h3 {
-              font-size: 1.6em;
-              color: var(--text-color-dark); /* Light Grey */
-              margin-bottom: 15px;
-              text-align: center;
-          }
-
-          .payment-info p {
-              font-size: 1em;
-              color: var(--text-color-medium);
-              margin-bottom: 10px;
-          }
-           .payment-info strong {
-               color: var(--primary-color); /* Copper */
-           }
-
-
-          .payment-info img {
-              max-width: 150px;
-              height: auto;
-              margin: 15px auto;
-              display: block;
-              border: 1px solid var(--border-color);
-              padding: 10px;
-              background-color: var(--color-white); /* White background for QR code readability */
-              border-radius: 5px;
-          }
-
-          .payment-instructions {
-              font-size: 0.9em;
-              color: var(--text-color-secondary); /* Slate Blue instructions */
-              margin-top: 20px;
-          }
-
-
-          /* --- Footer --- */
+        /* --- Footer --- */
          .footer {
-             background-color: var(--surface-color); /* Surface color */
-             color: var(--footer-text-color); /* Slate Blue */
-             text-align: center;
-             padding: 40px 0;
-             margin-top: 60px;
-             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Darker shadow */
-             font-size: 0.9em;
-              border-top: 1px solid var(--border-color); /* Border color */
+             background-color: var(--surface-color); color: var(--footer-text-color);
+             text-align: center; padding: 40px 0; margin-top: 60px;
+             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); font-size: 0.9em;
+             border-top: 1px solid var(--border-color);
          }
-
-
-         .social-links {
-             margin-top: 0;
-             margin-bottom: 20px; /* Added margin */
-         }
-
+         .social-links { margin-top: 0; margin-bottom: 20px; }
          .social-links a {
-             display: inline-block;
-             margin: 0 15px;
-             color: var(--primary-color); /* Copper */
-             font-size: 32px;
-             transition: color 0.3s ease, transform 0.3s ease;
-              outline: none; /* Base outline removed */
+             display: inline-block; margin: 0 15px; color: var(--primary-color);
+             font-size: 32px; transition: color 0.3s ease, transform 0.3s ease; outline: none;
          }
-          .social-links a:focus {
-              color: var(--secondary-color); /* Slate Blue on focus */
-              outline: 2px solid var(--secondary-color); /* Slate Blue outline */
-              outline-offset: 3px;
-              border-radius: 50%; /* Match shape */
-          }
+         .social-links a:focus { color: var(--secondary-color); outline: 2px solid var(--secondary-color); outline-offset: 3px; border-radius: 50%; }
+         .social-links a:hover { color: var(--secondary-color); transform: scale(1.2); }
 
-
-         .social-links a:hover {
-             color: var(--secondary-color); /* Slate Blue on hover */
-             transform: scale(1.2); /* Subtle scale */
-         }
-
-
-          /* --- Scroll to Top Button --- */
+        /* --- Scroll to Top Button --- */
          .scroll-to-top {
-             position: fixed; bottom: 30px; right: 30px; background-color: var(--primary-color); /* Use Copper */
-             color: var(--background-color); /* Use Dark Blue for text/icon */
-             width: 50px; height: 50px; border-radius: 50%; /* Button size */
-             text-align: center; line-height: 50px; font-size: 1.5rem; /* Icon size */
-             box-shadow: var(--shadow-medium); /* Medium shadow */
-             z-index: 900; opacity: 0; visibility: hidden;
+             position: fixed; bottom: 30px; right: 30px; background-color: var(--primary-color);
+             color: var(--background-color); width: 50px; height: 50px; border-radius: 50%;
+             text-align: center; line-height: 50px; font-size: 1.5rem;
+             box-shadow: var(--shadow-medium); z-index: 900; opacity: 0; visibility: hidden;
              transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
-             cursor: pointer;
-             outline: none; /* Base outline removed */
+             cursor: pointer; outline: none;
          }
-          .scroll-to-top:focus {
-              background-color: var(--secondary-color); /* Slate Blue on focus */
-              outline: 2px solid var(--secondary-color); /* Slate Blue outline */
-              outline-offset: 3px;
-              border-radius: 50%;
-          }
-
+         .scroll-to-top:focus { background-color: var(--secondary-color); outline: 2px solid var(--secondary-color); outline-offset: 3px; border-radius: 50%; }
          .scroll-to-top.visible { opacity: 1; visibility: visible; }
-         .scroll-to-top:hover { background-color: var(--secondary-color); transform: scale(1.1); } /* Slate Blue on hover */
+         .scroll-to-top:hover { background-color: var(--secondary-color); transform: scale(1.1); }
 
+        /* Responsive Enhancements from new CSS + existing responsive CSS */
+        @media (max-width: 1024px) {
+            .section h2 { font-size: 2.4em; }
+            h2::after { width: 60px; }
+            .hero { height: 500px; }
+            .hero .container h1 { font-size: 3em; }
+            .hero .container p { font-size: 1.2em; }
+            .category-grid, .category-products-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; } /* Adjusted from 300px */
+            .product img { height: 250px; }
+            .product-info { padding: 12px; }
+            .product-info h3 { font-size: 1.4em; margin-bottom: 6px; }
+            .product-info p.product-description { font-size: 0.9em; margin-bottom: 12px; }
+            .product-price { font-size: 1.05em; margin-bottom: 12px; }
+            .add-to-cart-button, .whatsapp-button { font-size: 0.95em; padding: 8px; }
+            .whatsapp-button { margin-top: 8px; }
+            .section { padding: 80px 0; }
+            .category-products-container h3 { font-size: 1.8em; }
+            .modal-content { padding: 20px; }
+            #cartItemsList li, #billingItemsList li { font-size: 1em; padding: 10px 0; }
+            .remove-item { padding: 3px 8px; font-size: 0.85em; }
+            .cart-total { font-size: 1.2em; }
+            .social-links a { font-size: 28px; margin: 0 12px; }
+            .scroll-to-top { width: 45px; height: 45px; line-height: 45px; font-size: 1.4rem; }
+            #billingModal form { gap: 12px; }
+            #billingModal input[type="text"], #billingModal input[type="email"], #billingModal input[type="tel"], #billingModal textarea { padding: 10px; }
+            .coupon-section input[type="text"], .coupon-section button { padding: 8px; }
+             /* Hero Background Animation Responsive */
+             .hero-background-animation::before { width: 150px; height: 200px; animation-duration: 12s; }
+        }
 
-         /* --- Responsive Adjustments --- */
-         @media (max-width: 1024px) {
-              .section h2 {
-                  font-size: 2.4em;
-              }
-               h2::after { width: 60px; }
-              .hero {
-                  height: 500px;
-              }
-              .hero .container h1 {
-                  font-size: 3em;
-              }
-              .hero .container p {
-                  font-size: 1.2em;
-              }
-               /* Grids adapt */
-              .category-grid,
-              .category-products-grid {
-                 grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-                 gap: 25px;
-             }
-              .product img {
-                  height: 250px;
-              }
-              .product-info {
-                  padding: 12px;
-              }
-              .product-info h3 {
-                  font-size: 1.4em;
-                   margin-bottom: 6px;
-              }
-              .product-info p.product-description {
-                  font-size: 0.9em;
-                  margin-bottom: 12px;
-              }
-               .product-price {
-                  font-size: 1.05em;
-                  margin-bottom: 12px;
-              }
-               .add-to-cart-button, .whatsapp-button {
-                  font-size: 0.95em;
-                  padding: 8px;
-              }
-              .whatsapp-button {
-                  margin-top: 8px;
-              }
-              .section {
-                  padding: 80px 0;
-              }
-              .category-products-container h3 {
-                  font-size: 1.8em;
-              }
-              .modal-content {
-                  padding: 20px;
-              }
-               #cartItemsList li, #billingItemsList li {
-                  font-size: 1em;
-                  padding: 10px 0;
-              }
-               .remove-item {
-                  padding: 3px 8px;
-                  font-size: 0.85em;
-              }
-               .cart-total {
-                  font-size: 1.2em;
-              }
-                .social-links a {
-                    font-size: 28px;
-                    margin: 0 12px;
-                }
-                 .scroll-to-top {
-                    width: 45px; height: 45px; line-height: 45px; font-size: 1.4rem;
-                 }
-              #billingModal form {
-                  gap: 12px;
-              }
-              #billingModal input[type="text"],
-              #billingModal input[type="email"],
-              #billingModal input[type="tel"],
-              #billingModal textarea {
-                   padding: 10px;
-              }
-              .coupon-section input[type="text"],
-              .coupon-section button {
-                   padding: 8px;
-              }
+        @media (max-width: 768px) {
+            .header .container { flex-direction: column; }
+            .header img { margin-bottom: 15px; }
+            .nav { flex-direction: column; align-items: center; width: 100%; }
+            .nav ul { flex-direction: column; align-items: center; width: 100%; margin-bottom: 15px; }
+            .nav li { margin: 10px 0; width: 100%; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px; }
+            .nav li:last-child { border-bottom: none; padding-bottom: 0; }
+            .nav a { display: block; text-align: center; color: var(--text-color-dark); }
+            .nav a::after { content: none; }
+            .nav a:hover, .nav a.active { color: var(--primary-color); transform: none; }
+            .cart-icon-container { margin-left: 0; margin-top: 10px; }
+            .header { padding: 15px 0; }
 
-          }
+            .section { padding: 60px 0; }
+            .section h2 { font-size: 2em; }
+            h2::after { width: 50px; }
+            .hero { height: 400px; }
+            .hero .container h1 { font-size: 2.5em; }
+            .hero .container p { font-size: 1.1em; }
+            .hero-cta-button { padding: 12px 25px; font-size: 1.1em; }
+            .about-contact .container { flex-direction: column; gap: 30px; }
+            .about-contact h2, .about-content h3, .contact-info h3 { text-align: center; }
+            .about-content h3::after, .contact-info h3::after {
+                 content: ''; position: absolute; bottom: 0; left: 50%;
+                 transform: translateX(-50%); height: 2px; width: 40px;
+                 background: var(--primary-color); border-radius: 1px;
+            }
+            .about-contact p, .about-contact address, .contact-info p { font-size: 1em; }
+            .category-grid, .category-products-grid {
+                grid-template-columns: 1fr; /* Stack to 1 column */
+                gap: 30px; /* Adjusted from 20px */
+            }
+            .product:hover {
+                transform: translateY(-5px); /* Simpler hover for mobile */
+                 /* Keep other hover effects if desired, or simplify further */
+                box-shadow: 0 15px 30px rgba(0,0,0,0.7);
+            }
+            .product img { height: 180px; }
+            .product-info { padding: 10px; }
+            .product-info h3 { font-size: 1.3em; margin-bottom: 5px; }
+            .product-info p.product-description { font-size: 0.85em; margin-bottom: 10px; }
+            .product-price { font-size: 1em; margin-bottom: 10px; }
+            .add-to-cart-button, .whatsapp-button { font-size: 0.95em; padding: 8px; }
+            .whatsapp-button { margin-top: 8px; }
+            .social-links a { font-size: 26px; margin: 0 10px; }
+            .footer { padding: 30px 0; }
+            .category-products-container h3 { font-size: 1.6em; }
+            .modal-content { padding: 20px; }
+            #cartItemsList li, #billingItemsList li { font-size: 1em; padding: 10px 0; }
+            .remove-item { padding: 3px 8px; font-size: 0.85em; }
+            .cart-total { font-size: 1.2em; }
+            .scroll-to-top { width: 40px; height: 40px; line-height: 40px; font-size: 1.3rem; bottom: 15px; right: 15px; }
+            #billingModal form { gap: 10px; }
+            #billingModal input[type="text"], #billingModal input[type="email"], #billingModal input[type="tel"], #billingModal textarea { padding: 8px; }
+            .coupon-section { flex-direction: column; gap: 8px; }
+            .coupon-section input[type="text"] { width: 100%; border-radius: 5px; text-align: center; }
+            .coupon-section button { width: 100%; border-radius: 5px; }
+            .payment-info h3 { font-size: 1.4em; }
+            .payment-info p { font-size: 0.95em; }
+            .payment-info img { max-width: 120px; }
+            .payment-instructions { font-size: 0.85em; }
+             /* Hero Background Animation Responsive */
+            .hero-background-animation::before { width: 120px; height: 160px; animation-duration: 10s; }
+        }
 
-         @media (max-width: 768px) {
-              .section {
-                  padding: 60px 0;
-              }
-             .section h2 {
-                 font-size: 2em;
-             }
-              h2::after { width: 50px; }
-              .hero {
-                  height: 400px;
-              }
-              .hero .container h1 {
-                  font-size: 2.5em;
-              }
-              .hero .container p {
-                  font-size: 1.1em;
-              }
-              .hero-cta-button {
-                  padding: 12px 25px;
-                  font-size: 1.1em;
-              }
-              .about-contact .container {
-                  flex-direction: column;
-                  gap: 30px;
-              }
-              .about-contact h2, .about-content h3, .contact-info h3 {
-                  text-align: center;
-              }
-              .about-content h3::after, .contact-info h3::after { /* Add underline to stacked subheadings */
-                   content: ''; position: absolute; bottom: 0; left: 50%;
-                   transform: translateX(-50%); height: 2px; width: 40px;
-                   background: var(--primary-color);
-                   border-radius: 1px;
-              }
+        @media (max-width: 480px) {
+            .section { padding: 40px 0; }
+            .section h2 { font-size: 1.8em; }
+            h2::after { width: 40px; }
+            .hero { height: 350px; }
+            .hero .container h1 { font-size: 2em; }
+            .hero .container p { font-size: 0.95em; }
+            .hero-cta-button { padding: 10px 20px; font-size: 1em; }
+            .about-contact .container { gap: 20px; }
+            .about-contact h3::after, .contact-info h3::after { width: 30px; }
+            .about-contact p, .about-contact address, .contact-info p { font-size: 0.95em; }
+            .category-grid, .category-products-grid { grid-template-columns: 1fr; gap: 15px; } /* Already 1fr, ensure consistency */
+            .product img { height: 160px; }
+            .product-info { padding: 8px; }
+            .product-info h3 { font-size: 1.2em; margin-bottom: 4px; }
+            .product-info p.product-description { font-size: 0.8em; margin-bottom: 8px; }
+            .product-price { font-size: 0.95em; margin-bottom: 8px; }
+            .add-to-cart-button, .whatsapp-button { font-size: 0.9em; padding: 6px; }
+            .whatsapp-button { margin-top: 6px; }
+            .social-links a { font-size: 24px; margin: 0 6px; }
+            .footer { padding: 25px 0; }
+            .category-products-container h3 { font-size: 1.4em; }
+            .modal-content { padding: 15px; }
+            #cartItemsList li, #billingItemsList li { font-size: 0.95em; padding: 8px 0; }
+            .remove-item { padding: 2px 6px; font-size: 0.8em; }
+            .cart-total { font-size: 1.1em; }
+            #billingModal form { gap: 8px; }
+            #billingModal input[type="text"], #billingModal input[type="email"], #billingModal input[type="tel"], #billingModal textarea { padding: 6px; }
+            .coupon-section input[type="text"], .coupon-section button { padding: 6px; }
+            .payment-info h3 { font-size: 1.3em; }
+            .payment-info p { font-size: 0.9em; }
+            .payment-info img { max-width: 100px; }
+            .payment-instructions { font-size: 0.8em; }
+            /* Hero Background Animation Responsive */
+            .hero-background-animation::before { width: 90px; height: 120px; animation-duration: 8s; }
+        }
 
+        /* Accessibility: Highlighting interactive elements on focus */
+        a:focus, button:focus, input:focus, textarea:focus, select:focus, [tabindex]:focus {
+            /* outline: 2px dashed var(--primary-color); */ /* General outline, might be too much with specific ones */
+            /* outline-offset: 3px; */
+            /* border-radius: 3px; */
+        }
+        /* Keep specific focus styles from old CSS, ensure they are not overridden by a generic one if the above is enabled */
+        .nav a:focus, .cart-icon-container:focus, .hero-cta-button:focus,
+        .product img:focus, .add-to-cart-button:focus, .whatsapp-button:focus,
+        .search-container input:focus, .back-to-categories:focus, .back-to-cart:focus, .back-to-billing:focus,
+        #imageModal span:focus, .modal-content .close:focus, .remove-item:focus,
+        .checkout-button:focus, .place-order-button:focus, .coupon-section button:focus,
+        .social-links a:focus, .scroll-to-top:focus,
+        #billingModal input[type="text"]:focus, #billingModal input[type="email"]:focus,
+        #billingModal input[type="tel"]:focus, #billingModal textarea:focus {
+            outline: none; /* Remove default only if custom is fully handling it */
+            /* Custom styles are already defined for these elements in the CSS above */
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-notification" id="cartNotification">
+        Item added to cart! <i class="fas fa-check"></i>
+    </div>
 
-              .about-contact p, .about-contact address, .contact-info p {
-                  font-size: 1em;
-              }
-               /* Grids adapt */
-              .category-grid,
-              .category-products-grid {
-                 grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-                 gap: 20px;
-             }
-              .product img {
-                  height: 180px;
-              }
-              .product-info {
-                  padding: 10px;
-              }
-              .product-info h3 {
-                  font-size: 1.3em;
-                   margin-bottom: 5px;
-              }
-              .product-info p.product-description {
-                  font-size: 0.85em;
-                  margin-bottom: 10px;
-              }
-              .product-price {
-                  font-size: 1em;
-                  margin-bottom: 10px;
-              }
-              .add-to-cart-button, .whatsapp-button {
-                 font-size: 0.95em;
-                 padding: 8px;
-              }
-             .whatsapp-button {
-                  margin-top: 8px;
-             }
-              .social-links a {
-                 font-size: 26px;
-                 margin: 0 10px;
-             }
-              .footer {
-                 padding: 30px 0;
-              }
-              .category-products-container h3 {
-                  font-size: 1.6em;
-              }
-              .modal-content {
-                  padding: 20px;
-              }
-               #cartItemsList li, #billingItemsList li {
-                  font-size: 1em;
-                  padding: 10px 0;
-              }
-               .remove-item {
-                  padding: 3px 8px;
-                  font-size: 0.85em;
-              }
-               .cart-total {
-                  font-size: 1.2em;
-              }
-                 .scroll-to-top {
-                    width: 40px; height: 40px; line-height: 40px; font-size: 1.3rem;
-                    bottom: 15px; right: 15px;
-                 }
-              #billingModal form {
-                  gap: 10px;
-              }
-               #billingModal input[type="text"],
-               #billingModal input[type="email"],
-               #billingModal input[type="tel"],
-               #billingModal textarea {
-                    padding: 8px;
-               }
-              .coupon-section {
-                  flex-direction: column;
-                  gap: 8px;
-              }
-              .coupon-section input[type="text"] {
-                  width: 100%;
-                  border-radius: 5px; /* Full rounded */
-                  text-align: center;
-              }
-              .coupon-section button {
-                  width: 100%;
-                  border-radius: 5px; /* Full rounded */
-              }
-              .payment-info h3 {
-                  font-size: 1.4em;
-              }
-              .payment-info p {
-                  font-size: 0.95em;
-              }
-              .payment-info img {
-                  max-width: 120px;
-              }
-               .payment-instructions {
-                  font-size: 0.85em;
-              }
-          }
+    <header class="header">
+        <div class="container">
+            <img src="GridArt_20250516_180656516.png" alt="J.K Gems Logo">
+            <nav class="nav">
+                <ul>
+                    <li><a href="#about">About J.K Gems</a></li>
+                    <li><a href="#products">Categories</a></li>
+                </ul>
+                <div class="cart-icon-container" id="cartIcon" role="button" tabindex="0" aria-label="Shopping Cart">
+                     <i class="fas fa-shopping-cart"></i>
+                     <span class="cart-count" id="cartCount">0</span>
+                 </div>
+            </nav>
+        </div>
+    </header>
 
-         @media (max-width: 480px) {
-               .section {
-                  padding: 40px 0;
-              }
-              .section h2 {
-                  font-size: 1.8em;
-              }
-               h2::after { width: 40px; }
-              .hero {
-                  height: 350px;
-              }
-              .hero .container h1 {
-                  font-size: 2em;
-              }
-              .hero .container p {
-                  font-size: 0.95em;
-              }
-              .hero-cta-button {
-                  padding: 10px 20px;
-                  font-size: 1em;
-              }
-              .about-contact .container {
-                 gap: 20px;
-              }
-               .about-contact h3::after, .contact-info h3::after { width: 30px; }
-              .about-contact p, .about-contact address, .contact-info p {
-                  font-size: 0.95em;
-              }
-               /* Grids stack to 1 column on smallest screens */
-              .category-grid,
-              .category-products-grid {
-                 grid-template-columns: 1fr;
-                 gap: 15px;
-             }
-              .product img {
-                 height: 160px;
-             }
-              .product-info {
-                  padding: 8px;
-              }
-              .product-info h3 {
-                  font-size: 1.2em;
-                  margin-bottom: 4px;
-              }
-              .product-info p.product-description {
-                  font-size: 0.8em;
-                  margin-bottom: 8px;
-              }
-              .product-price {
-                  font-size: 0.95em;
-                  margin-bottom: 8px;
-              }
-              .add-to-cart-button, .whatsapp-button {
-                 font-size: 0.9em;
-                 padding: 6px;
-              }
-             .whatsapp-button {
-                  margin-top: 6px;
-             }
-              .social-links a {
-                 font-size: 24px;
-                 margin: 0 6px;
-             }
-              .footer {
-                 padding: 25px 0;
-              }
-              .category-products-container h3 {
-                  font-size: 1.4em;
-              }
-               .modal-content {
-                  padding: 15px;
-              }
-               #cartItemsList li, #billingItemsList li {
-                  font-size: 0.95em;
-                  padding: 8px 0;
-              }
-               .remove-item {
-                  padding: 2px 6px;
-                  font-size: 0.8em;
-              }
-               .cart-total {
-                  font-size: 1.1em;
-              }
-              #billingModal form {
-                  gap: 8px;
-              }
-               #billingModal input[type="text"],
-               #billingModal input[type="email"],
-               #billingModal input[type="tel"],
-               #billingModal textarea {
-                    padding: 6px;
-               }
-              .coupon-section input[type="text"],
-              .coupon-section button {
-                   padding: 6px;
-              }
-              .payment-info h3 {
-                  font-size: 1.3em;
-              }
-              .payment-info p {
-                  font-size: 0.9em;
-              }
-               .payment-info img {
-                  max-width: 100px;
-              }
-               .payment-instructions {
-                  font-size: 0.8em;
-              }
-          }
-           /* Accessibility: Highlighting interactive elements on focus */
-           /* Apply a consistent dashed outline to most interactive elements */
-          a:focus,
-          button:focus,
-          input:focus,
-          textarea:focus,
-          select:focus,
-          [tabindex]:focus {
-              outline: 2px dashed var(--primary-color); /* Copper dashed outline */
-              outline-offset: 3px;
-              border-radius: 3px; /* Basic border-radius, specific elements override this */
-          }
+    <section class="hero">
+        <div class="hero-background-animation"></div>
+        <div class="hero-content">
+            <div class="container">
+                <h1 data-aos="fade-up">Exquisite Gemstones & Spiritual Treasures</h1>
+                <p data-aos="fade-up" data-aos-delay="200">Discover perfection in every gem</p>
+                <a href="#products" class="hero-cta-button" data-aos="fade-up" data-aos-delay="400">Explore Collection</a>
+            </div>
+        </div>
+    </section>
 
-           /* Override for elements with custom focus styles defined above */
-           /* This prevents the generic dashed outline from overwriting specific styles */
-           .nav a:focus,
-           .cart-icon-container:focus,
-           .hero-cta-button:focus,
-           .product img:focus,
-           .add-to-cart-button:focus,
-           .whatsapp-button:focus,
-           .search-container input:focus,
-           .back-to-categories:focus,
-           .back-to-cart:focus,
-           .back-to-billing:focus,
-           #imageModal span:focus,
-           .modal-content .close:focus, /* Applies to both cart and billing close */
-           .remove-item:focus,
-           .checkout-button:focus,
-           .place-order-button:focus, /* New place order button */
-           .coupon-section button:focus, /* Coupon button */
-           .social-links a:focus,
-           .scroll-to-top:focus,
-           #billingModal input[type="text"]:focus, /* Explicitly keep custom glow */
-           #billingModal input[type="email"]:focus,
-           #billingModal input[type="tel"]:focus,
-           #billingModal textarea:focus {
-              outline: none; /* Remove default outline */
-              /* Custom focus styles are defined above for these specific elements */
-          }
+    <section id="about" class="section about-contact" data-aos="fade-up">
+        <div class="container">
+            <h2>About J.K Gems</h2>
+            <div class="about-content">
+                <h3>Our Story</h3>
+                <p>J.K Gems is a well-known and trusted firm, serving customers with exquisite gemstones and spiritual products since 1965. Founded on principles of quality, authenticity, and integrity, we have built a reputation as a cornerstone in Junagadh's Soni Bajar.</p>
+                <p>For generations, we have been dedicated to sourcing the finest gemstones and authentic spiritual items, offering expert guidance and personalized service to our valued customers. Our legacy is built on trust, and our commitment to providing genuine products remains unwavering.</p>
+            </div>
+            <div class="contact-info">
+                 <h3>Contact & Location</h3>
+                 <address>
+                    <p><i class="fas fa-map-marker-alt"></i> Jk gems<br>Balakrishna market, Haveli gali<br>Soni bajar, Junagadh<br>Gujarat 362001</p>
+                 </address>
+                 <p><i class="fas fa-phone"></i> +91 9723197899</p>
+                 <p><i class="far fa-clock"></i> Business Hours: 10 am to 3 pm and 4 pm to 9 pm</p>
+                 <p>You can also inquire directly via WhatsApp using the buttons on our product listings below.</p>
+            </div>
+        </div>
+    </section>
 
-     </style>
- </head>
- <body>
-
-     <header class="header">
-         <div class="container">
-             <img src="GridArt_20250516_180656516.png" alt="J.K Gems Logo">
-             <nav class="nav">
-                 <ul>
-                     <li><a href="#about">About J.K Gems</a></li>
-                     <li><a href="#products">Categories</a></li>
-                 </ul>
-                 <div class="cart-icon-container" id="cartIcon" role="button" tabindex="0" aria-label="Shopping Cart">
-                      <i class="fas fa-shopping-cart"></i>
-                      <span class="cart-count" id="cartCount">0</span>
-                  </div>
-             </nav>
-         </div>
-     </header>
-
-     <section class="hero">
-         <div class="hero-background-animation"></div>
-         <div class="hero-content">
-             <div class="container">
-                 <h1>Exquisite Gemstones & Spiritual Treasures</h1>
-                 <p>Discover the perfect blend of beauty, authenticity, and spiritual energy at J.K Gems.</p>
-                 <a href="#products" class="hero-cta-button">Explore Categories</a>
-             </div>
-         </div>
-     </section>
-
-     <section id="about" class="section about-contact">
-         <div class="container">
-             <h2>About J.K Gems</h2>
-             <div class="about-content">
-                 <h3>Our Story</h3>
-                 <p>J.K Gems is a well-known and trusted firm, serving customers with exquisite gemstones and spiritual products since 1965. Founded on principles of quality, authenticity, and integrity, we have built a reputation as a cornerstone in Junagadh's Soni Bajar.</p>
-                 <p>For generations, we have been dedicated to sourcing the finest gemstones and authentic spiritual items, offering expert guidance and personalized service to our valued customers. Our legacy is built on trust, and our commitment to providing genuine products remains unwavering.</p>
+    <section id="products" class="section products" data-aos="fade-up">
+        <div class="container">
+             <h2 id="products-heading">Our Categories</h2>
+             <div class="search-container">
+                 <input type="text" id="searchInput" onkeyup="searchItems()" placeholder="Search Categories or Products...">
              </div>
 
-             <div class="contact-info">
-                  <h3>Contact & Location</h3>
-                  <p><i class="fas fa-map-marker-alt"></i> Jk gems<br>Balakrishna market, Haveli gali<br>Soni bajar, Junagadh<br>Gujarat 362001</p>
-                  <p><i class="fas fa-phone"></i> +91 9723197899</p>
-                  <p><i class="far fa-clock"></i> Business Hours: 10 am to 3 pm and 4 pm to 9 pm</p>
-                  <p>You can also inquire directly via WhatsApp using the buttons on our product listings below.</p>
-             </div>
-         </div>
-     </section>
-
-     <section id="products" class="section products">
-         <div class="container">
-              <h2 id="products-heading">Our Categories</h2>
-              <div class="search-container">
-                  <input type="text" id="searchInput" onkeyup="searchItems()" placeholder="Search Categories or Products...">
-              </div>
-
-             <div class="category-grid" id="categoryGrid">
-                 <div class="product category-card" data-category-target="gemstones" role="button" tabindex="0">
-                     <img src="IMG-20250516-WA0015.jpg" alt="Gem stones Category">
+            <div class="category-grid" id="categoryGrid">
+                <div class="product category-card" data-category-target="gemstones" role="button" tabindex="0" data-aos="zoom-in-up">
+                    <img src="IMG-20250516-WA0015.jpg" alt="Gem stones Category">
+                    <div class="product-info">
+                        <h3>Gemstones</h3>
+                        <p class="product-description">Explore our collection of authentic, high-quality gemstones.</p>
+                    </div>
+                </div>
+                <div class="product category-card" data-category-target="rudraksh" role="button" tabindex="0" data-aos="zoom-in-up" data-aos-delay="100">
+                    <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh Category">
                      <div class="product-info">
-                         <h3>Gemstones</h3>
-                         <p class="product-description">Explore our collection of authentic, high-quality gemstones.</p>
+                        <h3>Rudraksh</h3>
+                        <p class="product-description">Discover genuine Rudraksha beads and items for spiritual well-being.</p>
                      </div>
-                 </div>
-
-                 <div class="product category-card" data-category-target="rudraksh" role="button" tabindex="0">
-                     <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh Category">
-                      <div class="product-info">
-                         <h3>Rudraksh</h3>
-                         <p class="product-description">Discover genuine Rudraksha beads and items for spiritual well-being.</p>
-                      </div>
-                 </div>
-
-                 <div class="product category-card" data-category-target="yantra" role="button" tabindex="0">
-                     <img src="IMG-20250516-WA0001.jpg" alt="Yantra Category">
-                      <div class="product-info">
-                         <h3>Yantra & Spiritual Items</h3>
-                         <p class="product-description">Sacred geometric diagrams, Sphatik items, and other spiritual treasures.</p>
-                      </div>
-                 </div>
-
-                  </div>
-             <div id="gemstones-products-container" class="category-products-container">
-                  <a href="#products" class="back-to-categories" role="button" tabindex="0"><i class="fas fa-arrow-left"></i> Back to Categories</a>
-                  <h3>Gemstones Collection</h3>
-                  <div class="category-products-grid">
-                      <div class="product">
-                          <img src="path/to/your_gemstone_image_1.jpg" alt="Example Gemstone 1" tabindex="0">
-                          <div class="product-info">
-                              <h3>Example Gemstone 1</h3>
-                              <p class="product-description">Brief description of Example Gemstone 1.</p>
-                              <p class="product-price" data-price="5500">₹5500.00</p> <button class="add-to-cart-button"
-                                      data-product-id="gemstone_ex1"
-                                      data-product-name="Example Gemstone 1"
-                                      data-product-price="5500"> Add to Cart
-                              </button>
-                               <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Example%20Gemstone%201.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Example Gemstone 1 on WhatsApp"> <i class="fab fa-whatsapp"></i> Inquire Now</a>
-                          </div>
-                      </div>
-                      <div class="product">
-                          <img src="IMG-20250516-WA0011.jpg" alt="Gemstone Rings" tabindex="0">
-                          <div class="product-info">
-                              <h3>Gemstone Rings</h3>
-                              <p class="product-description">Beautiful rings featuring authentic gemstones for style and astrological benefits.</p>
-                              <p class="product-price" data-price="999">₹999.00</p> <button class="add-to-cart-button"
-                                      data-product-id="gemstone_rings_main"
-                                      data-product-name="Gemstone Rings"
-                                      data-product-price="999"> Add to Cart
-                              </button>
-                               <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gemstone%20Rings.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Gemstone Rings on WhatsApp"> <i class="fab fa-whatsapp"></i> Inquire Now</a>
-                          </div>
-                      </div>
-                       </div>
-             </div>
-
-             <div id="rudraksh-products-container" class="category-products-container">
-                 <a href="#products" class="back-to-categories" role="button" tabindex="0"><i class="fas fa-arrow-left"></i> Back to Categories</a>
-                 <h3>Rudraksh Items</h3>
-                 <div class="category-products-grid">
-                      <div class="product">
-                          <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh Mala" tabindex="0">
-                          <div class="product-info">
-                              <h3>Rudraksh Mala</h3>
-                              <p class="product-description">Genuine Rudraksha beads for spiritual connection and well-being.</p>
-                              <p class="product-price" data-price="599">₹599.00</p> <button class="add-to-cart-button"
-                                      data-product-id="rudraksh_mala_main"
-                                      data-product-name="Rudraksh Mala" data-product-price="599"> Add to Cart
-                              </button>
-                               <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Mala.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Mala on WhatsApp"> <i class="fab fa-whatsapp"></i> Inquire Now</a>
-                          </div>
-                      </div>
-                      <div class="product">
-                          <img src="IMG-20250516-WA0016.jpg" alt="Rudraksh Bracelet" tabindex="0">
-                          <div class="product-info">
-                              <h3>Rudraksh Bracelet</h3>
-                              <p class="product-description">Wear the spiritual energy with authentic Rudraksh bracelets.</p>
-                              <p class="product-price" data-price="5999">₹5999.00</p> <button class="add-to-cart-button"
-                                      data-product-id="rudraksh_bracelet_main"
-                                      data-product-name="Rudraksh Bracelet"
-                                      data-product-price="5999"> Add to Cart
-                              </button>
-                               <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Bracelet.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Bracelet on WhatsApp"> <i class="fab fa-whatsapp"></i> Inquire Now</a>
-                          </div>
-                      </div>
-                       </div>
-             </div>
-
-              <div id="yantra-products-container" class="category-products-container">
-                 <a href="#products" class="back-to-categories" role="button" tabindex="0"><i class="fas fa-arrow-left"></i> Back to Categories</a>
-                 <h3>Yantra & Spiritual Collection</h3>
-                 <div class="category-products-grid">
-                      <div class="product">
-                          <img src="IMG-20250516-WA0001.jpg" alt="Yantra" tabindex="0">
-                          <div class="product-info">
-                              <h3>Yantra</h3>
-                              <p class="product-description">Sacred geometric diagrams for meditation and energy focusing.</p>
-                              <p class="product-price" data-price="999">₹999.00</p> <button class="add-to-cart-button"
-                                      data-product-id="yantra_main"
-                                      data-product-name="Yantra"
-                                      data-product-price="999"> Add to Cart
-                              </button>
-                               <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Yantra on WhatsApp"> <i class="fab fa-whatsapp"></i> Inquire Now</a>
-                          </div>
-                      </div>
-                       <div class="product">
-                          <img src="61Fg6DsA4iL._AC_UF894,1000_QL80_.jpg" alt="Sphatik Shree Yantra" tabindex="0">
-                          <div class="product-info">
-                              <h3>Sphatik Shree Yantra</h3>
-                              <p class="product-description">Clear quartz Shree Yantra for purity, prosperity, and positive energy.</p>
-                               <p class="product-price" data-price="999">₹999.00</p> <button class="add-to-cart-button"
-                                      data-product-id="sphatik_yantra_main"
-                                      data-product-name="Sphatik Shree Yantra"
-                                      data-product-price="999"> Add to Cart
-                              </button>
-                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Sphatik%20Shree%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Sphatik Shree Yantra on WhatsApp"> <i class="fab fa-whatsapp"></i> Inquire Now</a>
-                          </div>
-                      </div>
-                       </div>
-             </div>
-             </div>
-     </section>
-
-     <div id="cartModal" class="modal">
-         <div class="modal-content">
-             <span class="close" id="closeCartModal" role="button" tabindex="0" aria-label="Close Cart">×</span>
-             <h2>Your Cart</h2>
-             <div id="emptyCartMessage">Your cart is empty.</div>
-             <ul id="cartItemsList">
-                 </ul>
-             <div class="cart-total" id="cartTotal"></div>
-             <button class="checkout-button" id="checkoutButton">Proceed to Inquiry</button> </div>
-     </div>
-
-     <div id="billingModal" class="modal">
-          <div class="modal-content">
-               <span class="close" id="closeBillingModal" role="button" tabindex="0" aria-label="Close Order Form">×</span>
-               <h2>Order Inquiry</h2>
-
-               <a href="#" class="back-to-cart" id="backToCartButton" role="button" tabindex="0"><i class="fas fa-arrow-left"></i> Back to Cart</a>
-
-               <h3>Items in Your Inquiry</h3>
-               <ul id="billingItemsList">
-                    </ul>
-
-               <div class="coupon-section">
-                    <input type="text" id="couponCodeInput" placeholder="Enter coupon code">
-                    <button id="applyCouponButton">Apply Coupon</button>
-               </div>
-                <div id="couponMessage" aria-live="polite"></div> <div class="billing-summary">
-                    <p>Subtotal: <span id="subtotal">₹0.00</span></p>
-                     <p>Discount: <span id="discount">₹0.00</span></p>
-                    <p class="final-total">Total: <span id="finalTotal">₹0.00</span></p>
-               </div>
-
-
-               <h3>Your Details</h3>
-                <form id="orderForm" action="https://formsubmit.co/gauravraningagoldjewellery@gmail.com" method="POST">
-                     <input type="hidden" name="_subject" value="New J.K Gems Order Inquiry">
-                     <input type="hidden" name="_template" value="table"> <input type="hidden" name="_next" value="YOUR_SUCCESS_PAGE_URL"> <input type="hidden" name="_autoresponse" value="Thank you for your inquiry to J.K Gems. We have received your request and will contact you shortly to confirm the order details and guide you through the payment process. Your order is a request until payment is confirmed."> <input type="hidden" name="Order Details" id="orderCartDetails">
-                     <input type="hidden" name="Total Amount (After Discount)" id="orderFinalTotal">
-                     <input type="hidden" name="Coupon Applied" id="couponAppliedStatus" value="No">
-
-
-                    <div>
-                         <label for="customerName">Full Name:</label>
-                         <input type="text" id="customerName" name="Name" required>
-                    </div>
-                    <div>
-                         <label for="customerEmail">Email:</label>
-                         <input type="email" id="customerEmail" name="Email" required>
-                    </div>
-                    <div>
-                         <label for="customerPhone">Phone Number:</label>
-                         <input type="tel" id="customerPhone" name="Phone" required>
-                    </div>
-                    <div>
-                         <label for="customerAddress">Shipping Address:</label>
-                         <textarea id="customerAddress" name="Shipping Address" required></textarea>
-                    </div>
-
-                     <div class="payment-info">
-                         <h3>Payment via UPI</h3>
-                         <p>Please send the total amount to the following UPI ID:</p>
-                          <p><strong>gauravraninga23@okhdfcbank</strong></p>
-                          <p>Or scan the QR code:</p>
-                          <img src="IMG-20250517-WA0001.jpg" alt="UPI QR Code">
-                          <p class="payment-instructions">Note: Your submission below is an **Order Inquiry Request**. Your order will only be confirmed **AFTER** successful payment is received via UPI and verified by J.K Gems. We will contact you manually to confirm once payment is done.</p>
+                </div>
+                <div class="product category-card" data-category-target="yantra" role="button" tabindex="0" data-aos="zoom-in-up" data-aos-delay="200">
+                    <img src="IMG-20250516-WA0001.jpg" alt="Yantra Category">
+                     <div class="product-info">
+                        <h3>Yantra & Spiritual Items</h3>
+                        <p class="product-description">Sacred geometric diagrams, Sphatik items, and other spiritual treasures.</p>
                      </div>
+                </div>
+            </div>
 
-                    <button type="submit" class="place-order-button">Place Order Inquiry</button>
-               </form>
-          </div>
-     </div>
-
-
-     <footer class="footer">
-         <div class="container">
-             <div class="social-links">
-                 <a href="https://www.instagram.com/j_k_gems" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                 <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE_ID" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                 <a href="https://youtube.com/@jkgems-td3et?si=Ne4JWKic5aeZfBTa" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-             </div>
-              <p>J.K Gems.</p>
-         </div>
-     </footer>
-
-     <div id="imageModal">
-         <span class="close" role="button" tabindex="0" aria-label="Close image modal">×</span>
-         <img src="" id="modalImage" alt="Enlarged product image">
-     </div>
-
-      <a href="#" class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></a>
-
-
-     <script>
-         // --- Theme Switching Functionality - REMOVED as theme is now permanent ---
-
-         // --- Category/Product View Switching ---
-         const categoryGrid = document.getElementById('categoryGrid');
-         const productContainers = document.querySelectorAll('.category-products-container');
-         const productsHeading = document.getElementById('products-heading');
-         const searchInput = document.getElementById('searchInput');
-         const backButtons = document.querySelectorAll('.back-to-categories');
-
-
-         // Function to show only the category grid
-         function showCategoryGrid() {
-             productsHeading.textContent = 'Our Categories';
-             searchInput.placeholder = 'Search Categories...';
-             searchInput.style.display = 'block';
-             categoryGrid.style.display = 'grid'; // Show the category grid
-             productContainers.forEach(container => {
-                 container.style.display = 'none'; // Hide all product containers
-             });
-
-             // Set search to work on categories
-             searchItems = searchCategories; // Update the global searchItems function reference
-             searchInput.onkeyup = searchItems;
-             searchInput.value = ''; // Clear search input
-             searchItems(); // Apply search filter (will show all categories initially)
-
-             // Smooth scroll to the top of the products section
-             document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
-         }
-
-         // Function to show a specific product container
-         function showProductContainer(categoryId) {
-              const containerId = categoryId + '-products-container';
-              const containerToShow = document.getElementById(containerId);
-
-              if (!containerToShow) {
-                  console.error("Product container not found for category:", categoryId);
-                  showCategoryGrid(); // Fallback to category grid
-                  return;
-              }
-              const categoryName = categoryId.charAt(0).toUpperCase() + categoryId.slice(1);
-              productsHeading.textContent = `${categoryName} Collection`; // Update heading
-              searchInput.placeholder = `Search ${categoryName} products...`; // Update search placeholder
-              searchInput.style.display = 'block';
-
-              categoryGrid.style.display = 'none'; // Hide the category grid
-              productContainers.forEach(container => {
-                  container.style.display = 'none'; // Hide all product containers
-              });
-
-              containerToShow.style.display = 'block'; // Show the selected product container
-
-              // Set search to work on products within this category
-              searchItems = searchProductsInCategory; // Update the global searchItems function reference
-              searchInput.onkeyup = searchItems;
-              searchInput.value = ''; // Clear search input
-              searchItems(); // Apply search filter
-
-              // Smooth scroll to the top of the products section
-              document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
-         }
-
-
-         // --- Updated Search Functionality ---
-         // Search only categories when the category grid is visible
-         function searchCategories() {
-              const input = document.getElementById('searchInput');
-              const filter = input.value.toUpperCase();
-              // Get only the category cards within the visible category grid
-              const categories = categoryGrid.querySelectorAll('.product.category-card');
-
-              categories.forEach(category => {
-                  // Search text in heading and description
-                  const h3 = category.querySelector('h3');
-                  const description = category.querySelector('.product-description');
-                  const textValue = (h3 ? h3.textContent || h3.innerText : '') + ' ' + (description ? description.textContent || description.innerText : '');
-                  if (textValue.toUpperCase().indexOf(filter) > -1) {
-                      category.style.display = ""; // Show
-                  } else {
-                      category.style.display = "none"; // Hide
-                  }
-              });
-         }
-
-         // Search only products within the currently visible category container
-         function searchProductsInCategory() {
-             const input = document.getElementById('searchInput');
-             const filter = input.value.toUpperCase();
-             // Get the currently visible category products grid
-             const visibleProductGrid = document.querySelector('.category-products-container[style*="display: block"] .category-products-grid');
-
-             if (!visibleProductGrid) {
-                  console.warn("No visible product grid found for search.");
-                  return;
-             }
-
-             const products = visibleProductGrid.querySelectorAll('.product');
-
-             products.forEach(product => {
-                  // Search text in heading, description, and price
-                  const h3 = product.querySelector('h3');
-                  const description = product.querySelector('.product-description');
-                  const priceElement = product.querySelector('.product-price');
-                  const textValue = (h3 ? h3.textContent || h3.innerText : '') + ' ' +
-                                    (description ? description.textContent || description.innerText : '') + ' ' +
-                                    (priceElement ? priceElement.textContent || priceElement.innerText : '');
-
-
-                 if (textValue.toUpperCase().indexOf(filter) > -1) {
-                     product.style.display = "";
-                 } else {
-                     product.style.display = "none";
-                 }
-             });
-         }
-
-         // The search function used by the input's onkeyup will be set dynamically
-         let searchItems = searchCategories; // Initial function set on load
-
-
-         // --- Image Modal Functionality ---
-         const modal = document.getElementById('imageModal');
-         const modalImg = document.getElementById('modalImage');
-         const closeImageModalBtn = modal.querySelector('.close'); // Renamed for clarity
-
-
-         // Add click listener to the modal close button
-         closeImageModalBtn.addEventListener('click', function() {
-             modal.style.display = 'none'; // Hide modal
-         });
-         // Add keydown listener for accessibility (Space or Enter)
-         closeImageModalBtn.addEventListener('keydown', function(e) {
-              if (e.key === ' ' || e.key === 'Enter') {
-                   e.preventDefault(); // Prevent default spacebar action or form submission
-                   modal.style.display = 'none'; // Hide modal
-              }
-         });
-
-
-         // Add click listener to the modal background to close
-         modal.addEventListener('click', function(e) {
-             if (e.target === modal) { // Close only if clicking directly on the modal background
-                 modal.style.display = 'none';
-             }
-         });
-
-         // Optional: Close with Escape key
-         document.addEventListener('keydown', function(e) {
-             if (e.key === 'Escape' && modal.style.display === 'flex') {
-                 modal.style.display = 'none';
-             }
-         });
-
-
-         // --- Cart & Billing/Payment Functionality ---
-         const cartIcon = document.getElementById('cartIcon');
-         const cartCountSpan = document.getElementById('cartCount');
-         const cartModal = document.getElementById('cartModal');
-         const closeCartModalBtn = document.getElementById('closeCartModal');
-         const cartItemsList = document.getElementById('cartItemsList');
-         const cartTotalDiv = document.getElementById('cartTotal');
-         const checkoutButton = document.getElementById('checkoutButton'); // This button now opens billing modal
-         const emptyCartMessage = document.getElementById('emptyCartMessage');
-
-         // New Billing Modal Elements
-         const billingModal = document.getElementById('billingModal');
-         const closeBillingModalBtn = document.getElementById('closeBillingModal');
-         const backToCartButton = document.getElementById('backToCartButton');
-         const billingItemsList = document.getElementById('billingItemsList');
-         const couponCodeInput = document.getElementById('couponCodeInput');
-         const applyCouponButton = document.getElementById('applyCouponButton');
-         const couponMessageDiv = document.getElementById('couponMessage');
-         const subtotalSpan = document.getElementById('subtotal');
-         const discountSpan = document.getElementById('discount');
-         const finalTotalSpan = document.getElementById('finalTotal');
-         const orderForm = document.getElementById('orderForm');
-         const orderCartDetailsInput = document.getElementById('orderCartDetails');
-         const orderFinalTotalInput = document.getElementById('orderFinalTotal');
-         const couponAppliedStatusInput = document.getElementById('couponAppliedStatus');
-
-
-         // Load cart from localStorage or initialize empty array
-         let cart = JSON.parse(localStorage.getItem('jk-gems-cart')) || [];
-         let currentSubtotal = 0; // To store the subtotal before discount
-         let currentTotal = 0; // To store the total after discount
-         let couponApplied = false; // To track if a coupon is active
-
-
-         // Function to save cart to localStorage
-         function saveCart() {
-             localStorage.setItem('jk-gems-cart', JSON.stringify(cart));
-         }
-
-         // Function to update cart UI (count and list)
-         function updateCartUI() {
-             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-             cartCountSpan.textContent = totalItems;
-
-             // Hide count if 0
-             cartCountSpan.style.display = totalItems > 0 ? 'block' : 'none';
-
-             // Render cart content only when modal is open or about to open
-              if (cartModal.style.display === 'flex') {
-                  renderCart();
-              }
-              // Don't render billing content here, only when billing modal opens
-         }
-
-         // Function to add item to cart
-         function addToCart(product) {
-             const existingItemIndex = cart.findIndex(item => item.id === product.id);
-
-             if (existingItemIndex > -1) {
-                 // Item already in cart, increase quantity
-                 cart[existingItemIndex].quantity++;
-             } else {
-                 // Item not in cart, add it
-                 cart.push({...product, quantity: 1});
-             }
-
-             saveCart();
-             updateCartUI();
-              console.log(`${product.name} added to cart!`);
-              // Optional: Provide feedback to the user, e.g., a small temporary message
-              // alert(`${product.name} added to cart!`);
-         }
-
-         // Function to remove item from cart
-         function removeFromCart(productId) {
-             cart = cart.filter(item => item.id !== productId);
-             saveCart();
-             updateCartUI();
-              // If billing modal is open, re-render its content
-              if (billingModal.style.display === 'flex') {
-                  renderBillingContent();
-              }
-         }
-
-         // Function to render cart items in the modal
-         function renderCart() {
-             cartItemsList.innerHTML = ''; // Clear current list
-             let total = 0;
-
-             if (cart.length === 0) {
-                 emptyCartMessage.style.display = 'block';
-                 cartTotalDiv.style.display = 'none';
-                 checkoutButton.style.display = 'none'; // Hide checkout if cart is empty
-             } else {
-                 emptyCartMessage.style.display = 'none';
-                 cartTotalDiv.style.display = 'block';
-                 checkoutButton.style.display = 'block'; // Show checkout if cart has items
-
-
-                 cart.forEach(item => {
-                     const listItem = document.createElement('li');
-                     const itemTotal = item.price * item.quantity;
-                     listItem.innerHTML = `
-                         <div class="item-details">
-                             <span class="item-name">${item.name}</span>
-                             <span class="item-quantity"> (x${item.quantity})</span>
-                             <br>
-                             <span class="item-price">₹${itemTotal.toFixed(2)}</span>
+            <div id="gemstones-products-container" class="category-products-container">
+                 <a href="#products" class="back-to-categories" role="button" tabindex="0"><i class="fas fa-arrow-left"></i> Back to Categories</a>
+                 <h3>Gemstones Collection</h3>
+                 <div class="category-products-grid">
+                     <div class="product" data-aos="fade-up">
+                         <img src="path/to/your_gemstone_image_1.jpg" alt="Example Gemstone 1" tabindex="0">
+                         <div class="product-info">
+                             <h3>Example Gemstone 1</h3>
+                             <p class="product-description">Brief description of Example Gemstone 1.</p>
+                             <p class="product-price" data-price="5500">₹5500.00</p>
+                             <button class="add-to-cart-button"
+                                     data-product-id="gemstone_ex1"
+                                     data-product-name="Example Gemstone 1"
+                                     data-product-price="5500"> Add to Cart
+                             </button>
+                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Example%20Gemstone%201.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Example Gemstone 1 on WhatsApp"> <i class="fab fa-whatsapp"></i> Inquire Now</a>
                          </div>
-                         <button class="remove-item" data-product-id="${item.id}" aria-label="Remove ${item.name} from cart" tabindex="0">Remove</button>
-                     `;
-                     cartItemsList.appendChild(listItem);
-                     total += item.price * item.quantity;
-                 });
-
-                 cartTotalDiv.textContent = `Total: ₹${total.toFixed(2)}`;
-             }
-         }
-
-         // Function to render content in the billing modal
-         function renderBillingContent() {
-             billingItemsList.innerHTML = ''; // Clear current list
-             currentSubtotal = 0;
-             couponApplied = false; // Reset coupon status when rendering billing
-
-             if (cart.length === 0) {
-                  // If cart is empty, close billing and show empty cart message in cart modal
-                  closeBillingModal();
-                  openCartModal(); // Or just show the empty cart message directly if cart is already open
-                  return;
-             }
-
-             cart.forEach(item => {
-                 const listItem = document.createElement('li');
-                 const itemTotal = item.price * item.quantity;
-                 listItem.innerHTML = `
-                     <div class="item-details">
-                         <span class="item-name">${item.name}</span>
-                         <span class="item-quantity"> (x${item.quantity})</span>
-                         <br>
-                         <span class="item-price">₹${itemTotal.toFixed(2)}</span>
                      </div>
-                     <button class="remove-item" data-product-id="${item.id}" aria-label="Remove ${item.name} from inquiry" tabindex="0">Remove</button>
-                 `;
-                 billingItemsList.appendChild(listItem);
-                 currentSubtotal += itemTotal;
-             });
+                     <div class="product" data-aos="fade-up" data-aos-delay="100">
+                         <img src="IMG-20250516-WA0011.jpg" alt="Gemstone Rings" tabindex="0">
+                         <div class="product-info">
+                             <h3>Gemstone Rings</h3>
+                             <p class="product-description">Beautiful rings featuring authentic gemstones for style and astrological benefits.</p>
+                             <p class="product-price" data-price="999">₹999.00</p>
+                             <button class="add-to-cart-button"
+                                     data-product-id="gemstone_rings_main"
+                                     data-product-name="Gemstone Rings"
+                                     data-product-price="999"> Add to Cart
+                             </button>
+                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gemstone%20Rings.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Gemstone Rings on WhatsApp"> <i class="fab fa-whatsapp"></i> Inquire Now</a>
+                         </div>
+                     </div>
+                </div>
+            </div>
 
-             // Update summary
-             subtotalSpan.textContent = `₹${currentSubtotal.toFixed(2)}`;
-             discountSpan.textContent = `₹0.00`;
-             finalTotalSpan.textContent = `₹${currentSubtotal.toFixed(2)}`;
-             currentTotal = currentSubtotal; // Initial total is subtotal
+            <div id="rudraksh-products-container" class="category-products-container">
+                <a href="#products" class="back-to-categories" role="button" tabindex="0"><i class="fas fa-arrow-left"></i> Back to Categories</a>
+                <h3>Rudraksh Items</h3>
+                <div class="category-products-grid">
+                     <div class="product" data-aos="fade-up">
+                         <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh Mala" tabindex="0">
+                         <div class="product-info">
+                             <h3>Rudraksh Mala</h3>
+                             <p class="product-description">Genuine Rudraksha beads for spiritual connection and well-being.</p>
+                             <p class="product-price" data-price="599">₹599.00</p>
+                             <button class="add-to-cart-button"
+                                     data-product-id="rudraksh_mala_main"
+                                     data-product-name="Rudraksh Mala" data-product-price="599"> Add to Cart
+                             </button>
+                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Mala.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Mala on WhatsApp"> <i class="fab fa-whatsapp"></i> Inquire Now</a>
+                         </div>
+                     </div>
+                     <div class="product" data-aos="fade-up" data-aos-delay="100">
+                         <img src="IMG-20250516-WA0016.jpg" alt="Rudraksh Bracelet" tabindex="0">
+                         <div class="product-info">
+                             <h3>Rudraksh Bracelet</h3>
+                             <p class="product-description">Wear the spiritual energy with authentic Rudraksh bracelets.</p>
+                             <p class="product-price" data-price="5999">₹5999.00</p>
+                             <button class="add-to-cart-button"
+                                     data-product-id="rudraksh_bracelet_main"
+                                     data-product-name="Rudraksh Bracelet"
+                                     data-product-price="5999"> Add to Cart
+                             </button>
+                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Bracelet.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Bracelet on WhatsApp"> <i class="fab fa-whatsapp"></i> Inquire Now</a>
+                         </div>
+                     </div>
+                </div>
+            </div>
 
-             // Reset coupon input and message
-             couponCodeInput.value = '';
-             couponMessageDiv.textContent = '';
-              couponMessageDiv.className = ''; // Clear classes
+             <div id="yantra-products-container" class="category-products-container">
+                <a href="#products" class="back-to-categories" role="button" tabindex="0"><i class="fas fa-arrow-left"></i> Back to Categories</a>
+                <h3>Yantra & Spiritual Collection</h3>
+                <div class="category-products-grid">
+                     <div class="product" data-aos="fade-up">
+                         <img src="IMG-20250516-WA0001.jpg" alt="Yantra" tabindex="0">
+                         <div class="product-info">
+                             <h3>Yantra</h3>
+                             <p class="product-description">Sacred geometric diagrams for meditation and energy focusing.</p>
+                             <p class="product-price" data-price="999">₹999.00</p>
+                             <button class="add-to-cart-button"
+                                     data-product-id="yantra_main"
+                                     data-product-name="Yantra"
+                                     data-product-price="999"> Add to Cart
+                             </button>
+                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Yantra on WhatsApp"> <i class="fab fa-whatsapp"></i> Inquire Now</a>
+                         </div>
+                     </div>
+                      <div class="product" data-aos="fade-up" data-aos-delay="100">
+                         <img src="61Fg6DsA4iL._AC_UF894,1000_QL80_.jpg" alt="Sphatik Shree Yantra" tabindex="0">
+                         <div class="product-info">
+                             <h3>Sphatik Shree Yantra</h3>
+                             <p class="product-description">Clear quartz Shree Yantra for purity, prosperity, and positive energy.</p>
+                              <p class="product-price" data-price="999">₹999.00</p>
+                             <button class="add-to-cart-button"
+                                     data-product-id="sphatik_yantra_main"
+                                     data-product-name="Sphatik Shree Yantra"
+                                     data-product-price="999"> Add to Cart
+                             </button>
+                             <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Sphatik%20Shree%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Sphatik Shree Yantra on WhatsApp"> <i class="fab fa-whatsapp"></i> Inquire Now</a>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-             // Update hidden form fields
-              updateHiddenOrderDetails();
-         }
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeCartModal" role="button" tabindex="0" aria-label="Close Cart">×</span>
+            <h2>Your Cart</h2>
+            <div id="emptyCartMessage">Your cart is empty.</div>
+            <ul id="cartItemsList"></ul>
+            <div class="cart-total" id="cartTotal"></div>
+            <button class="checkout-button" id="checkoutButton">Proceed to Inquiry</button>
+        </div>
+    </div>
 
-          // Function to apply coupon
-          function applyCoupon() {
-              const couponCode = couponCodeInput.value.trim().toLowerCase();
-              const discountRate = 0.10; // 10%
+    <div id="billingModal" class="modal">
+         <div class="modal-content">
+              <span class="close" id="closeBillingModal" role="button" tabindex="0" aria-label="Close Order Form">×</span>
+              <h2>Order Inquiry</h2>
+              <a href="#" class="back-to-cart" id="backToCartButton" role="button" tabindex="0"><i class="fas fa-arrow-left"></i> Back to Cart</a>
+              <h3>Items in Your Inquiry</h3>
+              <ul id="billingItemsList"></ul>
+              <div class="coupon-section">
+                   <input type="text" id="couponCodeInput" placeholder="Enter coupon code">
+                   <button id="applyCouponButton">Apply Coupon</button>
+              </div>
+               <div id="couponMessage" aria-live="polite"></div>
+               <div class="billing-summary">
+                   <p>Subtotal: <span id="subtotal">₹0.00</span></p>
+                    <p>Discount: <span id="discount">₹0.00</span></p>
+                   <p class="final-total">Total: <span id="finalTotal">₹0.00</span></p>
+              </div>
+              <h3>Your Details</h3>
+               <form id="orderForm" action="https://formsubmit.co/gauravraningagoldjewellery@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New J.K Gems Order Inquiry">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="YOUR_SUCCESS_PAGE_URL"> <input type="hidden" name="_autoresponse" value="Thank you for your inquiry to J.K Gems. We have received your request and will contact you shortly to confirm the order details and guide you through the payment process. Your order is a request until payment is confirmed.">
+                    <input type="hidden" name="Order Details" id="orderCartDetails">
+                    <input type="hidden" name="Total Amount (After Discount)" id="orderFinalTotal">
+                    <input type="hidden" name="Coupon Applied" id="couponAppliedStatus" value="No">
+                   <div>
+                        <label for="customerName">Full Name:</label>
+                        <input type="text" id="customerName" name="Name" required>
+                   </div>
+                   <div>
+                        <label for="customerEmail">Email:</label>
+                        <input type="email" id="customerEmail" name="Email" required>
+                   </div>
+                   <div>
+                        <label for="customerPhone">Phone Number:</label>
+                        <input type="tel" id="customerPhone" name="Phone" required>
+                   </div>
+                   <div>
+                        <label for="customerAddress">Shipping Address:</label>
+                        <textarea id="customerAddress" name="Shipping Address" required></textarea>
+                   </div>
+                    <div class="payment-info">
+                        <h3>Payment via UPI</h3>
+                        <p>Please send the total amount to the following UPI ID:</p>
+                         <p><strong>gauravraninga23@okhdfcbank</strong></p>
+                         <p>Or scan the QR code:</p>
+                         <img src="IMG-20250517-WA0001.jpg" alt="UPI QR Code">
+                         <p class="payment-instructions">Note: Your submission below is an **Order Inquiry Request**. Your order will only be confirmed **AFTER** successful payment is received via UPI and verified by J.K Gems. We will contact you manually to confirm once payment is done.</p>
+                    </div>
+                   <button type="submit" class="place-order-button">Place Order Inquiry</button>
+              </form>
+         </div>
+    </div>
 
-              // Reset message and status
-              couponMessageDiv.textContent = '';
-              couponMessageDiv.className = '';
-              discountSpan.textContent = `₹0.00`;
-              couponApplied = false;
-              couponAppliedStatusInput.value = "No";
+    <footer class="footer" data-aos="fade-up">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.instagram.com/j_k_gems" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE_ID" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://youtube.com/@jkgems-td3et?si=Ne4JWKic5aeZfBTa" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+             <p>&copy; J.K Gems. All Rights Reserved.</p> </div>
+    </footer>
 
-              if (couponCode === "") {
-                  // No code entered, just show the subtotal as total
-                  finalTotalSpan.textContent = `₹${currentSubtotal.toFixed(2)}`;
-                  currentTotal = currentSubtotal;
-                  updateHiddenOrderDetails();
-                  return; // Exit if input is empty
-              }
+    <div id="imageModal">
+        <span class="close" role="button" tabindex="0" aria-label="Close image modal">×</span>
+        <img src="" id="modalImage" alt="Enlarged product image">
+    </div>
 
-              if (couponCode === 'offer10') { // Check for the secret code
-                  const discountAmount = currentSubtotal * discountRate;
-                  currentTotal = currentSubtotal - discountAmount;
+     <a href="#" class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></a>
 
-                  discountSpan.textContent = `- ₹${discountAmount.toFixed(2)}`;
-                  finalTotalSpan.textContent = `₹${currentTotal.toFixed(2)}`;
-                  couponMessageDiv.textContent = 'Coupon "OFFER10" applied successfully!';
-                  couponMessageDiv.classList.add('success');
-                  couponApplied = true;
-                  couponAppliedStatusInput.value = "Yes";
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // --- Category/Product View Switching ---
+        const categoryGrid = document.getElementById('categoryGrid');
+        const productContainers = document.querySelectorAll('.category-products-container');
+        const productsHeading = document.getElementById('products-heading');
+        const searchInput = document.getElementById('searchInput');
 
-              } else {
-                  // Invalid coupon code
-                  finalTotalSpan.textContent = `₹${currentSubtotal.toFixed(2)}`; // Revert to subtotal
-                  currentTotal = currentSubtotal;
-                  couponMessageDiv.textContent = 'Invalid coupon code.';
-                  couponMessageDiv.classList.add('error');
-                  couponApplied = false;
-                  couponAppliedStatusInput.value = "No";
-              }
+        function showCategoryGrid() {
+            productsHeading.textContent = 'Our Categories';
+            searchInput.placeholder = 'Search Categories...';
+            searchInput.style.display = 'block';
+            categoryGrid.style.display = 'grid';
+            productContainers.forEach(container => container.style.display = 'none');
+            searchItems = searchCategories;
+            searchInput.onkeyup = searchItems;
+            searchInput.value = '';
+            searchItems();
+            // document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
 
-              updateHiddenOrderDetails(); // Update hidden fields after applying coupon
-          }
-
-          // Function to update the hidden input field with order details
-          function updateHiddenOrderDetails() {
-              const orderSummary = cart.map(item => {
-                  return `${item.name} (x${item.quantity}) - ₹${(item.price * item.quantity).toFixed(2)}`;
-              }).join(', '); // Format items into a readable string
-
-               let detailsString = `Items: ${orderSummary}. Subtotal: ₹${currentSubtotal.toFixed(2)}.`;
-
-               if (couponApplied) {
-                   const discountAmount = currentSubtotal - currentTotal;
-                   detailsString += ` Discount Applied: ₹${discountAmount.toFixed(2)}.`;
-               }
-
-               detailsString += ` Final Total: ₹${currentTotal.toFixed(2)}.`;
-
-
-              orderCartDetailsInput.value = detailsString;
-              orderFinalTotalInput.value = currentTotal.toFixed(2); // Store final total
-          }
-
-
-         // --- Modal Open/Close Functions ---
-         function openCartModal() {
-             cartModal.style.display = 'flex';
-             renderCart(); // Render cart content every time modal opens
-              // Add focus to the close button for accessibility
-             closeCartModalBtn.focus();
-         }
-
-         function closeCartModal() {
-             cartModal.style.display = 'none';
-         }
-
-          function openBillingModal() {
-              if (cart.length === 0) {
-                  alert("Your cart is empty. Please add items before proceeding with an inquiry.");
-                  // Optionally close cart modal here if needed
-                  // closeCartModal();
-                  return;
-              }
-              closeCartModal(); // Close cart modal before opening billing modal
-              billingModal.style.display = 'flex';
-              renderBillingContent(); // Render billing content
-               // Add focus to the close button for accessibility
-              closeBillingModalBtn.focus();
-          }
-
-          function closeBillingModal() {
-              billingModal.style.display = 'none';
-          }
-
-
-         // --- Event listeners for Modals ---
-
-         // Cart Icon click/keydown
-         cartIcon.addEventListener('click', openCartModal);
-          cartIcon.addEventListener('keydown', function(e) {
-               if (e.key === ' ' || e.key === 'Enter') {
-                    e.preventDefault();
-                    openCartModal();
-               }
-          });
-
-         // Close Cart Modal click/keydown
-         closeCartModalBtn.addEventListener('click', closeCartModal);
-          closeCartModalBtn.addEventListener('keydown', function(e) {
-               if (e.key === ' ' || e.key === 'Enter') {
-                    e.preventDefault();
-                    closeCartModal();
-               }
-          });
-
-         // Close Cart Modal on outside click
-         cartModal.addEventListener('click', function(e) {
-             if (e.target === cartModal) {
-                 closeCartModal();
+        function showProductContainer(categoryId) {
+             const containerId = categoryId + '-products-container';
+             const containerToShow = document.getElementById(containerId);
+             if (!containerToShow) {
+                 showCategoryGrid(); return;
              }
-         });
+             const categoryName = categoryId.charAt(0).toUpperCase() + categoryId.slice(1);
+             productsHeading.textContent = `${categoryName} Collection`;
+             searchInput.placeholder = `Search ${categoryName} products...`;
+             searchInput.style.display = 'block';
+             categoryGrid.style.display = 'none';
+             productContainers.forEach(container => container.style.display = 'none');
+             containerToShow.style.display = 'block';
+             searchItems = searchProductsInCategory;
+             searchInput.onkeyup = searchItems;
+             searchInput.value = '';
+             searchItems();
+            //  document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
 
-         // Checkout button click (now opens Billing Modal)
-         checkoutButton.addEventListener('click', openBillingModal);
-
-
-         // Close Billing Modal click/keydown
-         closeBillingModalBtn.addEventListener('click', closeBillingModal);
-          closeBillingModalBtn.addEventListener('keydown', function(e) {
-               if (e.key === ' ' || e.key === 'Enter') {
-                    e.preventDefault();
-                    closeBillingModal();
-               }
-          });
-
-
-         // Close Billing Modal on outside click
-         billingModal.addEventListener('click', function(e) {
-             if (e.target === billingModal) {
-                 closeBillingModal();
-             }
-         });
-
-         // Back to Cart button in Billing Modal click/keydown
-         backToCartButton.addEventListener('click', function(event) {
-              event.preventDefault(); // Prevent default link behavior
-              closeBillingModal();
-              openCartModal();
-         });
-          backToCartButton.addEventListener('keydown', function(e) {
-               if (e.key === ' ' || e.key === 'Enter') {
-                    e.preventDefault();
-                    closeBillingModal();
-                    openCartModal();
-               }
-          });
-
-
-          // Event listener for "Remove" buttons within *any* modal (using delegation on body)
-          // This handles remove buttons in both cart and billing modals
-          document.body.addEventListener('click', function(event) {
-              const target = event.target;
-              if (target.classList.contains('remove-item')) {
-                  const productId = target.dataset.productId;
-                  if (productId) {
-                      removeFromCart(productId);
-                      // renderCart() and renderBillingContent() are called by removeFromCart if their respective modals are open
-                  }
-              }
-          });
-           // Add keydown listener for remove buttons (Space or Enter) using delegation
-           document.body.addEventListener('keydown', function(event) {
-               const target = event.target;
-               if (target.classList.contains('remove-item') && (event.key === ' ' || event.key === 'Enter')) {
-                    event.preventDefault();
-                   const productId = target.dataset.productId;
-                   if (productId) {
-                       removeFromCart(productId);
-                       // renderCart() and renderBillingContent() are called by removeFromCart
-                   }
-               }
-           });
-
-
-          // Apply Coupon button click/keydown
-          applyCouponButton.addEventListener('click', applyCoupon);
-           applyCouponButton.addEventListener('keydown', function(e) {
-                if (e.key === ' ' || e.key === 'Enter') {
-                     e.preventDefault();
-                     applyCoupon();
-                }
-           });
-           // Allow applying coupon by pressing Enter in the input field
-           couponCodeInput.addEventListener('keypress', function(e) {
-               if (e.key === 'Enter') {
-                    e.preventDefault(); // Prevent form submission if input is inside form
-                    applyCoupon();
-               }
-           });
-
-
-         // Order Form submission (handled by FormSubmit.co)
-         orderForm.addEventListener('submit', function(event) {
-              // FormSubmit will handle the actual submission to the action URL
-              // We just need to make sure the hidden fields are updated before submission
-              updateHiddenOrderDetails(); // Ensure details are current
-
-              // You might want to add client-side validation here if needed
-              // For this example, we rely on the 'required' attributes in HTML
-
-              // Prevent default form submission to test in console if needed, otherwise let FormSubmit handle it
-              // event.preventDefault();
-              console.log("Form submitted!");
-              console.log("Order Details:", orderCartDetailsInput.value);
-              console.log("Final Total:", orderFinalTotalInput.value);
-              console.log("Coupon Applied:", couponAppliedStatusInput.value);
-
-              // Clear the cart after successful submission (optional, depends on flow)
-              // If you clear here, the user won't see the items in the cart if they go back
-              // It might be better to clear the cart *after* the user is redirected to the success page via _next
-              // cart = [];
-              // saveCart();
-              // updateCartUI();
-         });
-
-
-         // Optional: Close any modal with Escape key
-         document.addEventListener('keydown', function(e) {
-             if (e.key === 'Escape') {
-                 if (billingModal.style.display === 'flex') {
-                     closeBillingModal();
-                 } else if (cartModal.style.display === 'flex') {
-                     closeCartModal();
-                 } else if (modal.style.display === 'flex') { // Image modal
-                     modal.style.display = 'none';
-                 }
-             }
-         });
-
-
-         // --- Add Back Button Listeners ---
-         document.querySelectorAll('.back-to-categories').forEach(button => {
-             button.addEventListener('click', function(event) {
-                 event.preventDefault();
-                 showCategoryGrid();
+        function searchCategories() {
+             const filter = searchInput.value.toUpperCase();
+             const categories = categoryGrid.querySelectorAll('.product.category-card');
+             categories.forEach(category => {
+                 const h3 = category.querySelector('h3');
+                 const desc = category.querySelector('.product-description');
+                 const textValue = (h3 ? h3.textContent || h3.innerText : '') + ' ' + (desc ? desc.textContent || desc.innerText : '');
+                 category.style.display = textValue.toUpperCase().indexOf(filter) > -1 ? "" : "none";
              });
-              // Add keydown listener for accessibility
-              button.addEventListener('keydown', function(e) {
-                   if (e.key === ' ' || e.key === 'Enter') {
-                        e.preventDefault();
-                        showCategoryGrid();
-                   }
-               });
-         });
+        }
 
+        function searchProductsInCategory() {
+            const filter = searchInput.value.toUpperCase();
+            const visibleProductGrid = document.querySelector('.category-products-container[style*="display: block"] .category-products-grid');
+            if (!visibleProductGrid) return;
+            const products = visibleProductGrid.querySelectorAll('.product');
+            products.forEach(product => {
+                const h3 = product.querySelector('h3');
+                const desc = product.querySelector('.product-description');
+                const price = product.querySelector('.product-price');
+                const textValue = (h3 ? h3.textContent || h3.innerText : '') + ' ' +
+                                  (desc ? desc.textContent || desc.innerText : '') + ' ' +
+                                  (price ? price.textContent || price.innerText : '');
+                product.style.display = textValue.toUpperCase().indexOf(filter) > -1 ? "" : "none";
+            });
+        }
+        let searchItems = searchCategories;
 
-         // --- Section Scroll Animation (IntersectionObserver) ---
-         // Ensure this runs after the DOM is fully loaded
-         document.addEventListener('DOMContentLoaded', () => {
-             // Exclude modals
-             const sections = document.querySelectorAll('section:not(.modal)'); // Use .modal class
+        // --- Image Modal ---
+        const imageModal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeImageModalBtn = imageModal.querySelector('.close');
+        closeImageModalBtn.addEventListener('click', () => imageModal.style.display = 'none');
+        closeImageModalBtn.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); imageModal.style.display = 'none'; }});
+        imageModal.addEventListener('click', e => { if (e.target === imageModal) imageModal.style.display = 'none'; });
 
-             const observerOptions = {
-                 root: null, // viewport as the root
-                 rootMargin: '0px',
-                 threshold: 0.1 // 10% of the section must be visible
-             };
+        // --- Cart & Billing ---
+        const cartIcon = document.getElementById('cartIcon');
+        const cartCountSpan = document.getElementById('cartCount');
+        const cartModal = document.getElementById('cartModal');
+        const closeCartModalBtn = document.getElementById('closeCartModal');
+        const cartItemsList = document.getElementById('cartItemsList');
+        const cartTotalDiv = document.getElementById('cartTotal');
+        const checkoutButton = document.getElementById('checkoutButton');
+        const emptyCartMessage = document.getElementById('emptyCartMessage');
+        const billingModal = document.getElementById('billingModal');
+        const closeBillingModalBtn = document.getElementById('closeBillingModal');
+        const backToCartButton = document.getElementById('backToCartButton');
+        const billingItemsList = document.getElementById('billingItemsList');
+        const couponCodeInput = document.getElementById('couponCodeInput');
+        const applyCouponButton = document.getElementById('applyCouponButton');
+        const couponMessageDiv = document.getElementById('couponMessage');
+        const subtotalSpan = document.getElementById('subtotal');
+        const discountSpan = document.getElementById('discount');
+        const finalTotalSpan = document.getElementById('finalTotal');
+        const orderForm = document.getElementById('orderForm');
+        const orderCartDetailsInput = document.getElementById('orderCartDetails');
+        const orderFinalTotalInput = document.getElementById('orderFinalTotal');
+        const couponAppliedStatusInput = document.getElementById('couponAppliedStatus');
 
-             const observer = new IntersectionObserver((entries, observer) => {
-                 entries.forEach(entry => {
-                     if (entry.isIntersecting) {
-                         entry.target.classList.add('is-visible');
-                         // Optional: Stop observing once it's visible
-                         // observer.unobserve(entry.target);
-                     } else {
-                          // Optional: Remove class when it goes out of view for re-animation on scroll back up
-                          // entry.target.classList.remove('is-visible');
-                     }
-                 });
-             }, observerOptions);
+        let cart = JSON.parse(localStorage.getItem('jk-gems-cart')) || [];
+        let currentSubtotal = 0;
+        let currentTotal = 0;
+        let couponApplied = false;
 
-             sections.forEach(section => {
-                 observer.observe(section);
-             });
-         });
-          // --- End Section Scroll Animation ---
+        function saveCart() { localStorage.setItem('jk-gems-cart', JSON.stringify(cart)); }
 
+        function updateCartUI() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCountSpan.textContent = totalItems;
+            cartCountSpan.style.display = totalItems > 0 ? 'block' : 'none';
+            if (cartModal.style.display === 'flex') renderCart();
+        }
 
-          // --- Scroll to Top Button Logic ---
-          const scrollToTopButton = document.querySelector('.scroll-to-top');
+        // Enhanced Add to Cart Functionality (from new code)
+        function addToCart(product) {
+            const existingItemIndex = cart.findIndex(item => item.id === product.id);
+            if (existingItemIndex > -1) {
+                cart[existingItemIndex].quantity++;
+            } else {
+                cart.push({...product, quantity: 1});
+            }
 
-          if (scrollToTopButton) {
-               window.addEventListener('scroll', () => {
-                   // Show button after scrolling down a bit (e.g., 200px from the top)
-                   if (window.scrollY > 200) {
-                       scrollToTopButton.classList.add('visible');
-                   } else {
-                       scrollToTopButton.classList.remove('visible');
-                   }
-               });
+            const notification = document.getElementById('cartNotification');
+            notification.classList.add('show');
+            setTimeout(() => notification.classList.remove('show'), 2000);
 
-               scrollToTopButton.addEventListener('click', (e) => {
-                   e.preventDefault();
-                   window.scrollTo({
-                       top: 0,
-                       behavior: 'smooth'
-                   });
-               });
+            saveCart();
+            updateCartUI();
+            console.log(`${product.name} added to cart!`);
+        }
 
-                // Add keydown listener for accessibility (Space or Enter)
-                scrollToTopButton.addEventListener('keydown', function(e) {
-                    if (e.key === ' ' || e.key === 'Enter') {
-                        e.preventDefault();
-                        window.scrollTo({
-                            top: 0,
-                            behavior: 'smooth'
-                        });
-                    }
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            saveCart();
+            updateCartUI();
+            if (billingModal.style.display === 'flex') renderBillingContent();
+        }
+
+        function renderCart() {
+            cartItemsList.innerHTML = '';
+            let total = 0;
+            if (cart.length === 0) {
+                emptyCartMessage.style.display = 'block';
+                cartTotalDiv.style.display = 'none';
+                checkoutButton.style.display = 'none';
+            } else {
+                emptyCartMessage.style.display = 'none';
+                cartTotalDiv.style.display = 'block';
+                checkoutButton.style.display = 'block';
+                cart.forEach(item => {
+                    const listItem = document.createElement('li');
+                    const itemTotal = item.price * item.quantity;
+                    listItem.innerHTML = `
+                        <div class="item-details">
+                            <span class="item-name">${item.name}</span>
+                            <span class="item-quantity"> (x${item.quantity})</span><br>
+                            <span class="item-price">₹${itemTotal.toFixed(2)}</span>
+                        </div>
+                        <button class="remove-item" data-product-id="${item.id}" aria-label="Remove ${item.name} from cart" tabindex="0">Remove</button>`;
+                    cartItemsList.appendChild(listItem);
+                    total += item.price * item.quantity;
                 });
-          }
-          // --- End Scroll to Top Button Logic ---
+                cartTotalDiv.textContent = `Total: ₹${total.toFixed(2)}`;
+            }
+        }
 
+        function renderBillingContent() {
+            billingItemsList.innerHTML = '';
+            currentSubtotal = 0;
+            couponApplied = false;
+            if (cart.length === 0) {
+                closeBillingModal(); openCartModal(); return;
+            }
+            cart.forEach(item => {
+                const listItem = document.createElement('li');
+                const itemTotal = item.price * item.quantity;
+                listItem.innerHTML = `
+                    <div class="item-details">
+                        <span class="item-name">${item.name}</span>
+                        <span class="item-quantity"> (x${item.quantity})</span><br>
+                        <span class="item-price">₹${itemTotal.toFixed(2)}</span>
+                    </div>
+                    <button class="remove-item" data-product-id="${item.id}" aria-label="Remove ${item.name} from inquiry" tabindex="0">Remove</button>`;
+                billingItemsList.appendChild(listItem);
+                currentSubtotal += itemTotal;
+            });
+            subtotalSpan.textContent = `₹${currentSubtotal.toFixed(2)}`;
+            discountSpan.textContent = `₹0.00`;
+            finalTotalSpan.textContent = `₹${currentSubtotal.toFixed(2)}`;
+            currentTotal = currentSubtotal;
+            couponCodeInput.value = '';
+            couponMessageDiv.textContent = '';
+            couponMessageDiv.className = '';
+            updateHiddenOrderDetails();
+        }
 
-         // Initializers
-         document.addEventListener('DOMContentLoaded', () => {
-             showCategoryGrid(); // Make sure categories are shown initially
-             updateCartUI(); // Load and display initial cart state (updates count)
-              // Add delegation for image clicks on product images
-              document.getElementById('products').addEventListener('click', handleProductSectionClick);
-              document.getElementById('products').addEventListener('keydown', handleProductSectionKeydown);
-         });
+        function applyCoupon() {
+            const couponCode = couponCodeInput.value.trim().toLowerCase();
+            const discountRate = 0.10;
+            couponMessageDiv.textContent = ''; couponMessageDiv.className = '';
+            discountSpan.textContent = `₹0.00`; couponApplied = false; couponAppliedStatusInput.value = "No";
 
-          // Centralized click handler for #products section
-          function handleProductSectionClick(event) {
-              const target = event.target;
+            if (couponCode === "") {
+                finalTotalSpan.textContent = `₹${currentSubtotal.toFixed(2)}`;
+                currentTotal = currentSubtotal; updateHiddenOrderDetails(); return;
+            }
+            if (couponCode === 'offer10') {
+                const discountAmount = currentSubtotal * discountRate;
+                currentTotal = currentSubtotal - discountAmount;
+                discountSpan.textContent = `- ₹${discountAmount.toFixed(2)}`;
+                finalTotalSpan.textContent = `₹${currentTotal.toFixed(2)}`;
+                couponMessageDiv.textContent = 'Coupon "OFFER10" applied successfully!';
+                couponMessageDiv.classList.add('success'); couponApplied = true; couponAppliedStatusInput.value = "Yes";
+            } else {
+                finalTotalSpan.textContent = `₹${currentSubtotal.toFixed(2)}`;
+                currentTotal = currentSubtotal;
+                couponMessageDiv.textContent = 'Invalid coupon code.';
+                couponMessageDiv.classList.add('error'); couponApplied = false; couponAppliedStatusInput.value = "No";
+            }
+            updateHiddenOrderDetails();
+        }
 
-              // --- Handle Clicks on Category Cards ---
-              const categoryCard = target.closest('.product.category-card');
-              if (categoryCard && !categoryCard.classList.contains('product-item')) { // Ensure it's a category card
-                  const categoryId = categoryCard.dataset.categoryTarget;
-                  if (categoryId) {
-                      showProductContainer(categoryId);
-                      return;
-                  }
-              }
+        function updateHiddenOrderDetails() {
+            const orderSummary = cart.map(item => `${item.name} (x${item.quantity}) - ₹${(item.price * item.quantity).toFixed(2)}`).join(', ');
+            let detailsString = `Items: ${orderSummary}. Subtotal: ₹${currentSubtotal.toFixed(2)}.`;
+            if (couponApplied) {
+                const discountAmount = currentSubtotal - currentTotal;
+                detailsString += ` Discount Applied: ₹${discountAmount.toFixed(2)}.`;
+            }
+            detailsString += ` Final Total: ₹${currentTotal.toFixed(2)}.`;
+            orderCartDetailsInput.value = detailsString;
+            orderFinalTotalInput.value = currentTotal.toFixed(2);
+        }
 
-              // --- Handle Clicks on "Add to Cart" Buttons ---
-              if (target.classList.contains('add-to-cart-button')) {
-                  const productElement = target.closest('.product');
-                  if (productElement) {
-                      const product = {
-                          id: target.dataset.productId,
-                          name: target.dataset.productName,
-                          price: parseFloat(target.dataset.productPrice) // Ensure price is a number
-                      };
-                      if (product.id && product.name && !isNaN(product.price)) {
-                           addToCart(product);
-                      } else {
-                           console.error("Missing or invalid product data for Add to Cart:", product);
-                           alert("Could not add item to cart. Missing product details.");
-                       }
-                  }
-                  return;
-              }
+        function openCartModal() { cartModal.style.display = 'flex'; renderCart(); closeCartModalBtn.focus(); }
+        function closeCartModal() { cartModal.style.display = 'none'; }
+        function openBillingModal() {
+            if (cart.length === 0) { alert("Your cart is empty."); return; }
+            closeCartModal(); billingModal.style.display = 'flex'; renderBillingContent(); closeBillingModalBtn.focus();
+        }
+        function closeBillingModal() { billingModal.style.display = 'none'; }
 
-              // --- Handle Clicks on Product Images for Modal ---
-              // Check if the clicked element is an IMG inside a .product card within a products grid (not category card)
-              if (target.tagName === 'IMG' && target.closest('.category-products-grid .product')) {
-                   modal.style.display = 'flex'; // Open image modal
-                   modalImg.src = target.src;
-                   modalImg.alt = target.alt;
-                   // Add focus to the close button for accessibility
-                   modal.querySelector('.close').focus();
-              }
-          }
+        cartIcon.addEventListener('click', openCartModal);
+        cartIcon.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); openCartModal(); }});
+        closeCartModalBtn.addEventListener('click', closeCartModal);
+        closeCartModalBtn.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); closeCartModal(); }});
+        cartModal.addEventListener('click', e => { if (e.target === cartModal) closeCartModal(); });
+        checkoutButton.addEventListener('click', openBillingModal);
+        closeBillingModalBtn.addEventListener('click', closeBillingModal);
+        closeBillingModalBtn.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); closeBillingModal(); }});
+        billingModal.addEventListener('click', e => { if (e.target === billingModal) closeBillingModal(); });
+        backToCartButton.addEventListener('click', e => { e.preventDefault(); closeBillingModal(); openCartModal(); });
+        backToCartButton.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); closeBillingModal(); openCartModal(); }});
+        document.body.addEventListener('click', e => {
+            if (e.target.classList.contains('remove-item')) {
+                const productId = e.target.dataset.productId;
+                if (productId) removeFromCart(productId);
+            }
+        });
+        document.body.addEventListener('keydown', e => {
+            if (e.target.classList.contains('remove-item') && (e.key === ' ' || e.key === 'Enter')) {
+                e.preventDefault(); const productId = e.target.dataset.productId;
+                if (productId) removeFromCart(productId);
+            }
+        });
+        applyCouponButton.addEventListener('click', applyCoupon);
+        applyCouponButton.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); applyCoupon(); }});
+        couponCodeInput.addEventListener('keypress', e => { if (e.key === 'Enter') { e.preventDefault(); applyCoupon(); }});
+        orderForm.addEventListener('submit', () => {
+            updateHiddenOrderDetails();
+            console.log("Form submitted with details:", orderCartDetailsInput.value, "Total:", orderFinalTotalInput.value);
+            // Cart clearing logic might be better on the success page via _next parameter of FormSubmit
+        });
 
-          // Centralized keydown handler for #products section (for accessibility)
-          function handleProductSectionKeydown(event) {
-               const target = event.target;
-                // Handle keydown on Category Cards (Space or Enter)
-                const categoryCard = target.closest('.product.category-card');
-               if (categoryCard && !categoryCard.classList.contains('product-item') && (event.key === ' ' || event.key === 'Enter')) {
-                    event.preventDefault();
-                    const categoryId = categoryCard.dataset.categoryTarget;
-                    if (categoryId) {
-                        showProductContainer(categoryId);
-                    }
-               }
-                // Add keydown for add-to-cart buttons too if needed, but Space/Enter often works by default on buttons
-           }
+        document.querySelectorAll('.back-to-categories').forEach(button => {
+            button.addEventListener('click', e => { e.preventDefault(); showCategoryGrid(); });
+            button.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); showCategoryGrid(); }});
+        });
 
+        // --- Scroll to Top Button ---
+        const scrollToTopButton = document.querySelector('.scroll-to-top');
+        if (scrollToTopButton) {
+            window.addEventListener('scroll', () => {
+                scrollToTopButton.classList.toggle('visible', window.scrollY > 200);
+            });
+            scrollToTopButton.addEventListener('click', e => {
+                e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            scrollToTopButton.addEventListener('keydown', e => {
+                if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' });}
+            });
+        }
 
-         // Ensure smooth scrolling for header navigation links
-          document.querySelectorAll('nav ul li a[href^="#"]').forEach(anchor => {
-              anchor.addEventListener('click', function (e) {
-                  e.preventDefault();
+        // --- Smooth scroll for nav links ---
+        document.querySelectorAll('nav ul li a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if (targetElement) {
+                    const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                }
+            });
+        });
 
-                  const targetId = this.getAttribute('href');
-                  const targetElement = document.querySelector(targetId);
+        // Initialize Floating Particles (from new code)
+        function createGemParticles() {
+            const particlesContainer = document.createElement('div');
+            particlesContainer.style.position = 'fixed';
+            particlesContainer.style.top = '0';
+            particlesContainer.style.left = '0';
+            particlesContainer.style.width = '100%';
+            particlesContainer.style.height = '100%';
+            particlesContainer.style.pointerEvents = 'none';
+            particlesContainer.style.zIndex = '-1'; // Behind all content
 
-                  if (targetElement) {
-                      // const headerHeight = document.querySelector('.header').offsetHeight; // Get dynamic header height
-                      const elementPosition = targetElement.getBoundingClientRect().top;
-                      // Removed offsetHeight subtraction to scroll directly to the section top
-                      const offsetPosition = elementPosition + window.scrollY;
+            for (let i = 0; i < 8; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'gem-particle';
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 4}s`;
+                particle.style.width = `${Math.random() * 10 + 5}px`;
+                particle.style.height = particle.style.width;
+                particlesContainer.appendChild(particle);
+            }
+            document.body.insertBefore(particlesContainer, document.body.firstChild); // Insert before other body elements
+        }
 
+        // --- DOMContentLoaded Initializer ---
+        document.addEventListener('DOMContentLoaded', () => {
+            createGemParticles(); // New
+            AOS.init({ // New
+                duration: 800,
+                once: true, // Animate elements only once
+                easing: 'ease-out-quart',
+                // offset: 50, // Adjust offset if needed
+                // delay: 50, // Global delay
+            });
 
-                      window.scrollTo({
-                          top: offsetPosition,
-                          behavior: 'smooth'
-                      });
-                  }
-              });
-          });
+            showCategoryGrid();
+            updateCartUI();
+            document.getElementById('products').addEventListener('click', handleProductSectionClick);
+            document.getElementById('products').addEventListener('keydown', handleProductSectionKeydown);
 
+            // Section Scroll Animation (using IntersectionObserver from old code, though AOS also does this)
+            // If using AOS for all scroll animations, this custom observer might be redundant for 'is-visible' class
+            // However, AOS adds its own classes like 'aos-animate'. This custom one adds 'is-visible'.
+            // For simplicity, if AOS handles all desired scroll animations, this can be removed.
+            // If specific 'is-visible' class styling is needed, keep it.
+            // const sections = document.querySelectorAll('section:not(.modal)');
+            // const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+            // const observer = new IntersectionObserver((entries) => {
+            //     entries.forEach(entry => {
+            //         entry.target.classList.toggle('is-visible', entry.isIntersecting);
+            //     });
+            // }, observerOptions);
+            // sections.forEach(section => observer.observe(section));
+        });
 
-     </script>
+        function handleProductSectionClick(event) {
+            const target = event.target;
+            const categoryCard = target.closest('.product.category-card:not(.product-item)');
+            if (categoryCard) {
+                const categoryId = categoryCard.dataset.categoryTarget;
+                if (categoryId) showProductContainer(categoryId); return;
+            }
+            if (target.classList.contains('add-to-cart-button')) {
+                const product = {
+                    id: target.dataset.productId, name: target.dataset.productName,
+                    price: parseFloat(target.dataset.productPrice)
+                };
+                if (product.id && product.name && !isNaN(product.price)) addToCart(product);
+                else console.error("Missing product data for Add to Cart:", product);
+                return;
+            }
+            if (target.tagName === 'IMG' && target.closest('.category-products-grid .product')) {
+                imageModal.style.display = 'flex'; modalImg.src = target.src; modalImg.alt = target.alt;
+                imageModal.querySelector('.close').focus();
+            }
+        }
 
- </body>
- </html>
+        function handleProductSectionKeydown(event) {
+            const target = event.target;
+            const categoryCard = target.closest('.product.category-card:not(.product-item)');
+            if (categoryCard && (event.key === ' ' || event.key === 'Enter')) {
+                event.preventDefault(); const categoryId = categoryCard.dataset.categoryTarget;
+                if (categoryId) showProductContainer(categoryId);
+            }
+            // Keydown for add-to-cart handled by default button behavior for Space/Enter
+            // Keydown for image zoom can be added if needed (e.g., Enter on image)
+        }
+
+        // Escape key to close modals
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (billingModal.style.display === 'flex') closeBillingModal();
+                else if (cartModal.style.display === 'flex') closeCartModal();
+                else if (imageModal.style.display === 'flex') imageModal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
