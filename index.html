@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>J.K Gems - Exquisite Gemstones & Spiritual Items</title>
+    <title data-translate="pageTitle">J.K Gems - Exquisite Gemstones & Spiritual Items</title>
     <meta name="description" content="Explore exquisite gemstones, Rudraksha, and spiritual items from J.K Gems, a trusted firm serving Junagadh since 1965.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -778,11 +778,74 @@
             outline: none; /* Remove default only if custom is fully handling it */
             /* Custom styles are already defined for these elements in the CSS above */
         }
+
+        /* Language Modal Styles */
+        #languageModal {
+            display: flex;
+            position: fixed;
+            z-index: 10001; /* Higher than other modals */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #languageModal .modal-content {
+            background-color: var(--surface-color);
+            padding: 40px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: var(--shadow-deep);
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        #languageModal h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        #languageModal .language-options button {
+            display: block;
+            width: 80%;
+            padding: 15px 20px;
+            margin: 15px auto;
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        #languageModal .language-options button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
     </style>
 </head>
 <body>
     <div class="cart-notification" id="cartNotification">
-        Item added to inquiry list! <i class="fas fa-check"></i>
+        <span data-translate="itemAdded">Item added to inquiry list!</span> <i class="fas fa-check"></i>
+    </div>
+
+    <div id="languageModal" class="modal">
+        <div class="modal-content">
+            <h2 data-translate="chooseLanguageTitle">Choose Your Language</h2>
+            <div class="language-options">
+                <button data-lang="en">English</button>
+                <button data-lang="hi">हिंदी (Hindi)</button>
+                <button data-lang="gu">ગુજરાતી (Gujarati)</button>
+            </div>
+        </div>
     </div>
 
     <header class="header">
@@ -790,8 +853,8 @@
             <img src="GridArt_20250516_180656516.png" alt="J.K Gems Logo">
             <nav class="nav">
                 <ul>
-                    <li><a href="#about">About J.K Gems</a></li>
-                    <li><a href="#products">Categories</a></li>
+                    <li><a href="#about" data-translate="navAbout">About J.K Gems</a></li>
+                    <li><a href="#products" data-translate="navCategories">Categories</a></li>
                 </ul>
                 <div class="cart-icon-container" id="cartIcon" role="button" tabindex="0" aria-label="Inquiry List">
                      <i class="fas fa-shopping-cart"></i>
@@ -805,171 +868,178 @@
         <div class="hero-background-animation"></div>
         <div class="hero-content">
             <div class="container">
-                <h1 data-aos="fade-up">Exquisite Gemstones & Spiritual Treasures</h1>
-                <p data-aos="fade-up" data-aos-delay="200">Discover perfection in every gem</p>
-                <a href="#products" class="hero-cta-button" data-aos="fade-up" data-aos-delay="400">Explore Collection</a>
+                <h1 data-aos="fade-up" data-translate="heroTitle">Exquisite Gemstones & Spiritual Treasures</h1>
+                <p data-aos="fade-up" data-aos-delay="200" data-translate="heroSubtitle">Discover perfection in every gem</p>
+                <a href="#products" class="hero-cta-button" data-aos="fade-up" data-aos-delay="400" data-translate="exploreCollectionBtn">Explore Collection</a>
             </div>
         </div>
     </section>
 
     <section id="about" class="section about-contact" data-aos="fade-up">
         <div class="container">
-            <h2>About J.K Gems</h2>
+            <h2 data-translate="aboutUsTitle">About J.K Gems</h2>
             <div class="about-content">
-                <h3>Our Story</h3>
-                <p>J.K Gems is a well-known and trusted firm, serving customers with exquisite gemstones and spiritual products since 1965. Founded on principles of quality, authenticity, and integrity, we have built a reputation as a cornerstone in Junagadh's Soni Bajar.</p>
-                <p>For generations, we have been dedicated to sourcing the finest gemstones and authentic spiritual items, offering expert guidance and personalized service to our valued customers. Our legacy is built on trust, and our commitment to providing genuine products remains unwavering.</p>
+                <h3 data-translate="ourStoryTitle">Our Story</h3>
+                <p data-translate="ourStoryPara1">J.K Gems is a well-known and trusted firm, serving customers with exquisite gemstones and spiritual products since 1965. Founded on principles of quality, authenticity, and integrity, we have built a reputation as a cornerstone in Junagadh's Soni Bajar.</p>
+                <p data-translate="ourStoryPara2">For generations, we have been dedicated to sourcing the finest gemstones and authentic spiritual items, offering expert guidance and personalized service to our valued customers. Our legacy is built on trust, and our commitment to providing genuine products remains unwavering.</p>
             </div>
             <div class="contact-info">
-                 <h3>Contact & Location</h3>
+                 <h3 data-translate="contactLocationTitle">Contact & Location</h3>
                  <address>
-                    <p><i class="fas fa-map-marker-alt"></i> Jk gems<br>Balakrishna market, Haveli gali<br>Soni bajar, Junagadh<br>Gujarat 362001</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jk gems<br><span data-translate="addressLine1">Balakrishna market, Haveli gali</span><br><span data-translate="addressLine2">Soni bajar, Junagadh</span><br><span data-translate="addressLine3">Gujarat 362001</span></p>
                  </address>
                  <p><i class="fas fa-phone"></i> +91 9723197899</p>
-                 <p><i class="far fa-clock"></i> Business Hours: 10 am to 3 pm and 4 pm to 9 pm</p>
-                 <p>You can also inquire directly via WhatsApp using the buttons on our product listings below.</p>
+                 <p data-translate="businessHours"><i class="far fa-clock"></i> Business Hours: 10 am to 3 pm and 4 pm to 9 pm</p>
+                 <p data-translate="whatsappInquiryPrompt">You can also inquire directly via WhatsApp using the buttons on our product listings below.</p>
             </div>
         </div>
     </section>
 
     <section id="products" class="section products" data-aos="fade-up">
         <div class="container">
-             <h2 id="products-heading">Our Categories</h2>
+             <h2 id="products-heading" data-translate="ourCategoriesTitle">Our Categories</h2>
              <div class="search-container">
-                 <input type="text" id="searchInput" onkeyup="searchItems()" placeholder="Search Categories or Products...">
+                 <input type="text" id="searchInput" onkeyup="searchItems()" placeholder="Search Categories or Products..." data-translate="searchPlaceholderCategory">
              </div>
 
             <div class="category-grid" id="categoryGrid">
                 <div class="product category-card" data-category-target="gemstones" role="button" tabindex="0" data-aos="zoom-in-up">
                     <img src="IMG-20250516-WA0015.jpg" alt="Gem stones Category">
                     <div class="product-info">
-                        <h3>Gemstones</h3>
-                        <p class="product-description">Explore our collection of authentic, high-quality gemstones.</p>
+                        <h3 data-translate="categoryGemstonesTitle">Gemstones</h3>
+                        <p class="product-description" data-translate="categoryGemstonesDesc">Explore our collection of authentic, high-quality gemstones.</p>
                     </div>
                 </div>
                 <div class="product category-card" data-category-target="rudraksh" role="button" tabindex="0" data-aos="zoom-in-up" data-aos-delay="100">
                     <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh Category">
                      <div class="product-info">
-                        <h3>Rudraksh</h3>
-                        <p class="product-description">Discover genuine Rudraksha beads and items for spiritual well-being.</p>
+                        <h3 data-translate="categoryRudrakshTitle">Rudraksh</h3>
+                        <p class="product-description" data-translate="categoryRudrakshDesc">Discover genuine Rudraksha beads and items for spiritual well-being.</p>
                      </div>
                 </div>
                 <div class="product category-card" data-category-target="yantra" role="button" tabindex="0" data-aos="zoom-in-up" data-aos-delay="200">
                     <img src="IMG-20250516-WA0001.jpg" alt="Yantra Category">
                      <div class="product-info">
-                        <h3>Yantra & Spiritual Items</h3>
-                        <p class="product-description">Sacred geometric diagrams, Sphatik items, and other spiritual treasures.</p>
+                        <h3 data-translate="categoryYantraTitle">Yantra & Spiritual Items</h3>
+                        <p class="product-description" data-translate="categoryYantraDesc">Sacred geometric diagrams, Sphatik items, and other spiritual treasures.</p>
                      </div>
                 </div>
             </div>
 
             <div id="gemstones-products-container" class="category-products-container">
-                 <a href="#products" class="back-to-categories" role="button" tabindex="0"><i class="fas fa-arrow-left"></i> Back to Categories</a>
-                 <h3>Gemstones Collection</h3>
+                 <a href="#products" class="back-to-categories" role="button" tabindex="0" data-translate="backToCategories"><i class="fas fa-arrow-left"></i> Back to Categories</a>
+                 <h3 data-translate="gemstonesCollectionTitle">Gemstones Collection</h3>
                  <div class="category-products-grid">
                      <div class="product" data-aos="fade-up">
                          <img src="Screenshot_20250523_231439_Samsung Internet.jpg" alt="Yellow Sapphire" tabindex="0">
                          <div class="product-info">
-                             <h3>Yellow Sapphire</h3>
-                             <p class="product-description">Genuine Yellow Sapphire, known for prosperity and good fortune.</p>
-                             <p class="product-price">Inquire for Pricing</p>
+                             <h3 data-translate="productYellowSapphireTitle">Yellow Sapphire</h3>
+                             <p class="product-description" data-translate="productYellowSapphireDesc">Genuine Yellow Sapphire, known for prosperity and good fortune.</p>
+                             <p class="product-price" data-translate="inquirePrice">Inquire for Pricing</p>
                              <button class="add-to-cart-button"
                                      data-product-id="yellow_sapphire"
-                                     data-product-name="Yellow Sapphire"> Add to Inquiry List
+                                     data-product-name="Yellow Sapphire"
+                                     data-translate="addToInquiryBtn"> Add to Inquiry List
                              </button>
-                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yellow%20Sapphire.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Yellow Sapphire on WhatsApp"> <i class="fab fa-whatsapp"></i> Inquire Now</a>
+                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yellow%20Sapphire.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Yellow Sapphire on WhatsApp"> <i class="fab fa-whatsapp"></i> <span data-translate="inquireNowBtn">Inquire Now</span></a>
                          </div>
                      </div>
                       <div class="product" data-aos="fade-up" data-aos-delay="100">
                          <img src="images.jpeg" alt="Blue Sapphire" tabindex="0">
                          <div class="product-info">
-                             <h3>Blue Sapphire</h3>
-                             <p class="product-description">Authentic Blue Sapphire, revered for its astrological benefits and deep hues.</p>
-                             <p class="product-price">Inquire for Pricing</p>
+                             <h3 data-translate="productBlueSapphireTitle">Blue Sapphire</h3>
+                             <p class="product-description" data-translate="productBlueSapphireDesc">Authentic Blue Sapphire, revered for its astrological benefits and deep hues.</p>
+                             <p class="product-price" data-translate="inquirePrice">Inquire for Pricing</p>
                              <button class="add-to-cart-button"
                                      data-product-id="blue_sapphire"
-                                     data-product-name="Blue Sapphire"> Add to Inquiry List
+                                     data-product-name="Blue Sapphire"
+                                     data-translate="addToInquiryBtn"> Add to Inquiry List
                              </button>
-                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Blue%20Sapphire.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Blue Sapphire on WhatsApp"> <i class="fab fa-whatsapp"></i> Inquire Now</a>
+                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Blue%20Sapphire.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Blue Sapphire on WhatsApp"> <i class="fab fa-whatsapp"></i> <span data-translate="inquireNowBtn">Inquire Now</span></a>
                          </div>
                      </div>
                      <div class="product" data-aos="fade-up" data-aos-delay="200">
                          <img src="IMG-20250516-WA0011.jpg" alt="Gemstone Rings" tabindex="0">
                          <div class="product-info">
-                             <h3>Gemstone Rings</h3>
-                             <p class="product-description">Beautiful rings featuring authentic gemstones for style and astrological benefits.</p>
-                             <p class="product-price">Inquire for Pricing</p>
+                             <h3 data-translate="productGemstoneRingsTitle">Gemstone Rings</h3>
+                             <p class="product-description" data-translate="productGemstoneRingsDesc">Beautiful rings featuring authentic gemstones for style and astrological benefits.</p>
+                             <p class="product-price" data-translate="inquirePrice">Inquire for Pricing</p>
                              <button class="add-to-cart-button"
                                      data-product-id="gemstone_rings_main"
-                                     data-product-name="Gemstone Rings"> Add to Inquiry List
+                                     data-product-name="Gemstone Rings"
+                                     data-translate="addToInquiryBtn"> Add to Inquiry List
                              </button>
-                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gemstone%20Rings.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Gemstone Rings on WhatsApp"> <i class="fab fa-whatsapp"></i> Inquire Now</a>
+                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Gemstone%20Rings.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Gemstone Rings on WhatsApp"> <i class="fab fa-whatsapp"></i> <span data-translate="inquireNowBtn">Inquire Now</span></a>
                          </div>
                      </div>
                 </div>
             </div>
 
             <div id="rudraksh-products-container" class="category-products-container">
-                <a href="#products" class="back-to-categories" role="button" tabindex="0"><i class="fas fa-arrow-left"></i> Back to Categories</a>
-                <h3>Rudraksh Items</h3>
+                <a href="#products" class="back-to-categories" role="button" tabindex="0" data-translate="backToCategories"><i class="fas fa-arrow-left"></i> Back to Categories</a>
+                <h3 data-translate="rudrakshItemsTitle">Rudraksh Items</h3>
                 <div class="category-products-grid">
                      <div class="product" data-aos="fade-up">
                          <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh Mala" tabindex="0">
                          <div class="product-info">
-                             <h3>Rudraksh Mala</h3>
-                             <p class="product-description">Genuine Rudraksha beads for spiritual connection and well-being.</p>
-                             <p class="product-price">Inquire for Pricing</p>
+                             <h3 data-translate="productRudrakshMalaTitle">Rudraksh Mala</h3>
+                             <p class="product-description" data-translate="productRudrakshMalaDesc">Genuine Rudraksha beads for spiritual connection and well-being.</p>
+                             <p class="product-price" data-translate="inquirePrice">Inquire for Pricing</p>
                              <button class="add-to-cart-button"
                                      data-product-id="rudraksh_mala_main"
-                                     data-product-name="Rudraksh Mala"> Add to Inquiry List
+                                     data-product-name="Rudraksh Mala"
+                                     data-translate="addToInquiryBtn"> Add to Inquiry List
                              </button>
-                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Mala.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Mala on WhatsApp"> <i class="fab fa-whatsapp"></i> Inquire Now</a>
+                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Mala.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Mala on WhatsApp"> <i class="fab fa-whatsapp"></i> <span data-translate="inquireNowBtn">Inquire Now</span></a>
                          </div>
                      </div>
                      <div class="product" data-aos="fade-up" data-aos-delay="100">
                          <img src="IMG-20250516-WA0016.jpg" alt="Rudraksh Bracelet" tabindex="0">
                          <div class="product-info">
-                             <h3>Rudraksh Bracelet</h3>
-                             <p class="product-description">Wear the spiritual energy with authentic Rudraksh bracelets.</p>
-                             <p class="product-price">Inquire for Pricing</p>
+                             <h3 data-translate="productRudrakshBraceletTitle">Rudraksh Bracelet</h3>
+                             <p class="product-description" data-translate="productRudrakshBraceletDesc">Wear the spiritual energy with authentic Rudraksh bracelets.</p>
+                             <p class="product-price" data-translate="inquirePrice">Inquire for Pricing</p>
                              <button class="add-to-cart-button"
                                      data-product-id="rudraksh_bracelet_main"
-                                     data-product-name="Rudraksh Bracelet"> Add to Inquiry List
+                                     data-product-name="Rudraksh Bracelet"
+                                     data-translate="addToInquiryBtn"> Add to Inquiry List
                              </button>
-                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Bracelet.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Bracelet on WhatsApp"> <i class="fab fa-whatsapp"></i> Inquire Now</a>
+                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Bracelet.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Bracelet on WhatsApp"> <i class="fab fa-whatsapp"></i> <span data-translate="inquireNowBtn">Inquire Now</span></a>
                          </div>
                      </div>
                 </div>
             </div>
 
              <div id="yantra-products-container" class="category-products-container">
-                <a href="#products" class="back-to-categories" role="button" tabindex="0"><i class="fas fa-arrow-left"></i> Back to Categories</a>
-                <h3>Yantra & Spiritual Collection</h3>
+                <a href="#products" class="back-to-categories" role="button" tabindex="0" data-translate="backToCategories"><i class="fas fa-arrow-left"></i> Back to Categories</a>
+                <h3 data-translate="yantraSpiritualCollectionTitle">Yantra & Spiritual Collection</h3>
                 <div class="category-products-grid">
                      <div class="product" data-aos="fade-up">
                          <img src="IMG-20250516-WA0001.jpg" alt="Yantra" tabindex="0">
                          <div class="product-info">
-                             <h3>Yantra</h3>
-                             <p class="product-description">Sacred geometric diagrams for meditation and energy focusing.</p>
-                             <p class="product-price">Inquire for Pricing</p>
+                             <h3 data-translate="productYantraTitle">Yantra</h3>
+                             <p class="product-description" data-translate="productYantraDesc">Sacred geometric diagrams for meditation and energy focusing.</p>
+                             <p class="product-price" data-translate="inquirePrice">Inquire for Pricing</p>
                              <button class="add-to-cart-button"
                                      data-product-id="yantra_main"
-                                     data-product-name="Yantra"> Add to Inquiry List
+                                     data-product-name="Yantra"
+                                     data-translate="addToInquiryBtn"> Add to Inquiry List
                              </button>
-                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Yantra on WhatsApp"> <i class="fab fa-whatsapp"></i> Inquire Now</a>
+                              <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Yantra on WhatsApp"> <i class="fab fa-whatsapp"></i> <span data-translate="inquireNowBtn">Inquire Now</span></a>
                          </div>
                      </div>
                       <div class="product" data-aos="fade-up" data-aos-delay="100">
                          <img src="61Fg6DsA4iL._AC_UF894,1000_QL80_.jpg" alt="Sphatik Shree Yantra" tabindex="0">
                          <div class="product-info">
-                             <h3>Sphatik Shree Yantra</h3>
-                             <p class="product-description">Clear quartz Shree Yantra for purity, prosperity, and positive energy.</p>
-                              <p class="product-price">Inquire for Pricing</p>
+                             <h3 data-translate="productSphatikYantraTitle">Sphatik Shree Yantra</h3>
+                             <p class="product-description" data-translate="productSphatikYantraDesc">Clear quartz Shree Yantra for purity, prosperity, and positive energy.</p>
+                              <p class="product-price" data-translate="inquirePrice">Inquire for Pricing</p>
                              <button class="add-to-cart-button"
                                      data-product-id="sphatik_yantra_main"
-                                     data-product-name="Sphatik Shree Yantra"> Add to Inquiry List
+                                     data-product-name="Sphatik Shree Yantra"
+                                     data-translate="addToInquiryBtn"> Add to Inquiry List
                              </button>
-                             <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Sphatik%20Shree%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Sphatik Shree Yantra on WhatsApp"> <i class="fab fa-whatsapp"></i> Inquire Now</a>
+                             <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Sphatik%20Shree%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Sphatik Shree Yantra on WhatsApp"> <i class="fab fa-whatsapp"></i> <span data-translate="inquireNowBtn">Inquire Now</span></a>
                          </div>
                      </div>
                 </div>
@@ -980,55 +1050,55 @@
     <div id="cartModal" class="modal">
         <div class="modal-content">
             <span class="close" id="closeCartModal" role="button" tabindex="0" aria-label="Close Inquiry List">×</span>
-            <h2>Your Inquiry List</h2>
-            <div id="emptyCartMessage">Your inquiry list is empty.</div>
+            <h2 data-translate="yourInquiryListTitle">Your Inquiry List</h2>
+            <div id="emptyCartMessage" data-translate="emptyCartMessage">Your inquiry list is empty.</div>
             <ul id="cartItemsList"></ul>
-            <div class="cart-total" id="cartTotal">Total: Inquire for Pricing</div>
-            <button class="checkout-button" id="checkoutButton">Proceed to WhatsApp Inquiry</button>
+            <div class="cart-total" id="cartTotal" data-translate="totalInquirePricing">Total: Inquire for Pricing</div>
+            <button class="checkout-button" id="checkoutButton" data-translate="proceedToWhatsappBtn">Proceed to WhatsApp Inquiry</button>
         </div>
     </div>
 
     <div id="billingModal" class="modal">
          <div class="modal-content">
               <span class="close" id="closeBillingModal" role="button" tabindex="0" aria-label="Close Inquiry Form">×</span>
-              <h2>WhatsApp Inquiry Form</h2>
-              <a href="#" class="back-to-cart" id="backToCartButton" role="button" tabindex="0"><i class="fas fa-arrow-left"></i> Back to Inquiry List</a>
-              <h3>Items in Your Inquiry</h3>
+              <h2 data-translate="whatsappInquiryFormTitle">WhatsApp Inquiry Form</h2>
+              <a href="#" class="back-to-cart" id="backToCartButton" role="button" tabindex="0" data-translate="backToInquiryList"><i class="fas fa-arrow-left"></i> Back to Inquiry List</a>
+              <h3 data-translate="itemsInYourInquiryTitle">Items in Your Inquiry</h3>
               <ul id="billingItemsList"></ul>
               <div class="coupon-section">
-                   <input type="text" id="couponCodeInput" placeholder="Enter coupon code (Inquire)">
-                   <button id="applyCouponButton">Inquire for Coupon</button>
+                   <input type="text" id="couponCodeInput" placeholder="Enter coupon code (Inquire)" data-translate="couponPlaceholder">
+                   <button id="applyCouponButton" data-translate="inquireForCouponBtn">Inquire for Coupon</button>
               </div>
                <div id="couponMessage" aria-live="polite"></div>
                <div class="billing-summary">
-                   <p>Subtotal: <span id="subtotal">Inquire for Pricing</span></p>
-                    <p>Discount: <span id="discount">Inquire for Pricing</span></p>
-                   <p class="final-total">Total: <span id="finalTotal">Inquire for Pricing</span></p>
+                   <p data-translate="subtotalLabel">Subtotal: <span id="subtotal" data-translate="inquirePrice">Inquire for Pricing</span></p>
+                    <p data-translate="discountLabel">Discount: <span id="discount" data-translate="inquirePrice">Inquire for Pricing</span></p>
+                   <p class="final-total" data-translate="totalLabel">Total: <span id="finalTotal" data-translate="inquirePrice">Inquire for Pricing</span></p>
               </div>
-              <h3>Your Details (for WhatsApp inquiry)</h3>
+              <h3 data-translate="yourDetailsTitle">Your Details (for WhatsApp inquiry)</h3>
                <div class="inquiry-details">
                    <div>
-                        <label for="customerName">Full Name:</label>
-                        <input type="text" id="customerName" placeholder="Your Full Name">
+                        <label for="customerName" data-translate="fullNameLabel">Full Name:</label>
+                        <input type="text" id="customerName" placeholder="Your Full Name" data-translate="fullNamePlaceholder">
                    </div>
                    <div>
-                        <label for="customerEmail">Email (Optional):</label>
-                        <input type="email" id="customerEmail" placeholder="Your Email">
+                        <label for="customerEmail" data-translate="emailLabel">Email (Optional):</label>
+                        <input type="email" id="customerEmail" placeholder="Your Email" data-translate="emailPlaceholder">
                    </div>
                    <div>
-                        <label for="customerPhone">Phone Number (for WhatsApp):</label>
+                        <label for="customerPhone" data-translate="phoneNumberLabel">Phone Number (for WhatsApp):</label>
                         <input type="tel" id="customerPhone" value="+919723197899" readonly>
                    </div>
                    <div>
-                        <label for="customerAddress">Your Message/Notes (Optional):</label>
-                        <textarea id="customerAddress" placeholder="Any specific questions or additional notes."></textarea>
+                        <label for="customerAddress" data-translate="notesLabel">Your Message/Notes (Optional):</label>
+                        <textarea id="customerAddress" placeholder="Any specific questions or additional notes." data-translate="notesPlaceholder"></textarea>
                    </div>
                     <div class="payment-info">
-                        <h3>WhatsApp Inquiry Process</h3>
-                        <p>Clicking "Send WhatsApp Inquiry" will open WhatsApp with a pre-filled message including your selected items and contact details (if provided).</p>
-                         <p class="payment-instructions">We will **contact you directly via WhatsApp or phone** to discuss your selected items, provide detailed pricing, and guide you through the process.</p>
+                        <h3 data-translate="whatsappInquiryProcessTitle">WhatsApp Inquiry Process</h3>
+                        <p data-translate="whatsappInquiryProcessPara1">Clicking "Send WhatsApp Inquiry" will open WhatsApp with a pre-filled message including your selected items and contact details (if provided).</p>
+                         <p class="payment-instructions" data-translate="whatsappInquiryProcessPara2">We will **contact you directly via WhatsApp or phone** to discuss your selected items, provide detailed pricing, and guide you through the process.</p>
                     </div>
-                   <button type="button" class="place-order-button" id="sendWhatsAppInquiry">Send WhatsApp Inquiry</button>
+                   <button type="button" class="place-order-button" id="sendWhatsAppInquiry" data-translate="sendWhatsappInquiryBtn">Send WhatsApp Inquiry</button>
               </div>
          </div>
     </div>
@@ -1052,6 +1122,305 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // --- Language Translations ---
+        const translations = {
+            en: {
+                pageTitle: 'J.K Gems - Exquisite Gemstones & Spiritual Items',
+                itemAdded: 'Item added to inquiry list!',
+                chooseLanguageTitle: 'Choose Your Language',
+                navAbout: 'About J.K Gems',
+                navCategories: 'Categories',
+                heroTitle: 'Exquisite Gemstones & Spiritual Treasures',
+                heroSubtitle: 'Discover perfection in every gem',
+                exploreCollectionBtn: 'Explore Collection',
+                aboutUsTitle: 'About J.K Gems',
+                ourStoryTitle: 'Our Story',
+                ourStoryPara1: 'J.K Gems is a well-known and trusted firm, serving customers with exquisite gemstones and spiritual products since 1965. Founded on principles of quality, authenticity, and integrity, we have built a reputation as a cornerstone in Junagadh\'s Soni Bajar.',
+                ourStoryPara2: 'For generations, we have been dedicated to sourcing the finest gemstones and authentic spiritual items, offering expert guidance and personalized service to our valued customers. Our legacy is built on trust, and our commitment to providing genuine products remains unwavering.',
+                contactLocationTitle: 'Contact & Location',
+                addressLine1: 'Balakrishna market, Haveli gali',
+                addressLine2: 'Soni bajar, Junagadh',
+                addressLine3: 'Gujarat 362001',
+                businessHours: 'Business Hours: 10 am to 3 pm and 4 pm to 9 pm',
+                whatsappInquiryPrompt: 'You can also inquire directly via WhatsApp using the buttons on our product listings below.',
+                ourCategoriesTitle: 'Our Categories',
+                searchPlaceholderCategory: 'Search Categories or Products...',
+                categoryGemstonesTitle: 'Gemstones',
+                categoryGemstonesDesc: 'Explore our collection of authentic, high-quality gemstones.',
+                categoryRudrakshTitle: 'Rudraksh',
+                categoryRudrakshDesc: 'Discover genuine Rudraksha beads and items for spiritual well-being.',
+                categoryYantraTitle: 'Yantra & Spiritual Items',
+                categoryYantraDesc: 'Sacred geometric diagrams, Sphatik items, and other spiritual treasures.',
+                backToCategories: 'Back to Categories',
+                gemstonesCollectionTitle: 'Gemstones Collection',
+                productYellowSapphireTitle: 'Yellow Sapphire',
+                productYellowSapphireDesc: 'Genuine Yellow Sapphire, known for prosperity and good fortune.',
+                productBlueSapphireTitle: 'Blue Sapphire',
+                productBlueSapphireDesc: 'Authentic Blue Sapphire, revered for its astrological benefits and deep hues.',
+                productGemstoneRingsTitle: 'Gemstone Rings',
+                productGemstoneRingsDesc: 'Beautiful rings featuring authentic gemstones for style and astrological benefits.',
+                rudrakshItemsTitle: 'Rudraksh Items',
+                productRudrakshMalaTitle: 'Rudraksh Mala',
+                productRudrakshMalaDesc: 'Genuine Rudraksha beads for spiritual connection and well-being.',
+                productRudrakshBraceletTitle: 'Rudraksh Bracelet',
+                productRudrakshBraceletDesc: 'Wear the spiritual energy with authentic Rudraksh bracelets.',
+                yantraSpiritualCollectionTitle: 'Yantra & Spiritual Collection',
+                productYantraTitle: 'Yantra',
+                productYantraDesc: 'Sacred geometric diagrams for meditation and energy focusing.',
+                productSphatikYantraTitle: 'Sphatik Shree Yantra',
+                productSphatikYantraDesc: 'Clear quartz Shree Yantra for purity, prosperity, and positive energy.',
+                inquirePrice: 'Inquire for Pricing',
+                addToInquiryBtn: 'Add to Inquiry List',
+                inquireNowBtn: 'Inquire Now',
+                yourInquiryListTitle: 'Your Inquiry List',
+                emptyCartMessage: 'Your inquiry list is empty.',
+                totalInquirePricing: 'Total: Inquire for Pricing',
+                proceedToWhatsappBtn: 'Proceed to WhatsApp Inquiry',
+                whatsappInquiryFormTitle: 'WhatsApp Inquiry Form',
+                backToInquiryList: 'Back to Inquiry List',
+                itemsInYourInquiryTitle: 'Items in Your Inquiry',
+                couponPlaceholder: 'Enter coupon code (Inquire)',
+                inquireForCouponBtn: 'Inquire for Coupon',
+                subtotalLabel: 'Subtotal:',
+                discountLabel: 'Discount:',
+                totalLabel: 'Total:',
+                yourDetailsTitle: 'Your Details (for WhatsApp inquiry)',
+                fullNameLabel: 'Full Name:',
+                fullNamePlaceholder: 'Your Full Name',
+                emailLabel: 'Email (Optional):',
+                emailPlaceholder: 'Your Email',
+                phoneNumberLabel: 'Phone Number (for WhatsApp):',
+                notesLabel: 'Your Message/Notes (Optional):',
+                notesPlaceholder: 'Any specific questions or additional notes.',
+                whatsappInquiryProcessTitle: 'WhatsApp Inquiry Process',
+                whatsappInquiryProcessPara1: 'Clicking "Send WhatsApp Inquiry" will open WhatsApp with a pre-filled message including your selected items and contact details (if provided).',
+                whatsappInquiryProcessPara2: 'We will **contact you directly via WhatsApp or phone** to discuss your selected items, provide detailed pricing, and guide you through the process.',
+                sendWhatsappInquiryBtn: 'Send WhatsApp Inquiry',
+                // Additional translated strings
+                productQuantity: '(x%s)', // %s will be replaced by quantity
+                removeItem: 'Remove'
+            },
+            hi: {
+                pageTitle: 'जे.के. जेम्स - उत्कृष्ट रत्न और आध्यात्मिक वस्तुएं',
+                itemAdded: 'वस्तु पूछताछ सूची में जोड़ी गई!',
+                chooseLanguageTitle: 'अपनी भाषा चुनें',
+                navAbout: 'जे.के. जेम्स के बारे में',
+                navCategories: 'श्रेणियाँ',
+                heroTitle: 'उत्कृष्ट रत्न और आध्यात्मिक खजाने',
+                heroSubtitle: 'हर रत्न में पूर्णता खोजें',
+                exploreCollectionBtn: 'संग्रह देखें',
+                aboutUsTitle: 'जे.के. जेम्स के बारे में',
+                ourStoryTitle: 'हमारी कहानी',
+                ourStoryPara1: 'जे.के. जेम्स एक सुप्रसिद्ध और विश्वसनीय फर्म है, जो 1965 से ग्राहकों को उत्कृष्ट रत्न और आध्यात्मिक उत्पाद प्रदान कर रही है। गुणवत्ता, प्रामाणिकता और ईमानदारी के सिद्धांतों पर स्थापित, हमने जूनागढ़ के सोनी बाजार में एक आधारशिला के रूप में अपनी प्रतिष्ठा बनाई है।',
+                ourStoryPara2: 'पीढ़ियों से, हम बेहतरीन रत्न और प्रामाणिक आध्यात्मिक वस्तुएं प्राप्त करने के लिए समर्पित रहे हैं, अपने मूल्यवान ग्राहकों को विशेषज्ञ मार्गदर्शन और व्यक्तिगत सेवा प्रदान करते हैं। हमारी विरासत विश्वास पर बनी है, और वास्तविक उत्पाद प्रदान करने की हमारी प्रतिबद्धता अटूट है।',
+                contactLocationTitle: 'संपर्क और स्थान',
+                addressLine1: 'बालकृष्ण मार्केट, हवेली गली',
+                addressLine2: 'सोनी बाजार, जूनागढ़',
+                addressLine3: 'गुजरात 362001',
+                businessHours: 'व्यवसाय के घंटे: सुबह 10 बजे से दोपहर 3 बजे तक और शाम 4 बजे से रात 9 बजे तक',
+                whatsappInquiryPrompt: 'आप नीचे हमारी उत्पाद सूची पर दिए गए बटनों का उपयोग करके सीधे व्हाट्सएप के माध्यम से भी पूछताछ कर सकते हैं।',
+                ourCategoriesTitle: 'हमारी श्रेणियाँ',
+                searchPlaceholderCategory: 'श्रेणियों या उत्पादों को खोजें...',
+                categoryGemstonesTitle: 'रत्न',
+                categoryGemstonesDesc: 'प्रामाणिक, उच्च-गुणवत्ता वाले रत्नों के हमारे संग्रह का अन्वेषण करें।',
+                categoryRudrakshTitle: 'रुद्राक्ष',
+                categoryRudrakshDesc: 'आध्यात्मिक कल्याण के लिए वास्तविक रुद्राक्ष मोती और वस्तुओं की खोज करें।',
+                categoryYantraTitle: 'यंत्र और आध्यात्मिक वस्तुएं',
+                categoryYantraDesc: 'पवित्र ज्यामितीय आरेख, स्फटिक आइटम और अन्य आध्यात्मिक खजाने।',
+                backToCategories: 'श्रेणियों पर वापस जाएँ',
+                gemstonesCollectionTitle: 'रत्न संग्रह',
+                productYellowSapphireTitle: 'पीला नीलम',
+                productYellowSapphireDesc: 'असली पीला नीलम, समृद्धि और सौभाग्य के लिए जाना जाता है।',
+                productBlueSapphireTitle: 'नीला नीलम',
+                productBlueSapphireDesc: 'प्रामाणिक नीला नीलम, इसके ज्योतिषीय लाभों और गहरे रंगों के लिए पूजनीय है।',
+                productGemstoneRingsTitle: 'रत्न के छल्ले',
+                productGemstoneRingsDesc: 'शैली और ज्योतिषीय लाभों के लिए प्रामाणिक रत्नों की विशेषता वाले सुंदर छल्ले।',
+                rudrakshItemsTitle: 'रुद्राक्ष वस्तुएं',
+                productRudrakshMalaTitle: 'रुद्राक्ष माला',
+                productRudrakshMalaDesc: 'आध्यात्मिक संबंध और कल्याण के लिए असली रुद्राक्ष मोती।',
+                productRudrakshBraceletTitle: 'रुद्राक्ष ब्रेसलेट',
+                productRudrakshBraceletDesc: 'असली रुद्राक्ष ब्रेसलेट के साथ आध्यात्मिक ऊर्जा पहनें।',
+                yantraSpiritualCollectionTitle: 'यंत्र और आध्यात्मिक संग्रह',
+                productYantraTitle: 'यंत्र',
+                productYantraDesc: 'ध्यान और ऊर्जा केंद्रित करने के लिए पवित्र ज्यामितीय आरेख।',
+                productSphatikYantraTitle: 'स्फटिक श्री यंत्र',
+                productSphatikYantraDesc: 'शुद्धता, समृद्धि और सकारात्मक ऊर्जा के लिए स्पष्ट क्वार्ट्ज श्री यंत्र।',
+                inquirePrice: 'कीमत के लिए पूछताछ करें',
+                addToInquiryBtn: 'पूछताछ सूची में जोड़ें',
+                inquireNowBtn: 'अभी पूछताछ करें',
+                yourInquiryListTitle: 'आपकी पूछताछ सूची',
+                emptyCartMessage: 'आपकी पूछताछ सूची खाली है।',
+                totalInquirePricing: 'कुल: कीमत के लिए पूछताछ करें',
+                proceedToWhatsappBtn: 'व्हाट्सएप पूछताछ के लिए आगे बढ़ें',
+                whatsappInquiryFormTitle: 'व्हाट्सएप पूछताछ फॉर्म',
+                backToInquiryList: 'पूछताछ सूची पर वापस जाएँ',
+                itemsInYourInquiryTitle: 'आपकी पूछताछ में आइटम',
+                couponPlaceholder: 'कूपन कोड दर्ज करें (पूछताछ)',
+                inquireForCouponBtn: 'कूपन के लिए पूछताछ करें',
+                subtotalLabel: 'उपयोग:',
+                discountLabel: 'छूट:',
+                totalLabel: 'कुल:',
+                yourDetailsTitle: 'आपके विवरण (व्हाट्सएप पूछताछ के लिए)',
+                fullNameLabel: 'पूरा नाम:',
+                fullNamePlaceholder: 'आपका पूरा नाम',
+                emailLabel: 'ईमेल (वैकल्पिक):',
+                emailPlaceholder: 'आपका ईमेल',
+                phoneNumberLabel: 'फ़ोन नंबर (व्हाट्सएप के लिए):',
+                notesLabel: 'आपका संदेश/नोट्स (वैकल्पिक):',
+                notesPlaceholder: 'कोई विशेष प्रश्न या अतिरिक्त नोट्स।',
+                whatsappInquiryProcessTitle: 'व्हाट्सएप पूछताछ प्रक्रिया',
+                whatsappInquiryProcessPara1: '"व्हाट्सएप पूछताछ भेजें" पर क्लिक करने से आपके चयनित आइटम और संपर्क विवरण (यदि प्रदान किए गए हों) के साथ एक पूर्व-भरे हुए संदेश के साथ व्हाट्सएप खुल जाएगा।',
+                whatsappInquiryProcessPara2: 'हम आपके चयनित आइटम पर चर्चा करने, विस्तृत मूल्य निर्धारण प्रदान करने और प्रक्रिया के माध्यम से आपका मार्गदर्शन करने के लिए सीधे व्हाट्सएप या फोन के माध्यम से **आपसे संपर्क करेंगे**।',
+                sendWhatsappInquiryBtn: 'व्हाट्सएप पूछताछ भेजें',
+                productQuantity: '(x%s)',
+                removeItem: 'हटाएँ'
+            },
+            gu: {
+                pageTitle: 'જે.કે. જેમ્સ - ઉત્તમ રત્નો અને આધ્યાત્મિક વસ્તુઓ',
+                itemAdded: 'વસ્તુ પૂછપરછ સૂચિમાં ઉમેરાઈ!',
+                chooseLanguageTitle: 'તમારી ભાષા પસંદ કરો',
+                navAbout: 'જે.કે. જેમ્સ વિશે',
+                navCategories: 'શ્રેણીઓ',
+                heroTitle: 'ઉત્તમ રત્નો અને આધ્યાત્મિક ખજાના',
+                heroSubtitle: 'દરેક રત્નમાં પૂર્ણતા શોધો',
+                exploreCollectionBtn: 'સંગ્રહ જુઓ',
+                aboutUsTitle: 'જે.કે. જેમ્સ વિશે',
+                ourStoryTitle: 'અમારી વાર્તા',
+                ourStoryPara1: 'જે.કે. જેમ્સ એક જાણીતી અને વિશ્વસનીય પેઢી છે, જે 1965 થી ગ્રાહકોને ઉત્તમ રત્નો અને આધ્યાત્મિક ઉત્પાદનો પ્રદાન કરી રહી છે. ગુણવત્તા, પ્રમાણિકતા અને અખંડિતતાના સિદ્ધાંતો પર સ્થપાયેલી, અમે જૂનાગઢના સોની બજારમાં એક પાયાનો પથ્થર તરીકે પ્રતિષ્ઠા બનાવી છે.',
+                ourStoryPara2: 'પેઢીઓથી, અમે ઉત્તમ રત્નો અને પ્રમાણિક આધ્યાત્મિક વસ્તુઓ મેળવવા માટે સમર્પિત છીએ, અમારા મૂલ્યવાન ગ્રાહકોને નિષ્ણાત માર્ગદર્શન અને વ્યક્તિગત સેવા પ્રદાન કરીએ છીએ. અમારી વારસો વિશ્વાસ પર બનેલો છે, અને સાચા ઉત્પાદનો પ્રદાન કરવાની અમારી પ્રતિબદ્ધતા અડગ છે.',
+                contactLocationTitle: 'સંપર્ક અને સ્થાન',
+                addressLine1: 'બાલકૃષ્ણ માર્કેટ, હવેલી ગલી',
+                addressLine2: 'સોની બજાર, જૂનાગઢ',
+                addressLine3: 'ગુજરાત 362001',
+                businessHours: 'વ્યવસાયના કલાકો: સવારે 10 થી બપોરે 3 અને સાંજે 4 થી રાત્રે 9',
+                whatsappInquiryPrompt: 'તમે નીચે અમારી ઉત્પાદન સૂચિ પરના બટનોનો ઉપયોગ કરીને સીધા WhatsApp દ્વારા પણ પૂછપરછ કરી શકો છો.',
+                ourCategoriesTitle: 'અમારી શ્રેણીઓ',
+                searchPlaceholderCategory: 'શ્રેણીઓ અથવા ઉત્પાદનો શોધો...',
+                categoryGemstonesTitle: 'રત્નો',
+                categoryGemstonesDesc: 'અમારા અધિકૃત, ઉચ્ચ-ગુણવત્તાવાળા રત્નોના સંગ્રહનું અન્વેષણ કરો.',
+                categoryRudrakshTitle: 'રુદ્રાક્ષ',
+                categoryRudrakshDesc: 'આધ્યાત્મિક કલ્યાણ માટે સાચા રુદ્રાક્ષ મણકા અને વસ્તુઓ શોધો.',
+                categoryYantraTitle: 'યંત્ર અને આધ્યાત્મિક વસ્તુઓ',
+                categoryYantraDesc: 'પવિત્ર ભૌમિતિક આકૃતિઓ, સ્ફટિક વસ્તુઓ અને અન્ય આધ્યાત્મિક ખજાના.',
+                backToCategories: 'શ્રેણીઓ પર પાછા જાઓ',
+                gemstonesCollectionTitle: 'રત્નો સંગ્રહ',
+                productYellowSapphireTitle: 'પીળો નીલમ',
+                productYellowSapphireDesc: 'ખરો પીળો નીલમ, સમૃદ્ધિ અને સારા નસીબ માટે જાણીતો છે.',
+                productBlueSapphireTitle: 'વાદળી નીલમ',
+                productBlueSapphireDesc: 'પ્રમાણિક વાદળી નીલમ, તેના જ્યોતિષીય લાભો અને ઊંડા રંગો માટે આદરણીય છે.',
+                productGemstoneRingsTitle: 'રત્ન રિંગ્સ',
+                productGemstoneRingsDesc: 'શૈલી અને જ્યોતિષીય લાભો માટે અધિકૃત રત્નો દર્શાવતી સુંદર રિંગ્સ.',
+                rudrakshItemsTitle: 'રુદ્રાક્ષ વસ્તુઓ',
+                productRudrakshMalaTitle: 'રુદ્રાક્ષ માલા',
+                productRudrakshMalaDesc: 'આધ્યાત્મિક જોડાણ અને સુખાકારી માટે સાચા રુદ્રાક્ષ મણકા.',
+                productRudrakshBraceletTitle: 'રુદ્રાક્ષ બ્રેસલેટ',
+                productRudrakshBraceletDesc: 'સાચા રુદ્રાક્ષ બ્રેસલેટ સાથે આધ્યાત્મિક ઉર્જા પહેરો.',
+                yantraSpiritualCollectionTitle: 'યંત્ર અને આધ્યાત્મિક સંગ્રહ',
+                productYantraTitle: 'યંત્ર',
+                productYantraDesc: 'ધ્યાન અને ઉર્જા કેન્દ્રિત કરવા માટે પવિત્ર ભૌમિતિક આકૃતિઓ.',
+                productSphatikYantraTitle: 'સ્ફટિક શ્રી યંત્ર',
+                productSphatikYantraDesc: 'શુદ્ધતા, સમૃદ્ધિ અને સકારાત્મક ઉર્જા માટે સ્પષ્ટ ક્વાર્ટઝ શ્રી યંત્ર.',
+                inquirePrice: 'કિંમત માટે પૂછપરછ કરો',
+                addToInquiryBtn: 'પૂછપરછ સૂચિમાં ઉમેરો',
+                inquireNowBtn: 'હવે પૂછપરછ કરો',
+                yourInquiryListTitle: 'તમારી પૂછપરછ સૂચિ',
+                emptyCartMessage: 'તમારી પૂછપરછ સૂચિ ખાલી છે.',
+                totalInquirePricing: 'કુલ: કિંમત માટે પૂછપરછ કરો',
+                proceedToWhatsappBtn: 'WhatsApp પૂછપરછ પર આગળ વધો',
+                whatsappInquiryFormTitle: 'WhatsApp પૂછપરછ ફોર્મ',
+                backToInquiryList: 'પૂછપરછ સૂચિ પર પાછા જાઓ',
+                itemsInYourInquiryTitle: 'તમારી પૂછપરછમાં વસ્તુઓ',
+                couponPlaceholder: 'કૂપન કોડ દાખલ કરો (પૂછપરછ કરો)',
+                inquireForCouponBtn: 'કૂપન માટે પૂછપરછ કરો',
+                subtotalLabel: 'પેટાકુલ:',
+                discountLabel: 'ડિસ્કાઉન્ટ:',
+                totalLabel: 'કુલ:',
+                yourDetailsTitle: 'તમારી વિગતો (WhatsApp પૂછપરછ માટે)',
+                fullNameLabel: 'પૂરું નામ:',
+                fullNamePlaceholder: 'તમારું પૂરું નામ',
+                emailLabel: 'ઇમેઇલ (વૈકલ્પિક):',
+                emailPlaceholder: 'તમારું ઇમેઇલ',
+                phoneNumberLabel: 'ફોન નંબર (WhatsApp માટે):',
+                notesLabel: 'તમારો સંદેશ/નોંધો (વૈકલ્પિક):',
+                notesPlaceholder: 'કોઈ ચોક્કસ પ્રશ્નો અથવા વધારાની નોંધો.',
+                whatsappInquiryProcessTitle: 'WhatsApp પૂછપરછ પ્રક્રિયા',
+                whatsappInquiryProcessPara1: '"WhatsApp પૂછપરછ મોકલો" પર ક્લિક કરવાથી WhatsApp ખુલશે જેમાં તમારી પસંદ કરેલી વસ્તુઓ અને સંપર્ક વિગતો (જો પ્રદાન કરવામાં આવી હોય) સાથે પૂર્વ-ભરેલો સંદેશ હશે.',
+                whatsappInquiryProcessPara2: 'અમે તમારા પસંદ કરેલા આઇટમ્સ વિશે ચર્ચા કરવા, વિગતવાર કિંમત પ્રદાન કરવા અને પ્રક્રિયા દ્વારા તમને માર્ગદર્શન આપવા માટે સીધા WhatsApp અથવા ફોન દ્વારા **તમારો સંપર્ક કરીશું**.',
+                sendWhatsappInquiryBtn: 'WhatsApp પૂછપરછ મોકલો',
+                productQuantity: '(x%s)',
+                removeItem: 'કાઢી નાખો'
+            }
+        };
+
+        let currentLang = 'en'; // Default language
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('jk-gems-lang', lang);
+            applyTranslations();
+            closeLanguageModal();
+        }
+
+        function applyTranslations() {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.dataset.translate;
+                let translatedText = translations[currentLang][key];
+
+                if (key === 'searchPlaceholderCategory' && document.getElementById('categoryGrid').style.display === 'none') {
+                    // Adjust placeholder text based on visible product category
+                    const currentCategoryContainer = document.querySelector('.category-products-container[style*="display: block"]');
+                    if (currentCategoryContainer) {
+                        const categoryId = currentCategoryContainer.id.replace('-products-container', '');
+                        let categoryNameKey;
+                        switch(categoryId) {
+                            case 'gemstones': categoryNameKey = 'categoryGemstonesTitle'; break;
+                            case 'rudraksh': categoryNameKey = 'categoryRudrakshTitle'; break;
+                            case 'yantra': categoryNameKey = 'categoryYantraTitle'; break;
+                            default: categoryNameKey = 'categoryGemstonesTitle'; // Fallback
+                        }
+                        const categoryName = translations[currentLang][categoryNameKey];
+                        translatedText = translations[currentLang]['searchPlaceholderProduct'].replace('%s', categoryName);
+                    } else {
+                        translatedText = translations[currentLang]['searchPlaceholderCategory'];
+                    }
+                }
+
+                if (translatedText) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translatedText;
+                    } else {
+                        element.textContent = translatedText;
+                    }
+                }
+            });
+
+            // Specific updates for product names and prices in cart/billing lists, which are dynamically generated
+            renderCart();
+            if (billingModal.style.display === 'flex') {
+                renderBillingContent();
+            }
+
+            // Update search input placeholder on language change
+            if (document.getElementById('categoryGrid').style.display !== 'none') {
+                 document.getElementById('searchInput').placeholder = translations[currentLang]['searchPlaceholderCategory'];
+             } else {
+                 const currentCategoryContainer = document.querySelector('.category-products-container[style*="display: block"]');
+                 if (currentCategoryContainer) {
+                     const categoryId = currentCategoryContainer.id.replace('-products-container', '');
+                     let categoryNameKey;
+                     switch(categoryId) {
+                         case 'gemstones': categoryNameKey = 'categoryGemstonesTitle'; break;
+                         case 'rudraksh': categoryNameKey = 'categoryRudrakshTitle'; break;
+                         case 'yantra': categoryNameKey = 'categoryYantraTitle'; break;
+                         default: categoryNameKey = 'categoryGemstonesTitle';
+                     }
+                     const categoryName = translations[currentLang][categoryNameKey];
+                     document.getElementById('searchInput').placeholder = translations[currentLang]['searchPlaceholderProduct'].replace('%s', categoryName);
+                 }
+            }
+        }
+
         // --- Category/Product View Switching ---
         const categoryGrid = document.getElementById('categoryGrid');
         const productContainers = document.querySelectorAll('.category-products-container');
@@ -1059,8 +1428,8 @@
         const searchInput = document.getElementById('searchInput');
 
         function showCategoryGrid() {
-            productsHeading.textContent = 'Our Categories';
-            searchInput.placeholder = 'Search Categories...';
+            productsHeading.textContent = translations[currentLang]['ourCategoriesTitle'];
+            searchInput.placeholder = translations[currentLang]['searchPlaceholderCategory'];
             searchInput.style.display = 'block';
             categoryGrid.style.display = 'grid';
             productContainers.forEach(container => container.style.display = 'none');
@@ -1068,7 +1437,6 @@
             searchInput.onkeyup = searchItems;
             searchInput.value = '';
             searchItems();
-            // document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         function showProductContainer(categoryId) {
@@ -1077,9 +1445,15 @@
              if (!containerToShow) {
                  showCategoryGrid(); return;
              }
-             const categoryName = categoryId.charAt(0).toUpperCase() + categoryId.slice(1);
-             productsHeading.textContent = `${categoryName} Collection`;
-             searchInput.placeholder = `Search ${categoryName} products...`;
+             let categoryNameKey;
+             switch(categoryId) {
+                 case 'gemstones': categoryNameKey = 'gemstonesCollectionTitle'; break;
+                 case 'rudraksh': categoryNameKey = 'rudrakshItemsTitle'; break;
+                 case 'yantra': categoryNameKey = 'yantraSpiritualCollectionTitle'; break;
+                 default: categoryNameKey = 'ourCategoriesTitle'; // Fallback
+             }
+             productsHeading.textContent = translations[currentLang][categoryNameKey];
+             searchInput.placeholder = translations[currentLang]['searchPlaceholderProduct'].replace('%s', translations[currentLang][categoryId + 'Title']);
              searchInput.style.display = 'block';
              categoryGrid.style.display = 'none';
              productContainers.forEach(container => container.style.display = 'none');
@@ -1088,7 +1462,6 @@
              searchInput.onkeyup = searchItems;
              searchInput.value = '';
              searchItems();
-            //  document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         function searchCategories() {
@@ -1151,9 +1524,9 @@
         const customerMessageInput = document.getElementById('customerAddress'); // Renamed for clarity
 
         let cart = JSON.parse(localStorage.getItem('jk-gems-cart')) || [];
-        let currentSubtotal = "Inquire for Pricing"; // Kept for consistency in UI, but functionally "Inquire"
-        let currentTotal = "Inquire for Pricing"; // Kept for consistency in UI, but functionally "Inquire"
-        let couponApplied = false; // Kept for consistency in UI, but functionally "Inquire"
+        let currentSubtotal = translations[currentLang]['inquirePrice'];
+        let currentTotal = translations[currentLang]['inquirePrice'];
+        let couponApplied = false;
 
         function saveCart() { localStorage.setItem('jk-gems-cart', JSON.stringify(cart)); }
 
@@ -1174,6 +1547,7 @@
             }
 
             const notification = document.getElementById('cartNotification');
+            notification.querySelector('[data-translate="itemAdded"]').textContent = translations[currentLang]['itemAdded'];
             notification.classList.add('show');
             setTimeout(() => notification.classList.remove('show'), 2000);
 
@@ -1187,6 +1561,7 @@
             saveCart();
             updateCartUI();
             if (billingModal.style.display === 'flex') renderBillingContent();
+            renderCart(); // Also re-render cart if it's open
         }
 
         function renderCart() {
@@ -1195,78 +1570,81 @@
                 emptyCartMessage.style.display = 'block';
                 cartTotalDiv.style.display = 'none';
                 checkoutButton.style.display = 'none';
+                emptyCartMessage.textContent = translations[currentLang]['emptyCartMessage'];
             } else {
                 emptyCartMessage.style.display = 'none';
                 cartTotalDiv.style.display = 'block';
                 checkoutButton.style.display = 'block';
                 cart.forEach(item => {
                     const listItem = document.createElement('li');
+                    const productQuantityText = translations[currentLang]['productQuantity'].replace('%s', item.quantity);
                     listItem.innerHTML = `
                         <div class="item-details">
                             <span class="item-name">${item.name}</span>
-                            <span class="item-quantity"> (x${item.quantity})</span><br>
-                            <span class="item-price">Inquire for Pricing</span>
+                            <span class="item-quantity"> ${productQuantityText}</span><br>
+                            <span class="item-price">${translations[currentLang]['inquirePrice']}</span>
                         </div>
-                        <button class="remove-item" data-product-id="${item.id}" aria-label="Remove ${item.name} from inquiry list" tabindex="0">Remove</button>`;
+                        <button class="remove-item" data-product-id="${item.id}" aria-label="${translations[currentLang]['removeItem']} ${item.name}" tabindex="0">${translations[currentLang]['removeItem']}</button>`;
                     cartItemsList.appendChild(listItem);
                 });
-                cartTotalDiv.textContent = `Total: Inquire for Pricing`;
+                cartTotalDiv.textContent = `${translations[currentLang]['totalInquirePricing']}`;
             }
         }
 
         function renderBillingContent() {
             billingItemsList.innerHTML = '';
-            currentSubtotal = "Inquire for Pricing";
+            currentSubtotal = translations[currentLang]['inquirePrice'];
             couponApplied = false;
             if (cart.length === 0) {
                 closeBillingModal(); openCartModal(); return;
             }
             cart.forEach(item => {
                 const listItem = document.createElement('li');
+                const productQuantityText = translations[currentLang]['productQuantity'].replace('%s', item.quantity);
                 listItem.innerHTML = `
                     <div class="item-details">
                         <span class="item-name">${item.name}</span>
-                        <span class="item-quantity"> (x${item.quantity})</span><br>
-                        <span class="item-price">Inquire for Pricing</span>
+                        <span class="item-quantity"> ${productQuantityText}</span><br>
+                        <span class="item-price">${translations[currentLang]['inquirePrice']}</span>
                     </div>
-                    <button class="remove-item" data-product-id="${item.id}" aria-label="Remove ${item.name} from inquiry" tabindex="0">Remove</button>`;
+                    <button class="remove-item" data-product-id="${item.id}" aria-label="${translations[currentLang]['removeItem']} ${item.name}" tabindex="0">${translations[currentLang]['removeItem']}</button>`;
                 billingItemsList.appendChild(listItem);
             });
-            subtotalSpan.textContent = `Inquire for Pricing`;
-            discountSpan.textContent = `Inquire for Pricing`;
-            finalTotalSpan.textContent = `Inquire for Pricing`;
-            currentTotal = "Inquire for Pricing";
+            subtotalSpan.textContent = translations[currentLang]['inquirePrice'];
+            discountSpan.textContent = translations[currentLang]['inquirePrice'];
+            finalTotalSpan.textContent = translations[currentLang]['inquirePrice'];
+            currentTotal = translations[currentLang]['inquirePrice'];
             couponCodeInput.value = '';
             couponMessageDiv.textContent = '';
             couponMessageDiv.className = '';
         }
 
         function applyCoupon() {
-            couponMessageDiv.textContent = 'Please inquire directly via WhatsApp for coupon details.';
+            couponMessageDiv.textContent = translations[currentLang]['couponInquireMessage'];
             couponMessageDiv.classList.add('info');
         }
 
         function generateWhatsAppLink() {
-            let message = "Hello J.K Gems, I'd like to inquire about the following items from your website:\n\n";
+            let message = translations[currentLang]['whatsappMessageIntro'] + "\n\n";
             cart.forEach(item => {
-                message += `- ${item.name} (Quantity: ${item.quantity})\n`;
+                const productQuantityText = translations[currentLang]['productQuantity'].replace('%s', item.quantity);
+                message += `- ${item.name} ${productQuantityText}\n`;
             });
 
             if (couponCodeInput.value) {
-                message += `\nI'm also interested in inquiring about coupon code: ${couponCodeInput.value}\n`;
+                message += `\n${translations[currentLang]['whatsappMessageCoupon']} ${couponCodeInput.value}\n`;
             }
 
             const customerName = customerNameInput.value.trim();
             const customerEmail = customerEmailInput.value.trim();
             const customerMessage = customerMessageInput.value.trim();
 
-            if (customerName) message += `\nMy Name: ${customerName}`;
-            if (customerEmail) message += `\nMy Email: ${customerEmail}`;
-            if (customerMessage) message += `\nMy Message: ${customerMessage}`;
+            if (customerName) message += `\n${translations[currentLang]['whatsappMessageName']}: ${customerName}`;
+            if (customerEmail) message += `\n${translations[currentLang]['whatsappMessageEmail']}: ${customerEmail}`;
+            if (customerMessage) message += `\n${translations[currentLang]['whatsappMessageNotes']}: ${customerMessage}`;
 
-            message += `\n\nLooking forward to hearing from you.`;
+            message += `\n\n${translations[currentLang]['whatsappMessageOutro']}`;
 
-            // WhatsApp API URL for Junagadh, Gujarat, India number +91 9723197899
             const whatsappNumber = "919723197899";
             const encodedMessage = encodeURIComponent(message);
             return `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
@@ -1274,24 +1652,17 @@
 
         function openWhatsAppInquiry() {
             if (cart.length === 0) {
-                alert("Your inquiry list is empty. Please add items before proceeding.");
+                alert(translations[currentLang]['emptyCartAlert']);
                 return;
             }
             const whatsappLink = generateWhatsAppLink();
             window.open(whatsappLink, '_blank');
-            // Optional: Clear cart after inquiry, or add a confirmation step
-            // cart = [];
-            // saveCart();
-            // updateCartUI();
-            // closeBillingModal();
-            // alert("Your inquiry has been sent to J.K Gems via WhatsApp!");
         }
-
 
         function openCartModal() { cartModal.style.display = 'flex'; renderCart(); closeCartModalBtn.focus(); }
         function closeCartModal() { cartModal.style.display = 'none'; }
         function openBillingModal() {
-            if (cart.length === 0) { alert("Your inquiry list is empty."); return; }
+            if (cart.length === 0) { alert(translations[currentLang]['emptyCartAlert']); return; }
             closeCartModal(); billingModal.style.display = 'flex'; renderBillingContent(); closeBillingModalBtn.focus();
         }
         function closeBillingModal() { billingModal.style.display = 'none'; }
@@ -1379,8 +1750,36 @@
             document.body.insertBefore(particlesContainer, document.body.firstChild); // Insert before other body elements
         }
 
+        // --- Language Modal Specifics ---
+        const languageModal = document.getElementById('languageModal');
+        const langButtons = languageModal.querySelectorAll('button[data-lang]');
+
+        function openLanguageModal() {
+            languageModal.style.display = 'flex';
+        }
+
+        function closeLanguageModal() {
+            languageModal.style.display = 'none';
+        }
+
+        langButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                setLanguage(button.dataset.lang);
+            });
+        });
+
         // --- DOMContentLoaded Initializer ---
         document.addEventListener('DOMContentLoaded', () => {
+            // Check for saved language preference
+            const savedLang = localStorage.getItem('jk-gems-lang');
+            if (savedLang && translations[savedLang]) {
+                currentLang = savedLang;
+                applyTranslations();
+                closeLanguageModal();
+            } else {
+                openLanguageModal(); // Show language selection if no preference is saved
+            }
+
             createGemParticles();
             AOS.init({
                 duration: 800,
@@ -1404,7 +1803,7 @@
             if (target.classList.contains('add-to-cart-button')) {
                 const product = {
                     id: target.dataset.productId, name: target.dataset.productName,
-                    price: "Inquire for Pricing"
+                    price: translations[currentLang]['inquirePrice']
                 };
                 if (product.id && product.name) addToCart(product);
                 else console.error("Missing product data for Add to Inquiry List:", product);
@@ -1431,8 +1830,48 @@
                 if (billingModal.style.display === 'flex') closeBillingModal();
                 else if (cartModal.style.display === 'flex') closeCartModal();
                 else if (imageModal.style.display === 'flex') imageModal.style.display = 'none';
+                else if (languageModal.style.display === 'flex') closeLanguageModal();
             }
         });
+
+        // Add a new placeholder for product search specifically
+        translations.en.searchPlaceholderProduct = 'Search %s products...';
+        translations.hi.searchPlaceholderProduct = '%s उत्पादों को खोजें...';
+        translations.gu.searchPlaceholderProduct = '%s ઉત્પાદનો શોધો...';
+
+        // Add whatsapp message translations
+        translations.en.whatsappMessageIntro = "Hello J.K Gems, I'd like to inquire about the following items from your website:";
+        translations.hi.whatsappMessageIntro = "नमस्ते जे.के. जेम्स, मैं आपकी वेबसाइट से निम्नलिखित वस्तुओं के बारे में पूछताछ करना चाहता हूँ:";
+        translations.gu.whatsappMessageIntro = "નમસ્તે જે.કે. જેમ્સ, હું તમારી વેબસાઇટ પરથી નીચેની વસ્તુઓ વિશે પૂછપરછ કરવા માંગુ છું:";
+
+        translations.en.whatsappMessageCoupon = "I'm also interested in inquiring about coupon code:";
+        translations.hi.whatsappMessageCoupon = "मैं कूपन कोड के बारे में भी पूछताछ करने में रुचि रखता हूँ:";
+        translations.gu.whatsappMessageCoupon = "હું કૂપન કોડ વિશે પણ પૂછપરછ કરવામાં રસ ધરાવું છું:";
+
+        translations.en.whatsappMessageName = "My Name";
+        translations.hi.whatsappMessageName = "मेरा नाम";
+        translations.gu.whatsappMessageName = "મારું નામ";
+
+        translations.en.whatsappMessageEmail = "My Email";
+        translations.hi.whatsappMessageEmail = "मेरा ईमेल";
+        translations.gu.whatsappMessageEmail = "મારો ઇમેઇલ";
+
+        translations.en.whatsappMessageNotes = "My Message";
+        translations.hi.whatsappMessageNotes = "मेरा संदेश";
+        translations.gu.whatsappMessageNotes = "મારો સંદેશ";
+
+        translations.en.whatsappMessageOutro = "Looking forward to hearing from you.";
+        translations.hi.whatsappMessageOutro = "आपसे सुनकर खुशी होगी।";
+        translations.gu.whatsappMessageOutro = "તમારા તરફથી સાંભળવા આતુર છું.";
+
+        translations.en.emptyCartAlert = "Your inquiry list is empty. Please add items before proceeding.";
+        translations.hi.emptyCartAlert = "आपकी पूछताछ सूची खाली है। आगे बढ़ने से पहले कृपया आइटम जोड़ें।";
+        translations.gu.emptyCartAlert = "તમારી પૂછપરછ સૂચિ ખાલી છે. આગળ વધતા પહેલા કૃપા કરીને વસ્તુઓ ઉમેરો.";
+
+        translations.en.couponInquireMessage = "Please inquire directly via WhatsApp for coupon details.";
+        translations.hi.couponInquireMessage = "कूपन विवरण के लिए कृपया सीधे व्हाट्सएप के माध्यम से पूछताछ करें।";
+        translations.gu.couponInquireMessage = "કૂપન વિગતો માટે કૃપા કરીને સીધા WhatsApp દ્વારા પૂછપરછ કરો.";
+
     </script>
 </body>
 </html>
