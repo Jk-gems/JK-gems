@@ -571,7 +571,7 @@
         /* --- Billing Modal Specific Styles --- */
          #billingModal .modal-content { max-width: 700px; }
          #billingModal h2 { margin-bottom: 30px; }
-         #billingModal form { margin-top: 20px; display: grid; gap: 15px; }
+         #billingModal .inquiry-details { margin-top: 20px; display: grid; gap: 15px; }
          #billingModal label { display: block; margin-bottom: 5px; font-weight: 600; color: var(--text-color-dark); font-size: 0.95em; }
          #billingModal input[type="text"], #billingModal input[type="email"], #billingModal input[type="tel"], #billingModal textarea {
              width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 5px;
@@ -657,7 +657,7 @@
             .cart-total { font-size: 1.2em; }
             .social-links a { font-size: 28px; margin: 0 12px; }
             .scroll-to-top { width: 45px; height: 45px; line-height: 45px; font-size: 1.4rem; }
-            #billingModal form { gap: 12px; }
+            #billingModal .inquiry-details { gap: 12px; }
             #billingModal input[type="text"], #billingModal input[type="email"], #billingModal input[type="tel"], #billingModal textarea { padding: 10px; }
             .coupon-section input[type="text"], .coupon-section button { padding: 8px; }
              /* Hero Background Animation Responsive */
@@ -716,7 +716,7 @@
             .remove-item { padding: 3px 8px; font-size: 0.85em; }
             .cart-total { font-size: 1.2em; }
             .scroll-to-top { width: 45px; height: 45px; line-height: 45px; font-size: 1.4rem; bottom: 15px; right: 15px; }
-            #billingModal form { gap: 12px; }
+            #billingModal .inquiry-details { gap: 12px; }
             #billingModal input[type="text"], #billingModal input[type="email"], #billingModal input[type="tel"], #billingModal textarea { padding: 10px; }
             .coupon-section input[type="text"], .coupon-section button { padding: 8px; }
             /* Hero Background Animation Responsive */
@@ -749,7 +749,7 @@
             #cartItemsList li, #billingItemsList li { font-size: 0.95em; padding: 8px 0; }
             .remove-item { padding: 2px 6px; font-size: 0.8em; }
             .cart-total { font-size: 1.1em; }
-            #billingModal form { gap: 8px; }
+            #billingModal .inquiry-details { gap: 8px; }
             #billingModal input[type="text"], #billingModal input[type="email"], #billingModal input[type="tel"], #billingModal textarea { padding: 6px; }
             .coupon-section input[type="text"], .coupon-section button { padding: 6px; }
             .payment-info h3 { font-size: 1.3em; }
@@ -971,14 +971,14 @@
             <div id="emptyCartMessage">Your inquiry list is empty.</div>
             <ul id="cartItemsList"></ul>
             <div class="cart-total" id="cartTotal">Total: Inquire for Pricing</div>
-            <button class="checkout-button" id="checkoutButton">Proceed to Inquiry Form</button>
+            <button class="checkout-button" id="checkoutButton">Proceed to WhatsApp Inquiry</button>
         </div>
     </div>
 
     <div id="billingModal" class="modal">
          <div class="modal-content">
-              <span class="close" id="closeBillingModal" role="button" tabindex="0" aria-label="Close Order Form">×</span>
-              <h2>Order Inquiry Form</h2>
+              <span class="close" id="closeBillingModal" role="button" tabindex="0" aria-label="Close Inquiry Form">×</span>
+              <h2>WhatsApp Inquiry Form</h2>
               <a href="#" class="back-to-cart" id="backToCartButton" role="button" tabindex="0"><i class="fas fa-arrow-left"></i> Back to Inquiry List</a>
               <h3>Items in Your Inquiry</h3>
               <ul id="billingItemsList"></ul>
@@ -992,37 +992,31 @@
                     <p>Discount: <span id="discount">Inquire for Pricing</span></p>
                    <p class="final-total">Total: <span id="finalTotal">Inquire for Pricing</span></p>
               </div>
-              <h3>Your Details</h3>
-               <form id="orderForm" action="https://formsubmit.co/gauravraningagoldjewellery@gmail.com" method="POST">
-                    <input type="hidden" name="_subject" value="New J.K Gems Order Inquiry">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="YOUR_SUCCESS_PAGE_URL"> <input type="hidden" name="_autoresponse" value="Thank you for your inquiry to J.K Gems. We have received your request and will contact you shortly to provide pricing details and guide you through the process.">
-                    <input type="hidden" name="Inquiry Details" id="orderCartDetails">
-                    <input type="hidden" name="Inquiry Total" id="orderFinalTotal" value="Inquire for Pricing">
-                    <input type="hidden" name="Coupon Inquiry" id="couponAppliedStatus" value="No">
+              <h3>Your Details (for WhatsApp inquiry)</h3>
+               <div class="inquiry-details">
                    <div>
                         <label for="customerName">Full Name:</label>
-                        <input type="text" id="customerName" name="Name" required>
+                        <input type="text" id="customerName" placeholder="Your Full Name">
                    </div>
                    <div>
-                        <label for="customerEmail">Email:</label>
-                        <input type="email" id="customerEmail" name="Email" required>
+                        <label for="customerEmail">Email (Optional):</label>
+                        <input type="email" id="customerEmail" placeholder="Your Email">
                    </div>
                    <div>
-                        <label for="customerPhone">Phone Number:</label>
-                        <input type="tel" id="customerPhone" name="Phone" required>
+                        <label for="customerPhone">Phone Number (for WhatsApp):</label>
+                        <input type="tel" id="customerPhone" value="+919723197899" readonly>
                    </div>
                    <div>
-                        <label for="customerAddress">Preferred Contact Method/Notes:</label>
-                        <textarea id="customerAddress" name="Preferred Contact Method/Notes" placeholder="e.g., Best time to call, specific questions, or alternative contact method."></textarea>
+                        <label for="customerAddress">Your Message/Notes (Optional):</label>
+                        <textarea id="customerAddress" placeholder="Any specific questions or additional notes."></textarea>
                    </div>
                     <div class="payment-info">
-                        <h3>Inquiry Process</h3>
-                        <p>Upon submitting this form, your inquiry will be sent to J.K Gems.</p>
-                         <p class="payment-instructions">We will **contact you directly via WhatsApp or phone** to discuss your selected items, provide detailed pricing, and guide you through any next steps.</p>
+                        <h3>WhatsApp Inquiry Process</h3>
+                        <p>Clicking "Send WhatsApp Inquiry" will open WhatsApp with a pre-filled message including your selected items and contact details (if provided).</p>
+                         <p class="payment-instructions">We will **contact you directly via WhatsApp or phone** to discuss your selected items, provide detailed pricing, and guide you through the process.</p>
                     </div>
-                   <button type="submit" class="place-order-button">Submit Inquiry</button>
-              </form>
+                   <button type="button" class="place-order-button" id="sendWhatsAppInquiry">Send WhatsApp Inquiry</button>
+              </div>
          </div>
     </div>
 
@@ -1118,7 +1112,7 @@
         closeImageModalBtn.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); imageModal.style.display = 'none'; }});
         imageModal.addEventListener('click', e => { if (e.target === imageModal) imageModal.style.display = 'none'; });
 
-        // --- Cart & Billing ---
+        // --- Cart & Billing (WhatsApp focused) ---
         const cartIcon = document.getElementById('cartIcon');
         const cartCountSpan = document.getElementById('cartCount');
         const cartModal = document.getElementById('cartModal');
@@ -1137,15 +1131,16 @@
         const subtotalSpan = document.getElementById('subtotal');
         const discountSpan = document.getElementById('discount');
         const finalTotalSpan = document.getElementById('finalTotal');
-        const orderForm = document.getElementById('orderForm');
-        const orderCartDetailsInput = document.getElementById('orderCartDetails');
-        const orderFinalTotalInput = document.getElementById('orderFinalTotal');
-        const couponAppliedStatusInput = document.getElementById('couponAppliedStatus');
+        const sendWhatsAppInquiryButton = document.getElementById('sendWhatsAppInquiry');
+        const customerNameInput = document.getElementById('customerName');
+        const customerEmailInput = document.getElementById('customerEmail');
+        const customerPhoneInput = document.getElementById('customerPhone');
+        const customerMessageInput = document.getElementById('customerAddress'); // Renamed for clarity
 
         let cart = JSON.parse(localStorage.getItem('jk-gems-cart')) || [];
-        let currentSubtotal = "Inquire for Pricing";
-        let currentTotal = "Inquire for Pricing";
-        let couponApplied = false;
+        let currentSubtotal = "Inquire for Pricing"; // Kept for consistency in UI, but functionally "Inquire"
+        let currentTotal = "Inquire for Pricing"; // Kept for consistency in UI, but functionally "Inquire"
+        let couponApplied = false; // Kept for consistency in UI, but functionally "Inquire"
 
         function saveCart() { localStorage.setItem('jk-gems-cart', JSON.stringify(cart)); }
 
@@ -1156,7 +1151,7 @@
             if (cartModal.style.display === 'flex') renderCart();
         }
 
-        // Enhanced Add to Cart Functionality (from new code)
+        // Enhanced Add to Cart Functionality
         function addToCart(product) {
             const existingItemIndex = cart.findIndex(item => item.id === product.id);
             if (existingItemIndex > -1) {
@@ -1231,32 +1226,54 @@
             couponCodeInput.value = '';
             couponMessageDiv.textContent = '';
             couponMessageDiv.className = '';
-            updateHiddenOrderDetails();
         }
 
         function applyCoupon() {
-            // Since pricing is inquire-based, coupon application is also for inquiry.
-            couponMessageDiv.textContent = 'Please inquire via WhatsApp for coupon details.';
-            couponMessageDiv.classList.add('info'); // Use 'info' class for neutral message
-            discountSpan.textContent = `Inquire for Pricing`;
-            finalTotalSpan.textContent = `Inquire for Pricing`;
-            couponApplied = false;
-            couponAppliedStatusInput.value = "Inquired for Coupon";
-            updateHiddenOrderDetails();
+            couponMessageDiv.textContent = 'Please inquire directly via WhatsApp for coupon details.';
+            couponMessageDiv.classList.add('info');
         }
 
-        function updateHiddenOrderDetails() {
-            const orderSummary = cart.map(item => `${item.name} (x${item.quantity})`).join(', ');
-            let detailsString = `Items in Inquiry: ${orderSummary}.`;
-            detailsString += ` Pricing: Inquire for Pricing.`;
-            if (couponAppliedStatusInput.value === "Inquired for Coupon") {
-                detailsString += ` Coupon Inquiry: Yes.`;
-            } else {
-                detailsString += ` Coupon Inquiry: No.`;
+        function generateWhatsAppLink() {
+            let message = "Hello J.K Gems, I'd like to inquire about the following items from your website:\n\n";
+            cart.forEach(item => {
+                message += `- ${item.name} (Quantity: ${item.quantity})\n`;
+            });
+
+            if (couponCodeInput.value) {
+                message += `\nI'm also interested in inquiring about coupon code: ${couponCodeInput.value}\n`;
             }
-            orderCartDetailsInput.value = detailsString;
-            orderFinalTotalInput.value = "Inquire for Pricing"; // Explicitly state for FormSubmit
+
+            const customerName = customerNameInput.value.trim();
+            const customerEmail = customerEmailInput.value.trim();
+            const customerMessage = customerMessageInput.value.trim();
+
+            if (customerName) message += `\nMy Name: ${customerName}`;
+            if (customerEmail) message += `\nMy Email: ${customerEmail}`;
+            if (customerMessage) message += `\nMy Message: ${customerMessage}`;
+
+            message += `\n\nLooking forward to hearing from you.`;
+
+            // WhatsApp API URL for Junagadh, Gujarat, India number +91 9723197899
+            const whatsappNumber = "919723197899";
+            const encodedMessage = encodeURIComponent(message);
+            return `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
         }
+
+        function openWhatsAppInquiry() {
+            if (cart.length === 0) {
+                alert("Your inquiry list is empty. Please add items before proceeding.");
+                return;
+            }
+            const whatsappLink = generateWhatsAppLink();
+            window.open(whatsappLink, '_blank');
+            // Optional: Clear cart after inquiry, or add a confirmation step
+            // cart = [];
+            // saveCart();
+            // updateCartUI();
+            // closeBillingModal();
+            // alert("Your inquiry has been sent to J.K Gems via WhatsApp!");
+        }
+
 
         function openCartModal() { cartModal.style.display = 'flex'; renderCart(); closeCartModalBtn.focus(); }
         function closeCartModal() { cartModal.style.display = 'none'; }
@@ -1292,10 +1309,7 @@
         applyCouponButton.addEventListener('click', applyCoupon);
         applyCouponButton.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); applyCoupon(); }});
         couponCodeInput.addEventListener('keypress', e => { if (e.key === 'Enter') { e.preventDefault(); applyCoupon(); }});
-        orderForm.addEventListener('submit', () => {
-            updateHiddenOrderDetails();
-            console.log("Form submitted with details:", orderCartDetailsInput.value);
-        });
+        sendWhatsAppInquiryButton.addEventListener('click', openWhatsAppInquiry);
 
         document.querySelectorAll('.back-to-categories').forEach(button => {
             button.addEventListener('click', e => { e.preventDefault(); showCategoryGrid(); });
@@ -1328,7 +1342,7 @@
             });
         });
 
-        // Initialize Floating Particles (from new code)
+        // Initialize Floating Particles
         function createGemParticles() {
             const particlesContainer = document.createElement('div');
             particlesContainer.style.position = 'fixed';
@@ -1354,33 +1368,17 @@
 
         // --- DOMContentLoaded Initializer ---
         document.addEventListener('DOMContentLoaded', () => {
-            createGemParticles(); // New
-            AOS.init({ // New
+            createGemParticles();
+            AOS.init({
                 duration: 800,
-                once: true, // Animate elements only once
+                once: true,
                 easing: 'ease-out-quart',
-                // offset: 50, // Adjust offset if needed
-                // delay: 50, // Global delay
             });
 
             showCategoryGrid();
             updateCartUI();
             document.getElementById('products').addEventListener('click', handleProductSectionClick);
             document.getElementById('products').addEventListener('keydown', handleProductSectionKeydown);
-
-            // Section Scroll Animation (using IntersectionObserver from old code, though AOS also does this)
-            // If using AOS for all scroll animations, this custom observer might be redundant for 'is-visible' class
-            // However, AOS adds its own classes like 'aos-animate'. This custom one adds 'is-visible'.
-            // For simplicity, if AOS handles all desired scroll animations, this can be removed.
-            // If specific 'is-visible' class styling is needed, keep it.
-            // const sections = document.querySelectorAll('section:not(.modal)');
-            // const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-            // const observer = new IntersectionObserver((entries) => {
-            //     entries.forEach(entry => {
-            //         entry.target.classList.toggle('is-visible', entry.isIntersecting);
-            //     });
-            // }, observerOptions);
-            // sections.forEach(section => observer.observe(section));
         });
 
         function handleProductSectionClick(event) {
@@ -1393,7 +1391,7 @@
             if (target.classList.contains('add-to-cart-button')) {
                 const product = {
                     id: target.dataset.productId, name: target.dataset.productName,
-                    price: "Inquire for Pricing" // Price is now a string
+                    price: "Inquire for Pricing"
                 };
                 if (product.id && product.name) addToCart(product);
                 else console.error("Missing product data for Add to Inquiry List:", product);
@@ -1412,8 +1410,6 @@
                 event.preventDefault(); const categoryId = categoryCard.dataset.categoryTarget;
                 if (categoryId) showProductContainer(categoryId);
             }
-            // Keydown for add-to-cart handled by default button behavior for Space/Enter
-            // Keydown for image zoom can be added if needed (e.g., Enter on image)
         }
 
         // Escape key to close modals
