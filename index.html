@@ -12,226 +12,226 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         :root {
-            --color-accent-copper: #B87333;
-            --color-slate-blue: #526173;
-            --color-light-grey: #D3D3D3;
-            --color-dark-blue: #222831;
-            --color-white: #FFFFFF;
-            --primary-color: var(--color-accent-copper);
-            --secondary-color: var(--color-slate-blue);
-            --background-color: var(--color-dark-blue);
-            --surface-color: #2a323f;
-            --text-color-dark: var(--color-light-grey);
-            --text-color-medium: var(--color-light-grey);
-            --text-color-secondary: var(--color-slate-blue);
-            --border-color: #3b4555;
-            --whatsapp-green: #25D366;
-            --whatsapp-green-hover: #1DA851;
-            --footer-text-color: var(--text-color-secondary);
-            --section-padding-vertical: 100px;
-            --section-padding-horizontal: 25px;
-            --shadow-deep: 0 12px 24px rgba(0,0,0,0.7);
-            --shadow-medium: 0 8px 16px rgba(0,0,0,0.6);
-            --shadow-light: 0 4px 8px rgba(0,0,0,0.5);
-            --gradient-primary: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            --gradient-highlight: linear-gradient(90deg, var(--primary-color), var(--color-slate-blue));
-            --button-primary-bg: var(--primary-color);
-            --button-primary-text: var(--background-color);
-            --button-primary-hover-bg: var(--secondary-color);
-            --button-primary-hover-text: var(--background-color);
-            --button-secondary-bg: var(--secondary-color);
-            --button-secondary-text: var(--background-color);
-            --button-secondary-hover-bg: var(--primary-color);
-            --button-secondary-hover-text: var(--background-color);
-            --color-alert: #cf6679;
-            --color-error-text: #cf6679;
+            --color-accent-copper: #B87333; /* [cite: 2] */
+            --color-slate-blue: #526173; /* [cite: 2] */
+            --color-light-grey: #D3D3D3; /* [cite: 2] */
+            --color-dark-blue: #222831; /* [cite: 2] */
+            --color-white: #FFFFFF; /* [cite: 2] */
+            --primary-color: var(--color-accent-copper); /* [cite: 2] */
+            --secondary-color: var(--color-slate-blue); /* [cite: 2] */
+            --background-color: var(--color-dark-blue); /* [cite: 2] */
+            --surface-color: #2a323f; /* [cite: 3] */
+            --text-color-dark: var(--color-light-grey); /* [cite: 3] */
+            --text-color-medium: var(--color-light-grey); /* [cite: 3] */
+            --text-color-secondary: var(--color-slate-blue); /* [cite: 3] */
+            --border-color: #3b4555; /* [cite: 3] */
+            --whatsapp-green: #25D366; /* [cite: 3] */
+            --whatsapp-green-hover: #1DA851; /* [cite: 3] */
+            --footer-text-color: var(--text-color-secondary); /* [cite: 3] */
+            --section-padding-vertical: 100px; /* [cite: 3] */
+            --section-padding-horizontal: 25px; /* [cite: 3] */
+            --shadow-deep: 0 12px 24px rgba(0,0,0,0.7); /* [cite: 4] */
+            --shadow-medium: 0 8px 16px rgba(0,0,0,0.6); /* [cite: 4] */
+            --shadow-light: 0 4px 8px rgba(0,0,0,0.5); /* [cite: 4] */
+            --gradient-primary: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); /* [cite: 4] */
+            --gradient-highlight: linear-gradient(90deg, var(--primary-color), var(--color-slate-blue)); /* [cite: 5] */
+            --button-primary-bg: var(--primary-color); /* [cite: 5] */
+            --button-primary-text: var(--background-color); /* [cite: 5] */
+            --button-primary-hover-bg: var(--secondary-color); /* [cite: 5] */
+            --button-primary-hover-text: var(--background-color); /* [cite: 5] */
+            --button-secondary-bg: var(--secondary-color); /* [cite: 5] */
+            --button-secondary-text: var(--background-color); /* [cite: 5] */
+            --button-secondary-hover-bg: var(--primary-color); /* [cite: 5] */
+            --button-secondary-hover-text: var(--background-color); /* [cite: 5] */
+            --color-alert: #cf6679; /* [cite: 6] */
+            --color-error-text: #cf6679; /* [cite: 6] */
         }
 
         /* Enhanced Gemstone Animations */
         @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+            0%, 100% { transform: translateY(0) rotate(0deg); /* [cite: 6] */ }
+            50% { transform: translateY(-20px) rotate(5deg); /* [cite: 7] */ }
         }
 
         @keyframes sparkle {
-            0% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1); }
-            100% { opacity: 0; transform: scale(0); }
+            0% { opacity: 0; /* [cite: 8] */ transform: scale(0); /* [cite: 9] */ }
+            50% { opacity: 1; transform: scale(1); /* [cite: 9] */ }
+            100% { opacity: 0; transform: scale(0); /* [cite: 10] */ }
         }
 
         .product:hover::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 10%, transparent 70%);
-            animation: sparkle 0.8s ease-out;
-            pointer-events: none;
+            content: ''; /* [cite: 11] */
+            position: absolute; /* [cite: 12] */
+            top: 50%; /* [cite: 12] */
+            left: 50%; /* [cite: 12] */
+            width: 100%; /* [cite: 12] */
+            height: 100%; /* [cite: 12] */
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 10%, transparent 70%); /* [cite: 12] */
+            animation: sparkle 0.8s ease-out; /* [cite: 12] */
+            pointer-events: none; /* [cite: 13] */
         }
 
         /* Improved Grid Layout */
         .category-grid, .category-products-grid {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px; /* Increased gap */
-            padding: 20px 0;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* [cite: 13] */
+            gap: 40px; /* Increased gap */ /* [cite: 14] */
+            padding: 20px 0; /* [cite: 14] */
         }
 
         /* Enhanced Product Cards */
         .product {
-            border: 1px solid var(--border-color);
-            padding: 0;
-            text-align: left;
-            background-color: var(--surface-color);
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            box-shadow: var(--shadow-light);
-            transform-style: preserve-3d;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            position: relative;
-            overflow: visible;
+            border: 1px solid var(--border-color); /* [cite: 15] */
+            padding: 0; /* [cite: 16] */
+            text-align: left; /* [cite: 16] */
+            background-color: var(--surface-color); /* [cite: 16] */
+            border-radius: 8px; /* [cite: 16] */
+            display: flex; /* [cite: 16] */
+            flex-direction: column; /* [cite: 16] */
+            box-shadow: var(--shadow-light); /* [cite: 17] */
+            transform-style: preserve-3d; /* From new */ /* [cite: 18] */
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* [cite: 18] */
+            position: relative; /* From new */ /* [cite: 19] */
+            overflow: visible; /* From new */ /* [cite: 20] */
         }
 
         .product:hover {
-            transform: translateY(-10px) rotateX(5deg) rotateY(5deg); /* From new, enhanced hover */
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8); /* From new, deeper shadow */
-            border-color: var(--primary-color);
-            background-color: #333c4b;
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg); /* From new, enhanced hover */ /* [cite: 21] */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8); /* From new, deeper shadow */ /* [cite: 22] */
+            border-color: var(--primary-color); /* [cite: 23] */
+            background-color: #333c4b; /* [cite: 24] */
         }
 
         /* Floating Gemstone Particles */
         .gem-particle {
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background: var(--primary-color);
-            opacity: 0.3; /* Reduced opacity */
-            animation: float 6s infinite ease-in-out;
-            border-radius: 50%;
-            pointer-events: none; /* Ensure particles don't interfere */
+            position: absolute; /* [cite: 24] */
+            width: 15px; /* [cite: 25] */
+            height: 15px; /* [cite: 26] */
+            background: var(--primary-color); /* [cite: 26] */
+            opacity: 0.3; /* Reduced opacity */ /* [cite: 26] */
+            animation: float 6s infinite ease-in-out; /* [cite: 26] */
+            border-radius: 50%; /* [cite: 27] */
+            pointer-events: none; /* Ensure particles don't interfere */ /* [cite: 27] */
         }
 
         /* Enhanced Image Zoom */
         .product img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            margin-bottom: 0;
-            border-bottom: 1px solid var(--border-color);
-            cursor: zoom-in;
-            filter: brightness(0.9);
-            outline: none; /* From new CSS */
-            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.3s ease, filter 0.3s ease;
+            width: 100%; /* [cite: 28] */
+            height: 280px; /* [cite: 29] */
+            object-fit: cover; /* [cite: 29] */
+            margin-bottom: 0; /* [cite: 29] */
+            border-bottom: 1px solid var(--border-color); /* [cite: 29] */
+            cursor: zoom-in; /* [cite: 29] */
+            filter: brightness(0.9); /* [cite: 29] */
+            outline: none; /* From new CSS */ /* [cite: 29] */
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.3s ease, filter 0.3s ease; /* [cite: 30] */
         }
 
         .product img:hover {
-            transform: scale(1.1) rotateZ(1deg); /* Enhanced zoom */
-            filter: brightness(1.1);
-            border-color: var(--primary-color);
+            transform: scale(1.1) rotateZ(1deg); /* Enhanced zoom */ /* [cite: 31] */
+            filter: brightness(1.1); /* [cite: 32] */
+            border-color: var(--primary-color); /* [cite: 33] */
         }
          .product img:focus { /* From old CSS, ensure it's still relevant */
-             outline: 3px solid var(--primary-color);
-             outline-offset: 3px;
-             border-color: var(--primary-color);
-             filter: brightness(1.1);
+             outline: 3px solid var(--primary-color); /* [cite: 33] */
+             outline-offset: 3px; /* [cite: 34] */
+             border-color: var(--primary-color); /* [cite: 34] */
+             filter: brightness(1.1); /* [cite: 34] */
          }
 
         /* Modern Cart Notification */
         .cart-notification {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--primary-color);
-            color: var(--background-color);
-            padding: 15px 25px;
-            border-radius: 30px; /* Pill shape */
-            box-shadow: var(--shadow-deep);
-            transform: translateY(100px); /* Start off-screen */
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            z-index: 10000; /* Ensure it's above most elements */
+            position: fixed; /* [cite: 34] */
+            bottom: 20px; /* [cite: 35] */
+            right: 20px; /* [cite: 35] */
+            background: var(--primary-color); /* [cite: 35] */
+            color: var(--background-color); /* [cite: 35] */
+            padding: 15px 25px; /* [cite: 35] */
+            border-radius: 30px; /* Pill shape */ /* [cite: 35] */
+            box-shadow: var(--shadow-deep); /* [cite: 36] */
+            transform: translateY(100px); /* Start off-screen */ /* [cite: 36] */
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* [cite: 37] */
+            z-index: 10000; /* Ensure it's above most elements */ /* [cite: 38] */
         }
 
         .cart-notification.show {
-            transform: translateY(0); /* Slide in */
+            transform: translateY(0); /* Slide in */ /* [cite: 38] */
         }
 
         /* --- Base Styles (from old code, potentially adjusted by new :root) --- */
          body {
-             font-family: 'Lato', sans-serif;
-             font-weight: 400;
-             margin: 0;
-             padding: 0;
-             background-color: var(--background-color);
-             color: var(--text-color-medium);
-             line-height: 1.6;
-             overflow-x: hidden;
-             scroll-behavior: smooth;
-             background-image: linear-gradient(45deg, #2c3440 25%, transparent 25%, transparent 75%, #2c3440 75%, #2c3440),
-                               linear-gradient(-45deg, #2c3440 25%, transparent 25%, transparent 75%, #2c3440 75%, #2c3440);
-             background-size: 20px 20px;
+             font-family: 'Lato', sans-serif; /* [cite: 39] */
+             font-weight: 400; /* [cite: 40] */
+             margin: 0; /* [cite: 40] */
+             padding: 0; /* [cite: 40] */
+             background-color: var(--background-color); /* [cite: 40] */
+             color: var(--text-color-medium); /* [cite: 40] */
+             line-height: 1.6; /* [cite: 40] */
+             overflow-x: hidden; /* [cite: 40] */
+             scroll-behavior: smooth; /* [cite: 40] */
+             background-image: linear-gradient(45deg, #2c3440 25%, transparent 25%, transparent 75%, #2c3440 75%, #2c3440), /* [cite: 40] */
+                               linear-gradient(-45deg, #2c3440 25%, transparent 25%, transparent 75%, #2c3440 75%, #2c3440); /* [cite: 41] */
+             background-size: 20px 20px; /* [cite: 42] */
          }
 
          h1, h2, h3, h4, h5, h6 {
-             font-family: 'Lora', serif;
-             color: var(--primary-color);
-             line-height: 1.3;
-             margin-top: 0;
-             letter-spacing: 0.5px;
+             font-family: 'Lora', serif; /* [cite: 42] */
+             color: var(--primary-color); /* [cite: 43] */
+             line-height: 1.3; /* [cite: 43] */
+             margin-top: 0; /* [cite: 43] */
+             letter-spacing: 0.5px; /* [cite: 43] */
          }
 
          h2 {
-             font-size: 2.8em;
-             margin-bottom: 40px;
-             text-align: center;
-             font-weight: 700;
-             position: relative;
-             padding-bottom: 15px;
+             font-size: 2.8em; /* [cite: 43] */
+             margin-bottom: 40px; /* [cite: 44] */
+             text-align: center; /* [cite: 44] */
+             font-weight: 700; /* [cite: 44] */
+             position: relative; /* [cite: 44] */
+             padding-bottom: 15px; /* [cite: 44] */
          }
           h2::after {
-              content: '';
-              position: absolute; bottom: 0; left: 50%;
-              transform: translateX(-50%); height: 3px; width: 80px;
-              background: var(--gradient-primary);
-              border-radius: 2px;
+              content: ''; /* [cite: 45] */
+              position: absolute; bottom: 0; left: 50%; /* [cite: 46] */
+              transform: translateX(-50%); height: 3px; width: 80px; /* [cite: 46] */
+              background: var(--gradient-primary); /* [cite: 46] */
+              border-radius: 2px; /* [cite: 46] */
          }
 
          h3 { /* This specific h3 styling might be overridden by .product-info h3 etc. */
-             font-size: 1.8em;
-             margin-bottom: 20px;
-             font-weight: 600;
-             color: var(--text-color-dark);
+             font-size: 1.8em; /* [cite: 47] */
+             margin-bottom: 20px; /* [cite: 48] */
+             font-weight: 600; /* [cite: 48] */
+             color: var(--text-color-dark); /* [cite: 48] */
          }
 
          p {
-             margin-bottom: 1.2em;
-             color: var(--text-color-medium);
+             margin-bottom: 1.2em; /* [cite: 48] */
+             color: var(--text-color-medium); /* [cite: 49] */
          }
 
          a {
-             color: var(--primary-color);
-             text-decoration: none;
-             transition: color 0.3s ease;
+             color: var(--primary-color); /* [cite: 49] */
+             text-decoration: none; /* [cite: 50] */
+             transition: color 0.3s ease; /* [cite: 50] */
          }
 
          a:hover {
-             color: var(--secondary-color);
+             color: var(--secondary-color); /* [cite: 50] */
          }
 
          .container {
-             max-width: 1200px;
-             margin: 0 auto;
-             padding: 0 var(--section-padding-horizontal);
+             max-width: 1200px; /* [cite: 51] */
+             margin: 0 auto; /* [cite: 52] */
+             padding: 0 var(--section-padding-horizontal); /* [cite: 52] */
          }
 
          .section {
-             padding: var(--section-padding-vertical) 0;
-             text-align: center;
-             background-color: var(--background-color);
-             border-bottom: 1px solid var(--border-color);
-             position: relative;
-             overflow: hidden; /* Keep for sections */
+             padding: var(--section-padding-vertical) 0; /* [cite: 52] */
+             text-align: center; /* [cite: 53] */
+             background-color: var(--background-color); /* [cite: 53] */
+             border-bottom: 1px solid var(--border-color); /* [cite: 53] */
+             position: relative; /* [cite: 53] */
+             overflow: hidden; /* Keep for sections */ /* [cite: 53] */
          }
           .section:first-of-type { /* Hero section doesn't need AOS initial hidden state */
           }
@@ -239,805 +239,1732 @@
          }
 
          .section:last-of-type {
-           border-bottom: none;
-              margin-bottom: 0;
+              border-bottom: none; /* [cite: 64] */
+              margin-bottom: 0; /* [cite: 64] */
          }
 
          /* --- Header/Navigation --- */
          .header {
-             background-color: var(--surface-color);
-             padding: 10px 0;
-             text-align: center;
-             box-shadow: var(--shadow-medium);
-             position: static;
-             width: 100%;
-             top: 0;
-             left: 0;
-             z-index: 1000;
+             background-color: var(--surface-color); /* [cite: 64] */
+             padding: 10px 0; /* [cite: 65] */
+             text-align: center; /* [cite: 65] */
+             box-shadow: var(--shadow-medium); /* [cite: 65] */
+             position: static; /* [cite: 65] */
+             width: 100%; /* [cite: 65] */
+             top: 0; /* [cite: 65] */
+             left: 0; /* [cite: 65] */
+             z-index: 1000; /* [cite: 65] */
          }
 
          .header .container {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              flex-wrap: wrap;
-              padding: 0 20px;
+              display: flex; /* [cite: 66] */
+              justify-content: space-between; /* [cite: 67] */
+              align-items: center; /* [cite: 67] */
+              flex-wrap: wrap; /* [cite: 67] */
+              padding: 0 20px; /* [cite: 67] */
          }
 
          .header img {
-             max-width: 160px;
-             height: auto;
-             display: block;
-             margin: 0;
-             transition: transform 0.3s ease;
+             max-width: 160px; /* [cite: 67] */
+             height: auto; /* [cite: 68] */
+             display: block; /* [cite: 68] */
+             margin: 0; /* [cite: 68] */
+             transition: transform 0.3s ease; /* [cite: 68] */
          }
           .header img:hover {
-              transform: scale(1.05);
+              transform: scale(1.05); /* [cite: 69] */
           }
 
          .nav {
-             margin-top: 0;
-             display: flex;
-             align-items: center;
+             margin-top: 0; /* [cite: 70] */
+             display: flex; /* [cite: 71] */
+             align-items: center; /* [cite: 71] */
          }
-         .nav ul { list-style: none; padding: 0;
-             margin: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+         .nav ul { list-style: none; padding: 0; /* [cite: 71] */
+             margin: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; /* [cite: 72] */
          }
-         .nav li { margin-left: 30px; }
+         .nav li { margin-left: 30px; /* [cite: 73] */ }
          .nav a {
-             color: var(--text-color-secondary);
-             font-family: 'Lato', sans-serif; font-weight: 600; font-size: 1.1em;
-             padding: 5px 0; position: relative; transition: color 0.3s ease, transform 0.2s ease;
-             outline: none;
+             color: var(--text-color-secondary); /* [cite: 74] */
+             font-family: 'Lato', sans-serif; font-weight: 600; font-size: 1.1em; /* [cite: 75] */
+             padding: 5px 0; position: relative; transition: color 0.3s ease, transform 0.2s ease; /* [cite: 75] */
+             outline: none; /* [cite: 76] */
          }
-         .nav a:focus { color: var(--text-color-dark); outline: 2px solid var(--primary-color);
-             outline-offset: 3px; border-radius: 2px; }
-         .nav a::after { content: ''; position: absolute;
-             left: 0; bottom: 0; width: 0; height: 2px; background: var(--gradient-primary); transition: width 0.4s ease-in-out;
+         .nav a:focus { color: var(--text-color-dark); outline: 2px solid var(--primary-color); /* [cite: 76] */
+             outline-offset: 3px; border-radius: 2px; } /* [cite: 77] */
+         .nav a::after { content: ''; position: absolute; /* [cite: 77] */
+             left: 0; bottom: 0; width: 0; height: 2px; background: var(--gradient-primary); transition: width 0.4s ease-in-out; /* [cite: 78] */
          }
-         .nav a:hover, .nav a.active { color: var(--text-color-dark);
-             transform: translateY(-2px);}
-         .nav a:hover::after, .nav a.active::after { width: 100%; }
+         .nav a:hover, .nav a.active { color: var(--text-color-dark); /* [cite: 79] */
+             transform: translateY(-2px);} /* [cite: 80] */
+         .nav a:hover::after, .nav a.active::after { width: 100%; /* [cite: 80] */ }
 
          .cart-icon-container {
-             margin-left: 30px;
-             position: relative; cursor: pointer;
-             color: var(--text-color-secondary); font-size: 1.5em;
-             transition: color 0.3s ease, transform 0.3s ease;
-             outline: none; padding: 5px;
-             border-radius: 4px;
+             margin-left: 30px; /* [cite: 81] */
+             position: relative; cursor: pointer; /* [cite: 82] */
+             color: var(--text-color-secondary); font-size: 1.5em; /* [cite: 82] */
+             transition: color 0.3s ease, transform 0.3s ease; /* [cite: 82] */
+             outline: none; padding: 5px; /* [cite: 82] */
+             border-radius: 4px; /* [cite: 83] */
          }
-         .cart-icon-container:hover { color: var(--primary-color); transform: scale(1.1); }
-         .cart-icon-container:focus { color: var(--primary-color); outline: 2px solid var(--primary-color); outline-offset: 2px; }
+         .cart-icon-container:hover { color: var(--primary-color); transform: scale(1.1); /* [cite: 83] */ }
+         .cart-icon-container:focus { color: var(--primary-color); outline: 2px solid var(--primary-color); outline-offset: 2px; /* [cite: 84] */ }
 
          .cart-count {
-             position: absolute;
-             top: -8px; right: -8px;
-             background-color: #e74c3c;
-             color: white;
-             font-size: 0.7em; font-weight: 700; border-radius: 50%;
-             padding: 2px 6px;
-             line-height: 1;
-             min-width: 10px;
-             text-align: center; display: none;
+             position: absolute; /* [cite: 85] */
+             top: -8px; right: -8px; background-color: #e74c3c; /* [cite: 86] */
+             color: white; font-size: 0.7em; font-weight: 700; border-radius: 50%; /* [cite: 86] */
+             padding: 2px 6px; line-height: 1; /* [cite: 86] */
+             min-width: 10px; text-align: center; display: none; /* [cite: 86] */
          }
 
         /* --- Hero Section (Styles from old, content from new) --- */
          .hero {
-             position: relative;
-             height: 600px;
-             background: linear-gradient(rgba(34, 40, 49, 0.9), rgba(34, 40, 49, 0.9)), url('YOUR_HERO_IMAGE_URL.jpg') no-repeat center center/cover;
-             display: flex;
-             align-items: center;
-             justify-content: center;
-             color: white;
-             overflow: hidden;
-             background-attachment: fixed;
-             padding: var(--section-padding-vertical) 0;
+             position: relative; /* [cite: 87] */
+             height: 600px; /* [cite: 88] */
+             background: linear-gradient(rgba(34, 40, 49, 0.9), rgba(34, 40, 49, 0.9)), url('YOUR_HERO_IMAGE_URL.jpg') no-repeat center center/cover; /* [cite: 88] */
+             display: flex; /* [cite: 88] */
+             align-items: center; /* [cite: 88] */
+             justify-content: center; /* [cite: 89] */
+             color: white; /* [cite: 89] */
+             overflow: hidden; /* [cite: 89] */
+             background-attachment: fixed; /* [cite: 89] */
+             padding: var(--section-padding-vertical) 0; /* [cite: 89] */
          }
          .hero-background-animation {
-             position: absolute;
-             top: 0; left: 0;
-             width: 100%; height: 100%;
-             overflow: hidden;
-             z-index: 0; perspective: 1000px; pointer-events: none;
+             position: absolute; /* [cite: 90] */
+             top: 0; left: 0; width: 100%; height: 100%; /* [cite: 91] */
+             overflow: hidden; z-index: 0; perspective: 1000px; pointer-events: none; /* [cite: 91] */
          }
          .hero-background-animation::before {
-             content: '';
-             position: absolute; top: 50%;
-             left: 50%;
-             width: 200px;
-             height: 250px; transform-style: preserve-3d;
-             transform: translate(-50%, -50%) rotateX(-60deg) rotateY(0deg) rotateZ(30deg);
-             background: radial-gradient(circle at center,
+             content: ''; /* [cite: 92] */
+             position: absolute; top: 50%; left: 50%; /* [cite: 93] */
+             width: 200px; height: 250px; transform-style: preserve-3d; /* [cite: 93] */
+             transform: translate(-50%, -50%) rotateX(-60deg) rotateY(0deg) rotateZ(30deg); /* [cite: 93] */
+             background: radial-gradient(circle at center, /* [cite: 93] */
                          rgba(255, 165, 0, 0.6) 0%,
                          rgba(184, 115, 51, 0.5) 40%,
-                   rgba(82, 97, 115, 0.4) 80%,
-                         transparent 100%);
-             border: 1px solid rgba(var(--color-accent-copper), 0.8);
-             box-shadow: 0 0 15px rgba(184, 115, 51, 0.7), 0 0 30px rgba(184, 115, 51, 0.5), 0 0 45px rgba(184, 115, 51, 0.3);
-             opacity: 1;
-             animation: rotateGem 15s infinite linear;
+                         rgba(82, 97, 115, 0.4) 80%,
+                         transparent 100%); /* [cite: 95] */
+             border: 1px solid rgba(var(--color-accent-copper), 0.8); /* [cite: 96] */
+             box-shadow: 0 0 15px rgba(184, 115, 51, 0.7), 0 0 30px rgba(184, 115, 51, 0.5), 0 0 45px rgba(184, 115, 51, 0.3); /* [cite: 96] */
+             opacity: 1; /* [cite: 96] */
+             animation: rotateGem 15s infinite linear; /* [cite: 97] */
          }
          @keyframes rotateGem {
-             0% { transform: translate(-50%, -50%) rotateX(-60deg) rotateY(0deg) rotateZ(30deg); }
-             100% { transform: translate(-50%, -50%) rotateX(-60deg) rotateY(360deg) rotateZ(30deg); }
+             0% { transform: translate(-50%, -50%) rotateX(-60deg) rotateY(0deg) rotateZ(30deg); /* [cite: 97] */ }
+             100% { transform: translate(-50%, -50%) rotateX(-60deg) rotateY(360deg) rotateZ(30deg); /* [cite: 98] */ }
          }
-         .hero .hero-content { position: relative;
-             z-index: 2; } /* Ensured hero content is on top */
+         .hero .hero-content { position: relative; /* [cite: 99] */
+             z-index: 2; } /* Ensured hero content is on top */ /* [cite: 100] */
          .hero::before { /* Old overlay, ensure it works with new z-indexing or remove if redundant with background gradient */
-             content: '';
-             position: absolute; top: 0;
-             left: 0; width: 100%; height: 100%;
-             z-index: 1;
+             content: ''; /* [cite: 100] */
+             position: absolute; top: 0; left: 0; width: 100%; height: 100%; /* [cite: 101] */
+             z-index: 1; /* [cite: 101] */
          }
-         .hero .container { position: relative;
-             z-index: 2; text-align: center;
-         }
+         .hero .container { position: relative; /* [cite: 102] */
+             z-index: 2; text-align: center; } /* [cite: 103] */
          .hero .container h1 { /* Adjusted to use text-color-dark for better contrast on overlay */
-             color: var(--text-color-dark);
-             font-size: 4em; margin-bottom: 20px;
-             font-weight: 700;
-             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+             color: var(--text-color-dark); /* [cite: 103] */
+             font-size: 4em; margin-bottom: 20px; font-weight: 700; /* [cite: 104] */
+             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* [cite: 104] */
          }
          .hero .container p { /* Adjusted for new hero content */
-             color: var(--text-color-medium);
-             font-size: 1.3em; margin-bottom: 30px;
-             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+             color: var(--text-color-medium); /* [cite: 105] */
+             font-size: 1.3em; margin-bottom: 30px; /* [cite: 106] */
+             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* [cite: 106] */
          }
          .hero-cta-button {
-             display: inline-block;
-             background: var(--gradient-primary);
-             color: var(--button-primary-text); /* Adjusted to use CSS var for text color */
-             padding: 15px 30px;
-             font-size: 1.2em; font-weight: 700;
-             border-radius: 30px;
-             transition: background 0.4s ease, transform 0.3s ease-out, box-shadow 0.4s ease, color 0.4s ease;
-             box-shadow: var(--shadow-medium); border: none; cursor: pointer;
-             overflow: hidden; position: relative; z-index: 1;
-             outline: none;
+             display: inline-block; /* [cite: 107] */
+             background: var(--gradient-primary); /* [cite: 108] */
+             color: var(--button-primary-text); /* Adjusted to use CSS var for text color */ /* [cite: 108] */
+             padding: 15px 30px; /* [cite: 108] */
+             font-size: 1.2em; font-weight: 700; /* [cite: 109] */
+             border-radius: 30px; /* [cite: 109] */
+             transition: background 0.4s ease, transform 0.3s ease-out, box-shadow 0.4s ease, color 0.4s ease; /* [cite: 109] */
+             box-shadow: var(--shadow-medium); border: none; cursor: pointer; /* [cite: 110] */
+             overflow: hidden; position: relative; z-index: 1; outline: none; /* [cite: 110] */
          }
-         .hero-cta-button::before { content: '';
-             position: absolute; top: 0;
-             left: -100%; width: 100%; height: 100%;
-             background: var(--gradient-highlight); transition: left 0.4s ease-out; z-index: -1;
+         .hero-cta-button::before {
+              content: ''; /* [cite: 111] */
+              position: absolute; top: 0; left: -100%; width: 100%; height: 100%; /* [cite: 112] */
+              background: var(--gradient-highlight); transition: left 0.4s ease-out; z-index: -1; /* [cite: 112] */
          }
-         .hero-cta-button:hover::before { left: 0; }
-         .hero-cta-button:hover { background: transparent;
-             color: var(--text-color-dark);
-             transform: translateY(-4px); box-shadow: var(--shadow-deep);
+         .hero-cta-button:hover::before { left: 0; /* [cite: 113] */ }
+         .hero-cta-button:hover {
+              background: transparent; /* [cite: 114] */
+              color: var(--text-color-dark); /* [cite: 115] */
+              transform: translateY(-4px); box-shadow: var(--shadow-deep); /* [cite: 115] */
          }
-         .hero-cta-button:focus { outline: 2px solid var(--primary-color); outline-offset: 3px; border-radius: 30px;
-         }
-         /* --- About Us & Contact Section --- */
-         .about-contact .container { text-align: left;
-             display: flex; flex-wrap: wrap;
-             align-items: flex-start; gap: 40px; justify-content: center;
-         }
-         .about-content, .contact-info { flex: 1; min-width: 300px;
-         }
-         .about-contact h2 { text-align: center; width: 100%; margin-bottom: 50px;
-         }
-         .about-content h3, .contact-info h3 { text-align: left; margin-bottom: 20px; font-size: 1.7em;
-             color: var(--text-color-dark);
-         }
-         .about-contact p { font-size: 1.05em; margin-bottom: 1.2em; color: var(--text-color-medium);
-         }
-         .about-contact address { font-style: normal; margin-top: 15px; font-size: 1.05em;
-             line-height: 1.7; color: var(--text-color-medium); margin-bottom: 20px; }
-         .contact-info p { margin-bottom: 12px;
-             color: var(--text-color-medium); font-size: 1.05em; }
-         .contact-info p i { margin-right: 12px;
-             color: var(--secondary-color);
-             font-size: 1.2em; width: 20px; text-align: center;
-         }
-         /* --- Products/Categories Section --- */
-         .product-info { padding: 15px;
-             display: flex; flex-direction: column;
-             flex-grow: 1; position: relative; z-index: 2; text-align: left;
-         }
-         .product-info h3 { margin-top: 0;
-             margin-bottom: 6px; font-size: 1.4em;
-             color: var(--primary-color); font-weight: 700; font-family: 'Lora', serif;
-         }
-         .product-info p.product-description { font-size: 0.9em;
-             color: var(--text-color-secondary);
-             margin-bottom: 12px; flex-grow: 1; line-height: 1.5; }
-         .product-price { font-size: 1.1em;
-             font-weight: 700; color: var(--secondary-color);
-             margin-bottom: 15px; min-height: 1.5em;
-         }
-         .add-to-cart-button { display: block;
-             width: 100%; padding: 10px; margin-bottom: 10px;
-             background-color: var(--button-primary-bg); color: var(--button-primary-text);
-             border: none; border-radius: 5px; font-size: 1em; font-weight: 600;
-             cursor: pointer;
-             transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-             text-align: center; outline: none; }
-         .add-to-cart-button:hover { background-color: var(--button-primary-hover-bg);
-             color: var(--button-primary-hover-text);
-             transform: translateY(-2px);
-         }
-         .add-to-cart-button:focus { outline: 2px solid var(--secondary-color); outline-offset: 2px; border-radius: 5px;
-         }
-         .whatsapp-button { display: block;
-             width: calc(100% - 0px); margin: 0;
-             padding: 12px;
-             background-color: var(--whatsapp-green); color: white; text-decoration: none;
-             border-radius: 0 0 8px 8px;
-         }
-         .whatsapp-button:hover { background-color: var(--whatsapp-green-hover); transform: translateY(-1px); }
-         .whatsapp-button i { margin-right: 8px; }
+         .hero-cta-button:focus { outline: 2px solid var(--primary-color); /* [cite: 115] */
+             outline-offset: 3px; border-radius: 30px; } /* [cite: 116] */
 
-         /* --- Specific Product Section Styles --- */
-         .product-category-section {
-             display: none; /* Hidden by default */
-             opacity: 0;
-             transform: translateY(20px);
-             transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        /* --- About Us & Contact Section --- */
+         .about-contact .container {
+             text-align: left; /* [cite: 116] */
+             display: flex; flex-wrap: wrap; /* [cite: 117] */
+             align-items: flex-start; gap: 40px; justify-content: center; /* [cite: 117] */
          }
-         .product-category-section.active {
-             display: block; /* Show when active */
-             opacity: 1;
-             transform: translateY(0);
+         .about-content, .contact-info { flex: 1; min-width: 300px; /* [cite: 118] */ }
+         .about-contact h2 { text-align: center; width: 100%; margin-bottom: 50px; /* [cite: 119] */ }
+         .about-content h3, .contact-info h3 {
+             text-align: left; /* [cite: 120] */
+             margin-bottom: 20px; font-size: 1.7em; color: var(--text-color-dark); /* [cite: 121] */
          }
-         .back-button {
-             background-color: var(--secondary-color);
-             color: var(--button-secondary-text);
-             padding: 10px 20px;
-             border-radius: 5px;
-             margin-bottom: 30px;
-             display: inline-block;
-             cursor: pointer;
-             transition: background-color 0.3s ease, transform 0.2s ease;
-             text-decoration: none;
-             font-weight: 600;
+         .about-contact p { font-size: 1.05em; /* [cite: 121] */
+             margin-bottom: 1.2em; color: var(--text-color-medium); } /* [cite: 122] */
+         .about-contact address {
+              font-style: normal; /* [cite: 122] */
+              margin-top: 15px; font-size: 1.05em; /* [cite: 123] */
+              line-height: 1.7; color: var(--text-color-medium); margin-bottom: 20px; /* [cite: 123] */
          }
-         .back-button:hover {
-             background-color: var(--primary-color);
-             transform: translateY(-2px);
+         .contact-info p { margin-bottom: 12px; color: var(--text-color-medium); font-size: 1.05em; /* [cite: 124] */ }
+         .contact-info p i {
+              margin-right: 12px; /* [cite: 125] */
+              color: var(--secondary-color); /* [cite: 126] */
+              font-size: 1.2em; width: 20px; text-align: center; /* [cite: 126] */
+          }
+
+        /* --- Products/Categories Section --- */
+         .product-info {
+             padding: 15px; /* [cite: 126] */
+             display: flex; flex-direction: column; /* [cite: 127] */
+             flex-grow: 1; position: relative; z-index: 2; text-align: left; /* [cite: 127] */
          }
-        
-         /* --- Terms and Conditions Modal Styles --- */
-        .terms-modal-overlay {
-            display: none; /* Hidden by default */
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            padding: 20px;
-            overflow-y: auto; /* Allow scrolling for long content */
+         .product-info h3 {
+             margin-top: 0; /* [cite: 128] */
+             margin-bottom: 6px; font-size: 1.4em; /* [cite: 129] */
+             color: var(--primary-color); font-weight: 700; font-family: 'Lora', serif; /* [cite: 129] */
+         }
+         .product-info p.product-description {
+             font-size: 0.9em; /* [cite: 130] */
+             color: var(--text-color-secondary); /* [cite: 131] */
+             margin-bottom: 12px; flex-grow: 1; line-height: 1.5; /* [cite: 131] */
+         }
+         .product-price {
+             font-size: 1.1em; /* [cite: 131] */
+             font-weight: 700; color: var(--secondary-color); /* [cite: 132] */
+             margin-bottom: 15px; min-height: 1.5em; /* [cite: 132] */
+         }
+         .add-to-cart-button {
+             display: block; /* [cite: 132] */
+             width: 100%; padding: 10px; margin-bottom: 10px; /* [cite: 133] */
+             background-color: var(--button-primary-bg); color: var(--button-primary-text); /* [cite: 133] */
+             border: none; border-radius: 5px; font-size: 1em; font-weight: 600; /* [cite: 133] */
+             cursor: pointer; /* [cite: 133] */
+             transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* [cite: 134] */
+             text-align: center; outline: none; /* [cite: 134] */
+         }
+         .add-to-cart-button:hover {
+             background-color: var(--button-primary-hover-bg); /* [cite: 135] */
+             color: var(--button-primary-hover-text); /* [cite: 136] */
+             transform: translateY(-2px); /* [cite: 136] */
+         }
+         .add-to-cart-button:focus { outline: 2px solid var(--secondary-color); /* [cite: 136] */
+             outline-offset: 2px; border-radius: 5px; } /* [cite: 137] */
+
+         .whatsapp-button {
+             display: block; /* [cite: 137] */
+             width: calc(100% - 0px); margin: 0; padding: 12px; /* [cite: 138] */
+             background-color: var(--whatsapp-green); color: white; text-decoration: none; /* [cite: 138] */
+             border-radius: 0 0 8px 8px; /* [cite: 138] */
+             font-size: 1em; /* [cite: 139] */
+             font-weight: 600; letter-spacing: 0.5px; box-shadow: none; /* [cite: 140] */
+             text-align: center; transition: background-color 0.3s ease, transform 0.2s ease; outline: none; /* [cite: 140] */
+         }
+         .whatsapp-button i { margin-right: 8px; /* [cite: 141] */ }
+         .whatsapp-button:hover { background-color: var(--whatsapp-green-hover); transform: translateY(-2px); box-shadow: none; /* [cite: 142] */ }
+         .whatsapp-button:focus { outline: 2px solid var(--secondary-color); outline-offset: 2px; /* [cite: 143] */
+             border-radius: 0 0 8px 8px; } /* [cite: 144] */
+
+         .search-container { margin-bottom: 30px; text-align: center; /* [cite: 144] */ }
+         .search-container input {
+             width: calc(100% - 40px); /* [cite: 145] */
+             max-width: 500px; padding: 12px 20px; /* [cite: 146] */
+             border: 1px solid var(--border-color); border-radius: 25px; font-size: 1em; /* [cite: 146] */
+             box-sizing: border-box; /* [cite: 146] */
+             box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3); /* [cite: 147] */
+             transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* [cite: 147] */
+             color: var(--text-color-medium); background-color: var(--surface-color); outline: none; /* [cite: 148] */
+         }
+         .search-container input::placeholder { color: var(--text-color-secondary); /* [cite: 148] */ }
+         .search-container input:focus {
+             border-color: var(--primary-color); /* [cite: 149] */
+             box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3), 0 0 8px rgba(184, 115, 51, 0.6); /* [cite: 150] */
+             outline: none; /* [cite: 150] */
+         }
+         .category-products-container { display: none; text-align: left; margin-top: 30px; /* [cite: 151] */ }
+         .category-products-container h3 {
+             text-align: center; /* [cite: 152] */
+             margin-bottom: 30px; font-size: 2em; color: var(--primary-color); /* [cite: 153] */
+         }
+         .back-to-categories, .back-to-cart, .back-to-billing {
+             display: inline-block; /* [cite: 153] */
+             margin-bottom: 30px; font-size: 1.1em; /* [cite: 154] */
+             color: var(--text-color-secondary); transition: color 0.3s ease; cursor: pointer; /* [cite: 154] */
+             outline: none; border-radius: 4px; padding: 5px; /* [cite: 154] */
+         }
+         .back-to-categories i, .back-to-cart i, .back-to-billing i { margin-right: 8px; /* [cite: 155] */ }
+         .back-to-categories:hover, .back-to-cart:hover, .back-to-billing:hover { color: var(--primary-color); text-decoration: underline; /* [cite: 156] */ }
+         .back-to-categories:focus, .back-to-cart:focus, .back-to-billing:focus { color: var(--primary-color); outline: 2px solid var(--primary-color); /* [cite: 157] */
+             outline-offset: 2px; } /* [cite: 158] */
+
+        /* --- Image Modal/Lightbox --- */
+         #imageModal {
+             display: none; /* [cite: 158] */
+             position: fixed; top: 0; left: 0; width: 100%; height: 100%; /* [cite: 159] */
+             background-color: rgba(0, 0, 0, 0.95); z-index: 9999; /* [cite: 159] */
+             justify-content: center; /* [cite: 159] */
+             align-items: center; /* [cite: 160] */
+         }
+         #imageModal span {
+             position: absolute; /* [cite: 160] */
+             top: 20px; right: 30px; font-size: 40px; color: white; /* [cite: 161] */
+             cursor: pointer; transition: color 0.3s ease; /* [cite: 161] */
+             outline: none; padding: 5px; border-radius: 4px; /* [cite: 161] */
+         }
+         #imageModal span:hover { color: var(--secondary-color); /* [cite: 162] */ }
+         #imageModal span:focus { color: var(--secondary-color); outline: 2px solid var(--secondary-color); outline-offset: 2px; /* [cite: 163] */ }
+         #modalImage {
+             max-width: 90%; /* [cite: 164] */
+             max-height: 90%; object-fit: contain; /* [cite: 165] */
+             box-shadow: 0 0 40px rgba(0, 0, 0, 0.9); /* [cite: 165] */
+             border: 1px solid var(--primary-color); border-radius: 8px; /* [cite: 165] */
+         }
+
+        /* --- Modal Base Styling (for Cart and Billing) --- */
+         .modal {
+             display: none; /* [cite: 166] */
+             position: fixed; z-index: 10000; /* [cite: 167] */
+             left: 0; top: 0; width: 100%; height: 100%; overflow: auto; /* [cite: 167] */
+             background-color: rgba(0, 0, 0, 0.8); /* [cite: 167] */
+             justify-content: center; align-items: center; /* [cite: 168] */
+         }
+         .modal-content {
+             background-color: var(--surface-color); /* [cite: 168] */
+             margin: auto; padding: 30px; /* [cite: 169] */
+             border-radius: 10px; width: 90%; max-width: 600px; /* [cite: 169] */
+             box-shadow: var(--shadow-deep); position: relative; max-height: 80vh; /* [cite: 169] */
+             overflow-y: auto; text-align: left; /* [cite: 169] */
+             border: 1px solid var(--border-color); /* [cite: 170] */
+             color: var(--text-color-medium); /* [cite: 170] */
+         }
+         .modal-content h2 {
+             text-align: center; /* [cite: 170] */
+             margin-top: 0; margin-bottom: 20px; /* [cite: 171] */
+             color: var(--primary-color); padding-bottom: 10px; /* [cite: 171] */
+         }
+         .modal-content h2::after { height: 2px; /* [cite: 171] */
+             width: 50px; } /* [cite: 172] */
+         .modal-content .close {
+             position: absolute; /* [cite: 172] */
+             top: 15px; right: 25px; color: var(--text-color-secondary); /* [cite: 173] */
+             font-size: 35px; font-weight: bold; cursor: pointer; transition: color 0.3s ease; /* [cite: 173] */
+             outline: none; padding: 5px; /* [cite: 173] */
+             border-radius: 4px; /* [cite: 174] */
+         }
+         .modal-content .close:hover, .modal-content .close:focus { color: var(--primary-color); /* [cite: 174] */ }
+         #cartItemsList, #billingItemsList { list-style: none; padding: 0; /* [cite: 175] */
+             margin: 0 0 20px 0; } /* [cite: 176] */
+         #cartItemsList li, #billingItemsList li {
+             border-bottom: 1px solid var(--border-color); /* [cite: 176] */
+             padding: 15px 0; /* [cite: 177] */
+             display: flex; justify-content: space-between; align-items: center; /* [cite: 177] */
+             font-size: 1.1em; color: var(--text-color-medium); /* [cite: 177] */
+         }
+         #cartItemsList li:last-child, #billingItemsList li:last-child { border-bottom: none; /* [cite: 178] */ }
+         .item-details .item-name { font-weight: 600; color: var(--text-color-dark); /* [cite: 179] */ }
+         .item-details .item-quantity { font-size: 0.9em; color: var(--text-color-secondary); /* [cite: 180] */ }
+         .item-details .item-price { color: var(--primary-color); /* [cite: 181] */ }
+         .remove-item {
+             background-color: #e74c3c; /* [cite: 182] */
+             color: white; border: none; border-radius: 4px; /* [cite: 183] */
+             padding: 5px 10px; cursor: pointer; font-size: 0.9em; /* [cite: 183] */
+             transition: background-color 0.3s ease, transform 0.2s ease; /* [cite: 183] */
+             outline: none; /* [cite: 184] */
+         }
+         .remove-item:hover { background-color: #c0392b; transform: scale(1.05); /* [cite: 184] */ }
+         .remove-item:focus { outline: 2px solid var(--secondary-color); outline-offset: 2px; border-radius: 4px; /* [cite: 185] */ }
+         .cart-total, .billing-summary {
+             margin-top: 20px; /* [cite: 186] */
+             text-align: right; font-size: 1.3em; font-weight: 700; /* [cite: 187] */
+             color: var(--primary-color); padding-top: 15px; border-top: 1px solid var(--border-color); /* [cite: 187] */
+         }
+         .billing-summary p { margin: 5px 0; font-size: 1em; font-weight: 400; /* [cite: 188] */
+             color: var(--text-color-medium); } /* [cite: 189] */
+         .billing-summary p strong { color: var(--text-color-dark); /* [cite: 189] */ }
+         .billing-summary .final-total { font-size: 1.3em; font-weight: 700; color: var(--primary-color); margin-top: 10px; /* [cite: 190] */ }
+         .checkout-button, .place-order-button {
+             display: block; /* [cite: 191] */
+             width: 100%; padding: 12px; margin-top: 20px; /* [cite: 192] */
+             background-color: var(--button-primary-bg); color: var(--button-primary-text); /* [cite: 192] */
+             border: none; border-radius: 5px; font-size: 1.1em; font-weight: 700; /* [cite: 192] */
+             text-align: center; /* [cite: 192] */
+             cursor: pointer; /* [cite: 193] */
+             transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; outline: none; /* [cite: 193] */
+         }
+         .checkout-button:hover, .place-order-button:hover {
+             background-color: var(--button-primary-hover-bg); /* [cite: 194] */
+             color: var(--button-primary-hover-text); /* [cite: 195] */
+             transform: translateY(-2px); /* [cite: 195] */
+         }
+         .checkout-button:focus, .place-order-button:focus { outline: 2px solid var(--secondary-color); /* [cite: 195] */
+             outline-offset: 2px; border-radius: 5px; } /* [cite: 196] */
+         #emptyCartMessage { text-align: center; color: var(--text-color-secondary); /* [cite: 196] */
+             margin-top: 20px; font-size: 1.1em; } /* [cite: 197] */
+
+        /* --- Billing Modal Specific Styles --- */
+         #billingModal .modal-content { max-width: 700px; /* [cite: 197] */ }
+         #billingModal h2 { margin-bottom: 30px; /* [cite: 198] */ }
+         #billingModal .inquiry-details { margin-top: 20px; display: grid; gap: 15px; /* [cite: 199] */ }
+         #billingModal label { display: block; margin-bottom: 5px; font-weight: 600; color: var(--text-color-dark); /* [cite: 200] */
+             font-size: 0.95em; } /* [cite: 201] */
+         #billingModal input[type="text"], #billingModal input[type="email"], #billingModal input[type="tel"], #billingModal textarea {
+             width: 100%; /* [cite: 201] */
+             padding: 12px; border: 1px solid var(--border-color); border-radius: 5px; /* [cite: 202] */
+             box-sizing: border-box; background-color: var(--background-color); color: var(--text-color-medium); /* [cite: 202] */
+             font-size: 1em; /* [cite: 202] */
+             transition: border-color 0.3s ease, box-shadow 0.3s ease; outline: none; /* [cite: 203] */
+         }
+         #billingModal input[type="text"]::placeholder, #billingModal input[type="email"]::placeholder, #billingModal input[type="tel"]::placeholder, #billingModal textarea::placeholder { color: var(--text-color-secondary); /* [cite: 203] */ }
+         #billingModal input[type="text"]:focus, #billingModal input[type="email"]:focus, #billingModal input[type="tel"]:focus, #billingModal textarea:focus {
+             border-color: var(--primary-color); /* [cite: 204] */
+             box-shadow: 0 0 5px rgba(184, 115, 51, 0.5); /* [cite: 205] */
+         }
+         #billingModal textarea { resize: vertical; /* [cite: 205] */
+             min-height: 80px; } /* [cite: 206] */
+         .coupon-section { display: flex; gap: 10px; margin-bottom: 20px; /* [cite: 206] */
+             align-items: center; } /* [cite: 207] */
+         .coupon-section input[type="text"] { flex-grow: 1; width: auto; padding: 10px; /* [cite: 207] */
+             border-radius: 5px 0 0 5px; } /* [cite: 208] */
+         .coupon-section button {
+             padding: 10px 15px; /* [cite: 208] */
+             background-color: var(--secondary-color); color: var(--background-color); /* [cite: 209] */
+             border: none; border-radius: 0 5px 5px 0; cursor: pointer; font-size: 0.95em; font-weight: 600; /* [cite: 209] */
+             transition: background-color 0.3s ease, transform 0.2s ease; outline: none; /* [cite: 210] */
+         }
+         .coupon-section button:hover { background-color: var(--primary-color); /* [cite: 210] */
+             color: var(--background-color); } /* [cite: 211] */
+         .coupon-section button:focus { outline: 2px solid var(--primary-color); outline-offset: 2px; /* [cite: 211] */
+             border-radius: 0 5px 5px 0; } /* [cite: 212] */
+         #couponMessage { font-size: 0.9em; margin-top: -10px; /* [cite: 212] */
+             margin-bottom: 15px; text-align: center; min-height: 1.2em; } /* [cite: 213] */
+         #couponMessage.success { color: var(--whatsapp-green); /* [cite: 213] */ }
+         #couponMessage.error { color: var(--color-alert); /* [cite: 214] */ }
+         .payment-info { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color); /* [cite: 215] */
+             text-align: center; } /* [cite: 216] */
+         .payment-info h3 { font-size: 1.6em; color: var(--text-color-dark); margin-bottom: 15px; /* [cite: 216] */
+             text-align: center; } /* [cite: 217] */
+         .payment-info p { font-size: 1em; color: var(--text-color-medium); margin-bottom: 10px; /* [cite: 217] */ }
+         .payment-info strong { color: var(--primary-color); /* [cite: 218] */ }
+         .payment-info img {
+             max-width: 150px; /* [cite: 219] */
+             height: auto; margin: 15px auto; display: block; /* [cite: 220] */
+             border: 1px solid var(--border-color); padding: 10px; background-color: var(--color-white); /* [cite: 220] */
+             border-radius: 5px; /* [cite: 220] */
+         }
+         .payment-instructions { font-size: 0.9em; color: var(--text-color-secondary); margin-top: 20px; /* [cite: 221] */ }
+
+        /* --- Footer --- */
+         .footer {
+             background-color: var(--surface-color); /* [cite: 222] */
+             color: var(--footer-text-color); /* [cite: 223] */
+             text-align: center; padding: 40px 0; margin-top: 60px; /* [cite: 223] */
+             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); font-size: 0.9em; /* [cite: 223] */
+             border-top: 1px solid var(--border-color); /* [cite: 224] */
+         }
+         .social-links { margin-top: 0; margin-bottom: 20px; /* [cite: 224] */ }
+         .social-links a {
+             display: inline-block; /* [cite: 225] */
+             margin: 0 15px; color: var(--primary-color); /* [cite: 226] */
+             font-size: 32px; transition: color 0.3s ease, transform 0.3s ease; outline: none; /* [cite: 226] */
+         }
+         .social-links a:focus { color: var(--secondary-color); outline: 2px solid var(--secondary-color); outline-offset: 3px; /* [cite: 227] */
+             border-radius: 50%; } /* [cite: 228] */
+         .social-links a:hover { color: var(--secondary-color); transform: scale(1.2); /* [cite: 228] */ }
+
+        /* --- Scroll to Top Button --- */
+         .scroll-to-top {
+             position: fixed; /* [cite: 229] */
+             bottom: 30px; right: 30px; background-color: var(--primary-color); /* [cite: 230] */
+             color: var(--background-color); width: 50px; height: 50px; border-radius: 50%; /* [cite: 230] */
+             text-align: center; line-height: 50px; font-size: 1.5rem; /* [cite: 230] */
+             box-shadow: var(--shadow-medium); z-index: 900; opacity: 0; visibility: hidden; /* [cite: 231] */
+             transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease, transform 0.3s ease; /* [cite: 231] */
+             cursor: pointer; outline: none; /* [cite: 232] */
+         }
+         .scroll-to-top:focus { background-color: var(--secondary-color); /* [cite: 232] */
+             outline: 2px solid var(--secondary-color); outline-offset: 3px; border-radius: 50%; } /* [cite: 233] */
+         .scroll-to-top.visible { opacity: 1; /* [cite: 233] */
+             visibility: visible; } /* [cite: 234] */
+         .scroll-to-top:hover { background-color: var(--secondary-color); transform: scale(1.1); /* [cite: 234] */ }
+
+        /* Responsive Enhancements from new CSS + existing responsive CSS */
+        @media (max-width: 1024px) {
+            .section h2 { font-size: 2.4em; /* [cite: 235] */ }
+            h2::after { width: 60px; /* [cite: 236] */ }
+            .hero { height: 500px; /* [cite: 237] */ }
+            .hero .container h1 { font-size: 3em; /* [cite: 238] */ }
+            .hero .container p { font-size: 1.2em; /* [cite: 239] */ }
+            .category-grid, .category-products-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* [cite: 240] */
+                gap: 25px; } /* Adjusted from 300px */ /* [cite: 241] */
+            .product img { height: 250px; /* [cite: 241] */ }
+            .product-info { padding: 12px; /* [cite: 242] */ }
+            .product-info h3 { font-size: 1.4em; margin-bottom: 6px; /* [cite: 243] */ }
+            .product-info p.product-description { font-size: 0.9em; margin-bottom: 12px; /* [cite: 244] */ }
+            .product-price { font-size: 1.05em; margin-bottom: 12px; /* [cite: 245] */ }
+            .add-to-cart-button, .whatsapp-button { font-size: 0.95em; padding: 8px; /* [cite: 246] */ }
+            .whatsapp-button { margin-top: 8px; /* [cite: 247] */ }
+            .section { padding: 80px 0; /* [cite: 248] */ }
+            .category-products-container h3 { font-size: 1.8em; /* [cite: 249] */ }
+            .modal-content { padding: 20px; /* [cite: 250] */ }
+            #cartItemsList li, #billingItemsList li { font-size: 1em; /* [cite: 251] */
+                padding: 10px 0; } /* [cite: 252] */
+            .remove-item { padding: 3px 8px; /* [cite: 252] */
+                font-size: 0.85em; } /* [cite: 253] */
+            .cart-total { font-size: 1.2em; /* [cite: 253] */ }
+            .social-links a { font-size: 28px; margin: 0 12px; /* [cite: 254] */ }
+            .scroll-to-top { width: 45px; height: 45px; line-height: 45px; /* [cite: 255] */
+                font-size: 1.4rem; } /* [cite: 256] */
+            #billingModal .inquiry-details { gap: 12px; /* [cite: 256] */ }
+            #billingModal input[type="text"], #billingModal input[type="email"], #billingModal input[type="tel"], #billingModal textarea { padding: 10px; /* [cite: 257] */ }
+            .coupon-section input[type="text"], .coupon-section button { padding: 8px; /* [cite: 258] */ }
+             /* Hero Background Animation Responsive */
+             .hero-background-animation::before { width: 150px; /* [cite: 259] */
+                 height: 200px; animation-duration: 12s; } /* [cite: 260] */
         }
 
-        .terms-modal-content {
-            background-color: var(--surface-color);
-            color: var(--text-color-medium);
-            padding: 30px;
-            border-radius: 10px;
-            max-width: 800px;
-            width: 95%;
-            box-shadow: var(--shadow-deep);
-            position: relative;
-            max-height: 90vh; /* Limit height to allow scrolling */
-            overflow-y: auto;
-            border: 1px solid var(--border-color);
+        @media (max-width: 768px) {
+            .header .container { flex-direction: column; /* [cite: 260] */ }
+            .header img { margin-bottom: 15px; /* [cite: 261] */ }
+            .nav { flex-direction: column; align-items: center; width: 100%; /* [cite: 262] */ }
+            .nav ul { flex-direction: column; align-items: center; /* [cite: 263] */
+                width: 100%; margin-bottom: 15px; } /* [cite: 264] */
+            .nav li { margin: 10px 0; /* [cite: 264] */
+                width: 100%; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px; /* [cite: 265] */
+            }
+            .nav li:last-child { border-bottom: none; padding-bottom: 0; /* [cite: 266] */ }
+            .nav a { display: block; text-align: center; /* [cite: 267] */
+                color: var(--text-color-dark); } /* [cite: 268] */
+            .nav a::after { content: none; /* [cite: 268] */ }
+            .nav a:hover, .nav a.active { color: var(--primary-color); /* [cite: 269] */
+                transform: none; } /* [cite: 270] */
+            .cart-icon-container { margin-left: 0; margin-top: 10px; /* [cite: 270] */ }
+            .header { padding: 15px 0; /* [cite: 271] */ }
+
+            .section { padding: 60px 0; /* [cite: 272] */ }
+            .section h2 { font-size: 2em; /* [cite: 273] */ }
+            h2::after { width: 50px; /* [cite: 274] */ }
+            .hero { height: 400px; /* [cite: 275] */ }
+            .hero .container h1 { font-size: 2.5em; /* [cite: 276] */ }
+            .hero .container p { font-size: 1.1em; /* [cite: 277] */ }
+            .hero-cta-button { padding: 12px 25px; font-size: 1.1em; /* [cite: 278] */ }
+            .about-contact .container { flex-direction: column; gap: 30px; /* [cite: 279] */ }
+            .about-contact h2, .about-content h3, .contact-info h3 { text-align: center; /* [cite: 280] */ }
+            .about-content h3::after, .contact-info h3::after {
+                 content: ''; /* [cite: 281] */
+                 position: absolute; bottom: 0; left: 50%; /* [cite: 282] */
+                 transform: translateX(-50%); height: 2px; width: 40px; /* [cite: 282] */
+                 background: var(--primary-color); border-radius: 1px; /* [cite: 282] */
+            }
+            .about-contact p, .about-contact address, .contact-info p { font-size: 1em; /* [cite: 283] */ }
+            .category-grid, .category-products-grid {
+                grid-template-columns: 1fr; /* Stack to 1 column */ /* [cite: 284] */
+                gap: 30px; /* [cite: 285] */
+            }
+            .product:hover {
+                transform: translateY(-5px); /* Simpler hover for mobile */ /* [cite: 286] */
+                box-shadow: 0 15px 30px rgba(0,0,0,0.7); /* [cite: 287] */
+            }
+            .product img { height: 180px; /* [cite: 288] */ }
+            .product-info { padding: 10px; /* [cite: 289] */ }
+            .product-info h3 { font-size: 1.3em; margin-bottom: 5px; /* [cite: 290] */ }
+            .product-info p.product-description { font-size: 0.85em; margin-bottom: 10px; /* [cite: 291] */ }
+            .product-price { font-size: 1em; margin-bottom: 10px; /* [cite: 292] */ }
+            .add-to-cart-button, .whatsapp-button { font-size: 0.95em; padding: 8px; /* [cite: 293] */ }
+            .whatsapp-button { margin-top: 8px; /* [cite: 294] */ }
+            .social-links a { font-size: 26px; margin: 0 10px; /* [cite: 295] */ }
+            .footer { padding: 30px 0; /* [cite: 296] */ }
+            .category-products-container h3 { font-size: 1.8em; /* [cite: 297] */ }
+            .modal-content { padding: 20px; /* [cite: 298] */ }
+            #cartItemsList li, #billingItemsList li { font-size: 1em; /* [cite: 299] */
+                padding: 10px 0; } /* [cite: 300] */
+            .remove-item { padding: 3px 8px; /* [cite: 300] */
+                font-size: 0.85em; } /* [cite: 301] */
+            .cart-total { font-size: 1.2em; /* [cite: 301] */ }
+            .scroll-to-top { width: 45px; height: 45px; line-height: 45px; /* [cite: 302] */
+                font-size: 1.4rem; bottom: 15px; right: 15px; } /* [cite: 303] */
+            #billingModal .inquiry-details { gap: 12px; /* [cite: 303] */ }
+            #billingModal input[type="text"], #billingModal input[type="email"], #billingModal input[type="tel"], #billingModal textarea { padding: 10px; /* [cite: 304] */ }
+            .coupon-section input[type="text"], .coupon-section button { padding: 8px; /* [cite: 305] */ }
+             /* Hero Background Animation Responsive */
+             .hero-background-animation::before { width: 150px; /* [cite: 306] */
+                 height: 200px; animation-duration: 12s; } /* [cite: 307] */
         }
 
-        .terms-modal-content h3 {
-            color: var(--primary-color);
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            text-align: center;
+        @media (max-width: 480px) {
+            .section { padding: 40px 0; /* [cite: 307] */ }
+            .section h2 { font-size: 1.8em; /* [cite: 308] */ }
+            h2::after { width: 40px; /* [cite: 309] */ }
+            .hero { height: 350px; /* [cite: 310] */ }
+            .hero .container h1 { font-size: 2em; /* [cite: 311] */ }
+            .hero .container p { font-size: 0.95em; /* [cite: 312] */ }
+            .hero-cta-button { padding: 10px 20px; font-size: 1em; /* [cite: 313] */ }
+            .about-contact .container { gap: 20px; /* [cite: 314] */ }
+            .about-contact h3::after, .contact-info h3::after { width: 30px; /* [cite: 315] */ }
+            .about-contact p, .about-contact address, .contact-info p { font-size: 0.95em; /* [cite: 316] */ }
+            .category-grid, .category-products-grid { grid-template-columns: 1fr; gap: 15px; /* [cite: 317] */ } /* Already 1fr, ensure consistency */
+            .product img { height: 160px; /* [cite: 318] */ }
+            .product-info { padding: 8px; /* [cite: 319] */ }
+            .product-info h3 { font-size: 1.2em; margin-bottom: 4px; /* [cite: 320] */ }
+            .product-info p.product-description { font-size: 0.8em; margin-bottom: 8px; /* [cite: 321] */ }
+            .product-price { font-size: 0.95em; margin-bottom: 8px; /* [cite: 322] */ }
+            .add-to-cart-button, .whatsapp-button { font-size: 0.9em; padding: 6px; /* [cite: 323] */ }
+            .whatsapp-button { margin-top: 6px; /* [cite: 324] */ }
+            .social-links a { font-size: 24px; margin: 0 6px; /* [cite: 325] */ }
+            .footer { padding: 25px 0; /* [cite: 326] */ }
+            .category-products-container h3 { font-size: 1.4em; /* [cite: 327] */ }
+            .modal-content { padding: 15px; /* [cite: 328] */ }
+            #cartItemsList li, #billingItemsList li { font-size: 0.95em; /* [cite: 329] */
+                padding: 8px 0; } /* [cite: 330] */
+            .remove-item { padding: 2px 6px; /* [cite: 330] */
+                font-size: 0.8em; } /* [cite: 331] */
+            .cart-total { font-size: 1.1em; /* [cite: 331] */ }
+            #billingModal .inquiry-details { gap: 8px; /* [cite: 332] */ }
+            #billingModal input[type="text"], #billingModal input[type="email"], #billingModal input[type="tel"], #billingModal textarea { padding: 6px; /* [cite: 333] */ }
+            .coupon-section input[type="text"], .coupon-section button { padding: 6px; /* [cite: 334] */ }
+            .payment-info h3 { font-size: 1.3em; /* [cite: 335] */ }
+            .payment-info p { font-size: 0.9em; /* [cite: 336] */ }
+            .payment-info img { max-width: 100px; /* [cite: 337] */ }
+            .payment-instructions { font-size: 0.8em; /* [cite: 338] */ }
+            /* Hero Background Animation Responsive */
+            .hero-background-animation::before { width: 90px; /* [cite: 339] */
+                height: 120px; animation-duration: 8s; } /* [cite: 340] */
         }
 
-        .terms-modal-content p {
-            margin-bottom: 1em;
-            line-height: 1.7;
-            text-align: justify;
+        /* Accessibility: Highlighting interactive elements on focus */
+        a:focus, button:focus, input:focus, textarea:focus, select:focus, [tabindex]:focus {
+        }
+        .nav a:focus, .cart-icon-container:focus, .hero-cta-button:focus,
+        .product img:focus, .add-to-cart-button:focus, .whatsapp-button:focus,
+        .search-container input:focus, .back-to-categories:focus, .back-to-cart:focus, .back-to-billing:focus,
+        #imageModal span:focus, .modal-content .close:focus, .remove-item:focus,
+        .checkout-button:focus, .place-order-button:focus, .coupon-section button:focus,
+        .social-links a:focus, .scroll-to-top:focus, /* [cite: 344] */
+        #billingModal input[type="text"]:focus, #billingModal input[type="email"]:focus,
+        #billingModal input[type="tel"]:focus, #billingModal textarea:focus {
+            outline: none; /* [cite: 345] */
         }
 
-        .terms-modal-content ul {
-            list-style: disc inside;
-            margin-bottom: 1em;
-            padding-left: 20px;
+        /* Language Modal Styles */
+        #languageModal {
+            display: flex; /* [cite: 345] */
+            position: fixed; /* [cite: 346] */
+            z-index: 10001; /* Higher than other modals */ /* [cite: 346] */
+            left: 0; /* [cite: 346] */
+            top: 0; /* [cite: 347] */
+            width: 100%; /* [cite: 347] */
+            height: 100%; /* [cite: 347] */
+            overflow: auto; /* [cite: 347] */
+            background-color: rgba(0, 0, 0, 0.9); /* [cite: 347] */
+            justify-content: center; /* [cite: 347] */
+            align-items: center; /* [cite: 348] */
         }
 
-        .terms-modal-content ul li {
-            margin-bottom: 0.5em;
-            text-align: justify;
+        #languageModal .modal-content {
+            background-color: var(--surface-color); /* [cite: 348] */
+            padding: 40px; /* [cite: 349] */
+            border-radius: 10px; /* [cite: 349] */
+            width: 90%; /* [cite: 349] */
+            max-width: 400px; /* [cite: 349] */
+            box-shadow: var(--shadow-deep); /* [cite: 349] */
+            text-align: center; /* [cite: 349] */
+            border: 1px solid var(--border-color); /* [cite: 349] */
         }
 
-        .terms-modal-close-button {
-            background-color: var(--secondary-color);
-            color: var(--button-secondary-text);
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            font-weight: 600;
-            margin-top: 20px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
+        #languageModal h2 {
+            color: var(--primary-color); /* [cite: 350] */
+            margin-bottom: 30px; /* [cite: 351] */
+            font-size: 2em; /* [cite: 351] */
         }
 
-        .terms-modal-close-button:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-2px);
+        #languageModal .language-options button {
+            display: block; /* [cite: 351] */
+            width: 80%; /* [cite: 352] */
+            padding: 15px 20px; /* [cite: 352] */
+            margin: 15px auto; /* [cite: 352] */
+            background-color: var(--primary-color); /* [cite: 352] */
+            color: var(--background-color); /* [cite: 352] */
+            border: none; /* [cite: 352] */
+            border-radius: 5px; /* [cite: 352] */
+            font-size: 1.1em; /* [cite: 352] */
+            font-weight: 600; /* [cite: 352] */
+            cursor: pointer; /* [cite: 353] */
+            transition: background-color 0.3s ease, transform 0.2s ease; /* [cite: 353] */
         }
 
-        /* Non-eye-catching T&C button */
-        .terms-button {
-            background: none;
-            border: none;
-            color: var(--text-color-secondary);
-            font-size: 0.9em;
-            padding: 5px 10px;
-            cursor: pointer;
-            opacity: 0.7;
-            transition: opacity 0.3s ease, color 0.3s ease;
-            text-decoration: underline;
-            margin-top: 30px; /* Adjust spacing as needed */
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
+        #languageModal .language-options button:hover {
+            background-color: var(--secondary-color); /* [cite: 353] */
+            transform: translateY(-3px); /* [cite: 354] */
         }
-
-        .terms-button:hover {
-            opacity: 1;
-            color: var(--primary-color);
-        }
-
-         /* --- Image Modal Styles --- */
-         .image-modal {
-             display: none; /* Hidden by default */
-             position: fixed; /* Stay in place */
-             z-index: 10001; /* Sit on top */
-             left: 0;
-             top: 0;
-             width: 100%; /* Full width */
-             height: 100%; /* Full height */
-             overflow: auto; /* Enable scroll if needed */
-             background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-             justify-content: center;
-             align-items: center;
-         }
-
-         .image-modal-content {
-             margin: auto;
-             display: block;
-             max-width: 90%;
-             max-height: 90%;
-             object-fit: contain;
-             border-radius: 8px;
-             box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-             animation-name: zoom;
-             animation-duration: 0.6s;
-         }
-
-         @keyframes zoom {
-             from {transform: scale(0)}
-             to {transform: scale(1)}
-         }
-
-         .image-modal-close {
-             position: absolute;
-             top: 20px;
-             right: 35px;
-             color: #f1f1f1;
-             font-size: 40px;
-             font-weight: bold;
-             transition: 0.3s;
-             cursor: pointer;
-         }
-
-         .image-modal-close:hover,
-         .image-modal-close:focus {
-             color: #bbb;
-             text-decoration: none;
-             cursor: pointer;
-         }
-
-         /* Responsive Design */
-         @media (max-width: 768px) {
-             .header .container {
-                 flex-direction: column;
-             }
-             .nav ul {
-                 margin-top: 15px;
-             }
-             .nav li {
-                 margin: 0 15px;
-             }
-             .hero .container h1 {
-                 font-size: 3em;
-             }
-             .hero .container p {
-                 font-size: 1.1em;
-             }
-             .about-contact .container {
-                 flex-direction: column;
-                 align-items: center;
-             }
-             .category-grid, .category-products-grid {
-                 grid-template-columns: 1fr;
-             }
-         }
-
-         @media (max-width: 480px) {
-             .nav li {
-                 margin: 0 10px;
-             }
-             .hero .container h1 {
-                 font-size: 2.5em;
-             }
-             .hero .container p {
-                 font-size: 1em;
-             }
-             h2 {
-                 font-size: 2em;
-             }
-         }
     </style>
 </head>
 <body>
+    <div class="cart-notification" id="cartNotification">
+        <span data-translate="itemAdded">Item added to inquiry list!</span> <i class="fas fa-check"></i>
+    </div>
+
+    <div id="languageModal" class="modal">
+        <div class="modal-content">
+            <h2 data-translate="chooseLanguageTitle">Choose Your Language</h2>
+            <div class="language-options">
+                <button data-lang="en">English</button>
+                <button data-lang="hi">हिंदी (Hindi)</button> <button data-lang="gu">ગુજરાતી (Gujarati)</button>
+            </div>
+        </div>
+    </div>
+
     <header class="header">
         <div class="container">
-            <a href="#hero">
-                <img src="logo.png" alt="J.K Gems Logo">
-            </a>
+            <img src="GridArt_20250516_180656516.png" alt="J.K Gems Logo">
             <nav class="nav">
-                <ul>
-                    <li><a href="#hero" data-translate="home">Home</a></li>
-                    <li><a href="#about" data-translate="aboutUs">About Us</a></li>
-                    <li><a href="#products" data-translate="products">Products</a></li>
-                    <li><a href="#contact" data-translate="contactUs">Contact Us</a></li>
+                <ul> <li><a href="#about" data-translate="navAbout">About J.K Gems</a></li>
+                    <li><a href="#products" data-translate="navCategories">Categories</a></li>
                 </ul>
+                <div class="cart-icon-container" id="cartIcon" role="button" tabindex="0" aria-label="Inquiry List">
+                    <i class="fas fa-shopping-cart"></i> <span class="cart-count" id="cartCount">0</span>
+                 </div>
             </nav>
-            <div class="cart-icon-container" aria-label="Shopping Cart" tabindex="0">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count">0</span>
-            </div>
         </div>
     </header>
 
-    <section id="hero" class="hero section">
+    <section class="hero">
         <div class="hero-background-animation"></div>
-        <div class="container hero-content">
-            <h1 data-translate="heroTitle">Experience the Brilliance of Natural Gems</h1>
-            <p data-translate="heroDescription">Discover a timeless collection of natural gemstones, certified Rudraksha, and spiritual artifacts. Hand-picked for quality and authenticity.</p>
-            <a href="#products" class="hero-cta-button" data-translate="exploreCollection">Explore Our Collection</a>
-        </div>
-    </section>
+        <div class="hero-content"> <div class="container">
+                <h1 data-aos="fade-up" data-translate="heroTitle">Exquisite Gemstones & Spiritual Treasures</h1>
+                <p data-aos="fade-up" data-aos-delay="200" data-translate="heroSubtitle">Discover perfection in every gem</p>
+                <a href="#products" class="hero-cta-button" data-aos="fade-up" data-aos-delay="400" data-translate="exploreCollectionBtn">Explore Collection</a>
+            </div>
+        </div> </section>
 
     <section id="about" class="section about-contact" data-aos="fade-up">
         <div class="container">
-            <h2><span data-translate="aboutAndContact">About Us & Contact</span></h2>
+            <h2 data-translate="aboutUsTitle">About J.K Gems</h2>
             <div class="about-content">
-                <h3 data-translate="aboutUsTitle">Our Legacy in Gemstones</h3>
-                <p data-translate="aboutUsText1">J.K. Gems has been a cornerstone in the gemstone and spiritual items market in Junagadh since 1965. With decades of expertise, we pride ourselves on offering only the finest, hand-selected natural gemstones and authentic Rudraksha beads. Our commitment to quality, transparency, and customer satisfaction has built a legacy of trust.</p>
-                <p data-translate="aboutUsText2">We believe in the natural beauty and spiritual energy of our products. Each item in our catalogue is chosen with meticulous care, ensuring it meets our high standards for authenticity and aesthetic appeal. Our passion for gemstones is matched only by our dedication to our valued customers.</p>
-            </div>
+                <h3 data-translate="ourStoryTitle">Our Story</h3>
+                <p data-translate="ourStoryPara1">J.K Gems is a well-known and trusted firm, serving customers with
+exquisite gemstones and spiritual products since 1965. Founded on principles of quality, authenticity, and integrity, we have built a reputation as a cornerstone in Junagadh's Soni Bajar.</p> <p data-translate="ourStoryPara2">For generations, we have been dedicated to sourcing the finest gemstones and authentic spiritual items, offering expert guidance and personalized service to our valued customers.
+Our legacy is built on trust, and our commitment to providing genuine products remains unwavering.</p> </div>
             <div class="contact-info">
-                <h3 data-translate="getInTouch">Get In Touch</h3>
-                <p><i class="fas fa-map-marker-alt"></i> <span data-translate="address">MG Road, Junagadh, Gujarat, India</span></p>
-                <p><i class="fas fa-phone-alt"></i> <span data-translate="phone">+91 98765 43210</span></p>
-                <p><i class="fas fa-envelope"></i> <span data-translate="email">info@jkgems.com</span></p>
-                <address data-translate="contactAddress">
-                    J.K. Gems<br>
-                    Near Clock Tower,<br>
-                    Junagadh, Gujarat 362001<br>
-                    India
-                </address>
-                <p class="working-hours"><i class="fas fa-clock"></i> <span data-translate="workingHours">Mon-Sat: 10:00 AM - 7:00 PM</span></p>
-                <a href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=Hello%20J.K.%20Gems,%20I'm%20interested%20in%20your%20products." class="whatsapp-button" target="_blank" rel="noopener">
-                    <i class="fab fa-whatsapp"></i> <span data-translate="chatOnWhatsapp">Chat with us on WhatsApp</span>
-                </a>
-            </div>
+                 <h3 data-translate="contactLocationTitle">Contact & Location</h3>
+                 <address>
+                    <p><i class="fas fa-map-marker-alt"></i> Jk
+gems<br><span data-translate="addressLine1">Balakrishna market, Haveli gali</span><br><span data-translate="addressLine2">Soni bajar, Junagadh</span><br><span data-translate="addressLine3">Gujarat 362001</span></p> </address>
+                 <p><i class="fas fa-phone"></i> +91 9723197899</p>
+                 <p data-translate="businessHours"><i class="far fa-clock"></i> Business Hours: 10 am to 3 pm and 4 pm to 9 pm</p>
+                 <p data-translate="whatsappInquiryPrompt">You can
+also inquire directly via WhatsApp using the buttons on our product listings below.</p> </div>
         </div>
     </section>
 
-    <section id="products" class="section" data-aos="fade-up">
+    <section id="products" class="section products" data-aos="fade-up">
         <div class="container">
-            <h2 data-translate="ourProducts">Our Products</h2>
-            <div class="category-grid">
-                <div class="product category-card" data-category-target="gemstone-products" tabindex="0">
-                    <img src="gemstones_category.jpg" alt="Gemstone Collection">
-                    <div class="product-info">
-                        <h3 data-translate="gemstoneCollection">Gemstone Collection</h3>
-                        <p class="product-description" data-translate="gemstoneDescription">Explore our diverse range of natural gemstones, perfect for jewelry or astrological purposes.</p>
-                        <button class="add-to-cart-button" data-translate="viewProducts">View Products</button>
-                    </div>
-                </div>
-                <div class="product category-card" data-category-target="rudraksh-products" tabindex="0">
-                    <img src="rudraksha_category.jpg" alt="Rudraksha Collection">
-                    <div class="product-info">
-                        <h3 data-translate="rudrakshCollection">Rudraksha Collection</h3>
-                        <p class="product-description" data-translate="rudrakshDescription">Authentic and certified Rudraksha beads for spiritual well-being and meditation.</p>
-                        <button class="add-to-cart-button" data-translate="viewProducts">View Products</button>
-                    </div>
-                </div>
-                <div class="product category-card" data-category-target="spiritual-products" tabindex="0">
-                    <img src="spiritual_items_category.jpg" alt="Spiritual Items">
-                    <div class="product-info">
-                        <h3 data-translate="spiritualItems">Spiritual Items</h3>
-                        <p class="product-description" data-translate="spiritualDescription">A selection of spiritual artifacts and tools to aid in your journey.</p>
-                        <button class="add-to-cart-button" data-translate="viewProducts">View Products</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+             <h2 id="products-heading" data-translate="ourCategoriesTitle">Our Categories</h2>
+             <div class="search-container">
+                <input type="text" id="searchInput" onkeyup="searchItems()" placeholder="Search Categories or Products..." data-translate="searchPlaceholderCategory"> </div>
 
-    <section id="gemstone-products" class="section product-category-section" data-aos="fade-up">
-        <div class="container">
-            <button class="back-button" onclick="showProductCategories()"><i class="fas fa-arrow-left"></i> Back to Categories</button>
-            <h2 data-translate="gemstoneProducts">Gemstone Products</h2>
-            <div class="category-products-grid">
-                <div class="product product-item">
-                    <img src="20171003_180222(1).jpg" alt="Gemstone pendant">
-                    <div class="product-info">
-                        <h3>Gemstone pendant</h3>
-                        <p class="product-description">Elegant pendant featuring a natural gemstone.</p>
-                        <div class="product-price">Price on inquiry</div>
-                        <a href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=I'm interested in the Gemstone pendant" class="whatsapp-button" target="_blank" rel="noopener">
-                            <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
-                        </a>
+            <div class="category-grid" id="categoryGrid">
+                <div class="product category-card" data-category-target="gemstones" role="button" tabindex="0" data-aos="zoom-in-up">
+                    <img src="IMG-20250516-WA0015.jpg" alt="Gem stones Category">
+                    <div class="product-info"> <h3 data-translate="categoryGemstonesTitle">Gemstones</h3>
+                        <p class="product-description" data-translate="categoryGemstonesDesc">Explore our collection of authentic, high-quality gemstones.</p>
                     </div>
                 </div>
-                <div class="product product-item">
-                    <img src="20250525_151848(1).png" alt="Gemstone Bracelet">
-                    <div class="product-info">
-                        <h3>Gemstone Bracelet</h3>
-                        <p class="product-description">Stylish bracelet with assorted natural gemstones.</p>
-                        <div class="product-price">Price on inquiry</div>
-                        <a href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=I'm interested in the Gemstone Bracelet" class="whatsapp-button" target="_blank" rel="noopener">
-                            <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
-                        </a>
-                    </div>
+                <div class="product category-card" data-category-target="rudraksh" role="button" tabindex="0" data-aos="zoom-in-up" data-aos-delay="100"> <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh Category">
+                     <div class="product-info">
+                        <h3 data-translate="categoryRudrakshTitle">Rudraksh</h3>
+                        <p class="product-description" data-translate="categoryRudrakshDesc">Discover genuine Rudraksha beads and items for spiritual well-being.</p> </div>
                 </div>
-                <div class="product product-item">
-                    <img src="IMG 20191203 200008.JPG" alt="Gemstone Rings">
-                    <div class="product-info">
-                        <h3>Gemstone Rings</h3>
-                        <p class="product-description">Exquisite rings featuring various natural gemstones.</p>
-                        <div class="product-price">Price on inquiry</div>
-                        <a href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=I'm interested in the Gemstone Rings" class="whatsapp-button" target="_blank" rel="noopener">
-                            <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
-                        </a>
-                    </div>
+                <div class="product category-card" data-category-target="yantra" role="button" tabindex="0" data-aos="zoom-in-up" data-aos-delay="200">
+                    <img src="IMG-20250516-WA0001.jpg" alt="Yantra Category"> <div class="product-info">
+                        <h3 data-translate="categoryYantraTitle">Yantra & Spiritual Items</h3>
+                        <p class="product-description" data-translate="categoryYantraDesc">Sacred geometric diagrams, Sphatik items, and other spiritual treasures.</p>
+                    </div> </div>
+                <div class="product category-card" data-category-target="gemstone-rings" role="button" tabindex="0" data-aos="zoom-in-up" data-aos-delay="300">
+                    <img src="IMG-20250516-WA0011.jpg" alt="Gemstone Rings Category">
+                     <div class="product-info">
+                        <h3 data-translate="categoryGemstoneRingsTitle">Gemstone Rings</h3>
+                        <p class="product-description" data-translate="categoryGemstoneRingsDesc">Exquisite rings crafted with precious gemstones.</p>
+                     </div>
                 </div>
-                <div class="product product-item">
-                    <img src="IMG 20191203 200008.JPG" alt="Turquoise stone silver ring">
-                    <div class="product-info">
-                        <h3>Turquoise stone silver ring</h3>
-                        <p class="product-description">A beautiful silver ring adorned with a natural turquoise stone.</p>
-                        <div class="product-price">Price on inquiry</div>
-                        <a href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=I'm interested in the Turquoise stone silver ring" class="whatsapp-button" target="_blank" rel="noopener">
-                            <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
-                        </a>
-                    </div>
+                <div class="product category-card" data-category-target="gemstone-bracelet" role="button" tabindex="0" data-aos="zoom-in-up" data-aos-delay="400">
+                    <img src="IMG-20250516-WA0016.jpg" alt="Gemstone Bracelet Category">
+                     <div class="product-info">
+                        <h3 data-translate="categoryGemstoneBraceletTitle">Gemstone Bracelets</h3>
+                        <p class="product-description" data-translate="categoryGemstoneBraceletDesc">Elegant bracelets adorned with various gemstones.</p>
+                     </div>
+                </div>
+                <div class="product category-card" data-category-target="gemstone-pendant" role="button" tabindex="0" data-aos="zoom-in-up" data-aos-delay="500">
+                    <img src="gemstone-pendant-category-placeholder.jpg" alt="Gemstone Pendant Category">
+                     <div class="product-info">
+                        <h3 data-translate="categoryGemstonePendantTitle">Gemstone Pendants</h3>
+                        <p class="product-description" data-translate="categoryGemstonePendantDesc">Stunning pendants featuring captivating gemstones.</p>
+                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="rudraksh-products" class="section product-category-section" data-aos="fade-up">
-        <div class="container">
-            <button class="back-button" onclick="showProductCategories()"><i class="fas fa-arrow-left"></i> Back to Categories</button>
-            <h2 data-translate="rudrakshProducts">Rudraksh Products</h2>
-            <div class="category-products-grid">
-                <div class="product product-item">
-                    <img src="20250525_151848(1).png" alt="Rudraksh Bracelet">
-                    <div class="product-info">
-                        <h3>Rudraksh Bracelet</h3>
-                        <p class="product-description">Authentic Rudraksh beads strung into a beautiful bracelet.</p>
-                        <div class="product-price">Price on inquiry</div>
-                        <a href="https://wa.me/YOUR_WHATSAPP_NUMBER?text=I'm interested in the Rudraksh Bracelet" class="whatsapp-button" target="_blank" rel="noopener">
-                            <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
-                        </a>
-                    </div>
+            <div id="gemstones-products-container" class="category-products-container">
+                 <a href="#products" class="back-to-categories" role="button" tabindex="0" data-translate="backToCategories"><i class="fas fa-arrow-left"></i> Back to Categories</a>
+                 <h3 data-translate="gemstonesCollectionTitle">Gemstones Collection</h3>
+                <div class="category-products-grid"> <div class="product" data-aos="fade-up">
+                         <img src="Screenshot_20250523_231439_Samsung Internet.jpg" alt="Yellow Sapphire" tabindex="0">
+                         <div class="product-info">
+                            <h3 data-translate="productYellowSapphireTitle">Yellow Sapphire</h3> <p class="product-description" data-translate="productYellowSapphireDesc">Genuine Yellow Sapphire, known for prosperity and good fortune.</p>
+                             <p class="product-price" data-translate="inquirePrice">Inquire for Pricing</p>
+                            <button class="add-to-cart-button" data-product-id="yellow_sapphire"
+                                     data-product-name="Yellow Sapphire" data-translate="addToInquiryBtn"> Add to Inquiry List
+                             </button>
+                            <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yellow%20Sapphire.%20Could%20you%20provide%20more%20details%20and%20pricing?" class="whatsapp-button" target="_blank" aria-label="Inquire about Yellow Sapphire on WhatsApp"> <i class="fab fa-whatsapp"></i> <span data-translate="inquireNowBtn">Inquire Now</span></a> </div>
+                     </div>
+                      <div class="product" data-aos="fade-up" data-aos-delay="100">
+                        <img src="images.jpeg" alt="Blue Sapphire" tabindex="0"> <div class="product-info">
+                             <h3 data-translate="productBlueSapphireTitle">Blue Sapphire</h3>
+                            <p class="product-description" data-translate="productBlueSapphireDesc">Authentic Blue Sapphire, revered for its astrological benefits and deep hues.</p> <p class="product-price" data-translate="inquirePrice">Inquire for Pricing</p>
+                             <button class="add-to-cart-button"
+                                     data-product-id="blue_sapphire" data-product-name="Blue Sapphire"
+                                     data-translate="addToInquiryBtn"> Add to Inquiry List
+                                    </button> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Blue%20Sapphire.%20Could%20you%20provide%20more%20details%20and%20pricing?"
+                                 class="whatsapp-button" target="_blank" aria-label="Inquire about Blue Sapphire on WhatsApp"> <i class="fab fa-whatsapp"></i> <span data-translate="inquireNowBtn">Inquire Now</span></a> </div>
+                     </div>
+                     <div class="product" data-aos="fade-up" data-aos-delay="200">
+                        <img src="images-1.jpeg" alt="Emerald" tabindex="0"> <div class="product-info">
+                             <h3 data-translate="productEmeraldTitle">Emerald</h3>
+                             <p class="product-description" data-translate="productEmeraldDesc">Vibrant Emerald,
+a symbol of growth, renewal, and wisdom.</p> <p class="product-price" data-translate="inquirePrice">Inquire for Pricing</p>
+                             <button class="add-to-cart-button"
+                                     data-product-id="emerald" data-product-name="Emerald"
+                                     data-translate="addToInquiryBtn"> Add to Inquiry List
+                                </button> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Emerald.%20Could%20you%20provide%20more%20details%20and%20pricing?"
+                                 class="whatsapp-button" target="_blank" aria-label="Inquire about Emerald on WhatsApp"> <i class="fab fa-whatsapp"></i> <span data-translate="inquireNowBtn">Inquire Now</span></a> </div>
+                     </div>
+                      <div class="product" data-aos="fade-up" data-aos-delay="300">
+                        <img src="images-2.jpeg" alt="Ruby" tabindex="0"> <div class="product-info">
+                             <h3 data-translate="productRubyTitle">Ruby</h3>
+                             <p class="product-description" data-translate="productRubyDesc">Fiery Ruby,
+known for passion, protection, and prosperity.</p> <p class="product-price" data-translate="inquirePrice">Inquire for Pricing</p>
+                             <button class="add-to-cart-button"
+                                     data-product-id="ruby" data-product-name="Ruby"
+                                     data-translate="addToInquiryBtn"> Add to Inquiry List
+                                </button> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Ruby.%20Could%20you%20provide%20more%20details%20and%20pricing?"
+                                 class="whatsapp-button" target="_blank" aria-label="Inquire about Ruby on WhatsApp"> <i class="fab fa-whatsapp"></i> <span data-translate="inquireNowBtn">Inquire Now</span></a> </div>
+                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="spiritual-products" class="section product-category-section" data-aos="fade-up">
-        <div class="container">
-            <button class="back-button" onclick="showProductCategories()"><i class="fas fa-arrow-left"></i> Back to Categories</button>
-            <h2 data-translate="spiritualItemsProducts">Spiritual Items Products</h2>
-            <div class="category-products-grid">
+            <div
+id="rudraksh-products-container" class="category-products-container"> <a href="#products" class="back-to-categories" role="button" tabindex="0" data-translate="backToCategories"><i class="fas fa-arrow-left"></i> Back to Categories</a>
+                <h3 data-translate="rudrakshItemsTitle">Rudraksh Items</h3>
+                <div class="category-products-grid">
+                     <div class="product" data-aos="fade-up">
+                        <img src="IMG-20250516-WA0003.jpg" alt="Rudraksh Mala" tabindex="0"> <div class="product-info">
+                             <h3 data-translate="productRudrakshMalaTitle">Rudraksh Mala</h3>
+                            <p class="product-description" data-translate="productRudrakshMalaDesc">Genuine Rudraksha beads for spiritual connection and well-being.</p> <p class="product-price" data-translate="inquirePrice">Inquire for Pricing</p>
+                             <button class="add-to-cart-button"
+                                     data-product-id="rudraksh_mala_main" data-product-name="Rudraksh Mala"
+                                     data-translate="addToInquiryBtn"> Add to Inquiry List
+                                    </button> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Rudraksh%20Mala.%20Could%20you%20provide%20more%20details%20and%20pricing?"
+                                 class="whatsapp-button" target="_blank" aria-label="Inquire about Rudraksh Mala on WhatsApp"> <i class="fab fa-whatsapp"></i> <span data-translate="inquireNowBtn">Inquire Now</span></a> </div>
+                     </div>
                 </div>
-        </div>
-    </section>
+            </div>
 
-    <footer class="section" data-aos="fade-up">
+            <div id="yantra-products-container" class="category-products-container"> <a href="#products" class="back-to-categories" role="button" tabindex="0" data-translate="backToCategories"><i class="fas fa-arrow-left"></i> Back to Categories</a>
+                <h3 data-translate="yantraSpiritualCollectionTitle">Yantra & Spiritual Collection</h3>
+                <div class="category-products-grid">
+                     <div class="product" data-aos="fade-up">
+                        <img src="IMG-20250516-WA0001.jpg" alt="Yantra" tabindex="0"> <div class="product-info">
+                             <h3 data-translate="productYantraTitle">Yantra</h3>
+                            <p class="product-description" data-translate="productYantraDesc">Sacred geometric diagrams for meditation and energy focusing.</p> <p class="product-price" data-translate="inquirePrice">Inquire for Pricing</p>
+                             <button class="add-to-cart-button"
+                                     data-product-id="yantra_main" data-product-name="Yantra"
+                                     data-translate="addToInquiryBtn"> Add to Inquiry List
+                                    </button> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?"
+                                 class="whatsapp-button" target="_blank" aria-label="Inquire about Yantra on WhatsApp"> <i class="fab fa-whatsapp"></i> <span data-translate="inquireNowBtn">Inquire Now</span></a> </div>
+                     </div>
+                      <div class="product" data-aos="fade-up" data-aos-delay="100">
+                        <img src="61Fg6DsA4iL._AC_UF894,1000_QL80_.jpg" alt="Sphatik Shree Yantra" tabindex="0"> <div class="product-info">
+                             <h3 data-translate="productSphatikYantraTitle">Sphatik Shree Yantra</h3>
+                            <p class="product-description" data-translate="productSphatikYantraDesc">Clear quartz Shree Yantra for purity, prosperity, and positive energy.</p> <p class="product-price" data-translate="inquirePrice">Inquire for Pricing</p>
+                             <button class="add-to-cart-button"
+                                     data-product-id="sphatik_yantra_main" data-product-name="Sphatik Shree Yantra"
+                                     data-translate="addToInquiryBtn"> Add to Inquiry List
+                                        </button> <a href="https://wa.me/919723197899?text=Hello,%20I'm%20interested%20in%20Sphatik%20Shree%20Yantra.%20Could%20you%20provide%20more%20details%20and%20pricing?"
+                                class="whatsapp-button" target="_blank" aria-label="Inquire about Sphatik Shree Yantra on WhatsApp"> <i class="fab fa-whatsapp"></i> <span data-translate="inquireNowBtn">Inquire Now</span></a> </div>
+                     </div>
+                </div>
+            </div>
+
+            <div id="gemstone-rings-products-container" class="category-products-container">
+                <a href="#products" class="back-to-categories" role="button" tabindex="0" data-translate="backToCategories"><i class="fas fa-arrow-left"></i> Back to Categories</a>
+                <h3 data-translate="gemstoneRingsCollectionTitle">Gemstone Rings Collection</h3>
+                <div class="category-products-grid">
+                    </div>
+            </div>
+
+            <div id="gemstone-bracelet-products-container" class="category-products-container">
+                <a href="#products" class="back-to-categories" role="button" tabindex="0" data-translate="backToCategories"><i class="fas fa-arrow-left"></i> Back to Categories</a>
+                <h3 data-translate="gemstoneBraceletCollectionTitle">Gemstone Bracelets Collection</h3>
+                <div class="category-products-grid">
+                    </div>
+            </div>
+
+            <div id="gemstone-pendant-products-container" class="category-products-container">
+                <a href="#products" class="back-to-categories" role="button" tabindex="0" data-translate="backToCategories"><i class="fas fa-arrow-left"></i> Back to Categories</a>
+                <h3 data-translate="gemstonePendantCollectionTitle">Gemstone Pendants Collection</h3>
+                <div class="category-products-grid">
+                    </div>
+            </div>
+
+        </div>
+    </section> <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeCartModal" role="button" tabindex="0" aria-label="Close Inquiry List">×</span>
+            <h2 data-translate="yourInquiryListTitle">Your Inquiry List</h2>
+            <div id="emptyCartMessage" data-translate="emptyCartMessage">Your inquiry list is empty.</div>
+            <ul id="cartItemsList"></ul>
+            <div class="cart-total" id="cartTotal" data-translate="totalInquirePricing">Total: Inquire for Pricing</div>
+            <button class="checkout-button" id="checkoutButton" data-translate="proceedToWhatsappBtn">Proceed to WhatsApp Inquiry</button> </div>
+    </div>
+
+    <div id="billingModal" class="modal">
+         <div class="modal-content">
+              <span class="close" id="closeBillingModal" role="button" tabindex="0" aria-label="Close Inquiry Form">×</span>
+              <h2 data-translate="whatsappInquiryFormTitle">WhatsApp Inquiry Form</h2>
+              <a href="#" class="back-to-cart" id="backToCartButton"
+                 role="button" tabindex="0" data-translate="backToInquiryList"><i class="fas fa-arrow-left"></i> Back to Inquiry List</a> <h3 data-translate="itemsInYourInquiryTitle">Items in Your Inquiry</h3>
+              <ul id="billingItemsList"></ul>
+              <div class="coupon-section">
+                   <input type="text" id="couponCodeInput" placeholder="Enter coupon code (Inquire)" data-translate="couponPlaceholder">
+                   <button id="applyCouponButton" data-translate="inquireForCouponBtn">Inquire for Coupon</button> </div>
+               <div id="couponMessage" aria-live="polite"></div>
+               <div class="billing-summary">
+                   <p data-translate="subtotalLabel">Subtotal: <span id="subtotal" data-translate="inquirePrice">Inquire for Pricing</span></p>
+                    <p data-translate="discountLabel">Discount: <span
+id="discount" data-translate="inquirePrice">Inquire for Pricing</span></p> <p class="final-total" data-translate="totalLabel">Total: <span id="finalTotal" data-translate="inquirePrice">Inquire for Pricing</span></p>
+              </div>
+              <h3 data-translate="yourDetailsTitle">Your Details (for WhatsApp inquiry)</h3>
+               <div class="inquiry-details">
+                   <div>
+                        <label for="customerName" data-translate="fullNameLabel">Full Name:</label> <input type="text" id="customerName" placeholder="Your Full Name" data-translate="fullNamePlaceholder">
+                   </div>
+                   <div>
+                        <label for="customerEmail" data-translate="emailLabel">Email (Optional):</label> <input type="email" id="customerEmail" placeholder="Your Email" data-translate="emailPlaceholder">
+                   </div>
+                   <div>
+                        <label for="customerPhone" data-translate="phoneNumberLabel">Phone Number (for WhatsApp):</label> <input type="tel" id="customerPhone" value="+919723197899" readonly>
+                   </div>
+                   <div>
+                        <label for="customerAddress" data-translate="notesLabel">Your Message/Notes (Optional):</label> <textarea id="customerAddress" placeholder="Any specific questions or additional notes."
+                                  data-translate="notesPlaceholder"></textarea> </div>
+                    <div class="payment-info">
+                        <h3 data-translate="whatsappInquiryProcessTitle">WhatsApp Inquiry Process</h3>
+                        <p data-translate="whatsappInquiryProcessPara1">Clicking "Send WhatsApp Inquiry" will open WhatsApp with
+a pre-filled message including your selected items and contact details (if provided).</p> <p class="payment-instructions" data-translate="whatsappInquiryProcessPara2">We will **contact you directly via WhatsApp or phone** to discuss your selected items, provide detailed pricing, and guide you through the process.</p>
+                    </div>
+                   <button
+type="button" class="place-order-button" id="sendWhatsAppInquiry" data-translate="sendWhatsappInquiryBtn">Send WhatsApp Inquiry</button> </div>
+         </div>
+    </div>
+
+    <footer class="footer" data-aos="fade-up">
         <div class="container">
-            <p>&copy; <span id="current-year"></span> J.K. Gems. All rights reserved.</p>
-            <p class="footer-text" data-translate="slogan">Bringing the brilliance of natural gems to your life since 1965.</p>
             <div class="social-links">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/j_k_gems" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE_ID" target="_blank"
+aria-label="Facebook"><i class="fab fa-facebook"></i></a> <a href="https://youtube.com/@jkgems-td3et?si=Ne4JWKic5aeZfBTa" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
-            <button class="terms-button" id="openTermsModal">Terms and Conditions</button>
-        </div>
+         </div>
     </footer>
 
-    <div id="termsModal" class="terms-modal-overlay">
-        <div class="terms-modal-content">
-            <h3>Terms and Conditions for J.K. Gems</h3>
-            <p>Welcome to the J.K. Gems website! By accessing or using our website, you agree to comply with and be bound by the following Terms and Conditions. Please review them carefully. If you do not agree to these terms, you should not use this website.</p>
-            
-            <h4>1. Website Purpose and Nature</h4>
-            <p>This J.K. Gems website operates purely as an online product catalogue. Its primary purpose is to display our gem products and facilitate inquiries through WhatsApp. This website is not an e-commerce platform and does not support direct online payments, purchases, or order placement. All transactions, pricing discussions, and final sales will be conducted offline, typically through WhatsApp or other agreed-upon direct communication channels.</p>
-            
-            <h4>2. Information Accuracy and "As Is" Basis</h4>
-            <p>The content on this website, including product descriptions, images, and specifications, is provided for informational purposes only. While we strive for accuracy, please be aware that:</p>
-            <ul>
-                <li><strong>AI-Generated Content:</strong> This website has been developed with the assistance of artificial intelligence, which may occasionally lead to errors, inaccuracies, or omissions in the displayed information.</li>
-                <li><strong>No Guarantees:</strong> J.K. Gems does not warrant the completeness, reliability, or accuracy of any information on this site. All content is provided "as is" and "as available" without any warranties of any kind, either express or implied.</li>
-                <li><strong>Verification Recommended:</strong> We strongly recommend that you verify any information obtained from this website directly with us via WhatsApp before making any decisions or commitments.</li>
-            </ul>
-            
-            <h4>3. No Purchase or Payment Facility</h4>
-            <p>As stated, this website does not process payments or facilitate direct purchases. Any prices or product availability mentioned are indicative and subject to change without notice. To inquire about products, pricing, or to make a purchase, you must contact J.K. Gems directly via the WhatsApp link provided on the website.</p>
-            
-            <h4>4. Intellectual Property Disclaimer</h4>
-            <p>Please be advised that J.K. Gems has not acquired any formal intellectual property rights such as copyright or trademark registrations for the content, design, or name associated with this website at this time. All content on this website is displayed without any claim of formal intellectual property protection.</p>
-            
-            <h4>5. Limitation of Liability</h4>
-            <p>J.K. Gems, its owners, employees, or affiliates will not be liable for any damages of any kind arising from the use or inability to use this website, including, but not limited to, direct, indirect, incidental, punitive, and consequential damages. This includes damages resulting from errors, omissions, or inaccuracies in the content, reliance on any information obtained from the website, or the unavailability of the website.</p>
-            
-            <h4>6. External Links</h4>
-            <p>This website may contain links to third-party websites or services (e.g., WhatsApp). These links are provided for your convenience only. J.K. Gems has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third-party websites or services. Your use of third-party websites is at your own risk.</p>
-            
-            <h4>7. Changes to Terms and Conditions</h4>
-            <p>J.K. Gems reserves the right to modify these Terms and Conditions at any time without prior notice. Your continued use of the website after any such changes constitutes your acceptance of the new Terms and Conditions.</p>
-            
-            <h4>8. Governing Law and Jurisdiction</h4>
-            <p>These Terms and Conditions shall be governed by and construed in accordance with the laws of India, specifically the state of Gujarat. Any disputes arising under or in connection with these Terms and Conditions shall be subject to the exclusive jurisdiction of the courts located in Junagadh, Gujarat, India.</p>
-            
-            <h4>9. Contact Us</h4>
-            <p>If you have any questions about these Terms and Conditions, please contact us via the WhatsApp link provided on our website.</p>
-            
-            <button class="terms-modal-close-button" id="closeTermsModal">Close</button>
-        </div>
+    <div id="imageModal">
+        <span class="close" role="button" tabindex="0" aria-label="Close image modal">×</span>
+        <img src="" id="modalImage" alt="Enlarged product image">
     </div>
 
+     <a href="#" class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></a>
 
-    <div id="imageModal" class="image-modal">
-        <span class="image-modal-close" role="button" aria-label="Close image modal">&times;</span>
-        <img class="image-modal-content" id="modalImg">
-    </div>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            AOS.init({
-                duration: 1000,
-                once: true,
-            });
-
-            // Set current year in footer
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-
-            // Category navigation
-            const categoryCards = document.querySelectorAll('.category-card');
-            const productCategorySections = document.querySelectorAll('.product-category-section');
-            const productsSection = document.getElementById('products');
-
-            categoryCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    const targetId = this.dataset.categoryTarget;
-                    showProductContainer(targetId);
-                });
-            });
-
-            window.showProductCategories = function() {
-                productCategorySections.forEach(section => {
-                    section.classList.remove('active');
-                });
-                productsSection.classList.add('active');
-                productsSection.style.display = 'block'; // Ensure categories section is visible
-                // Scroll back to product categories section
-                productsSection.scrollIntoView({ behavior: 'smooth' });
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <script>
+        // --- Language Translations ---
+        const translations = {
+            en: {
+                pageTitle: 'J.K Gems - Exquisite Gemstones & Spiritual Items',
+                itemAdded: 'Item added to inquiry list!',
+                chooseLanguageTitle: 'Choose Your Language', /* [cite: 431] */
+                navAbout: 'About J.K Gems',
+                navCategories: 'Categories',
+                heroTitle: 'Exquisite Gemstones & Spiritual Treasures',
+                heroSubtitle: 'Discover perfection in every gem',
+                exploreCollectionBtn: 'Explore Collection', /* [cite: 432] */
+                aboutUsTitle: 'About J.K Gems',
+                ourStoryTitle: 'Our Story',
+                ourStoryPara1: 'J.K Gems is a well-known and trusted firm, serving customers with exquisite gemstones and spiritual products since 1965. Founded on principles of quality, authenticity, and integrity, we have built a reputation as a cornerstone in Junagadh\'s Soni Bajar.',
+                ourStoryPara2: 'For generations, we have been dedicated to sourcing the finest gemstones and authentic spiritual items, offering expert guidance and personalized service to our valued customers. Our legacy is built on trust, and our commitment to providing genuine products remains unwavering.', /* [cite: 433] */
+                contactLocationTitle: 'Contact & Location',
+                addressLine1: 'Balakrishna market, Haveli gali',
+                addressLine2: 'Soni bajar, Junagadh',
+                addressLine3: 'Gujarat 362001',
+                businessHours: 'Business Hours: 10 am to 3 pm and 4 pm to 9 pm', /* [cite: 435] */
+                whatsappInquiryPrompt: 'You can also inquire directly via WhatsApp using the buttons on our product listings below.',
+                ourCategoriesTitle: 'Our Categories',
+                searchPlaceholderCategory: 'Search Categories or Products...',
+                categoryGemstonesTitle: 'Gemstones', /* [cite: 436] */
+                categoryGemstonesDesc: 'Explore our collection of authentic, high-quality gemstones.',
+                categoryRudrakshTitle: 'Rudraksh',
+                categoryRudrakshDesc: 'Discover genuine Rudraksha beads and items for spiritual well-being.',
+                categoryYantraTitle: 'Yantra & Spiritual Items',
+                categoryYantraDesc: 'Sacred geometric diagrams, Sphatik items, and other spiritual treasures.', /* [cite: 437] */
+                categoryGemstoneRingsTitle: 'Gemstone Rings',
+                categoryGemstoneRingsDesc: 'Exquisite rings crafted with precious gemstones.',
+                categoryGemstoneBraceletTitle: 'Gemstone Bracelets',
+                categoryGemstoneBraceletDesc: 'Elegant bracelets adorned with various gemstones.',
+                categoryGemstonePendantTitle: 'Gemstone Pendants',
+                categoryGemstonePendantDesc: 'Stunning pendants featuring captivating gemstones.',
+                backToCategories: 'Back to Categories',
+                gemstonesCollectionTitle: 'Gemstones Collection',
+                gemstoneRingsCollectionTitle: 'Gemstone Rings Collection',
+                gemstoneBraceletCollectionTitle: 'Gemstone Bracelets Collection',
+                gemstonePendantCollectionTitle: 'Gemstone Pendants Collection',
+                productYellowSapphireTitle: 'Yellow Sapphire',
+                productYellowSapphireDesc: 'Genuine Yellow Sapphire, known for prosperity and good fortune.',
+                productBlueSapphireTitle: 'Blue Sapphire', /* [cite: 438] */
+                productBlueSapphireDesc: 'Authentic Blue Sapphire, revered for its astrological benefits and deep hues.',
+                productEmeraldTitle: 'Emerald',
+                productEmeraldDesc: 'Vibrant Emerald, a symbol of growth, renewal, and wisdom.',
+                productRubyTitle: 'Ruby', /* [cite: 438] */
+                productRubyDesc: 'Fiery Ruby, known for passion, protection, and prosperity.', /* [cite: 439] */
+                rudrakshItemsTitle: 'Rudraksh Items',
+                productRudrakshMalaTitle: 'Rudraksh Mala', /* [cite: 440] */
+                productRudrakshMalaDesc: 'Genuine Rudraksha beads for spiritual connection and well-being.',
+                yantraSpiritualCollectionTitle: 'Yantra & Spiritual Collection',
+                productYantraTitle: 'Yantra', /* [cite: 441] */
+                productYantraDesc: 'Sacred geometric diagrams for meditation and energy focusing.',
+                productSphatikYantraTitle: 'Sphatik Shree Yantra',
+                productSphatikYantraDesc: 'Clear quartz Shree Yantra for purity, prosperity, and positive energy.',
+                inquirePrice: 'Inquire for Pricing', /* [cite: 441] */
+                addToInquiryBtn: 'Add to Inquiry List',
+                inquireNowBtn: 'Inquire Now',
+                yourInquiryListTitle: 'Your Inquiry List',
+                emptyCartMessage: 'Your inquiry list is empty.',
+                totalInquirePricing: 'Total: Inquire for Pricing', /* [cite: 442] */
+                proceedToWhatsappBtn: 'Proceed to WhatsApp Inquiry',
+                whatsappInquiryFormTitle: 'WhatsApp Inquiry Form',
+                backToInquiryList: 'Back to Inquiry List',
+                itemsInYourInquiryTitle: 'Items in Your Inquiry',
+                couponPlaceholder: 'Enter coupon code (Inquire)',
+                inquireForCouponBtn: 'Inquire for Coupon', /* [cite: 444] */
+                subtotalLabel: 'Subtotal:',
+                discountLabel: 'Discount:',
+                totalLabel: 'Total:',
+                yourDetailsTitle: 'Your Details (for WhatsApp inquiry)',
+                fullNameLabel: 'Full Name:', /* [cite: 445] */
+                fullNamePlaceholder: 'Your Full Name',
+                emailLabel: 'Email (Optional):',
+                emailPlaceholder: 'Your Email',
+                phoneNumberLabel: 'Phone Number (for WhatsApp):',
+                notesLabel: 'Your Message/Notes (Optional):', /* [cite: 445] */
+                notesPlaceholder: 'Any specific questions or additional notes.',
+                whatsappInquiryProcessTitle: 'WhatsApp Inquiry Process',
+                whatsappInquiryProcessPara1: 'Clicking "Send WhatsApp Inquiry" will open WhatsApp with a pre-filled message including your selected items and contact details (if provided).',
+                whatsappInquiryProcessPara2: 'We will **contact you directly via WhatsApp or phone** to discuss your selected items, provide detailed pricing, and guide you through the process.', /* [cite: 446] */
+                sendWhatsappInquiryBtn: 'Send WhatsApp Inquiry',
+                productQuantity: '(x%s)',
+                removeItem: 'Remove',
+                searchPlaceholderProduct: 'Search %s products...', /* [cite: 448] */
+                whatsappMessageIntro: "Hello J.K Gems, I'd like to inquire about the following items from your website:",
+                whatsappMessageCoupon: "I'm also interested in inquiring about coupon code:",
+                whatsappMessageName: "My Name",
+                whatsappMessageEmail: "My Email", /* [cite: 449] */
+                whatsappMessageNotes: "My Message",
+                whatsappMessageOutro: "Looking forward to hearing from you.", /* [cite: 450] */
+                emptyCartAlert: "Your inquiry list is empty. Please add items before proceeding.", /* [cite: 449] */
+                couponInquireMessage: "Please inquire directly via WhatsApp for coupon details."
+            },
+            hi: {
+                pageTitle: 'जे.के. जेम्स - उत्कृष्ट रत्न और आध्यात्मिक वस्तुएं',
+                itemAdded: 'वस्तु पूछताछ सूची में जोड़ी गई!',
+                chooseLanguageTitle: 'अपनी भाषा चुनें', /* [cite: 451] */
+                navAbout: 'जे.के. जेम्स के बारे में',
+                navCategories: 'श्रेणियाँ',
+                heroTitle: 'उत्कृष्ट रत्न और आध्यात्मिक खजाने',
+                heroSubtitle: 'हर रत्न में पूर्णता खोजें',
+                exploreCollectionBtn: 'संग्रह देखें', /* [cite: 452] */
+                aboutUsTitle: 'जे.के. जेम्स के बारे में',
+                ourStoryTitle: 'हमारी कहानी',
+                ourStoryPara1: 'जे.के. जेम्स एक सुप्रसिद्ध और विश्वसनीय फर्म है, जो 1965 से ग्राहकों को उत्कृष्ट रत्न और आध्यात्मिक उत्पाद प्रदान कर रही है। गुणवत्ता, प्रामाणिकता और ईमानदारी के सिद्धांतों पर स्थापित, हमने जूनागढ़ के सोनी बाजार में एक आधारशिला के रूप में अपनी प्रतिष्ठा बनाई है।', /* [cite: 452] */
+                ourStoryPara2: 'पीढ़ियों से, हम बेहतरीन रत्न और प्रामाणिक आध्यात्मिक वस्तुएं प्राप्त करने के लिए समर्पित रहे हैं, अपने मूल्यवान ग्राहकों को विशेषज्ञ मार्गदर्शन और व्यक्तिगत सेवा प्रदान करते हैं। हमारी विरासत विश्वास पर बनी है, और वास्तविक उत्पाद प्रदान करने की हमारी प्रतिबद्धता अटूट है।', /* [cite: 453] */
+                contactLocationTitle: 'संपर्क और स्थान',
+                addressLine1: 'बालकृष्ण मार्केट, हवेली गली',
+                addressLine2: 'सोनी बाजार, जूनागढ़',
+                addressLine3: 'गुजरात 362001',
+                businessHours: 'व्यवसाय के घंटे: सुबह 10 बजे से दोपहर 3 बजे तक और शाम 4 बजे से रात 9 बजे तक', /* [cite: 455] */
+                whatsappInquiryPrompt: 'आप नीचे हमारी उत्पाद सूची पर दिए गए बटनों का उपयोग करके सीधे व्हाट्सएप के माध्यम से भी पूछताछ कर सकते हैं।',
+                ourCategoriesTitle: 'हमारी श्रेणियाँ',
+                searchPlaceholderCategory: 'श्रेणियों या उत्पादों को खोजें...', /* [cite: 455] */
+                categoryGemstonesTitle: 'रत्न',
+                categoryGemstonesDesc: 'प्रामाणिक, उच्च-गुणवत्ता वाले रत्नों के हमारे संग्रह का अन्वेषण करें।',
+                categoryRudrakshTitle: 'रुद्राक्ष',
+                categoryRudrakshDesc: 'आध्यात्मिक कल्याण के लिए वास्तविक रुद्राक्ष मोती और वस्तुओं की खोज करें।',
+                categoryYantraTitle: 'यंत्र और आध्यात्मिक वस्तुएं', /* [cite: 457] */
+                categoryYantraDesc: 'पवित्र ज्यामितीय आरेख, स्फटिक आइटम और अन्य आध्यात्मिक खजाने।',
+                categoryGemstoneRingsTitle: 'रत्न अंगूठियाँ',
+                categoryGemstoneRingsDesc: 'कीमती रत्नों से तैयार उत्कृष्ट अंगूठियाँ।',
+                categoryGemstoneBraceletTitle: 'रत्न ब्रेसलेट',
+                categoryGemstoneBraceletDesc: 'विभिन्न रत्नों से सुशोभित सुंदर ब्रेसलेट।',
+                categoryGemstonePendantTitle: 'रत्न पेंडेंट',
+                categoryGemstonePendantDesc: 'मनमोहक रत्नों वाले शानदार पेंडेंट।',
+                backToCategories: 'श्रेणियों पर वापस जाएँ',
+                gemstonesCollectionTitle: 'रत्न संग्रह',
+                gemstoneRingsCollectionTitle: 'रत्न अंगूठी संग्रह',
+                gemstoneBraceletCollectionTitle: 'रत्न ब्रेसलेट संग्रह',
+                gemstonePendantCollectionTitle: 'रत्न पेंडेंट संग्रह',
+                productYellowSapphireTitle: 'पीला नीलम',
+                productYellowSapphireDesc: 'असली पीला नीलम, समृद्धि और सौभाग्य के लिए जाना जाता है।', /* [cite: 458] */
+                productBlueSapphireTitle: 'नीला नीलम',
+                productBlueSapphireDesc: 'प्रामाणिक नीला नीलम, इसके ज्योतिषीय लाभों और गहरे रंगों के लिए पूजनीय है।',
+                productEmeraldTitle: 'पन्ना',
+                productEmeraldDesc: 'जीवंत पन्ना, विकास, नवीनीकरण और ज्ञान का प्रतीक है।', /* [cite: 459] */
+                productRubyTitle: 'माणिक',
+                productRubyDesc: 'अग्निमय माणिक, जुनून, सुरक्षा और समृद्धि के लिए जाना जाता है।',
+                rudrakshItemsTitle: 'रुद्राक्ष वस्तुएं',
+                productRudrakshMalaTitle: 'रुद्राक्ष माला',
+                productRudrakshMalaDesc: 'आध्यात्मिक संबंध और कल्याण के लिए असली रुद्राक्ष मोती।',
+                yantraSpiritualCollectionTitle: 'यंत्र और आध्यात्मिक संग्रह',
+                productYantraTitle: 'यंत्र',
+                productYantraDesc: 'ध्यान और ऊर्जा केंद्रित करने के लिए पवित्र ज्यामितीय आरेख।',
+                productSphatikYantraTitle: 'स्फटिक श्री यंत्र',
+                productSphatikYantraDesc: 'शुद्धता, समृद्धि और सकारात्मक ऊर्जा के लिए स्पष्ट क्वार्ट्ज श्री यंत्र।', /* [cite: 462] */
+                inquirePrice: 'कीमत के लिए पूछताछ करें',
+                addToInquiryBtn: 'पूछताछ सूची में जोड़ें',
+                inquireNowBtn: 'अभी पूछताछ करें',
+                yourInquiryListTitle: 'आपकी पूछताछ सूची', /* [cite: 462] */
+                emptyCartMessage: 'आपकी पूछताछ सूची खाली है।', /* [cite: 463] */
+                totalInquirePricing: 'कुल: कीमत के लिए पूछताछ करें',
+                proceedToWhatsappBtn: 'व्हाट्सएप पूछताछ के लिए आगे बढ़ें',
+                whatsappInquiryFormTitle: 'व्हाट्सएप पूछताछ फॉर्म',
+                backToInquiryList: 'पूछताछ सूची पर वापस जाएँ', /* [cite: 464] */
+                itemsInYourInquiryTitle: 'आपकी पूछताछ में आइटम',
+                couponPlaceholder: 'कूपन कोड दर्ज करें (पूछताछ)',
+                inquireForCouponBtn: 'कूपन के लिए पूछताछ करें',
+                subtotalLabel: 'उपयोग:',
+                discountLabel: 'छूट:', /* [cite: 465] */
+                totalLabel: 'कुल:',
+                yourDetailsTitle: 'आपके विवरण (व्हाट्सएप पूछताछ के लिए)',
+                fullNameLabel: 'पूरा नाम:',
+                fullNamePlaceholder: 'आपका पूरा नाम',
+                emailLabel: 'ईमेल (वैकल्पिक):',
+                emailPlaceholder: 'आपका ईमेल', /* [cite: 466] */
+                phoneNumberLabel: 'फ़ोन नंबर (व्हाट्सएप के लिए):',
+                notesLabel: 'आपका संदेश/नोट्स (वैकल्पिक):',
+                notesPlaceholder: 'कोई विशेष प्रश्न या अतिरिक्त नोट्स।',
+                whatsappInquiryProcessTitle: 'व्हाट्सएप पूछताछ प्रक्रिया',
+                whatsappInquiryProcessPara1: '"व्हाट्सएप पूछताछ भेजें" पर क्लिक करने से आपके चयनित आइटम और संपर्क विवरण (यदि प्रदान किए गए हों) के साथ एक पूर्व-भरे हुए संदेश के साथ व्हाट्सएप खुल जाएगा।', /* [cite: 467] */
+                whatsappInquiryProcessPara2: 'हम आपके चयनित आइटम पर चर्चा करने, विस्तृत मूल्य निर्धारण प्रदान करने और प्रक्रिया के माध्यम से आपका मार्गदर्शन करने के लिए सीधे व्हाट्सएप या फोन के माध्यम से **आपसे संपर्क करेंगे**।',
+                sendWhatsappInquiryBtn: 'व्हाट्सएप पूछताछ भेजें', /* [cite: 468] */
+                productQuantity: '(x%s)',
+                removeItem: 'हटाएँ',
+                searchPlaceholderProduct: '%s उत्पादों को खोजें...',
+                whatsappMessageIntro: "नमस्ते जे.के. जेम्स, मैं आपकी वेबसाइट से निम्नलिखित वस्तुओं के बारे में पूछताछ करना चाहता हूँ:", /* [cite: 468] */
+                whatsappMessageCoupon: "मैं कूपन कोड के बारे में भी पूछताछ करने में रुचि रखता हूँ:",
+                whatsappMessageName: "मेरा नाम",
+                whatsappMessageEmail: "मेरा ईमेल",
+                whatsappMessageNotes: "मेरा संदेश",
+                whatsappMessageOutro: "आपसे सुनकर खुशी होगी।", /* [cite: 470] */
+                emptyCartAlert: "आपकी पूछताछ सूची खाली है। आगे बढ़ने से पहले कृपया आइटम जोड़ें।" , /* [cite: 470] */
+                couponInquireMessage: "कूपन विवरण के लिए कृपया सीधे व्हाट्सएप के माध्यम से पूछताछ करें।"
+            },
+            gu: {
+                pageTitle: 'જે.કે. જેમ્સ - ઉત્તમ રત્નો અને આધ્યાત્મિક વસ્તુઓ',
+                itemAdded: 'વસ્તુ પૂછપરછ સૂચિમાં ઉમેરાઈ!', /* [cite: 472] */
+                chooseLanguageTitle: 'તમારી ભાષા પસંદ કરો',
+                navAbout: 'જે.કે. જેમ્સ વિશે',
+                navCategories: 'શ્રેણીઓ',
+                heroTitle: 'ઉત્તમ રત્નો અને આધ્યાત્મિક ખજાના',
+                heroSubtitle: 'દરેક રત્નમાં પૂર્ણતા શોધો', /* [cite: 472] */
+                exploreCollectionBtn: 'સંગ્રહ જુઓ', /* [cite: 473] */
+                aboutUsTitle: 'જે.કે. જેમ્સ વિશે',
+                ourStoryTitle: 'અમારી વાર્તા',
+                ourStoryPara1: 'જે.કે. જેમ્સ એક જાણીતી અને વિશ્વસનીય પેઢી છે, જે 1965 થી ગ્રાહકોને ઉત્તમ રત્નો અને આધ્યાત્મિક ઉત્પાદનો પ્રદાન કરી રહી છે. ગુણવત્તા, પ્રમાણિકતા અને અખંડિતતાના સિદ્ધાંતો પર સ્થપાયેલી, અમે જૂનાગઢના સોની બજારમાં એક પાયાનો પથ્થર તરીકે પ્રતિષ્ઠા બનાવી છે.', /* [cite: 473] */
+                ourStoryPara2: 'પેઢીઓથી, અમે ઉત્તમ રત્નો અને પ્રમાણિક આધ્યાત્મિક વસ્તુઓ મેળવવા માટે સમર્પિત છીએ, અમારા મૂલ્યવાન ગ્રાહકોને નિષ્ણાત માર્ગદર્શન અને વ્યક્તિગત સેવા પ્રદાન કરીએ છીએ. અમારી વારસો વિશ્વાસ પર બનેલો છે, અને સાચા ઉત્પાદનો પ્રદાન કરવાની અમારી પ્રતિબદ્ધતા અડગ છે.', /* [cite: 474] */
+                contactLocationTitle: 'સંપર્ક અને સ્થાન',
+                addressLine1: 'બાલકૃષ્ણ માર્કેટ, હવેલી ગલી',
+                addressLine2: 'સોની બજાર, જૂનાગઢ',
+                addressLine3: 'ગુજરાત 362001',
+                businessHours: 'વ્યવસાયના કલાકો: સવારે 10 થી બપોરે 3 અને સાંજે 4 થી રાત્રે 9', /* [cite: 476] */
+                whatsappInquiryPrompt: 'તમે નીચે અમારી ઉત્પાદન સૂચિ પરના બટનોનો ઉપયોગ કરીને સીધા WhatsApp દ્વારા પણ પૂછપરછ કરી શકો છો.',
+                ourCategoriesTitle: 'અમારી શ્રેણીઓ',
+                searchPlaceholderCategory: 'શ્રેણીઓ અથવા ઉત્પાદનો શોધો...',
+                categoryGemstonesTitle: 'રત્નો', /* [cite: 477] */
+                categoryGemstonesDesc: 'અમારા અધિકૃત, ઉચ્ચ-ગુણવત્તાવાળા રત્નોના સંગ્રહનું અન્વેષણ કરો.',
+                categoryRudrakshTitle: 'રુદ્રાક્ષ',
+                categoryRudrakshDesc: 'આધ્યાત્મિક કલ્યાણ માટે સાચા રુદ્રાક્ષ મણકા અને વસ્તુઓ શોધો.',
+                categoryYantraTitle: 'યંત્ર અને આધ્યાત્મિક વસ્તુઓ',
+                categoryYantraDesc: 'પવિત્ર ભૌમિતિક આકૃતિઓ, સ્ફટિક વસ્તુઓ અને અન્ય આધ્યાત્મિક ખજાના.', /* [cite: 478] */
+                categoryGemstoneRingsTitle: 'રત્ન વીંટીઓ',
+                categoryGemstoneRingsDesc: 'કિંમતી રત્નોથી બનાવેલી ઉત્કૃષ્ટ વીંટીઓ.',
+                categoryGemstoneBraceletTitle: 'રત્ન બ્રેસલેટ',
+                categoryGemstoneBraceletDesc: 'વિવિધ રત્નોથી સુશોભિત સુંદર બ્રેસલેટ.',
+                categoryGemstonePendantTitle: 'રત્ન પેન્ડન્ટ',
+                categoryGemstonePendantDesc: 'આકર્ષક રત્નો ધરાવતા અદભૂત પેન્ડન્ટ.',
+                backToCategories: 'શ્રેણીઓ પર પાછા જાઓ',
+                gemstonesCollectionTitle: 'રત્નો સંગ્રહ',
+                gemstoneRingsCollectionTitle: 'રત્ન વીંટી સંગ્રહ',
+                gemstoneBraceletCollectionTitle: 'રત્ન બ્રેસલેટ સંગ્રહ',
+                gemstonePendantCollectionTitle: 'રત્ન પેન્ડન્ટ સંગ્રહ',
+                productYellowSapphireTitle: 'પીળો નીલમ',
+                productYellowSapphireDesc: 'ખરો પીળો નીલમ, સમૃદ્ધિ અને સારા નસીબ માટે જાણીતો છે.',
+                productBlueSapphireTitle: 'વાદળી નીલમ', /* [cite: 479] */
+                productBlueSapphireDesc: 'પ્રમાણિક વાદળી નીલમ, તેના જ્યોતિષીય લાભો અને ઊંડા રંગો માટે આદરણીય છે.',
+                productEmeraldTitle: 'પન્ના',
+                productEmeraldDesc: 'ઉત્સાહપૂર્ણ પન્ના, વૃદ્ધિ, નવીકરણ અને ડહાપણનું પ્રતીક છે.',
+                productRubyTitle: 'માણેક', /* [cite: 479] */
+                productRubyDesc: 'અગ્નિશીલ માણેક, ઉત્કટ, સુરક્ષા અને સમૃદ્ધિ માટે જાણીતું છે.', /* [cite: 480] */
+                rudrakshItemsTitle: 'રુદ્રાક્ષ વસ્તુઓ',
+                productRudrakshMalaTitle: 'રુદ્રાક્ષ માલા', /* [cite: 481] */
+                productRudrakshMalaDesc: 'આધ્યાત્મિક જોડાણ અને સુખાકારી માટે સાચા રુદ્રાક્ષ મણકા.',
+                yantraSpiritualCollectionTitle: 'યંત્ર અને આધ્યાત્મિક સંગ્રહ', /* [cite: 481] */
+                productYantraTitle: 'યંત્ર',
+                productYantraDesc: 'ધ્યાન અને ઉર્જા કેન્દ્રિત કરવા માટે પવિત્ર ભૌમિતિક આકૃતિઓ.',
+                productSphatikYantraTitle: 'સ્ફટિક શ્રી યંત્ર',
+                productSphatikYantraDesc: 'શુદ્ધતા, સમૃદ્ધિ અને સકારાત્મક ઉર્જા માટે સ્પષ્ટ ક્વાર્ટઝ શ્રી યંત્ર.',
+                inquirePrice: 'કિંમત માટે પૂછપરછ કરો', /* [cite: 483] */
+                addToInquiryBtn: 'પૂછપરછ સૂચિમાં ઉમેરો',
+                inquireNowBtn: 'હવે પૂછપરછ કરો',
+                yourInquiryListTitle: 'તમારી પૂછપરછ સૂચિ',
+                emptyCartMessage: 'તમારી પૂછપરછ સૂચિ ખાલી છે.',
+                totalInquirePricing: 'કુલ: કિંમત માટે પૂછપરછ કરો', /* [cite: 484] */
+                proceedToWhatsappBtn: 'WhatsApp પૂછપરછ પર આગળ વધો',
+                whatsappInquiryFormTitle: 'WhatsApp પૂછપરછ ફોર્મ',
+                backToInquiryList: 'પૂછપરછ સૂચિ પર પાછા જાઓ',
+                itemsInYourInquiryTitle: 'તમારી પૂછપરછમાં વસ્તુઓ',
+                couponPlaceholder: 'કૂપન કોડ દાખલ કરો (પૂછપરછ કરો)', /* [cite: 485] */
+                inquireForCouponBtn: 'કૂપન માટે પૂછપરછ કરો',
+                subtotalLabel: 'પેટાકુલ:',
+                discountLabel: 'ડિસ્કાઉન્ટ:',
+                totalLabel: 'કુલ:',
+                yourDetailsTitle: 'તમારી વિગતો (WhatsApp પૂછપરછ માટે)', /* [cite: 485] */
+                fullNameLabel: 'પૂરું નામ:', /* [cite: 486] */
+                fullNamePlaceholder: 'તમારું પૂરું નામ',
+                emailLabel: 'ઇમેઇલ (વૈકલ્પિક):',
+                emailPlaceholder: 'તમારું ઇમેઇલ',
+                phoneNumberLabel: 'ફોન નંબર (WhatsApp માટે):',
+                notesLabel: 'તમારો સંદેશ/નોંધો (વૈકલ્પિક):', /* [cite: 487] */
+                notesPlaceholder: 'કોઈ ચોક્કસ પ્રશ્નો અથવા વધારાની નોંધો.',
+                whatsappInquiryProcessTitle: 'WhatsApp પૂછપરછ પ્રક્રિયા',
+                whatsappInquiryProcessPara1: '"WhatsApp પૂછપરછ મોકલો" પર ક્લિક કરવાથી WhatsApp ખુલશે જેમાં તમારી પસંદ કરેલી વસ્તુઓ અને સંપર્ક વિગતો (જો પ્રદાન કરવામાં આવી હોય) સાથે પૂર્વ-ભરેલો સંદેશ હશે.',
+                whatsappInquiryProcessPara2: 'અમે તમારા પસંદ કરેલા આઇટમ્સ વિશે ચર્ચા કરવા, વિગતવાર કિંમત પ્રદાન કરવા અને પ્રક્રિયા દ્વારા તમને માર્ગદર્શન આપવા માટે સીધા WhatsApp અથવા ફોન દ્વારા **તમારો સંપર્ક કરીશું**.', /* [cite: 488] */
+                sendWhatsappInquiryBtn: 'WhatsApp પૂછપરછ મોકલો',
+                productQuantity: '(x%s)',
+                removeItem: 'કાઢી નાખો',
+                searchPlaceholderProduct: '%s ઉત્પાદનો શોધો...', /* [cite: 489] */
+                whatsappMessageIntro: "નમસ્તે જે.કે. જેમ્સ, હું તમારી વેબસાઇટ પરથી નીચેની વસ્તુઓ વિશે પૂછપરછ કરવા માંગું છું:", /* [cite: 489] */
+                whatsappMessageCoupon: "હું કૂપન કોડ વિશે પણ પૂછપરછ કરવામાં રસ ધરાવું છું:",
+                whatsappMessageName: "મારું નામ",
+                whatsappMessageEmail: "મારો ઇમેઇલ",
+                whatsappMessageNotes: "મારો સંદેશ",
+                whatsappMessageOutro: "તમારા તરફથી સાંભળવા આતુર છું.", /* [cite: 491] */
+                emptyCartAlert: "તમારી પૂછપરછ સૂચિ ખાલી છે. આગળ વધતા પહેલા કૃપા કરીને વસ્તુઓ ઉમેરો。", /* [cite: 491] */
+                couponInquireMessage: "કૂપન વિગતો માટે કૃપા કરીને સીધા WhatsApp દ્વારા પૂછપરછ કરો."
             }
+        };
 
-            function showProductContainer(targetId) {
-                productsSection.classList.remove('active');
-                productsSection.style.display = 'none'; // Hide categories section
+        let currentLang = 'en'; // Default language
 
-                productCategorySections.forEach(section => {
-                    if (section.id === targetId) {
-                        section.classList.add('active');
-                        section.style.display = 'block'; // Ensure target section is visible
-                        section.scrollIntoView({ behavior: 'smooth' });
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('jk-gems-lang', lang); /* [cite: 493] */
+            applyTranslations();
+            closeLanguageModal();
+        }
+
+        function applyTranslations() {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.dataset.translate;
+                let translatedText = translations[currentLang][key]; /* [cite: 494] */
+
+                if (key === 'searchPlaceholderCategory' && document.getElementById('categoryGrid').style.display === 'none') {
+                    const currentCategoryContainer = document.querySelector('.category-products-container[style*="display: block"]');
+                    if (currentCategoryContainer) { /* [cite: 494] */
+                        const categoryId = currentCategoryContainer.id.replace('-products-container', '');
+                        let categoryNameKey; /* [cite: 495] */
+                        switch(categoryId) {
+                            case 'gemstones': categoryNameKey = 'categoryGemstonesTitle'; break; /* [cite: 496] */
+                            case 'rudraksh': categoryNameKey = 'categoryRudrakshTitle'; break;
+                            case 'yantra': categoryNameKey = 'categoryYantraTitle'; break;
+                            case 'gemstone-rings': categoryNameKey = 'categoryGemstoneRingsTitle'; break;
+                            case 'gemstone-bracelet': categoryNameKey = 'categoryGemstoneBraceletTitle'; break;
+                            case 'gemstone-pendant': categoryNameKey = 'categoryGemstonePendantTitle'; break;
+                            default: categoryNameKey = 'categoryGemstonesTitle'; /* [cite: 497] */
+                        }
+                        const categoryName = translations[currentLang][categoryNameKey];
+                        translatedText = translations[currentLang]['searchPlaceholderProduct'].replace('%s', categoryName); /* [cite: 499] */
                     } else {
-                        section.classList.remove('active');
-                        section.style.display = 'none'; // Hide other sections
+                        translatedText = translations[currentLang]['searchPlaceholderCategory']; /* [cite: 499] */
                     }
+                }
+
+                if (translatedText) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translatedText; /* [cite: 500] */
+                    } else {
+                        element.textContent = translatedText; /* [cite: 501] */
+                    }
+                }
+            });
+            renderCart(); /* [cite: 503] */
+            if (billingModal.style.display === 'flex') { /* [cite: 504] */
+                renderBillingContent(); /* [cite: 504] */
+            }
+
+            if (document.getElementById('categoryGrid').style.display !== 'none') {
+                 document.getElementById('searchInput').placeholder = translations[currentLang]['searchPlaceholderCategory']; /* [cite: 505] */
+            } else {
+                 const currentCategoryContainer = document.querySelector('.category-products-container[style*="display: block"]'); /* [cite: 506] */
+                 if (currentCategoryContainer) { /* [cite: 507] */
+                     const categoryId = currentCategoryContainer.id.replace('-products-container', ''); /* [cite: 507] */
+                     let categoryNameKey; /* [cite: 508] */
+                     switch(categoryId) {
+                         case 'gemstones': categoryNameKey = 'categoryGemstonesTitle'; break; /* [cite: 508] */
+                         case 'rudraksh': categoryNameKey = 'categoryRudrakshTitle'; break;
+                         case 'yantra': categoryNameKey = 'categoryYantraTitle'; break;
+                         case 'gemstone-rings': categoryNameKey = 'categoryGemstoneRingsTitle'; break;
+                         case 'gemstone-bracelet': categoryNameKey = 'categoryGemstoneBraceletTitle'; break;
+                         case 'gemstone-pendant': categoryNameKey = 'categoryGemstonePendantTitle'; break;
+                         default: categoryNameKey = 'categoryGemstonesTitle'; /* [cite: 509] */
+                     }
+                     const categoryName = translations[currentLang][categoryNameKey];
+                     document.getElementById('searchInput').placeholder = translations[currentLang]['searchPlaceholderProduct'].replace('%s', categoryName); /* [cite: 511] */
+                 }
+            }
+        }
+
+        // --- Category/Product View Switching ---
+        const categoryGrid = document.getElementById('categoryGrid'); /* [cite: 511] */
+        const productContainers = document.querySelectorAll('.category-products-container'); /* [cite: 512] */
+        const productsHeading = document.getElementById('products-heading'); /* [cite: 512] */
+        const searchInput = document.getElementById('searchInput'); /* [cite: 512] */
+        function showCategoryGrid() {
+            productsHeading.textContent = translations[currentLang]['ourCategoriesTitle']; /* [cite: 513] */
+            searchInput.placeholder = translations[currentLang]['searchPlaceholderCategory']; /* [cite: 513] */
+            searchInput.style.display = 'block'; /* [cite: 514] */
+            categoryGrid.style.display = 'grid'; /* [cite: 514] */
+            productContainers.forEach(container => container.style.display = 'none'); /* [cite: 514] */
+            searchItems = searchCategories; /* [cite: 514] */
+            searchInput.onkeyup = searchItems; /* [cite: 514] */
+            searchInput.value = ''; /* [cite: 514] */
+            searchItems(); /* [cite: 515] */
+        }
+
+        function showProductContainer(categoryId) {
+             const containerId = categoryId + '-products-container'; /* [cite: 515] */
+             const containerToShow = document.getElementById(containerId); /* [cite: 516] */
+             if (!containerToShow) {
+                 showCategoryGrid(); /* [cite: 516] */
+                 return; /* [cite: 517] */
+             }
+             let categoryNameKey; /* [cite: 517] */
+             switch(categoryId) {
+                 case 'gemstones': categoryNameKey = 'gemstonesCollectionTitle'; break; /* [cite: 518] */
+                 case 'rudraksh': categoryNameKey = 'rudrakshItemsTitle'; break; /* [cite: 519] */
+                 case 'yantra': categoryNameKey = 'yantraSpiritualCollectionTitle'; break; /* [cite: 519] */
+                 case 'gemstone-rings': categoryNameKey = 'gemstoneRingsCollectionTitle'; break;
+                 case 'gemstone-bracelet': categoryNameKey = 'gemstoneBraceletCollectionTitle'; break;
+                 case 'gemstone-pendant': categoryNameKey = 'gemstonePendantCollectionTitle'; break;
+                 default: categoryNameKey = 'ourCategoriesTitle'; /* [cite: 519] */
+             }
+             productsHeading.textContent = translations[currentLang][categoryNameKey]; /* [cite: 520] */
+             let searchPlaceholderTitleKey;
+             switch(categoryId) {
+                case 'gemstones': searchPlaceholderTitleKey = 'categoryGemstonesTitle'; break;
+                case 'rudraksh': searchPlaceholderTitleKey = 'categoryRudrakshTitle'; break;
+                case 'yantra': searchPlaceholderTitleKey = 'categoryYantraTitle'; break;
+                case 'gemstone-rings': searchPlaceholderTitleKey = 'categoryGemstoneRingsTitle'; break;
+                case 'gemstone-bracelet': searchPlaceholderTitleKey = 'categoryGemstoneBraceletTitle'; break;
+                case 'gemstone-pendant': searchPlaceholderTitleKey = 'categoryGemstonePendantTitle'; break;
+                default: searchPlaceholderTitleKey = 'categoryGemstonesTitle';
+             }
+             searchInput.placeholder = translations[currentLang]['searchPlaceholderProduct'].replace('%s', translations[currentLang][searchPlaceholderTitleKey]); /* [cite: 521] */
+             searchInput.style.display = 'block'; /* [cite: 521] */
+             categoryGrid.style.display = 'none'; /* [cite: 521] */
+             productContainers.forEach(container => container.style.display = 'none'); /* [cite: 521] */
+             containerToShow.style.display = 'block'; /* [cite: 521] */
+             searchItems = searchProductsInCategory; /* [cite: 522] */
+             searchInput.onkeyup = searchItems; /* [cite: 522] */
+             searchInput.value = ''; /* [cite: 522] */
+             searchItems(); /* [cite: 522] */
+        }
+
+        function searchCategories() {
+             const filter = searchInput.value.toUpperCase(); /* [cite: 523] */
+             const categories = categoryGrid.querySelectorAll('.product.category-card'); /* [cite: 524] */
+             categories.forEach(category => {
+                 const h3 = category.querySelector('h3');
+                 const desc = category.querySelector('.product-description');
+                 const textValue = (h3 ? h3.textContent || h3.innerText : '') + ' ' + (desc ? desc.textContent || desc.innerText : '');
+                 category.style.display = textValue.toUpperCase().indexOf(filter) > -1 ? "" : "none"; /* [cite: 525] */
+             });
+        }
+
+        function searchProductsInCategory() {
+            const filter = searchInput.value.toUpperCase(); /* [cite: 526] */
+            const visibleProductGrid = document.querySelector('.category-products-container[style*="display: block"] .category-products-grid'); /* [cite: 527] */
+            if (!visibleProductGrid) return;
+            const products = visibleProductGrid.querySelectorAll('.product'); /* [cite: 527] */
+            products.forEach(product => { /* [cite: 528] */
+                const h3 = product.querySelector('h3');
+                const desc = product.querySelector('.product-description');
+                const textValue = (h3 ? h3.textContent || h3.innerText : '') + ' ' +
+                                   (desc ? desc.textContent || desc.innerText : ''); /* [cite: 529] */
+                product.style.display = textValue.toUpperCase().indexOf(filter) > -1 ? "" : "none"; /* [cite: 529] */
+            });
+        }
+        let searchItems = searchCategories; /* [cite: 530] */
+        // --- Image Modal ---
+        const imageModal = document.getElementById('imageModal'); /* [cite: 531] */
+        const modalImg = document.getElementById('modalImage'); /* [cite: 531] */
+        const closeImageModalBtn = imageModal.querySelector('.close'); /* [cite: 532] */
+        closeImageModalBtn.addEventListener('click', () => imageModal.style.display = 'none'); /* [cite: 532] */
+        closeImageModalBtn.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); imageModal.style.display = 'none'; }}); /* [cite: 533] */
+        imageModal.addEventListener('click', e => { if (e.target === imageModal) imageModal.style.display = 'none'; }); /* [cite: 534] */
+        // --- Cart & Billing (WhatsApp focused) ---
+        const cartIcon = document.getElementById('cartIcon'); /* [cite: 534] */
+        const cartCountSpan = document.getElementById('cartCount'); /* [cite: 535] */
+        const cartModal = document.getElementById('cartModal'); /* [cite: 536] */
+        const closeCartModalBtn = document.getElementById('closeCartModal'); /* [cite: 536] */
+        const cartItemsList = document.getElementById('cartItemsList'); /* [cite: 536] */
+        const cartTotalDiv = document.getElementById('cartTotal'); /* [cite: 536] */
+        const checkoutButton = document.getElementById('checkoutButton'); /* [cite: 537] */
+        const emptyCartMessage = document.getElementById('emptyCartMessage'); /* [cite: 537] */
+        const billingModal = document.getElementById('billingModal'); /* [cite: 537] */
+        const closeBillingModalBtn = document.getElementById('closeBillingModal'); /* [cite: 537] */
+        const backToCartButton = document.getElementById('backToCartButton'); /* [cite: 537] */
+        const billingItemsList = document.getElementById('billingItemsList'); /* [cite: 538] */
+        const couponCodeInput = document.getElementById('couponCodeInput'); /* [cite: 538] */
+        const applyCouponButton = document.getElementById('applyCouponButton'); /* [cite: 538] */
+        const couponMessageDiv = document.getElementById('couponMessage'); /* [cite: 538] */
+        const subtotalSpan = document.getElementById('subtotal'); /* [cite: 538] */
+        const discountSpan = document.getElementById('discount'); /* [cite: 539] */
+        const finalTotalSpan = document.getElementById('finalTotal'); /* [cite: 539] */
+        const sendWhatsAppInquiryButton = document.getElementById('sendWhatsAppInquiry'); /* [cite: 539] */
+        const customerNameInput = document.getElementById('customerName'); /* [cite: 539] */
+        const customerEmailInput = document.getElementById('customerEmail'); /* [cite: 539] */
+        const customerPhoneInput = document.getElementById('customerPhone'); /* [cite: 540] */
+        const customerMessageInput = document.getElementById('customerAddress'); // Renamed for clarity /* [cite: 540] */
+
+        let cart = JSON.parse(localStorage.getItem('jk-gems-cart')) || []; /* [cite: 540] */
+        let currentSubtotal = translations[currentLang]['inquirePrice']; /* [cite: 541] */
+        let currentTotal = translations[currentLang]['inquirePrice']; /* [cite: 541] */
+        let couponApplied = false;
+
+        function saveCart() { localStorage.setItem('jk-gems-cart', JSON.stringify(cart)); /* [cite: 541] */ }
+
+        function updateCartUI() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0); /* [cite: 542] */
+            cartCountSpan.textContent = totalItems; /* [cite: 543] */
+            cartCountSpan.style.display = totalItems > 0 ? 'block' : 'none'; /* [cite: 543] */
+            if (cartModal.style.display === 'flex') renderCart(); /* [cite: 543] */
+        }
+
+        function addToCart(product) {
+            const existingItemIndex = cart.findIndex(item => item.id === product.id); /* [cite: 544] */
+            if (existingItemIndex > -1) { /* [cite: 545] */
+                cart[existingItemIndex].quantity++; /* [cite: 545] */
+            } else {
+                cart.push({...product, quantity: 1}); /* [cite: 546] */
+            }
+
+            const notification = document.getElementById('cartNotification');
+            notification.querySelector('[data-translate="itemAdded"]').textContent = translations[currentLang]['itemAdded']; /* [cite: 547] */
+            notification.classList.add('show'); /* [cite: 547] */
+            setTimeout(() => notification.classList.remove('show'), 2000); /* [cite: 548] */
+
+            saveCart();
+            updateCartUI();
+            console.log(`${product.name} added to inquiry list!`); /* [cite: 548] */
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId); /* [cite: 549] */
+            saveCart(); /* [cite: 550] */
+            updateCartUI();
+            if (billingModal.style.display === 'flex') renderBillingContent(); /* [cite: 550] */
+            renderCart();
+        }
+
+        function renderCart() {
+            cartItemsList.innerHTML = ''; /* [cite: 550] */
+            if (cart.length === 0) { /* [cite: 551] */
+                emptyCartMessage.style.display = 'block'; /* [cite: 551] */
+                cartTotalDiv.style.display = 'none'; /* [cite: 552] */
+                checkoutButton.style.display = 'none'; /* [cite: 552] */
+                emptyCartMessage.textContent = translations[currentLang]['emptyCartMessage']; /* [cite: 552] */
+            } else {
+                emptyCartMessage.style.display = 'none'; /* [cite: 552] */
+                cartTotalDiv.style.display = 'block'; /* [cite: 553] */
+                checkoutButton.style.display = 'block'; /* [cite: 553] */
+                cart.forEach(item => {
+                    const listItem = document.createElement('li');
+                    const productQuantityText = translations[currentLang]['productQuantity'].replace('%s', item.quantity);
+                    listItem.innerHTML = `
+                        <div class="item-details"> /* [cite: 554] */
+                            <span class="item-name">${item.name}</span>
+                            <span class="item-quantity"> ${productQuantityText}</span><br>
+                            <span class="item-price">${translations[currentLang]['inquirePrice']}</span>
+                        </div> /* [cite: 554] */
+                        <button class="remove-item" data-product-id="${item.id}" aria-label="${translations[currentLang]['removeItem']} ${item.name}" tabindex="0">${translations[currentLang]['removeItem']}</button>`; /* [cite: 555] */
+                    cartItemsList.appendChild(listItem);
                 });
+                cartTotalDiv.textContent = `${translations[currentLang]['totalInquirePricing']}`; /* [cite: 556] */
             }
+        }
 
-            // Image Modal Functionality
-            const imageModal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImg');
-            const imageModalClose = document.getElementsByClassName('image-modal-close')[0];
-
-            document.addEventListener('click', function(e) {
-                if (e.target.tagName === 'IMG' && e.target.closest('.product-item')) {
-                    imageModal.style.display = 'flex';
-                    modalImg.src = e.target.src;
-                    modalImg.alt = e.target.alt;
-                    imageModalClose.focus(); // Focus the close button for accessibility
-                }
+        function renderBillingContent() {
+            billingItemsList.innerHTML = ''; /* [cite: 556] */
+            currentSubtotal = translations[currentLang]['inquirePrice']; /* [cite: 557] */
+            couponApplied = false; /* [cite: 557] */
+            if (cart.length === 0) {
+                closeBillingModal(); /* [cite: 557] */
+                openCartModal(); return; /* [cite: 558] */
+            }
+            cart.forEach(item => {
+                const listItem = document.createElement('li');
+                const productQuantityText = translations[currentLang]['productQuantity'].replace('%s', item.quantity);
+                listItem.innerHTML = `
+                    <div class="item-details">
+                        <span class="item-name">${item.name}</span> /* [cite: 559] */
+                        <span class="item-quantity"> ${productQuantityText}</span><br>
+                        <span class="item-price">${translations[currentLang]['inquirePrice']}</span>
+                    </div>
+                    <button class="remove-item" data-product-id="${item.id}" aria-label="${translations[currentLang]['removeItem']} ${item.name}" tabindex="0">${translations[currentLang]['removeItem']}</button>`; /* [cite: 560] */
+                billingItemsList.appendChild(listItem);
             });
+            subtotalSpan.textContent = translations[currentLang]['inquirePrice']; /* [cite: 561] */
+            discountSpan.textContent = translations[currentLang]['inquirePrice']; /* [cite: 561] */
+            finalTotalSpan.textContent = translations[currentLang]['inquirePrice']; /* [cite: 561] */
+            currentTotal = translations[currentLang]['inquirePrice']; /* [cite: 561] */
+            couponCodeInput.value = ''; /* [cite: 561] */
+            couponMessageDiv.textContent = ''; /* [cite: 561] */
+            couponMessageDiv.className = ''; /* [cite: 562] */
+        }
 
-            imageModalClose.onclick = function() {
-                imageModal.style.display = 'none';
-            }
+        function applyCoupon() {
+            couponMessageDiv.textContent = translations[currentLang]['couponInquireMessage']; /* [cite: 562] */
+            couponMessageDiv.classList.add('info'); /* [cite: 563] */
+        }
 
-            imageModal.addEventListener('click', function(e) {
-                if (e.target === imageModal) { // Close if clicked on overlay, not image
-                    imageModal.style.display = 'none';
-                }
+        function generateWhatsAppLink() {
+            let message = translations[currentLang]['whatsappMessageIntro'] + "\n\n"; /* [cite: 563] */
+            cart.forEach(item => { /* [cite: 564] */
+                const productQuantityText = translations[currentLang]['productQuantity'].replace('%s', item.quantity);
+                message += `- ${item.name} ${productQuantityText}\n`; /* [cite: 564] */
             });
-            
-            // Close modal with Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    if (imageModal.style.display === 'flex') {
-                        imageModal.style.display = 'none';
-                    }
-                    if (termsModal.style.display === 'flex') {
-                        closeTermsModal();
-                    }
-                }
+            if (couponCodeInput.value) { /* [cite: 565] */
+                message += `\n${translations[currentLang]['whatsappMessageCoupon']} ${couponCodeInput.value}\n`; /* [cite: 565] */
+            }
+
+            const customerName = customerNameInput.value.trim(); /* [cite: 566] */
+            const customerEmail = customerEmailInput.value.trim(); /* [cite: 566] */
+            const customerMessage = customerMessageInput.value.trim(); /* [cite: 567] */
+
+            if (customerName) message += `\n${translations[currentLang]['whatsappMessageName']}: ${customerName}`; /* [cite: 567] */
+            if (customerEmail) message += `\n${translations[currentLang]['whatsappMessageEmail']}: ${customerEmail}`; /* [cite: 567] */
+            if (customerMessage) message += `\n${translations[currentLang]['whatsappMessageNotes']}: ${customerMessage}`; /* [cite: 568] */
+
+            message += `\n\n${translations[currentLang]['whatsappMessageOutro']}`;
+
+            const whatsappNumber = "919723197899";
+            const encodedMessage = encodeURIComponent(message);
+            return `https://wa.me/${whatsappNumber}?text=${encodedMessage}`; /* [cite: 568] */
+        }
+
+        function openWhatsAppInquiry() {
+            if (cart.length === 0) {
+                alert(translations[currentLang]['emptyCartAlert']); /* [cite: 569] */
+                return; /* [cite: 570] */
+            }
+            const whatsappLink = generateWhatsAppLink();
+            window.open(whatsappLink, '_blank'); /* [cite: 570] */
+        }
+
+        function openCartModal() { cartModal.style.display = 'flex'; renderCart(); closeCartModalBtn.focus(); /* [cite: 571] */ }
+        function closeCartModal() { cartModal.style.display = 'none'; /* [cite: 572] */ }
+        function openBillingModal() {
+            if (cart.length === 0) { alert(translations[currentLang]['emptyCartAlert']); /* [cite: 573] */
+                return; } /* [cite: 574] */
+            closeCartModal(); billingModal.style.display = 'flex'; renderBillingContent(); closeBillingModalBtn.focus(); /* [cite: 574] */
+        }
+        function closeBillingModal() { billingModal.style.display = 'none'; /* [cite: 575] */ }
+
+        cartIcon.addEventListener('click', openCartModal); /* [cite: 576] */
+        cartIcon.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); openCartModal(); }}); /* [cite: 577] */
+        closeCartModalBtn.addEventListener('click', closeCartModal); /* [cite: 577] */
+        closeCartModalBtn.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); closeCartModal(); }}); /* [cite: 578] */
+        cartModal.addEventListener('click', e => { if (e.target === cartModal) closeCartModal(); }); /* [cite: 579] */
+        checkoutButton.addEventListener('click', openBillingModal);
+        closeBillingModalBtn.addEventListener('click', closeBillingModal); /* [cite: 579] */
+        closeBillingModalBtn.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); closeBillingModal(); }}); /* [cite: 580] */
+        billingModal.addEventListener('click', e => { if (e.target === billingModal) closeBillingModal(); }); /* [cite: 581] */
+        backToCartButton.addEventListener('click', e => { e.preventDefault(); closeBillingModal(); openCartModal(); }); /* [cite: 581] */
+        backToCartButton.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); closeBillingModal(); openCartModal(); }}); /* [cite: 582] */
+        document.body.addEventListener('click', e => { /* [cite: 582] */
+            if (e.target.classList.contains('remove-item')) {
+                const productId = e.target.dataset.productId;
+                if (productId) removeFromCart(productId);
+            }
+        });
+        document.body.addEventListener('keydown', e => { /* [cite: 584] */
+            if (e.target.classList.contains('remove-item') && (e.key === ' ' || e.key === 'Enter')) {
+                e.preventDefault(); const productId = e.target.dataset.productId;
+                if (productId) removeFromCart(productId);
+            }
+        });
+        applyCouponButton.addEventListener('click', applyCoupon); /* [cite: 585] */
+        applyCouponButton.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); applyCoupon(); }}); /* [cite: 585] */
+        couponCodeInput.addEventListener('keypress', e => { if (e.key === 'Enter') { e.preventDefault(); applyCoupon(); }}); /* [cite: 586] */
+        sendWhatsAppInquiryButton.addEventListener('click', openWhatsAppInquiry);
+        document.querySelectorAll('.back-to-categories').forEach(button => { /* [cite: 587] */
+            button.addEventListener('click', e => { e.preventDefault(); showCategoryGrid(); });
+            button.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); showCategoryGrid(); }});
+        });
+        // --- Scroll to Top Button ---
+        const scrollToTopButton = document.querySelector('.scroll-to-top'); /* [cite: 588] */
+        if (scrollToTopButton) { /* [cite: 589] */
+            window.addEventListener('scroll', () => {
+                scrollToTopButton.classList.toggle('visible', window.scrollY > 200); /* [cite: 589] */
             });
+            scrollToTopButton.addEventListener('click', e => { /* [cite: 589] */
+                e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); /* [cite: 590] */
+            });
+            scrollToTopButton.addEventListener('keydown', e => { /* [cite: 590] */
+                if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' });} /* [cite: 591] */
+            });
+        }
 
-            // Terms and Conditions Modal Functionality
-            const termsModal = document.getElementById('termsModal');
-            const openTermsModalBtn = document.getElementById('openTermsModal');
-            const closeTermsModalBtn = document.getElementById('closeTermsModal');
-
-            openTermsModalBtn.onclick = function() {
-                termsModal.style.display = 'flex';
-                termsModal.querySelector('.terms-modal-close-button').focus(); // Focus close button
-            }
-
-            closeTermsModalBtn.onclick = function() {
-                closeTermsModal();
-            }
-
-            function closeTermsModal() {
-                termsModal.style.display = 'none';
-                openTermsModalBtn.focus(); // Return focus to the button that opened the modal
-            }
-
-            // Close modal if clicked outside content
-            termsModal.addEventListener('click', function(e) {
-                if (e.target === termsModal) {
-                    closeTermsModal();
+        // --- Smooth scroll for nav links ---
+        document.querySelectorAll('nav ul li a[href^="#"]').forEach(anchor => { /* [cite: 592] */
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if (targetElement) {
+                    const offsetPosition = targetElement.getBoundingClientRect().top + window.scrollY; /* [cite: 593] */
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' }); /* [cite: 593] */
                 }
             });
         });
+        // Initialize Floating Particles
+        function createGemParticles() { /* [cite: 594] */
+            const particlesContainer = document.createElement('div');
+            particlesContainer.style.position = 'fixed'; /* [cite: 594] */
+            particlesContainer.style.top = '0'; /* [cite: 595] */
+            particlesContainer.style.left = '0'; /* [cite: 595] */
+            particlesContainer.style.width = '100%'; /* [cite: 595] */
+            particlesContainer.style.height = '100%'; /* [cite: 595] */
+            particlesContainer.style.pointerEvents = 'none'; /* [cite: 595] */
+            particlesContainer.style.zIndex = '-1'; // Behind all content /* [cite: 596] */
 
-         // Initial state: hide product category sections
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.product-category-section').forEach(section => {
-                section.style.display = 'none';
+            for (let i = 0; i < 8; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'gem-particle'; /* [cite: 597] */
+                particle.style.top = `${Math.random() * 100}%`; /* [cite: 597] */
+                particle.style.left = `${Math.random() * 100}%`; /* [cite: 597] */
+                particle.style.animationDelay = `${Math.random() * 4}s`; /* [cite: 597] */
+                particle.style.width = `${Math.random() * 10 + 5}px`; /* [cite: 598] */
+                particle.style.height = particle.style.width; /* [cite: 598] */
+                particlesContainer.appendChild(particle); /* [cite: 598] */
+            }
+            document.body.insertBefore(particlesContainer, document.body.firstChild); /* [cite: 599] */
+        }
+
+        // --- Language Modal Specifics ---
+        const languageModal = document.getElementById('languageModal'); /* [cite: 600] */
+        const langButtons = languageModal.querySelectorAll('button[data-lang]'); /* [cite: 601] */
+
+        function openLanguageModal() {
+            languageModal.style.display = 'flex'; /* [cite: 601] */
+        }
+
+        function closeLanguageModal() {
+            languageModal.style.display = 'none'; /* [cite: 602] */
+        }
+
+        langButtons.forEach(button => { /* [cite: 603] */
+            button.addEventListener('click', () => {
+                setLanguage(button.dataset.lang);
             });
-            document.getElementById('products').style.display = 'block'; // Ensure main categories are visible initially
         });
-    </script>
-</body>
-</html>
+        // --- DOMContentLoaded Initializer ---
+        document.addEventListener('DOMContentLoaded', () => { /* [cite: 604] */
+            const savedLang = localStorage.getItem('jk-gems-lang');
+            if (savedLang && translations[savedLang]) {
+                currentLang = savedLang;
+                applyTranslations();
+                closeLanguageModal(); /* [cite: 605] */
+            } else {
+                openLanguageModal();
+            }
+
+            createGemParticles();
+            AOS.init({
+                duration: 800, /* [cite: 606] */
+                once: true, /* [cite: 606] */
+                easing: 'ease-out-quart', /* [cite: 606] */
+            });
+
+            showCategoryGrid();
+            updateCartUI();
+            document.getElementById('products').addEventListener('click', handleProductSectionClick);
+            document.getElementById('products').addEventListener('keydown', handleProductSectionKeydown); /* [cite: 607] */
+        });
+        function handleProductSectionClick(event) { /* [cite: 608] */
+            const target = event.target; /* [cite: 608] */
+            const categoryCard = target.closest('.product.category-card:not(.product-item)'); /* [cite: 609] */
+            if (categoryCard) {
+                const categoryId = categoryCard.dataset.categoryTarget;
+                if (categoryId) showProductContainer(categoryId); return; /* [cite: 610] */
+            }
+            if (target.classList.contains('add-to-cart-button')) {
+                const product = {
+                    id: target.dataset.productId, name: target.dataset.productName,
+                    price: translations[currentLang]['inquirePrice']
+                };
+                if (product.id && product.name) addToCart(product); /* [cite: 611] */
+                else console.error("Missing product data for Add to Inquiry List:", product); /* [cite: 611] */
+                return; /* [cite: 611] */
+            }
+            if (target.tagName === 'IMG' && target.closest('.category-products-grid .product')) { /* [cite: 612] */
+                imageModal.style.display = 'flex'; /* [cite: 612] */
+                modalImg.src = target.src; modalImg.alt = target.alt; /* [cite: 613] */
+                imageModal.querySelector('.close').focus(); /* [cite: 613] */
+            }
+        }
+
+        function handleProductSectionKeydown(event) {
+            const target = event.target; /* [cite: 613] */
+            const categoryCard = target.closest('.product.category-card:not(.product-item)'); /* [cite: 614] */
+            if (categoryCard && (event.key === ' ' || event.key === 'Enter')) {
+                event.preventDefault(); /* [cite: 614] */
+                const categoryId = categoryCard.dataset.categoryTarget; /* [cite: 615] */
+                if (categoryId) showProductContainer(categoryId); /* [cite: 615] */
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (billingModal.style.display === 'flex') closeBillingModal();
+                else if (cartModal.style.display === 'flex') closeCartModal();
+                else if (imageModal.style.display === 'flex') imageModal.style.display = 'none'; /* [cite: 616] */
+                else if (languageModal.style.display === 'flex') closeLanguageModal(); /* [cite: 616] */
+            }
+        });
+    </script> </body>
+    </html>
